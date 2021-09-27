@@ -1,0 +1,74 @@
+<div sfwEntity="entFwkMessages" ID="wfmFwkMessagesMaintenance" sfwType="Maintenance" sfwTitle="Fwk Messages Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmFwkMessagesLookup">
+  <sfwServerDetails>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="txtMessage" sfwDataType="int">
+          <item sfwType="Query" sfwMode="New" sfwOperator="IsGreaterThan" sfwLoadSource="entFwkMessages.GetCountByMessageID" sfwRelatedField="#0" sfwStatus="Active" sfwMessage="Message Id Already Exist">
+            <parameters>
+              <parameter ID="@message_id" sfwDataType="int" sfwParam="txtMessage"></parameter>
+            </parameters>
+          </item>
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtDisplayMessage" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="ddlSeverity" sfwDataType="PickList">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="ddlCategory" sfwDataType="PickList">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Fwk Messages Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtMessage" sfwEntityField="MessageId" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Message ID" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtDisplayMessage" sfwEntityField="DisplayMessage" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlSeverity" sfwEntityField="Severity" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup" sfwLoadSource="20002001"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlCategory" sfwEntityField="Category" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwEntityField="CreatedBy" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwEntityField="CreatedDate" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedBy" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedDate" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

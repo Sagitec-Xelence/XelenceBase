@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<connections>
+		<connection ID="settings" QueryType="SqlServerClient">
+			<dbstring value="Server=40.122.55.91;uid=appuser;pwd=appdbUser@2021!;Database=sqldb-XelenceBaseApp-sand-centus-001;" />
+			<dbfactory value="System.Data.SqlClient" />
+			<dbnextquery value="select next value for sequence_name from sgs_system_management" />
+			<dbprevquery value="select previous value for sequence_name from sgs_system_management" />
+			<dbkeyquery value="select ident_current('name_of_the_table')" />
+		</connection>
+	</connections>
+</root>

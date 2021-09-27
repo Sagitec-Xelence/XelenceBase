@@ -1,0 +1,30 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_database_connections" ID="entDatabaseConnections">
+  <attributes>
+    <column>
+      <attribute sfwValue="database_connection_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="DatabaseConnectionId" sfwCaption="ID" />
+      <attribute sfwValue="connection_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ConnectionName" sfwCaption="Connection Name" />
+      <attribute sfwValue="connection_type" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ConnectionType" sfwCaption="Connection Type" />
+      <attribute sfwValue="connection_string" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="500" sfwIsNull="False" sfwDBDataType="varchar" ID="ConnectionString" sfwCaption="Connection String" />
+      <attribute sfwValue="dbfactoty_provider" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="False" sfwDBDataType="varchar" ID="DbfactotyProvider" sfwCaption="Dbfactoty" />
+      <attribute sfwValue="password_encrypted_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="PasswordEncryptedFlag" sfwCaption="Password Encrypted Flag" />
+    </column>
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

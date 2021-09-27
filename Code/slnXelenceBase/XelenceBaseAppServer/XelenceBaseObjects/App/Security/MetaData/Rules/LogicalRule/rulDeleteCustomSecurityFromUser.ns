@@ -1,0 +1,14 @@
+/// <summary>
+/// rulDeleteCustomSecurityFromUser
+/// </summary>
+[Entity=entUser]
+public rulDeleteCustomSecurityFromUser()
+{
+	rule()
+	{
+		if(UserSerialId > 0)
+		{
+			entCustomSecurity.DeleteRecords(UserSerialId);
+		}
+	}
+}

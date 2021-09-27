@@ -1,0 +1,19 @@
+/// <summary>
+/// rulValidateAddRole
+/// </summary>
+/// <param name="RoleID"></param>
+[Entity=entUser]
+public bool rulValidateAddRole(int RoleID)
+{
+	rule()
+	{
+		if(RoleID == 0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+}

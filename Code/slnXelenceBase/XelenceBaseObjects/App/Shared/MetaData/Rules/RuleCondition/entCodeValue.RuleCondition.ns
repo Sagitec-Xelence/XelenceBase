@@ -1,0 +1,58 @@
+entity entCodeValue
+{
+            
+    // Rule - Is Data2 Value Decimal
+    public bool rcCodeValue001()
+    {
+        return (!string.IsNullOrEmpty(Data2)) && (!IsNumeric(Data2)) && (objCode.Data2Type == "deci");
+    }
+
+    // Rule - Is Data1 Value Decimal
+    public bool rcCodeValue002()
+    {
+        return (!string.IsNullOrEmpty(Data1)) && (!IsNumeric(Data1)) && (objCode.Data1Type == "deci");
+    }
+
+    // Rule - Is Data1 Value Integer
+    public bool rcCodeValue003()
+    {
+        return !string.IsNullOrEmpty(Data1) && (!IsNumeric(Data1)) && (objCode.Data1Type == "int")
+    }
+
+    // Rule - Is Data2 Value Date
+    public bool rcCodeValue004()
+    {
+        return (!string.IsNullOrEmpty(Data2)) && (objCode.Data2Type == "date") && (!IsDate(Data2, "MM/dd/yyyy"));
+    }
+
+    // Rule - Is Data3 Value Date
+    public bool rcCodeValue005()
+    {
+        return (!string.IsNullOrEmpty(Data3)) && (objCode.Data3Type == "date") && (!IsDate(Data3, "MM/dd/yyyy"));
+    }
+
+    // Rule - Is Data3 Value Decimal
+    public bool rcCodeValue006()
+    {
+        return (!string.IsNullOrEmpty(Data3)) && (!IsNumeric(Data3)) && (objCode.Data3Type == "deci");
+    }
+
+    // Rule - Is Data2 Value Integer
+    public bool rcCodeValue007()
+    {
+        return !string.IsNullOrEmpty(Data2) && (!IsNumeric(Data2)) && (objCode.Data1Type == "int")
+    }
+
+    // Rule - Is Data3 Value Integer
+    public bool rcCodeValue008()
+    {
+        return !string.IsNullOrEmpty(Data3) && (!IsNumeric(Data3)) && (objCode.Data1Type == "int")
+    }
+
+    // Rule - Is Data1 Value Date
+    public bool rcCodeValue009()
+    {
+        return (!string.IsNullOrEmpty(Data1)) && (objCode.Data1Type == "date") && (!IsDate(Data1, "MM/dd/yyyy"));
+    }
+
+}

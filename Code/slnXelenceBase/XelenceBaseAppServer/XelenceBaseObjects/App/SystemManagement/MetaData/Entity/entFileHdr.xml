@@ -1,0 +1,54 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_file_hdr" ID="entFileHdr">
+  <attributes>
+    <column>
+      <attribute sfwValue="file_hdr_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="FileHdrId" sfwCaption="ID" />
+      <attribute sfwValue="mailbox_file_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="200" sfwIsNull="True" sfwDBDataType="varchar" ID="MailboxFileName" sfwCaption="Mailbox File Name" />
+      <attribute sfwValue="processed_file_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="200" sfwIsNull="True" sfwDBDataType="varchar" ID="ProcessedFileName" sfwCaption="Processed File Name" />
+      <attribute sfwValue="processed_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="ProcessedDate" sfwCaption="Processed Date" />
+      <attribute sfwValue="processed_line_no" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="ProcessedLineNo" sfwCaption="Processed Line No" />
+      <attribute sfwValue="file_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="FileId" sfwCaption="File" />
+      <attribute sfwValue="reference_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="ReferenceId" sfwCaption="Reference" />
+      <attribute sfwValue="status" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="Status" sfwCaption="Status" />
+      <attribute sfwValue="no_of_rows" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="NoOfRows" sfwCaption="No Of Rows" />
+      <attribute sfwValue="cycle_no" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="CycleNo" sfwCaption="Cycle No" />
+      <attribute sfwValue="comments" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="2000" sfwIsNull="True" sfwDBDataType="varchar" ID="Comments" sfwCaption="Comments" />
+      <attribute sfwValue="error_message" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="2000" sfwIsNull="True" sfwDBDataType="varchar" ID="ErrorMessage" sfwCaption="Error Message" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+      <attribute sfwValue="notification_sent_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="NotificationSentDate" sfwCaption="Notification Sent Date" />
+    </column>
+    <object />
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query sfwQueryType="ScalarQuery" sfwSql="select count(*)&#xA;  from sgs_file_hdr WITH(NOLOCK)&#xA; where file_id = @file_id" ID="CountByFileId">
+        <parameters>
+          <parameter ID="@file_id" sfwDataType="string" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

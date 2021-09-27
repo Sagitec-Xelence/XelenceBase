@@ -1,0 +1,341 @@
+<div ID="wfmAppServerMaintenance" sfwType="Maintenance" sfwTitle="App Server Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entAppMonitoring" sfwMethodType="XmlMethod">
+  <sfwServerDetails>
+    <initialload>
+      <callmethods sfwMode="New" sfwMethodName="SetDates" />
+      <callmethods sfwMode="Update" sfwMethodName="SetDates" />
+    </initialload>
+    <loaddetails />
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel" sfwSkinID="Default">
+      <li>
+        <span ID="spnSpan">Filters</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastMinutes" sfwEntityField="LastMinutes" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="true" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Hours</option>
+                  <option value="15">Last 15 minutes</option>
+                  <option value="30">Last 30 minutes</option>
+                  <option value="45">Last 45 minutes</option>
+                  <option value="60">Last one hours</option>
+                  <option value="120">Last two hours</option>
+                  <option value="240">Last four hours</option>
+                  <option value="480">Last eight hours</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastDays" sfwEntityField="LastDays" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="true" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Days</option>
+                  <option value="1">Current Day</option>
+                  <option value="2">Last two days</option>
+                  <option value="4">Last four days</option>
+                  <option value="5">Last five days</option>
+                  <option value="10">Last ten days</option>
+                  <option value="20">Last twenty days</option>
+                  <option value="30">Last thirty days</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtFromDate" sfwEntityField="FromDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&gt;=" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtToDate" sfwEntityField="ToDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&lt;=" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons">
+                <input ID="actApmLoadDashboard" data-sfwControlType="sfwActionExecute" type="button" value="Load Dashboard" sfwMethod="rulSetDates" sfwRefreshType="Object" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlDashboardMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">App Server Load</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <ul ID="pnlSummary" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                  <li>
+                    <span ID="spnSpan4">Summary</span>
+                    <div ID="dvDiv4">
+                      <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                            <input ID="actOpenSummaryAll" data-sfwControlType="sfwActionOpen" type="button" value="Summary All" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="txtstart_time_From=start_time;txtstart_time_To=end_time" sfwRelatedControl="lstGetAppServerMeasu" Visible="False" />
+                            <input ID="actOpenSummarySLow" data-sfwControlType="sfwActionOpen" type="button" value="Summary Slow" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="ddlStatus=#SLOW,VSLO;txtstart_time_From=start_time;txtstart_time_To=end_time" sfwRelatedControl="lstGetAppServerMeasu" Visible="False" />
+                            <input ID="actOpenSummaryError" data-sfwControlType="sfwActionOpen" type="button" value="Summary Error" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="ddlStatus=#ERR;txtstart_time_From=start_time;txtstart_time_To=end_time" sfwRelatedControl="lstGetAppServerMeasu" Visible="False" />
+                          </div>
+                        </div>
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                            <div ID="lstGetAppServerMeasu" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetAppServerMeasures" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View">
+                              <LoadParameters>
+                                <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                              </LoadParameters>
+                              <div ID="crdCard" data-sfwControlType="sfwCard" IsCustom="True">
+                                <div data-sfwControlType="sfwTable" ID="tblLayOut4">
+                                  <div data-sfwControlType="sfwRow">
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                      <div class="card-temp4-layout" style="font-size:20px;text-align:center;padding-bottom:1px;color:#159006;border-bottom: 8px #159006 solid;&#xA;" ID="dvDiv9">
+                                        <label ID="lblServers" style="font-size:48px;font-weight:bold;padding-bottom:0px;" sfwShowZero="True" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" data-sfwControlType="sfwLabel" sfwEntityField="appservercount"></label>
+                                        <h5 ID="lblCapServers" Text="Request" style="margin-bottom: 15px;">Servers</h5>
+                                      </div>
+                                    </div>
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                      <div class="card-temp4-layout" style="text-align:center;padding-bottom:1px;color: #4774c7 !important;&#xA;    border-bottom: 8px #4774c7 solid;" ID="dvDiv5">
+                                        <a ID="lblRequestCount" data-sfwControlType="sfwLinkableAction" sfwEntityField="request_count" sfwShowZero="True" style="font-size:48px;font-weight:bold;color: #4774c7 !important;padding-bottom:0px;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpenSummaryAll"></a>
+                                        <h5 ID="lblCapRequest" Text="Request" style="margin-bottom: 15px;">Requests</h5>
+                                      </div>
+                                      <div ID="dvDiv50" style="display:none">
+                                        <label ID="lblStartTime" sfwShowZero="True" data-sfwControlType="sfwLabel" sfwEntityField="start_time" sfwDataFormat="{0:G}"></label>
+                                        <label ID="lblEndTime" sfwShowZero="True" data-sfwControlType="sfwLabel" sfwEntityField="end_time" sfwDataFormat="{0:G}"></label>
+                                      </div>
+                                    </div>
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                      <div class="card-temp4-layout" style="text-align:center;font-size:20px;padding-bottom:1px;color:#cea01e !important; border-bottom: 8px #cea01e solid;&#xA;" ID="dvDiv6">
+                                        <a ID="lblSlowCount" data-sfwControlType="sfwLinkableAction" sfwEntityField="slowcount" sfwShowZero="True" style="font-size:48px;font-weight:bold;color:#cea01e !important;padding-bottom:0px;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpenSummarySLow"></a>
+                                        <h5 ID="lblCapSlow" Text="Request" style="margin-bottom: 15px;">Slow</h5>
+                                      </div>
+                                    </div>
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                      <div class="card-temp4-layout" style="font-size:20px;text-align:center;padding-bottom:1px;color:#d53e4f !important;border-bottom: 8px #d53e4f solid;&#xA;" ID="dvDiv7">
+                                        <a ID="lblErrorCount" data-sfwControlType="sfwLinkableAction" sfwEntityField="errorcount" sfwShowZero="True" style="font-size:48px;font-weight:bold;color:#d53e4f !important;padding-bottom:0px;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpenSummaryError"></a>
+                                        <h5 ID="lblCapError" Text="Request" style="margin-bottom: 15px;">Failed</h5>
+                                      </div>
+                                    </div>
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                      <div class="card-temp4-layout" style="font-size:20px;text-align:center;padding-bottom:1px;color:#998ec3;border-bottom: 8px #998ec3 solid;&#xA;" ID="dvDiv8">
+                                        <label ID="lblAvgRespTime" style="font-size:48px;font-weight:bold;padding-bottom:0px;" sfwShowZero="True" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" data-sfwControlType="sfwLabel" sfwEntityField="averageresponsetime"></label>
+                                        <h5 ID="lblCapAvgRespTime" Text="Request" style="margin-bottom: 15px;">Avg. Response Time(Ms)</h5>
+                                      </div>
+                                    </div>
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                      <div class="card-temp4-layout" style="font-size:20px;text-align:center;padding-bottom:1px;color:#fc8d59;border-bottom: 8px #fc8d59 solid;&#xA;" ID="dvDiv10">
+                                        <label ID="lblAppservercount" style="font-size:48px;font-weight:bold;padding-bottom:0px;" sfwShowZero="True" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" data-sfwControlType="sfwLabel" sfwEntityField="throughput" sfwDataFormat="{0:#0.00}"></label>
+                                        <h5 ID="hdH5" Text="Request" style="margin-bottom: 15px;">Throughput (Min)</h5>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshServerOverview_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshServerOverview" ID="ancAnchor">Server Overview</a>
+                    </li>
+                    <li ID="tshExpensiveSteps_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshExpensiveSteps" ID="ancAnchor1">Expensive Steps</a>
+                    </li>
+                  </ul>
+                  <div ID="tshServerOverview" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut5">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                          <ul ID="pnlLoadDistribution" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                            <li>
+                              <span ID="spnSpan10">Load Distribution</span>
+                              <div ID="dvDiv10">
+                                <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                                  <div data-sfwControlType="sfwRow">
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="justify-content: center;display: flex;">
+                                      <div ID="chrAppServerLoadDistribution" data-sfwControlType="sfwChart" Width="650" Height="500" ChartType="Donut" sfwLoadSource="entAppMonitoring.GetAppServerList" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" ChartName="Load Distribution" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" ChartMargin="{&quot;t&quot;:90,&quot;l&quot;:140,&quot;r&quot;:60,&quot;b&quot;:70}">
+                                        <div data-sfwControlType="Series">
+                                          <div data-sfwControlType="sfwSeries" Name="Series1" ChartType="Donut" XValueMember="server_name" YValueMembers="request_count" YMemberColor="#7cb5ec,#90ed7d,#f7a35c,#8085e9,#ec5a7d,#e0d053" IsValueShownAsLabel="True" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="txtAppserverName=appserver_name;txtstart_time_From=txtFromDate;txtstart_time_To=txtToDate"></div>
+                                        </div>
+                                        <LoadParameters>
+                                          <parameter ID="@start_time" sfwEntityField="FromDate"></parameter>
+                                          <parameter ID="@end_time" sfwEntityField="ToDate"></parameter>
+                                        </LoadParameters>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                          <ul ID="pnlErrorCountsbyServer" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                            <li>
+                              <span ID="spnSpan2">Error Counts by Server</span>
+                              <div ID="dvDiv2">
+                                <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                                  <div data-sfwControlType="sfwRow">
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="justify-content: center;display: flex;">
+                                      <div ID="chrAppServerErrorCounts" data-sfwControlType="sfwChart" Width="900" Height="500" ChartType="Column" sfwStandoffYAxisLabel="30" sfwLoadSource="entAppMonitoring.GetAppServerSlowErrorCount" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" ChartName="Error Counts" sfwDefaultQuery="False" SeriesCount="3" ShowLegend="True" ChartMargin="{&quot;t&quot;:65,&quot;l&quot;:140,&quot;r&quot;:65,&quot;b&quot;:70}" XAxisTitle="Server Name" YAxisTitle="Count">
+                                        <div data-sfwControlType="Series">
+                                          <div data-sfwControlType="sfwSeries" Name="SlowCount" ChartType="Column" XValueMember="server_name" YValueMembers="slow_count" IsValueShownAsLabel="True" YMemberColor="#FFD700" SeriesWidth="0.3" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="txtAppserverName=appserver_name;txtstart_time_From=txtFromDate;txtstart_time_To=txtToDate;ddlStatus=#SLOW"></div>
+                                          <div data-sfwControlType="sfwSeries" Name="VeySlowCount" ChartType="Column" XValueMember="server_name" YValueMembers="very_slow_count" IsValueShownAsLabel="True" SeriesWidth="0.3" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="txtAppserverName=appserver_name;txtstart_time_From=txtFromDate;txtstart_time_To=txtToDate;ddlStatus=#VSLO" YMemberColor="#ff9800"></div>
+                                          <div data-sfwControlType="sfwSeries" Name="ErrorCount" ChartType="Column" XValueMember="server_name" YValueMembers="error_count" IsValueShownAsLabel="True" YMemberColor="#FF0800" SeriesWidth="0.3" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="txtAppserverName=server_name;txtstart_time_From=txtFromDate;txtstart_time_To=txtToDate;ddlStatus=#ERR"></div>
+                                        </div>
+                                        <LoadParameters>
+                                          <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                          <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                                        </LoadParameters>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <ul ID="pnlServerDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                            <li>
+                              <span ID="spnSpan3">Server Details</span>
+                              <div ID="dvDiv3">
+                                <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                                  <div data-sfwControlType="sfwRow">
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                      <input ID="actOpenServerSteps" data-sfwControlType="sfwActionOpen" type="button" value="Server Steps" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="txtAppserverName=server_name;txtstart_time_From=start_time;txtstart_time_To=end_time;" Visible="False" sfwRelatedControl="grvGetAppServerList" />
+                                    </div>
+                                  </div>
+                                  <div data-sfwControlType="sfwRow">
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                      <div ID="grvGetAppServerList" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetAppServerList" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" sfwSortExpression="request_count desc">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <th data-sfwControlType="TemplateField" style="text-align:center;">Server Name</th>
+                                              <th data-sfwControlType="TemplateField" style="text-align:center;">Total Requests</th>
+                                              <th data-sfwControlType="TemplateField" style="text-align:center;">Average Response Time (Sec)</th>
+                                              <th data-sfwControlType="TemplateField" style="text-align:center;">Throughput (Min)</th>
+                                              <th data-sfwControlType="TemplateField" style="text-align:center;">Last Request On</th>
+                                              <th data-sfwControlType="TemplateField" Visible="False">Start Time</th>
+                                              <th data-sfwControlType="TemplateField" Visible="False">End Time</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                                <a ID="lblServerName" data-sfwControlType="sfwLinkableAction" sfwEntityField="server_name" sfwRelatedControl="actOpenServerSteps"></a>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                                <label ID="lblRequestCount1" data-sfwControlType="sfwLabel" sfwEntityField="request_count"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                                <label ID="lblAverageResponseTime" data-sfwControlType="sfwLabel" sfwEntityField="average_response_time" sfwDataFormat="{0:#0.00}" sfwShowZero="True" ToolTip="Avg. Response = (total time required in sec) / (number of requests)"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                                <label ID="lblThroughput" data-sfwControlType="sfwLabel" sfwEntityField="throughput" sfwDataFormat="{0:#0.00}" sfwShowZero="True" ToolTip="Throughput = (number of requests) / (total time in minutes)"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                                <label ID="lblLastRequest" data-sfwControlType="sfwLabel" sfwEntityField="last_request" sfwDataFormat="{0:G}"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate">
+                                                <label ID="lblStartTime1" data-sfwControlType="sfwLabel" sfwEntityField="start_time" sfwDataFormat="{0:G}"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate">
+                                                <label ID="lblEndTime1" data-sfwControlType="sfwLabel" sfwEntityField="end_time" sfwDataFormat="{0:G}"></label>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <LoadParameters>
+                                          <parameter ID="@start_time" sfwEntityField="FromDate"></parameter>
+                                          <parameter ID="@end_time" sfwEntityField="ToDate"></parameter>
+                                        </LoadParameters>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshExpensiveSteps" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut6">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                          <ul ID="pnlExpensiveAppServerSteps" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                            <li>
+                              <span ID="spnSpan5">Expensive App Server Steps</span>
+                              <div ID="dvDiv11">
+                                <div data-sfwControlType="sfwTable" ID="tblLayOut7">
+                                  <div data-sfwControlType="sfwRow">
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                      <input ID="actOpenExpensiveFormOnApp" data-sfwControlType="sfwActionOpen" type="button" value="Open" Visible="False" sfwRelatedControl="grvGetExpensiveSteps" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="txtDtlName=dtl_name;txtFormName=source;txtstart_time_From=start_time;txtstart_time_To=end_time" />
+                                    </div>
+                                  </div>
+                                  <div data-sfwControlType="sfwRow">
+                                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                      <div ID="grvGetExpensiveSteps" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetExpensiveSteps" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                        <table>
+                                          <thead>
+                                            <tr>
+                                              <th data-sfwControlType="TemplateField">Form Name</th>
+                                              <th data-sfwControlType="TemplateField">Step Name</th>
+                                              <th data-sfwControlType="TemplateField">App Time (Ms)</th>
+                                              <th data-sfwControlType="TemplateField" Visible="False">Start Time</th>
+                                              <th data-sfwControlType="TemplateField" Visible="False">End Time</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr>
+                                              <td data-sfwControlType="ItemTemplate">
+                                                <label ID="lblSource1" data-sfwControlType="sfwLinkableAction" sfwEntityField="source" sfwRelatedControl="actOpenExpensiveFormOnApp"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate">
+                                                <label ID="lblDtlName" data-sfwControlType="sfwLabel" sfwEntityField="dtl_name"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate">
+                                                <label ID="lblAppTime" data-sfwControlType="sfwLabel" sfwEntityField="app_time"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate">
+                                                <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="start_time" sfwDataFormat="{0:G}"></label>
+                                              </td>
+                                              <td data-sfwControlType="ItemTemplate">
+                                                <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="end_time" sfwDataFormat="{0:G}"></label>
+                                              </td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <LoadParameters>
+                                          <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                          <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                                        </LoadParameters>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="6"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

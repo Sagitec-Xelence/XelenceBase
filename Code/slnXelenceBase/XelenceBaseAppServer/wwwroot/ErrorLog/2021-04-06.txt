@@ -1,0 +1,186 @@
+06:01:20.095 PM	----------*** Error Start ***----------
+****************************************************************************************************
+Exception Message: '"' is an unexpected token. The expected token is '='. Line 19, position 127.
+****************************************************************************************************
+Exception Information Source: System.Private.Xml
+Exception Information StackTrace:    at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowUnexpectedToken(String expectedToken1, String expectedToken2)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElement(Boolean& lblnIsUnsafe, String& lstrFileContentToLoad)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElementFromContent(Boolean lblnHtmlFile, utlNameValue lobjHashContent, Boolean& lblnIsUnsafe)
+   at Sagitec.MetaDataCache.srvMetaDataCache.ParseAndLoadObjectCache(String astrFileName, String astrProject, Boolean ablnutlFormCache, Tuple`5 aobjEmbeddedItems, Boolean ablnReloadXmlObject)
+   at Sagitec.MetaDataCache.srvMetaDataCache.Void LoadMetadataOtherFiles(System.String, Boolean, System.String)
+   at Sagitec.MetaDataCache.srvMetaDataCache.Void LoadObjectCache()
+   at Sagitec.MetaDataCache.srvMetaDataCache.Void LoadDeployedMetaData()
+   at Sagitec.MetaDataCache.srvMetaDataCache.Boolean LoadXMLCache()
+   at SolutionTemplateAppServer.AppServer.Boolean LoadCache()
+   at SolutionTemplateAppServer.AppServer+<>c.Boolean <Start>b__8_0()
+   at System.Threading.Tasks.Task`1.Void InnerInvoke()
+   at System.Threading.Tasks.Task+<>c.Void <.cctor>b__277_0(System.Object)
+   at System.Threading.ExecutionContext.Void RunFromThreadPoolDispatchLoop(System.Threading.Thread, System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object)
+   at System.Threading.Tasks.Task.Void ExecuteWithThreadLocal(System.Threading.Tasks.Task ByRef, System.Threading.Thread)
+   at System.Threading.Tasks.Task.Void ExecuteEntryUnsafe(System.Threading.Thread)
+   at System.Threading.Tasks.Task.Void ExecuteFromThreadPool(System.Threading.Thread)
+   at System.Threading.ThreadPoolWorkQueue.Boolean Dispatch()
+   at System.Threading._ThreadPoolWaitCallback.Boolean PerformWaitCallback()
+Exception Information Target: Throw
+Additional Info:
+FrameworkPublisher.MachineName: SAGITEC-2409
+FrameworkPublisher.TimeStamp: 1/1/0001 12:00:00 AM
+FrameworkPublisher.AppDomainName: SolutionTemplateAppServer
+FrameworkPublisher.WindowsIdentity: SAGITEC\balasaheb.mule
+FrameworkPublisher.WebServer: 
+FrameworkPublisher.ApplicationName: 
+FrameworkPublisher.Language: en-US
+FrameworkPublisher.TransactionID: 00000000-0000-0000-0000-000000000000
+FrameworkPublisher.SubTransactionID: 
+****************************************************************************************************
+
+06:02:05.936 PM	----------*** Error Start ***----------
+****************************************************************************************************
+Exception Message: srvMetaDataCache - GetCache: Error Occurred: Error Id: 56003 Parameter Details : wfmCodeLookup,Form Name: wfmCodeLookup Error: '"' is an unexpected token. The expected token is '='. Line 19, position 127. Stack Trace:    at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowUnexpectedToken(String expectedToken1, String expectedToken2)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElement(Boolean& lblnIsUnsafe, String& lstrFileContentToLoad)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElementFromContent(Boolean lblnHtmlFile, utlNameValue lobjHashContent, Boolean& lblnIsUnsafe)
+   at Sagitec.MetaDataCache.srvMetaDataCache.ParseAndLoadObjectCache(String astrFileName, String astrProject, Boolean ablnutlFormCache, Tuple`5 aobjEmbeddedItems, Boolean ablnReloadXmlObject)
+****************************************************************************************************
+Exception Information Source: SagitecMetaDataCache
+Exception Information StackTrace:    at Sagitec.MetaDataCache.srvMetaDataCache.GetCache(String astrObjectName)
+   at Sagitec.MetaDataCache.srvFormMetaData.LoadFormInfo(String astrForm)
+
+Exception Information Target: GetCache
+Additional Info:
+FormName: 
+FrameworkPublisher.MachineName: SAGITEC-2409
+FrameworkPublisher.TimeStamp: 1/1/0001 12:00:00 AM
+FrameworkPublisher.AppDomainName: SolutionTemplateAppServer
+FrameworkPublisher.WindowsIdentity: SAGITEC\balasaheb.mule
+FrameworkPublisher.WebServer: SAGITEC-2409
+FrameworkPublisher.ApplicationName: ApplicationPortal
+FrameworkPublisher.Language: en-US
+FrameworkPublisher.TransactionID: 673a8dee-5c2d-438d-b413-5ba08ba12d7b
+FrameworkPublisher.SubTransactionID: 
+****************************************************************************************************
+
+06:02:08.686 PM	----------*** Error Start ***----------
+****************************************************************************************************
+Exception Message: srvMetaDataCache - GetCache: Error Occurred: Error Id: 56003 Parameter Details : wfmCodeLookup,Form Name: wfmCodeLookup Error: '"' is an unexpected token. The expected token is '='. Line 19, position 127. Stack Trace:    at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowUnexpectedToken(String expectedToken1, String expectedToken2)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElement(Boolean& lblnIsUnsafe, String& lstrFileContentToLoad)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElementFromContent(Boolean lblnHtmlFile, utlNameValue lobjHashContent, Boolean& lblnIsUnsafe)
+   at Sagitec.MetaDataCache.srvMetaDataCache.ParseAndLoadObjectCache(String astrFileName, String astrProject, Boolean ablnutlFormCache, Tuple`5 aobjEmbeddedItems, Boolean ablnReloadXmlObject)
+****************************************************************************************************
+Exception Information Source: SagitecMetaDataCache
+Exception Information StackTrace:    at Sagitec.MetaDataCache.srvMetaDataCache.GetCache(String astrObjectName)
+   at Sagitec.MetaDataCache.srvFormMetaData.LoadFormInfo(String astrForm)
+
+Exception Information Target: GetCache
+Additional Info:
+FormName: 
+FrameworkPublisher.MachineName: SAGITEC-2409
+FrameworkPublisher.TimeStamp: 1/1/0001 12:00:00 AM
+FrameworkPublisher.AppDomainName: SolutionTemplateAppServer
+FrameworkPublisher.WindowsIdentity: SAGITEC\balasaheb.mule
+FrameworkPublisher.WebServer: SAGITEC-2409
+FrameworkPublisher.ApplicationName: ApplicationPortal
+FrameworkPublisher.Language: en-US
+FrameworkPublisher.TransactionID: 8b10a25d-1588-4d33-aad5-eef329760ae0
+FrameworkPublisher.SubTransactionID: 
+****************************************************************************************************
+
+06:02:09.778 PM	----------*** Error Start ***----------
+****************************************************************************************************
+Exception Message: srvMetaDataCache - GetCache: Error Occurred: Error Id: 56003 Parameter Details : wfmCodeLookup,Form Name: wfmCodeLookup Error: '"' is an unexpected token. The expected token is '='. Line 19, position 127. Stack Trace:    at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowUnexpectedToken(String expectedToken1, String expectedToken2)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElement(Boolean& lblnIsUnsafe, String& lstrFileContentToLoad)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElementFromContent(Boolean lblnHtmlFile, utlNameValue lobjHashContent, Boolean& lblnIsUnsafe)
+   at Sagitec.MetaDataCache.srvMetaDataCache.ParseAndLoadObjectCache(String astrFileName, String astrProject, Boolean ablnutlFormCache, Tuple`5 aobjEmbeddedItems, Boolean ablnReloadXmlObject)
+****************************************************************************************************
+Exception Information Source: SagitecMetaDataCache
+Exception Information StackTrace:    at Sagitec.MetaDataCache.srvMetaDataCache.GetCache(String astrObjectName)
+   at Sagitec.MetaDataCache.srvFormMetaData.LoadFormInfo(String astrForm)
+
+Exception Information Target: GetCache
+Additional Info:
+FormName: 
+FrameworkPublisher.MachineName: SAGITEC-2409
+FrameworkPublisher.TimeStamp: 1/1/0001 12:00:00 AM
+FrameworkPublisher.AppDomainName: SolutionTemplateAppServer
+FrameworkPublisher.WindowsIdentity: SAGITEC\balasaheb.mule
+FrameworkPublisher.WebServer: SAGITEC-2409
+FrameworkPublisher.ApplicationName: ApplicationPortal
+FrameworkPublisher.Language: en-US
+FrameworkPublisher.TransactionID: 4aa5d4c4-325a-4c5f-827c-6fd82d62430c
+FrameworkPublisher.SubTransactionID: 
+****************************************************************************************************
+
+06:02:10.153 PM	----------*** Error Start ***----------
+****************************************************************************************************
+Exception Message: srvMetaDataCache - GetCache: Error Occurred: Error Id: 56003 Parameter Details : wfmCodeLookup,Form Name: wfmCodeLookup Error: '"' is an unexpected token. The expected token is '='. Line 19, position 127. Stack Trace:    at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.Throw(String res, String[] args)
+   at System.Xml.XmlTextReaderImpl.ThrowUnexpectedToken(String expectedToken1, String expectedToken2)
+   at System.Xml.XmlTextReaderImpl.ParseAttributes()
+   at System.Xml.XmlTextReaderImpl.ParseElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r)
+   at System.Xml.Linq.XContainer.ReadContentFrom(XmlReader r, LoadOptions o)
+   at System.Xml.Linq.XDocument.Load(XmlReader reader, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text, LoadOptions options)
+   at System.Xml.Linq.XDocument.Parse(String text)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElement(Boolean& lblnIsUnsafe, String& lstrFileContentToLoad)
+   at Sagitec.MetaDataCache.srvMetaDataCache.GetSafeXElementFromContent(Boolean lblnHtmlFile, utlNameValue lobjHashContent, Boolean& lblnIsUnsafe)
+   at Sagitec.MetaDataCache.srvMetaDataCache.ParseAndLoadObjectCache(String astrFileName, String astrProject, Boolean ablnutlFormCache, Tuple`5 aobjEmbeddedItems, Boolean ablnReloadXmlObject)
+****************************************************************************************************
+Exception Information Source: SagitecMetaDataCache
+Exception Information StackTrace:    at Sagitec.MetaDataCache.srvMetaDataCache.GetCache(String astrObjectName)
+   at Sagitec.MetaDataCache.srvFormMetaData.LoadFormInfo(String astrForm)
+
+Exception Information Target: GetCache
+Additional Info:
+FormName: 
+FrameworkPublisher.MachineName: SAGITEC-2409
+FrameworkPublisher.TimeStamp: 1/1/0001 12:00:00 AM
+FrameworkPublisher.AppDomainName: SolutionTemplateAppServer
+FrameworkPublisher.WindowsIdentity: SAGITEC\balasaheb.mule
+FrameworkPublisher.WebServer: SAGITEC-2409
+FrameworkPublisher.ApplicationName: ApplicationPortal
+FrameworkPublisher.Language: en-US
+FrameworkPublisher.TransactionID: 558d5e52-a7da-4109-b1fb-202b2d504ede
+FrameworkPublisher.SubTransactionID: 
+****************************************************************************************************
+

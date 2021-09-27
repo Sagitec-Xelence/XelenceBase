@@ -1,0 +1,58 @@
+/// <summary>
+/// rulAddUser
+/// </summary>
+/// <param name="aintUserSerialId"></param>
+[Entity=entRoles]
+public rulAddUser(int aintUserSerialId)
+{
+	rule()
+	{
+		//Variable Declaration
+		if(aintUserSerialId == 0)
+		{
+		}
+		if(aintUserSerialId != 0)
+		{
+		}
+
+		//Variable Declaration
+		entUser lobjUser = new ();
+		if(!lobjUser.Select(aintUserSerialId))
+		{
+		}
+		else
+		{
+			if((entUserRoles.ByUserRole(aintUserSerialId, RoleId)) <= 0)
+			{
+				//Variable Declaration
+				entUserRoles lobjUserRole = new ();
+				lobjUserRole.RoleId = RoleId;
+				lobjUserRole.UserSerialId = aintUserSerialId;
+				lobjUserRole.EffectiveStartDate = GlobalContext.ApplicationDateTime;
+				lobjUserRole.Insert();
+			}
+			else
+			{
+				//Variable Declaration
+				entUserRoles lobjUserRole = new ();
+				var datatable = entUserRoles.GetUserRoles(aintUserSerialId, RoleId);
+				foreach(row in datatable)
+				{
+					lobjUserRole.UserRolesId = row.USER_ROLES_ID;
+					lobjUserRole.UserSerialId = row.USER_SERIAL_ID;
+					lobjUserRole.RoleId = row.ROLE_ID;
+					if(lobjUserRole.EffectiveEndDate != DateTime.MinValue)
+					{
+						lobjUserRole.EffectiveEndDate = DateTime.MinValue;
+						lobjUserRole.EffectiveStartDate = GlobalContext.ApplicationDateTime;
+						lobjUserRole.Insert();
+					}
+					else
+					{
+					}
+					break;
+				}
+			}
+		}
+	}
+}

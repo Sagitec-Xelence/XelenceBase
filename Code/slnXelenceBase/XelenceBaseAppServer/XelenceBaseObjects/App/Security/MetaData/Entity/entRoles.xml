@@ -1,0 +1,100 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_roles" ID="entRoles">
+  <attributes>
+    <column>
+      <attribute sfwValue="role_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="RoleId" sfwCaption="ID" />
+      <attribute sfwValue="role_description" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="False" sfwDBDataType="varchar" ID="RoleDescription" sfwCaption="Role" />
+      <attribute sfwValue="role_type" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="RoleType" sfwCaption="Role Type" sfwCodeID="20001011" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+      <attribute sfwValue="status" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="Status" sfwCaption="Status" sfwCodeID="20001013" />
+      <attribute sfwValue="ad_guid" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="uniqueidentifier" sfwIsNull="True" sfwDBDataType="uniqueidentifier" ID="AdGuid" sfwCaption="Ad" />
+      <attribute sfwValue="group_ad_guid" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="uniqueidentifier" sfwIsNull="True" sfwDBDataType="uniqueidentifier" ID="GroupAdGuid" sfwCaption="Group Ad" />
+      <attribute sfwValue="category" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="Category" sfwCaption="Category" />
+    </column>
+    <object />
+    <collection>
+      <attribute sfwAccessModifier="public" ID="lstSecurity" sfwEntity="entSecurity" />
+      <attribute sfwAccessModifier="public" ID="lstResources" sfwEntity="entResources" />
+      <attribute sfwAccessModifier="public" ID="lstUserRoles" sfwEntity="entUserRoles" />
+      <attribute sfwAccessModifier="public" sfwEntity="entRoleCategory" ID="lstRoleCategory" />
+    </collection>
+    <property>
+      <attribute sfwAccessModifier="public" ID="lintResource" Text="ResourceID" sfwDataType="int" sfwCaption="Resource Id" />
+      <attribute sfwAccessModifier="public" ID="lstrSecurityValue" sfwDataType="string" sfwCaption="lstr Security Value" />
+      <attribute sfwAccessModifier="public" ID="lstrResourceTypeValue" sfwDataType="string" sfwCaption="lstr Resource Type Value" />
+      <attribute sfwAccessModifier="public" ID="lintUserSerialID" sfwDataType="int" sfwCaption="User Serial I D" />
+      <attribute sfwAccessModifier="public" ID="istrCategoryValue" sfwDataType="string" sfwCaption="Category Value" />
+      <attribute sfwAccessModifier="public" ID="lintAddUser" sfwDataType="int" />
+    </property>
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="Queries">
+      <query ID="ListOfRoles" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; SGS_ROLES.ROLE_ID,&#xA;&#x9;ROLE_DESCRIPTION &#xA;FROM&#xA;&#x9; SGS_ROLES WITH(NOLOCK) &#xA;ORDER BY  ROLE_DESCRIPTION">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; SGS_ROLES.ROLE_ID,&#xA;&#x9;ROLE_DESCRIPTION &#xA;FROM&#xA;&#x9; SGS_ROLES WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; ROLE_ID NOT IN(SELECT&#xA;&#x9; ROLE_ID &#xA;FROM&#xA;&#x9; SGS_SECURITY WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; SGS_SECURITY.SECURITY_VALUE &lt;&gt; 0 AND&#xA;&#x9; RESOURCE_ID = @RESOURCE_ID)&#xA;ORDER BY  ROLE_DESCRIPTION ASC" ID="ListOfUnassignedRolesByResource">
+        <parameters>
+          <parameter ID="@RESOURCE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="ScalarQuery" sfwSql="SELECT&#xA;&#x9; count(1) &#xA;FROM&#xA;&#x9; sgs_roles &#xA;WHERE&#xA;&#x9; (@role_id &lt; =  0 AND&#xA;&#x9; ROLE_DESCRIPTION = @description) or (@role_id &gt; 0 AND&#xA;&#x9; role_id in ((SELECT&#xA;&#x9; role_id &#xA;FROM&#xA;&#x9; sgs_roles &#xA;WHERE&#xA;&#x9; role_id ! =  @role_id AND&#xA;&#x9; ROLE_DESCRIPTION = @description)))" ID="RoleExists">
+        <parameters>
+          <parameter ID="@role_id" sfwDataType="int" />
+          <parameter ID="@description" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="ListOfUnassignedRolesByUser" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; SGS_ROLES.ROLE_ID,&#xA;&#x9;ROLE_DESCRIPTION&#xA;FROM&#xA;&#x9; SGS_ROLES WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; ROLE_TYPE_VALUE  = 'INT' AND&#xA;&#x9; ROLE_ID NOT IN(SELECT&#xA;&#x9; ROLE_ID &#xA;FROM&#xA;&#x9; SGS_USER_ROLES WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; SGS_USER_ROLES.USER_SERIAL_ID = @USER_SERIAL_ID AND&#xA;&#x9; ((CAST( SGS_USER_ROLES.EFFECTIVE_END_DATE AS DATE) &gt; CAST(DBO.UDF_GETAPPLICATIONDATE() AS DATE)) OR EFFECTIVE_END_DATE IS NULL)) &#xA;ORDER BY  ROLE_DESCRIPTION ASC">
+        <parameters>
+          <parameter ID="@USER_SERIAL_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="ScalarQuery" sfwSql="select count(*) &#xA;  from sgs_roles WITH(NOLOCK)&#xA; where role_description = @role_description" ID="CountByDescNew">
+        <parameters>
+          <parameter ID="@role_description" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query sfwQueryType="ScalarQuery" sfwSql="select count(*) &#xA;  from sgs_roles WITH(NOLOCK)&#xA; where role_description = @role_description&#xA;and role_id &lt;&gt; @role_id" ID="CountByDescUpdate">
+        <parameters>
+          <parameter ID="@role_description" sfwDataType="string" />
+          <parameter ID="@role_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="UnassignedRoleCategoryByUser" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; SGS_CODE_VALUE.CODE_ID,&#xA;&#x9;CODE_VALUE,&#xA;&#x9;DESCRIPTION &#xA;FROM&#xA;&#x9; SGS_CODE_VALUE WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; CODE_ID = 20001012 AND&#xA;&#x9; CODE_VALUE NOT IN(SELECT&#xA;&#x9; SRC.ROLE_CATEGORY_TYPE_VALUE &#xA;FROM&#xA;&#x9; SGS_ROLE_CATEGORY SRC WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; ROLE_ID = @ROLE_ID) &#xA;ORDER BY  DESCRIPTION">
+        <parameters>
+          <parameter ID="@ROLE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition>
+      <condition ID="Rule - Is RoleID Exists" sfwMessageId="20002016">
+        <and>
+          <item sfwLeftSideField="entRole.RoleExists" sfwLeftSideType="query" sfwLeftSideParamaters="CodeId" sfwOperator="IsGreaterThan" sfwRightSideField="0" sfwRightSideType="constant" />
+          <item sfwLeftSideField="CodeId" sfwLeftSideType="attribute" sfwOperator="IsNotEqualTo" sfwRightSideField="0" sfwRightSideType="constant" />
+        </and>
+      </condition>
+      <condition sfwAccessModifier="public" ID="Role Exist">
+        <item sfwRightSideType="constant" sfwOperator="IsGreaterThan" sfwLeftSideType="query" sfwLeftSideField="entRoles.RoleExists" sfwRightSideField="0" sfwLeftSideParamaters="RoleId;RoleDescription" />
+      </condition>
+    </expressioncondition>
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

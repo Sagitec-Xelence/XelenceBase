@@ -1,0 +1,38 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" ID="entResourceScreen">
+  <attributes>
+    <column>
+      <attribute ID="ID" sfwValue="ResourceScreen_ID" sfwDBDataType="int" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwIsNull="False" sfwCaption="ID" />
+      <attribute ID="CreatedBy" sfwValue="created_by" sfwDBDataType="varchar" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="250" sfwIsNull="False" sfwCaption="Created By" />
+      <attribute ID="CreatedDate" sfwValue="created_date" sfwDBDataType="datetime" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwCaption="Created Date" />
+      <attribute ID="ModifiedBy" sfwValue="modified_by" sfwDBDataType="varchar" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="250" sfwIsNull="False" sfwCaption="Modified By" />
+      <attribute ID="ModifiedDate" sfwValue="modified_date" sfwDBDataType="datetime" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwCaption="Modified Date" />
+      <attribute ID="UpdateSeq" sfwValue="update_seq" sfwDBDataType="int" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwIsNull="False" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection />
+    <property>
+      <attribute sfwAccessModifier="public" ID="istrResourceFileName" sfwDataType="string" sfwCaption="Resource File Name" />
+      <attribute sfwAccessModifier="public" ID="istrResourceElement" sfwDataType="string" sfwCaption="Resource Element" />
+      <attribute sfwAccessModifier="public" ID="istrResourceID" sfwDataType="int" sfwCaption="Resource ID" />
+    </property>
+    <calculatedfields />
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

@@ -1,0 +1,250 @@
+<div sfwEntity="entUser" ID="wfmUserMaintenance" sfwType="Maintenance" sfwTitle="User Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmUserLookup">
+  <sfwServerDetails>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="txtUserID" sfwDataType="string">
+          <item sfwType="Query" sfwMode="New" sfwOperator="IsGreaterThan" sfwLoadSource="entUser.UserIDExists" sfwRelatedField="#0" sfwStatus="Active" sfwMessage="User ID Already Exist">
+            <parameters>
+              <parameter ID="@user_id" sfwDataType="string" sfwParam="txtUserID"></parameter>
+            </parameters>
+          </item>
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtFirstName" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtLastName" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtBeginDate" sfwDataType="datetime">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="ddlUserStatus" sfwDataType="PickList">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtEmailAddress" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="ddlUserType" sfwDataType="PickList">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">User Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtUserID" sfwEntityField="UserId" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="User ID" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtFirstName" sfwEntityField="FirstName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtMiddleInitial" sfwEntityField="MiddleInitial" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Middle Initial" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtLastName" sfwEntityField="LastName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtBeginDate" sfwEntityField="BeginDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" sfwCaption="Begin Date" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlLocation" sfwEntityField="Location" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlUserStatus" sfwEntityField="UserStatus" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlAuthority" sfwEntityField="Authority" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlSkill" sfwEntityField="Skill" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlUserType" sfwEntityField="UserType" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtEmailAddress" sfwEntityField="EmailAddress" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Email Address" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlPosition" sfwEntityField="Position" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlAuthenticationMode" sfwEntityField="AuthenticationMode" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items">
+                  <option value="DB">Database</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPassword" sfwEntityField="Password" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Password" sfwMode="New" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+      <li>
+        <span ID="spnSpan1">Details</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshRoles_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshRoles" ID="ancAnchor">Roles</a>
+                    </li>
+                    <li ID="tshSecurity_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshSecurity" ID="ancAnchor1">Security</a>
+                    </li>
+                  </ul>
+                  <div ID="tshRoles" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                          <input ID="actExecute1" data-sfwControlType="sfwActionExecute" type="button" value="Add Role" sfwMethod="rulAddRole" />
+                          <input ID="actExecute" data-sfwControlType="sfwActionExecute" type="button" value="Deactivate Role" sfwMethod="rulDeactivateRole" sfwRelatedControl="grvByUser" />
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                          <select ID="ddlIstrUserRoleId" sfwEntityField="lintUserRoleId" data-sfwControlType="sfwDropDownList" sfwCaptionPosition="Left" sfwShowCaption="True" sfwCaption="User Role Id" sfwLoadType="Query" DataTextField="role_description" DataValueField="role_id" sfwLoadSource="entRoles.ListOfUnassignedRolesByUser" sfwNavigationParameter="USER_SERIAL_ID=UserSerialId"></select>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                          <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwActiveForm="wfmUserRolesMaintenance" sfwNavigationParameter="aintPrimaryKey=UserRolesId" Visible="False" sfwRelatedControl="grvByUser" />
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvByUser" data-sfwControlType="sfwGridView" sfwLoadSource="entUserRoles.ByUser" sfwLoadType="Query" sfwDefaultQuery="False" AllowPaging="True" sfwSelection="One" AllowSorting="True" sfwEntityField="lstUserRoles" sfwLoadMode="All">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Role Description</th>
+                                  <th data-sfwControlType="TemplateField">Begin Date</th>
+                                  <th data-sfwControlType="TemplateField">End Date</th>
+                                  <th data-sfwControlType="TemplateField" Visible="False">User Serial ID</th>
+                                  <th data-sfwControlType="TemplateField" Visible="False">Role ID</th>
+                                  <th data-sfwControlType="TemplateField" Visible="False">User Roles ID</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <a ID="lblRoleDescription" data-sfwControlType="sfwLinkableAction" sfwEntityField="objRoles.RoleDescription" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpen"></a>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <input ID="lblEffectiveStartDate" sfwEntityField="EffectiveStartDate" data-sfwControlType="sfwDate" type="text" />
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <input ID="lblEffectiveEndDate" sfwEntityField="EffectiveEndDate" data-sfwControlType="sfwDate" type="text" />
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblUserSerialId" data-sfwControlType="sfwLabel" sfwEntityField="UserSerialId"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblRoleId1" data-sfwControlType="sfwLabel" sfwEntityField="RoleId"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblUserRolesId" data-sfwControlType="sfwLabel" sfwEntityField="UserRolesId"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters>
+                              <parameter ID="@user_serial_id" sfwEntityField="UserSerialId"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshSecurity" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvGridView" data-sfwControlType="sfwGridView" sfwLoadSource="entSecurity.ByUser" sfwLoadType="Query" sfwDefaultQuery="False" AllowPaging="True" sfwSelection="One" AllowSorting="True" sfwEntityField="lstSecurity" sfwLoadMode="Update">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Resource</th>
+                                  <th data-sfwControlType="TemplateField">Resource Desc</th>
+                                  <th data-sfwControlType="TemplateField">Resource Type</th>
+                                  <th data-sfwControlType="TemplateField">Role</th>
+                                  <th data-sfwControlType="TemplateField">Security</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblResourceId" data-sfwControlType="sfwLabel" sfwEntityField="ResourceId"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblResourceDescription" data-sfwControlType="sfwLabel" sfwEntityField="objResources.ResourceDescription"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblResourceType" data-sfwControlType="sfwLabel" sfwEntityField="objResources.ResourceType"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblRoleDescription1" data-sfwControlType="sfwLabel" sfwEntityField="objRoles.RoleDescription"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <select ID="lblSecurity" sfwEntityField="Security" data-sfwControlType="sfwDropDownList"></select>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters>
+                              <parameter ID="@User_Serial_ID" sfwEntityField="UserSerialId"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwEntityField="CreatedBy" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwEntityField="CreatedDate" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedBy" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedDate" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

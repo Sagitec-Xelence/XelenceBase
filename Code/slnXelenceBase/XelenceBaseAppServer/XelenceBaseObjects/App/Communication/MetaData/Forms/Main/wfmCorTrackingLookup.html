@@ -1,0 +1,145 @@
+<div sfwEntity="entCorTracking" ID="wfmCorTrackingLookup" sfwType="Lookup" sfwTitle="Cor Tracking Lookup" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmCorTrackingLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+      <li>
+        <span ID="spnSpan">Criteria</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblCriteria">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTemplateId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Template Id" sfwDataField="template_id" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTrackingId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="ID" sfwDataField="tracking_id" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtCommEngineId" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Comm Engine Id" sfwDataField="comm_engine_id" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlCorStatus" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Cor Status" sfwDataField="cor_status" sfwOperator="=" sfwLoadType="CodeGroup"></select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtGeneratedDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" sfwCaption="Generated Date" sfwDataField="generated_date" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtOrgId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Org Id" sfwDataField="org_id" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPersonId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Person Id" sfwDataField="person_id" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPortalFileName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Portal File Name" sfwDataField="portal_file_name" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtRecipientId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Recipient Id" sfwDataField="recipient_id" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtRecipientName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Recipient Name" sfwDataField="recipient_name" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtArchivedDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" sfwCaption="Archived Date" sfwDataField="archived_date" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlDeliveryMethod" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Delivery Method" sfwDataField="delivery_method" sfwOperator="=" sfwLoadType="CodeGroup"></select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlResult" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan1">Search Results</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblResult" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+                <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="TrackingId">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">ID</th>
+                        <th data-sfwControlType="TemplateField">Template Id</th>
+                        <th data-sfwControlType="TemplateField">Comm Engine Id</th>
+                        <th data-sfwControlType="TemplateField">Cor Status</th>
+                        <th data-sfwControlType="TemplateField">Generated Date</th>
+                        <th data-sfwControlType="TemplateField">Org Id</th>
+                        <th data-sfwControlType="TemplateField">Person Id</th>
+                        <th data-sfwControlType="TemplateField">Portal File Name</th>
+                        <th data-sfwControlType="TemplateField">Recipient Id</th>
+                        <th data-sfwControlType="TemplateField">Recipient Name</th>
+                        <th data-sfwControlType="TemplateField">Archived Date</th>
+                        <th data-sfwControlType="TemplateField">Delivery Method</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <a ID="lnkTrackingId" data-sfwControlType="sfwLinkableAction" sfwRelatedControl="actOpen" sfwEntityField="TrackingId"></a>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblTemplateId" data-sfwControlType="sfwLabel" sfwEntityField="TemplateId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblCommEngineId" data-sfwControlType="sfwLabel" sfwEntityField="CommEngineId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblCorStatus" data-sfwControlType="sfwLabel" sfwEntityField="CorStatus"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblGeneratedDate" data-sfwControlType="sfwLabel" sfwEntityField="GeneratedDate"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblOrgId" data-sfwControlType="sfwLabel" sfwEntityField="OrgId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblPersonId" data-sfwControlType="sfwLabel" sfwEntityField="PersonId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblPortalFileName" data-sfwControlType="sfwLabel" sfwEntityField="PortalFileName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblRecipientId" data-sfwControlType="sfwLabel" sfwEntityField="RecipientId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblRecipientName" data-sfwControlType="sfwLabel" sfwEntityField="RecipientName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblArchivedDate" data-sfwControlType="sfwLabel" sfwEntityField="ArchivedDate"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblDeliveryMethod" data-sfwControlType="sfwLabel" sfwEntityField="DeliveryMethod"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

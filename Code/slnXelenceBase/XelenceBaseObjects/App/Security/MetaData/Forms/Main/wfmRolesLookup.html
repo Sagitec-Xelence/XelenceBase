@@ -1,0 +1,91 @@
+<div sfwEntity="entRoles" ID="wfmRolesLookup" sfwType="Lookup" sfwTitle="Role" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmRolesLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+      <div data-sfwControlType="sfwRow">
+        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+          <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+            <li>
+              <span ID="spnSpan">Criteria</span>
+              <div ID="dvDiv">
+                <div data-sfwControlType="sfwTable" ID="tblCriteria">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtRoleId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="ID" sfwDataField="role_id" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtRoleDescription" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Role" sfwDataField="role_description" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <select ID="ddlRoleType" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Role Type" sfwDataField="role_type" sfwOperator="=" sfwLoadType="CodeGroup"></select>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                      <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+                      <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+          <ul ID="pnlPanel" data-sfwControlType="sfwPanel">
+            <li>
+              <span ID="spnSpan1">Result</span>
+              <div ID="dvDiv1">
+                <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                      <input ID="actNew" data-sfwControlType="sfwActionNew" type="button" value="New" />
+                      <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+                      <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                      <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="RoleId">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th data-sfwControlType="TemplateField" style="text-align:left;">ID</th>
+                              <th data-sfwControlType="TemplateField">Role</th>
+                              <th data-sfwControlType="TemplateField">Role Type</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td data-sfwControlType="ItemTemplate">
+                                <a ID="lnkRoleId" data-sfwControlType="sfwLinkableAction" sfwRelatedControl="actOpen" sfwEntityField="RoleId"></a>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblRoleDescription" data-sfwControlType="sfwLabel" sfwEntityField="RoleDescription"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblRoleType" data-sfwControlType="sfwLabel" sfwEntityField="RoleType"></label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

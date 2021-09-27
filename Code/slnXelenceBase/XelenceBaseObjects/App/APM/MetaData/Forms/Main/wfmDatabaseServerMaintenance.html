@@ -1,0 +1,378 @@
+<div ID="wfmDatabaseServerMaintenance" sfwType="Maintenance" sfwTitle="Database Server Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entAppMonitoring">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Database Server Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Database Recommendations" sfwActiveForm="wfmDatabaseRecommendationsMaintenance" />
+                <input ID="actOpen1" data-sfwControlType="sfwActionOpen" type="button" value="Advance Options" sfwActiveForm="wfmDatabaseAnalysisMaintenance" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshActiveSessions_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshActiveSessions" ID="ancAnchor">Active Sessions</a>
+                    </li>
+                    <li ID="tshQueries_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshQueries" ID="ancAnchor1">Queries</a>
+                    </li>
+                    <li ID="tshTableRowCounts_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshTableRowCounts" ID="ancAnchor2">Table Row Counts</a>
+                    </li>
+                  </ul>
+                  <div ID="tshActiveSessions" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetActiveSessionD" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvGetActiveSessionD" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetActiveSessionData" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" PageSize="20">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Session ID</th>
+                                  <th data-sfwControlType="TemplateField" style="width: 50%;">Query</th>
+                                  <th data-sfwControlType="TemplateField" style="width: 5%;">Status</th>
+                                  <th data-sfwControlType="TemplateField">Blocked Query</th>
+                                  <th data-sfwControlType="TemplateField">Blocked Status</th>
+                                  <th data-sfwControlType="TemplateField">CPU (sec)</th>
+                                  <th data-sfwControlType="TemplateField">IO (R/W)</th>
+                                  <th data-sfwControlType="TemplateField">Memory Usage</th>
+                                  <th data-sfwControlType="TemplateField">Host Name</th>
+                                  <th data-sfwControlType="TemplateField">Program Name</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblSpid" data-sfwControlType="sfwLabel" sfwEntityField="spid"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblCurrentquerytext" data-sfwControlType="sfwLabel" sfwEntityField="currentquerytext"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblStatus" data-sfwControlType="sfwLabel" sfwEntityField="status"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblBlockedtext" data-sfwControlType="sfwLabel" sfwEntityField="blockedtext"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblBlockedstatus" data-sfwControlType="sfwLabel" sfwEntityField="blockedstatus"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblCpu" data-sfwControlType="sfwLabel" sfwEntityField="cpu" sfwShowZero="True"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblPhysicalIo" data-sfwControlType="sfwLabel" sfwEntityField="physical_io" sfwShowZero="True"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblMemusage" data-sfwControlType="sfwLabel" sfwEntityField="memusage" sfwShowZero="True"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblHostname" data-sfwControlType="sfwLabel" sfwEntityField="hostname"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblProgramName" data-sfwControlType="sfwLabel" sfwEntityField="program_name"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters></LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshQueries" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="tctTabContainer1" data-sfwControlType="sfwTabContainer">
+                            <ul data-sfwControlType="Tabs">
+                              <li ID="tshMostRunningQueries_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshMostRunningQueries" ID="ancAnchor3">Most Running Queries</a>
+                              </li>
+                              <li ID="tshExpensiveQueries_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshExpensiveQueries" ID="ancAnchor4">Expensive Queries</a>
+                              </li>
+                            </ul>
+                            <div ID="tshMostRunningQueries" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel1" data-sfwControlType="sfwActionExport" type="button" value="Excel To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetMostRunningQue" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetMostRunningQue" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetMostRunningQueries" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" PageSize="20">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField">Query ID</th>
+                                            <th data-sfwControlType="TemplateField" style="width: 75%;">Query</th>
+                                            <th data-sfwControlType="TemplateField">Count</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblDtlName" data-sfwControlType="sfwLabel" sfwEntityField="dtl_name"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblQuery" data-sfwControlType="sfwLabel" sfwEntityField="query.query"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblCount" data-sfwControlType="sfwLabel" sfwEntityField="count"></label>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshExpensiveQueries" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut4">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="tctTabContainer2" data-sfwControlType="sfwTabContainer">
+                                      <ul data-sfwControlType="Tabs">
+                                        <li ID="tshByCPUTime_Header" data-sfwControlType="sfwTabSheet">
+                                          <a href="#tshByCPUTime" ID="ancAnchor5">By CPU Time</a>
+                                        </li>
+                                        <li ID="tshByLogicalReads_Header" data-sfwControlType="sfwTabSheet">
+                                          <a href="#tshByLogicalReads" ID="ancAnchor6">By Logical Reads</a>
+                                        </li>
+                                        <li ID="tshByLogicalWrites_Header" data-sfwControlType="sfwTabSheet">
+                                          <a href="#tshByLogicalWrites" ID="ancAnchor7">By Logical Writes</a>
+                                        </li>
+                                      </ul>
+                                      <div ID="tshByCPUTime" data-sfwControlType="sfwTab">
+                                        <div data-sfwControlType="sfwTable" ID="tblLayOut5">
+                                          <div data-sfwControlType="sfwRow">
+                                            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                              <input ID="actAllToExcel" data-sfwControlType="sfwActionExport" type="button" value="Excel To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetAllDBCpuTime" />
+                                            </div>
+                                          </div>
+                                          <div data-sfwControlType="sfwRow">
+                                            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                              <div ID="grvGetAllDBCpuTime" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetAllDBCpuTime" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" PageSize="20">
+                                                <table>
+                                                  <thead>
+                                                    <tr>
+                                                      <th data-sfwControlType="TemplateField" style="width: 40%;">Query</th>
+                                                      <th data-sfwControlType="TemplateField">Total Elapsed Time (Sec)</th>
+                                                      <th data-sfwControlType="TemplateField">Total Worker Time (MicroSec)</th>
+                                                      <th data-sfwControlType="TemplateField">Execution Count</th>
+                                                      <th data-sfwControlType="TemplateField">Last Worker Time (Sec)</th>
+                                                      <th data-sfwControlType="TemplateField">Last Execution Time</th>
+                                                      <th data-sfwControlType="TemplateField">Last Elapsed Time (Sec)</th>
+                                                      <th data-sfwControlType="TemplateField">Last Logical Reads</th>
+                                                      <th data-sfwControlType="TemplateField">Last Logical Writes</th>
+                                                      <th data-sfwControlType="TemplateField">Total Logical Reads</th>
+                                                      <th data-sfwControlType="TemplateField">Total Logical Writes</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <tr>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblText" data-sfwControlType="sfwLabel" sfwEntityField="text"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblTotalElapsedTimeInS" data-sfwControlType="sfwLabel" sfwEntityField="total_elapsed_time_in_s" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblTotalWorkerTime" data-sfwControlType="sfwLabel" sfwEntityField="total_worker_time" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblExecutionCount" data-sfwControlType="sfwLabel" sfwEntityField="execution_count" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblLastWorkerTime" data-sfwControlType="sfwLabel" sfwEntityField="last_worker_time" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblLastExecutionTime" data-sfwControlType="sfwLabel" sfwEntityField="last_execution_time" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblLastElapsedTimeInS" data-sfwControlType="sfwLabel" sfwEntityField="last_elapsed_time_in_s" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblLastLogicalReads" data-sfwControlType="sfwLabel" sfwEntityField="last_logical_reads" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblLastLogicalWrites" data-sfwControlType="sfwLabel" sfwEntityField="last_logical_writes" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblTotalLogicalReads" data-sfwControlType="sfwLabel" sfwEntityField="total_logical_reads" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblTotalLogicalWrites" data-sfwControlType="sfwLabel" sfwEntityField="total_logical_writes" sfwShowZero="True"></label>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                                <LoadParameters></LoadParameters>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div ID="tshByLogicalReads" data-sfwControlType="sfwTab">
+                                        <div data-sfwControlType="sfwTable" ID="tblLayOut6">
+                                          <div data-sfwControlType="sfwRow">
+                                            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                              <input ID="actAllToExcel3" data-sfwControlType="sfwActionExport" type="button" value="Excel To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetAllDBLogicalRe" />
+                                            </div>
+                                          </div>
+                                          <div data-sfwControlType="sfwRow">
+                                            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                              <div ID="grvGetAllDBLogicalRe" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetAllDBLogicalReads" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" PageSize="20">
+                                                <table>
+                                                  <thead>
+                                                    <tr>
+                                                      <th data-sfwControlType="TemplateField" style="width: 70%;">Query</th>
+                                                      <th data-sfwControlType="TemplateField">Execution Count</th>
+                                                      <th data-sfwControlType="TemplateField">Total Logical Reads</th>
+                                                      <th data-sfwControlType="TemplateField">Last Logical Reads</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <tr>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblText1" data-sfwControlType="sfwLabel" sfwEntityField="text"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblExecutionCount1" data-sfwControlType="sfwLabel" sfwEntityField="execution_count" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblTotalLogicalReads1" data-sfwControlType="sfwLabel" sfwEntityField="total_logical_reads" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblLastLogicalReads1" data-sfwControlType="sfwLabel" sfwEntityField="last_logical_reads" sfwShowZero="True"></label>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                                <LoadParameters></LoadParameters>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div ID="tshByLogicalWrites" data-sfwControlType="sfwTab">
+                                        <div data-sfwControlType="sfwTable" ID="tblLayOut7">
+                                          <div data-sfwControlType="sfwRow">
+                                            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                              <input ID="actAllToExcel2" data-sfwControlType="sfwActionExport" type="button" value="Excel To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetAllDBLogicalWr" />
+                                            </div>
+                                          </div>
+                                          <div data-sfwControlType="sfwRow">
+                                            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                              <div ID="grvGetAllDBLogicalWr" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetAllDBLogicalWrites" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" PageSize="20">
+                                                <table>
+                                                  <thead>
+                                                    <tr>
+                                                      <th data-sfwControlType="TemplateField" style="    width: 70%;">Query</th>
+                                                      <th data-sfwControlType="TemplateField">Execution Count</th>
+                                                      <th data-sfwControlType="TemplateField">Total Logical Writes</th>
+                                                      <th data-sfwControlType="TemplateField">Last Logical Writes</th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                    <tr>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblText2" data-sfwControlType="sfwLabel" sfwEntityField="text"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblExecutionCount2" data-sfwControlType="sfwLabel" sfwEntityField="execution_count" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblTotalLogicalWrites2" data-sfwControlType="sfwLabel" sfwEntityField="total_logical_writes" sfwShowZero="True"></label>
+                                                      </td>
+                                                      <td data-sfwControlType="ItemTemplate">
+                                                        <label ID="lblLastLogicalWrites2" data-sfwControlType="sfwLabel" sfwEntityField="last_logical_writes" sfwShowZero="True"></label>
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                                <LoadParameters></LoadParameters>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshTableRowCounts" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="actAllToExcel4" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetTableRowCount" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvGetTableRowCount" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetTableRowCount" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" PageSize="20">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField" style="width: 34%;">Table Name</th>
+                                  <th data-sfwControlType="TemplateField" style="width: 33%;">Row Count</th>
+                                  <th data-sfwControlType="TemplateField">Total Mb</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblTablename" data-sfwControlType="sfwLabel" sfwEntityField="tablename"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblRowcounts" data-sfwControlType="sfwLabel" sfwEntityField="rowcounts"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblTotalMb" data-sfwControlType="sfwLabel" sfwEntityField="total_mb"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters></LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

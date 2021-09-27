@@ -1,0 +1,32 @@
+/// <summary>
+/// Add new role to the user. If role_id already exists then no record would be inserted in database
+/// </summary>
+/// <param name="aintRoleId"></param>
+[Entity=entResources]
+public rulAddRoleforResource(int aintRoleId)
+{
+	rule()
+	{
+		if(aintRoleId == 0)
+		{
+		}
+
+		//Variable Declaration
+		entSecurity lobjSecurity = new ();
+		if(entSecurity.FindSecurity(ResourceId, aintRoleId) > 0)
+		{
+			if(lobjSecurity.Security == "0")
+			{
+				lobjSecurity.Security = "1";
+				lobjSecurity.Update();
+			}
+		}
+		else
+		{
+			lobjSecurity.RoleId = aintRoleId;
+			lobjSecurity.ResourceId = ResourceId;
+			lobjSecurity.Security = "1";
+			lobjSecurity.Insert();
+		}
+	}
+}

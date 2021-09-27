@@ -1,0 +1,31 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_system_settings" ID="entSystemSettings">
+  <attributes>
+    <column>
+      <attribute sfwValue="system_setting_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="SystemSettingId" sfwCaption="ID" />
+      <attribute sfwValue="setting_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="False" sfwDBDataType="varchar" ID="SettingName" sfwCaption="Setting Name" />
+      <attribute sfwValue="setting_type" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="False" sfwDBDataType="varchar" ID="SettingType" sfwCaption="Setting Type" />
+      <attribute sfwValue="setting_value" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="500" sfwIsNull="True" sfwDBDataType="varchar" ID="SettingValue" sfwCaption="Setting" />
+      <attribute sfwValue="encrypted_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="EncryptedFlag" sfwCaption="Encrypted Flag" />
+      <attribute sfwValue="refreshable" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="Refreshable" sfwCaption="Refreshable" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+    </column>
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

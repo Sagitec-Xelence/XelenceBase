@@ -1,0 +1,94 @@
+<entity ID="entActLog" sfwView="False" sfwActive="True" sfwStatus="Review1" sfwTableName="sgs_act_log" Text="ent Act Log 1" sfwParentEntity="entBase" sfwVersion="7.0">
+  <attributes>
+    <collection>
+      <attribute ID="lstActLogApp" sfwEntity="entActLogApp" sfwAccessModifier="public" />
+      <attribute ID="lstServers" sfwEntity="entServers" />
+      <attribute ID="lstCaseConfigurationTracing" sfwEntity="entBpmCaseConfigurationTracing" />
+      <attribute ID="lstServerConfiguration" sfwEntity="entServerConfiguration" />
+      <attribute ID="lstServerSettings" sfwEntity="entBpmServerSettings" />
+      <attribute ID="lstServiceTimer" sfwEntity="entBpmServiceTimer" />
+    </collection>
+    <object>
+      <attribute ID="objActLogJob" sfwEntity="entActLogJob" />
+      <attribute ID="objBpmTracing" sfwEntity="entBpmTracing" />
+      <attribute ID="objCaseConfigurationTracing" sfwEntity="entBpmCaseConfigurationTracing" />
+      <attribute ID="objBpmCase" sfwEntity="entBpmCase" />
+      <attribute ID="objServerSettings" sfwEntity="entBpmServerSettings" />
+    </object>
+    <column>
+      <attribute sfwValue="act_log_id" sfwKeyNo="1" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="ActLogId" sfwCaption="ID" sfwLength="10,0" />
+      <attribute sfwValue="app_monitoring_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="AppMonitoringFlag" sfwCaption="App Monitoring Flag" sfwKeyNo="0" />
+      <attribute sfwValue="transaction_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="TransactionLimit" sfwCaption="Transaction Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="transaction_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="TransactionLimitAlert" sfwCaption="Transaction Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="transaction_high_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="TransactionHighLimit" sfwCaption="Transaction High Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="transaction_high_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="TransactionHighLimitAlert" sfwCaption="Transaction High Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="query_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="QueryLimit" sfwCaption="Query Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="query_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="QueryLimitAlert" sfwCaption="Query Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="query_high_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="QueryHighLimit" sfwCaption="Query High Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="query_high_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="QueryHighLimitAlert" sfwCaption="Query High Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="appserver_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="AppserverLimit" sfwCaption="Appserver Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="appserver_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="AppserverLimitAlert" sfwCaption="Appserver Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="appserver_high_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="AppserverHighLimit" sfwCaption="Appserver High Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="appserver_high_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="AppserverHighLimitAlert" sfwCaption="Appserver High Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="rule_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="RuleLimit" sfwCaption="Rule Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="rule_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="RuleLimitAlert" sfwCaption="Rule Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="rule_high_limit" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="RuleHighLimit" sfwCaption="Rule High Limit" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="rule_high_limit_alert" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="RuleHighLimitAlert" sfwCaption="Rule High Limit Alert" sfwKeyNo="0" />
+      <attribute sfwValue="created_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="CreatedBy" sfwCaption="Created By" sfwKeyNo="0" />
+      <attribute sfwValue="created_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="CreatedDate" sfwCaption="Created Date" sfwKeyNo="0" />
+      <attribute sfwValue="modified_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="ModifiedBy" sfwCaption="Modified By" sfwKeyNo="0" />
+      <attribute sfwValue="modified_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="ModifiedDate" sfwCaption="Modified Date" sfwKeyNo="0" />
+      <attribute sfwValue="update_seq" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="UpdateSeq" sfwCaption="Update Seq" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute ID="RefreshSystemSettingsCache" sfwCaption="Refresh System Settings Cache" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="refresh_system_settings_cache" sfwDBDataType="datetime" />
+      <attribute ID="RefreshDbConnection" sfwCaption="Refresh Db Connection" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="refresh_db_connection" sfwDBDataType="datetime" />
+      <attribute ID="RefreshDbCache" sfwCaption="Refresh Db Cache" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="refresh_db_cache" sfwDBDataType="datetime" />
+      <attribute ID="RefreshWebCache" sfwCaption="Refresh Web Cache" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="refresh_web_cache" sfwDBDataType="datetime" />
+      <attribute ID="RunGc" sfwCaption="Run Gc" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="run_gc" sfwDBDataType="datetime" />
+      <attribute ID="ClearDbPool" sfwCaption="Clear Db Pool" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="clear_db_pool" sfwDBDataType="datetime" />
+      <attribute ID="ApplicationRefresh" sfwCaption="Application Refresh" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="application_refresh" sfwDBDataType="datetime" />
+      <attribute ID="TraceLevel" sfwCaption="Trace Level" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="trace_level" sfwLength="50" sfwDBDataType="varchar" />
+      <attribute ID="RefreshTraceSetting" sfwCaption="Refresh Trace Setting" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="refresh_trace_setting" sfwDBDataType="datetime" />
+    </column>
+    <cdocollection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <ExtraFields />
+  <queries />
+  <delete />
+  <groups />
+  <checklist />
+  <methods>
+    <method ID="FindActLogApp" sfwMethodType="Load" sfwLoadMainObject="True" sfwParameter="aintPrimaryKey" sfwMode="Update">
+      <parameter ID="aintPrimaryKey" sfwDataType="int" Value="#1" />
+      <item ID="lstActLogApp" sfwLoadType="Query" sfwLoadSource="entActLogApp.LookUp" sfwItemType="collection" />
+      <item ID="objActLogJob" sfwItemType="object" sfwLoadType="Query" sfwLoadSource="entJobServiceMonitoring.GetActLogJob" />
+      <item ID="objBpmTracing" sfwItemType="object" sfwLoadType="Query" sfwLoadSource="entFramework.GetBpmTraceFlags" />
+      <item ID="lstCaseConfigurationTracing" sfwItemType="collection" sfwLoadType="Query" sfwLoadSource="entBpmCaseConfigurationTracing.GetAllCaseConfTracing" />
+      <item ID="lstServiceTimer" sfwItemType="collection" sfwLoadType="Query" sfwLoadSource="entBpmServiceTimer.DefaultSettings" />
+      <item ID="lstServerSettings" sfwItemType="collection" sfwLoadType="Query" sfwLoadSource="entBpmServerSettings.GetBpmServerTimerFlags" />
+      <item ID="objActLogJob.lstActJobStep" sfwItemType="collection" sfwLoadType="Query" sfwLoadSource="entActLogJobStep.GetAllJobStep" />
+    </method>
+    <method ID="AddCaseTracing" sfwMethodType="Other" />
+  </methods>
+  <objectmethods />
+  <conditions>
+    <rulecondition />
+    <expressioncondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints>
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Transaction Limit" />
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Transaction High Limit" />
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Appserver Limit" />
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Appserver High Limit" />
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Query Limit" />
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Query High Limit" />
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Rule Limit" />
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="Rule - Is Valid Email ID For Rule High Limit" />
+    </hardconstraints>
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+</entity>

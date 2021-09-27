@@ -1,0 +1,105 @@
+<div ID="wfmCodeLookup" sfwActive="True" sfwStatus="Valid" sfwResource="-1" sfwType="Lookup" sfwTitle="Code Lookup" sfwMaxCount="100" sfwEntity="entCode" data-sfwControlType="form">
+  <sfwServerDetails>
+    <validatenew></validatenew>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints />
+    </constraints>
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper" ID="Main">
+    <ul data-sfwControlType="sfwPanel" ID="pnlCriteria">
+      <li>
+        <span>Criteria</span>
+        <div>
+          <div ID="tblCriteria" data-sfwControlType="sfwTable" class="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <input name="txtdescription" sfwDataField="description" sfwQueryID="cdoCode" data-sfwControlType="sfwTextBox" type="text" ID="txtdescription" sfwShowCaption="True" sfwCaption="Description :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <input name="txtcode_id" sfwDataField="code_id" sfwQueryID="cdoCode" sfwOperator="=" sfwDataType="Numeric" MaxLength="10" data-sfwControlType="sfwTextBox" type="text" ID="txtcode_id" sfwShowCaption="True" sfwCaption="Code ID :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input type="button" data-sfwControlType="sfwActionSearch" value="Search" ID="btnSearch" />
+                <input type="button" data-sfwControlType="sfwActionReset" value="Reset" ID="btnReset" />
+                <input type="button" data-sfwControlType="sfwActionMisc" value="Store Search" ID="btnStoreDefaults" sfwActionType="StoreSearch" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul data-sfwControlType="sfwPanel" ID="pnlResult">
+      <li>
+        <span>Search Result</span>
+        <div>
+          <div ID="tblResult" data-sfwControlType="sfwTable" class="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input type="button" data-sfwControlType="sfwActionNew" value="New" ID="btnNew" />
+                <input type="button" sfwRelatedControl="dgrResult" data-sfwControlType="sfwActionOpen" value="Open" ID="btnOpen" />
+                <input type="button" sfwNavigationParameter="CodeId" sfwRelatedControl="dgrResult" Visible="False" data-sfwControlType="sfwActionDelete" value="Delete" ID="btnDelete" />
+                <input type="button" sfwRelatedControl="dgrResult" data-sfwControlType="sfwActionExport" value=" Export to Excel" ID="btnExportToExcelClick" sfwActionType="Excel" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div id="dgrResult" AllowPaging="True" AllowSorting="True" ID="dgrResult" sfwSelection="Many" data-sfwControlType="sfwGridView" sfwLoadType="FormLoad" sfwLoadMode="All">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">Code ID</th>
+                        <th data-sfwControlType="TemplateField">Description</th>
+                        <th data-sfwControlType="TemplateField">Data1 Caption</th>
+                        <th data-sfwControlType="TemplateField">Data2 Caption</th>
+                        <th data-sfwControlType="TemplateField">Data3 Caption</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">Created By</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">Created Date</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">Modified By</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">Modified Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwLinkable="True" sfwRelatedControl="btnOpen" sfwEntityField="CodeId" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Description" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwTwoWayBinding="True" sfwEntityField="Data1Caption" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Data2Caption" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Data3Caption" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="CreatedBy" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="CreatedDate" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="ModifiedBy" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="ModifiedDate" data-sfwControlType="sfwLabel"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

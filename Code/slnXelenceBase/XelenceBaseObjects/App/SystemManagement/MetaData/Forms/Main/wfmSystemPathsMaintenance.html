@@ -1,0 +1,63 @@
+<div sfwEntity="entSystemPaths" ID="wfmSystemPathsMaintenance" sfwType="Maintenance" sfwTitle="System Paths Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmSystemPathsLookup">
+  <sfwServerDetails>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="txtPathCode" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtPath" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">System Paths Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblPathID" data-sfwControlType="sfwLabel" sfwEntityField="PathId" sfwShowCaption="True" sfwCaption="Path ID" sfwMode="Update" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPathCode" sfwEntityField="PathCode" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Path Code:" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPath" sfwEntityField="PathDescription" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Path Description:" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPath1" sfwEntityField="PathValue" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwEntityField="CreatedBy" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwEntityField="CreatedDate" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedBy" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedDate" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwTableName="sgs_role_category" ID="entRoleCategory">
+  <attributes>
+    <column>
+      <attribute sfwValue="role_category_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="RoleCategoryId" sfwCaption="ID" />
+      <attribute sfwValue="role_id" sfwKeyNo="0" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="RoleId" sfwCaption="Role" />
+      <attribute sfwValue="role_category_type" sfwKeyNo="0" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="RoleCategoryType" sfwCaption="Role Category Type" sfwCodeID="20001012" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

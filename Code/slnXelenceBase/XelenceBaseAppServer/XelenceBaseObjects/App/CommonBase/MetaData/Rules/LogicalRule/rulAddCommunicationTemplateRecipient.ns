@@ -1,0 +1,53 @@
+/// <summary>
+/// rulAddCommunicationTemplateRecipient
+/// </summary>
+[Entity=entCorTemplates]
+public rulAddCommunicationTemplateRecipient()
+{
+	rule()
+	{
+		if(IstrRecipientContactType == "")
+		{
+		}
+		if(iintRecipientRoleId == 0 || IstrRecipientContactType == "")
+		{
+		}
+		if(iintRecipientRoleId > 0 && IstrRecipientContactType == "")
+		{
+			int lintCount = entCorTemplates.GetCountOfRecipientsByRole(iintRecipientRoleId, TemplateId);
+			if(lintCount > 0)
+			{
+			}
+		}
+		if(iintRecipientRoleId == 0 && IstrRecipientContactType != null)
+		{
+			int lintCount = entCorTemplates.GetCountOfRecipientsByContactType(IstrRecipientContactType, TemplateId);
+			if(lintCount > 0)
+			{
+			}
+		}
+		if(iintRecipientRoleId == 0 && IstrRecipientContactType == "")
+		{
+			int lintCount = entCorTemplates.GetCountOfRecipientsByRoleAndContactType(iintRecipientRoleId, IstrRecipientContactType, TemplateId);
+			if(lintCount > 0)
+			{
+			}
+		}
+
+		//Variable Declaration
+		entSolCorTemplateRecipient lobjSolCorTemplateRecipient = new ();
+		lobjSolCorTemplateRecipient.TemplateId = TemplateId;
+		if(iintRecipientRoleId > 0)
+		{
+			lobjSolCorTemplateRecipient.RoleId = iintRecipientRoleId;
+		}
+		if(IstrRecipientContactType != null)
+		{
+			lobjSolCorTemplateRecipient.ContactType = IstrRecipientContactType;
+		}
+		lobjSolCorTemplateRecipient.Insert();
+		lobjSolCorTemplateRecipient.objRoles = new ();
+		lobjSolCorTemplateRecipient.objRoles.RoleId = iintRecipientRoleId;
+		lobjSolCorTemplateRecipient.objRoles.Select(iintRecipientRoleId);
+	}
+}

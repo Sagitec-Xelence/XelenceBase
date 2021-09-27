@@ -1,0 +1,16 @@
+<entity ID="entSessionData_Main" sfwView="False" sfwActive="True" sfwType="EntityRule" sfwStatus="Review" CreateWithClass="False" sfwParentEntity="entSessionData">
+  <attributes />
+  <queries />
+  <rules />
+  <initialload />
+  <harderror />
+  <softerror />
+  <validatedelete />
+  <checklist />
+  <methods />
+  <lifecycle />
+  <constraint />
+  <delete />
+  <ExtraFields />
+</entity>
+

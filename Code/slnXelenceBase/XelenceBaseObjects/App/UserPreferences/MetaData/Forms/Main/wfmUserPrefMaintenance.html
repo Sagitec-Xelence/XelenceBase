@@ -1,0 +1,114 @@
+<div ID="wfmUserPrefMaintenance" sfwFormObjectType="FormObject" sfwFormObject="busUserPreferences" sfwType="Maintenance" sfwTitle="User Pref Maintenance" sfwActive="True" sfwStatus="Review" sfwEntity="entUserPreferences" data-sfwControlType="form">
+  <sfwServerDetails>
+    <initialload>
+      <callmethods sfwMode="New" sfwMethodName="FindUserPref" />
+      <callmethods sfwMode="Update" sfwMethodName="FindUserPref" />
+      <query />
+    </initialload>
+    <validatenew></validatenew>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="txtUserPrefName" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtUserPrefApplicationName" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwEmptyPanel" ID="pnltoolbar" class="neo-button-holder">
+      <div ID="toolbar" CellPadding="3" data-sfwControlType="sfwTable">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+            <button type="button" sfwNavigationParameter="aintPrimaryKey=UserPreferencesId" data-sfwControlType="sfwActionSave" value="Save" ID="btnSave">Save</button>
+            <button type="button" data-sfwControlType="sfwActionReset" value="Refresh" ID="btnCancel">Refresh</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul data-sfwControlType="sfwPanel" ID="pnlMain" sfwGroupCaption="UserPreferences Details">
+      <li>
+        <span ID="spnSpan">User Preferences</span>
+        <div ID="dvDiv">
+          <div ID="tblMain" data-sfwControlType="sfwTable" class="Table user-preference-table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="text" sfwEntityField="UserName" sfwRequired="True" data-sfwControlType="sfwTextBox" ID="txtUserPrefName" sfwShowCaption="True" sfwCaption="User Name :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="text" sfwEntityField="ApplicationName" sfwRequired="True" data-sfwControlType="sfwTextBox" ID="txtUserPrefApplicationName" sfwShowCaption="True" sfwCaption="Portal (Application) :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label sfwEntityField="UserPreferencesId" data-sfwControlType="sfwLabel" class="hideControl" ID="lblUserPreferencesId"></label>
+                <input type="text" sfwEntityField="InitialPage" data-sfwControlType="sfwTextBox" ID="txtddlInitialPageSiteMap" sfwShowCaption="True" sfwCaption="InitialPage :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="text" sfwEntityField="UserTheme" data-sfwControlType="sfwTextBox" ID="txtddlUserPrefCssTheme" sfwShowCaption="True" sfwCaption="User Theme" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="UseTagList" class="round" data-sfwControlType="sfwSwitch" ID="chkUseTagList" sfwShowCaption="True" sfwCaption="Use Tag List :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="UseGridCommonFilterbox" class="round" data-sfwControlType="sfwSwitch" ID="chkUseGridCommonFilterbox" sfwShowCaption="True" sfwCaption="Use Grid Common Filterbox :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="UseGridToolbar" class="round" data-sfwControlType="sfwSwitch" ID="chkUseGridToolbar" sfwShowCaption="True" sfwCaption="Use Grid Toolbar :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="UseGridSettings" class="round" data-sfwControlType="sfwSwitch" ID="chkUseGridSettings" sfwShowCaption="True" sfwCaption="Use Grid Settings :" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="UseStoreStateButtons" class="round" data-sfwControlType="sfwSwitch" ID="chkUseStoreStateButtons" sfwShowCaption="True" sfwCaption="Use Store State Buttons :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="text" sfwRenderType="sfwSlider" ID="sldPageSize" name="sldPageSize" sfwDataFormat="{0:999}" sfwDataType="Numeric" sfwMaxValue="100" sfwMinValue="0" sfwStepValue="5" sfwEntityField="PageSize" data-sfwControlType="sfwSlider" sfwShowCaption="True" sfwCaption="Page Size :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="UseViewEditForOpenButton" class="round" data-sfwControlType="sfwSwitch" ID="chkUseViewEditForOpenButton" sfwShowCaption="True" sfwCaption="Use View/Edit For Open :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="OnHoverToolTipForm" class="round" data-sfwControlType="sfwSwitch" ID="chkObHoverToolTipForm" sfwShowCaption="True" sfwCaption="On Hover ToolTip Form :" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="FilterButton" class="round" data-sfwControlType="sfwSwitch" ID="chkCheckBox" sfwShowCaption="True" sfwCaption="Grid Filter Button :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" sfwEntityField="AuditInformationOnTop" class="round" data-sfwControlType="sfwSwitch" ID="chkAuditInformationOnTop" sfwShowCaption="True" sfwCaption="Audit Information On Top :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset data-sfwControlType="sfwGroupPanel" ID="pnlAuditInfo">
+      <legend>Audit Information</legend>
+      <div ID="tblAuditInfo" data-sfwControlType="sfwTable" class="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="CreatedBy" data-sfwControlType="sfwLabel" ID="lblCreatedBy" sfwShowCaption="True" sfwCaption="Create :"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="CreatedDate" data-sfwControlType="sfwLabel" ID="lblCreatedDate"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="ModifiedBy" data-sfwControlType="sfwLabel" ID="lblModifiedBy" sfwShowCaption="True" sfwCaption="Modify :"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="ModifiedDate" data-sfwControlType="sfwLabel" ID="lblModifiedDate"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

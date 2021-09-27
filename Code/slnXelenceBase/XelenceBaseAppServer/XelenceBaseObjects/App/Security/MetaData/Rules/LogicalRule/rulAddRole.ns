@@ -1,0 +1,31 @@
+/// <summary>
+/// rulAddRole
+/// </summary>
+[Entity=entUser]
+public rulAddRole()
+{
+	rule()
+	{
+		//Variable Declaration
+		entUserRoles lobjUserRoles = new ();
+		var lvarUserRoleCount = entUserRoles.CountRoleByUser(UserSerialId, lintUserRoleId);
+		if(lintUserRoleId.Equals(0))
+		{
+		}
+		else if(lvarUserRoleCount == 0)
+		{
+			//Variable Declaration
+			lobjUserRoles.RoleId = lintUserRoleId;
+			lobjUserRoles.UserSerialId = UserSerialId;
+			lobjUserRoles.EffectiveStartDate = GlobalContext.ApplicationDateTime;
+			lobjUserRoles.CreatedBy = "ashish.saklani";
+			lobjUserRoles.ModifiedBy = "ashish.saklani";
+			lobjUserRoles.CreatedDate = GlobalContext.ApplicationDateTime;
+			lobjUserRoles.ModifiedDate = GlobalContext.ApplicationDateTime;
+			lobjUserRoles.Insert();
+		}
+		else
+		{
+		}
+	}
+}

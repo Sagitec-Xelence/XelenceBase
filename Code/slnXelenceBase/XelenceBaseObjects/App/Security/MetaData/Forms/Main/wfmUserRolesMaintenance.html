@@ -1,0 +1,51 @@
+<div sfwEntity="entUserRoles" ID="wfmUserRolesMaintenance" sfwType="Maintenance" sfwTitle="User Roles Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmUserRolesLookup">
+  <sfwServerDetails />
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span>User Roles Details</span>
+        <div>
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtRoleId" sfwEntityField="RoleId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtUserSerialId" sfwEntityField="UserSerialId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtEffectiveStartDate" sfwEntityField="EffectiveStartDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtEffectiveEndDate" sfwEntityField="EffectiveEndDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwEntityField="CreatedBy" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwEntityField="CreatedDate" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedBy" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedDate" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

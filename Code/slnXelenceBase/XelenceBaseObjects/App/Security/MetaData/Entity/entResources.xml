@@ -1,0 +1,59 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_resources" ID="entResources">
+  <attributes>
+    <column>
+      <attribute sfwValue="resource_id" sfwKeyNo="1" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="ResourceId" sfwCaption="Resource ID" />
+      <attribute sfwValue="resource_type" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="ResourceType" sfwCaption="Resource Type" sfwCodeID="20001010" />
+      <attribute sfwValue="resource_description" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="2000" sfwIsNull="True" sfwDBDataType="varchar" ID="ResourceDescription" sfwCaption="Resource Desc" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection>
+      <attribute ID="lstSecurity" sfwEntity="entSecurity" sfwAccessModifier="public" />
+      <attribute ID="lstUser" sfwEntity="entUser" sfwAccessModifier="public" />
+    </collection>
+    <property>
+      <attribute sfwAccessModifier="public" ID="liintRoleId" sfwDataType="int" sfwCaption="Role ID" />
+    </property>
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="GetAllResources" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9;    *&#xA;FROM&#xA;&#x9;    SGS_RESOURCES WITH(NOLOCK)      &#xA;ORDER BY CREATED_DATE DESC">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT SGS_RESOURCES.RESOURCE_ID, RESOURCE_DESCRIPTION &#xA;FROM SGS_RESOURCES WITH(NOLOCK) &#xA;WHERE RESOURCE_ID NOT IN(SELECT RESOURCE_ID FROM SGS_SECURITY WITH(NOLOCK) WHERE SGS_SECURITY.SECURITY_VALUE &lt;&gt; 0 &#xA;AND ROLE_ID = @ROLE_ID) ORDER BY RESOURCE_DESCRIPTION" ID="UnassignedResourcesByRoles">
+        <parameters>
+          <parameter ID="@ROLE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="ScalarQuery" sfwSql="select count(*)&#xA;  from sgs_resources WITH(NOLOCK)&#xA; where resource_id = @resource_id" ID="ResourceIDCount">
+        <parameters>
+          <parameter ID="@resource_id" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete>
+    <property ID="lstSecurity" sfwForeignKey="ResourceId" />
+  </delete>
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

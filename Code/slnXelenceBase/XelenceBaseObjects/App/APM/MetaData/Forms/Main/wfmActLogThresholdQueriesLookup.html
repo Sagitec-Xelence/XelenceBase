@@ -1,0 +1,132 @@
+<div sfwEntity="entActLogInstActnDtl" ID="wfmActLogThresholdQueriesLookup" sfwType="Lookup" sfwTitle="Act Log Threshold Queries Lookup" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmActLogThresholdQueriesLookup">
+  <sfwServerDetails>
+    <loaddetails />
+    <initialload>
+      <query QueryType="SelectQuery" sfwQueryRef="entActLogInstActnDtl.GetThresholdQueries" ID="entActLogInstActnDtl" />
+    </initialload>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+      <li>
+        <span ID="spnSpan">Criteria</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblCriteria">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtActLogInstID" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Instance ID" sfwDataField="actn.act_log_inst_id" sfwQueryID="entActLogInstActnDtl" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtActLogInstActnID" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Action ID" sfwDataField="dtl.act_log_inst_actn_id" sfwQueryID="entActLogInstActnDtl" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtDtlID" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Action Detail ID" sfwDataField="dtl.inst_actn_dtl_id" sfwQueryID="entActLogInstActnDtl" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlStatus" data-sfwControlType="sfwMultiSelectDropDownList" multiple="multiple" sfwShowCaption="True" sfwQueryID="entActLogInstActnDtl" sfwDataField="dtl.status_value" sfwOperator="in" sfwLoadType="CodeGroup" sfwLoadSource="41" DataTextField="Description" DataValueField="CodeValue" sfwCaption="Query Status"></select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTimeInMs" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Time In Ms (&gt;=)" sfwDataField="dtl.time_in_ms" sfwQueryID="entActLogInstActnDtl" sfwOperator="&gt;=" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtDtlName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Query ID" sfwDataField="dtl.dtl_name" sfwQueryID="entActLogInstActnDtl" sfwOperator="like" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <input ID="txtQuery" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwQueryID="entActLogInstActnDtl" sfwDataField="query.query" sfwCaption="Query" sfwOperator="=" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtStartTimeFrom" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwQueryID="entActLogInstActnDtl" sfwDataField="dtl.start_time" sfwOperator="between" sfwCaption="Start Time From" sfwRelatedControl="txtStartTimeTo" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtStartTimeTo" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwQueryID="entActLogInstActnDtl" sfwDataField="dtl.start_time" sfwCaption="Start Time To" sfwOperator="between" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlResult" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan1">Search Results</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblResult" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" sfwActiveForm="wfmActLogThresholdQueriesMaintenance" sfwNavigationParameter="aintPrimaryKey=InstActnDtlId" />
+                <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="InstActnDtlId">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">Instance Id</th>
+                        <th data-sfwControlType="TemplateField">Action ID</th>
+                        <th data-sfwControlType="TemplateField">Detail ID</th>
+                        <th data-sfwControlType="TemplateField">Query ID</th>
+                        <th data-sfwControlType="TemplateField">Query</th>
+                        <th data-sfwControlType="TemplateField">Start Time</th>
+                        <th data-sfwControlType="TemplateField">End Time</th>
+                        <th data-sfwControlType="TemplateField">Time (Ms)</th>
+                        <th data-sfwControlType="TemplateField">Result</th>
+                        <th data-sfwControlType="TemplateField">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblActLogInstId1" data-sfwControlType="sfwLabel" sfwEntityField="objActLogInstActn.ActLogInstId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblActLogInstActnId" data-sfwControlType="sfwLabel" sfwEntityField="ActLogInstActnId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <a ID="lnkInstActnDtlId" data-sfwControlType="sfwLinkableAction" sfwEntityField="InstActnDtlId" sfwRelatedControl="actOpen"></a>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblDtlName" data-sfwControlType="sfwLabel" sfwEntityField="DtlName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblQuery1" data-sfwControlType="sfwLabel" sfwEntityField="objUniqueQuery.Query" sfwDisplayLength="100"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwDataFormat="{0:G}"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwDataFormat="{0:G}"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblTimeInMs1" data-sfwControlType="sfwLabel" sfwEntityField="TimeInMs"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblResult" data-sfwControlType="sfwLabel" sfwEntityField="Result" sfwShowZero="True"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblStatus" data-sfwControlType="sfwLabel" sfwEntityField="Status"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

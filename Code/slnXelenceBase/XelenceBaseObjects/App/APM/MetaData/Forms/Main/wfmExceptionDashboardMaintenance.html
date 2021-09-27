@@ -1,0 +1,205 @@
+<div ID="wfmExceptionDashboardMaintenance" sfwType="Maintenance" sfwTitle="Exception Dashboard Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entAppMonitoring">
+  <sfwServerDetails>
+    <loaddetails />
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel" sfwSkinID="Default">
+      <li>
+        <span ID="spnSpan">Filters</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastMinutes" sfwEntityField="LastMinutes" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="true" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Hours</option>
+                  <option value="15">Last 15 minutes</option>
+                  <option value="30">Last 30 minutes</option>
+                  <option value="45">Last 45 minutes</option>
+                  <option value="60">Last one hours</option>
+                  <option value="120">Last two hours</option>
+                  <option value="240">Last four hours</option>
+                  <option value="480">Last eight hours</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastDays" sfwEntityField="LastDays" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="true" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Days</option>
+                  <option value="1">Current Day</option>
+                  <option value="2">Last two days</option>
+                  <option value="4">Last four days</option>
+                  <option value="5">Last five days</option>
+                  <option value="10">Last ten days</option>
+                  <option value="20">Last twenty days</option>
+                  <option value="30">Last thirty days</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtFromDate" sfwEntityField="FromDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&gt;=" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtToDate" sfwEntityField="ToDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&lt;=" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons">
+                <input ID="actApmLoadDashboard" data-sfwControlType="sfwActionExecute" type="button" value="Load Dashboard" sfwMethod="rulSetDates" sfwRefreshType="Object" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Exception Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <ul ID="pnlExceptionCountbyServer" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                  <li>
+                    <span ID="spnSpan1">Exception Count by Server</span>
+                    <div ID="dvDiv1">
+                      <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="display: flex;justify-content: center;">
+                            <div ID="chrChart" data-sfwControlType="sfwChart" Width="500" Height="500" ChartType="Pie" sfwLoadSource="entExceptionLog.GetExceptionLog" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" ChartName="Exception Counts by Server" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" ChartMargin="{&quot;t&quot;:60,&quot;l&quot;:60,&quot;r&quot;:60,&quot;b&quot;:70}">
+                              <div data-sfwControlType="Series">
+                                <div data-sfwControlType="sfwSeries" Name="ExceptionByServer" ChartType="Pie" XValueMember="machine_name" YValueMembers="count" IsValueShownAsLabel="True" sfwActiveForm="wfmExceptionLogLookup" sfwNavigationParameter="txtMachineName=machine_name;txt_start_time_From=txtFromDate;txt_start_time_To=txtToDate"></div>
+                              </div>
+                              <LoadParameters>
+                                <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                              </LoadParameters>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="8">
+                <ul ID="pnlExceptionTrendbyTimestamp" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                  <li>
+                    <span ID="spnSpan2">Exception Trend by Timestamp</span>
+                    <div ID="dvDiv2">
+                      <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="justify-content: center;display: flex;display: flex;">
+                            <div ID="chrChart1" data-sfwControlType="sfwChart" Width="1000" Height="500" ChartType="Line" sfwLoadSource="entExceptionLog.GetExceptionCountByTime" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwShowXAxisRangeSlider="True" sfwXAxisType="date" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" ChartName="Exception Trend" ChartMargin="{&quot;t&quot;:60,&quot;l&quot;:60,&quot;r&quot;:60,&quot;b&quot;:70}" XAxisTitle="Time" YAxisTitle="Count">
+                              <div data-sfwControlType="Series">
+                                <div data-sfwControlType="sfwSeries" Name="Series1" ChartType="Line" XValueMember="exception_timestamp" YValueMembers="exception_count" IsValueShownAsLabel="True" sfwActiveForm="wfmExceptionLogLookup" sfwNavigationParameter="txt_start_time_From=exception_timestamp;txt_start_time_To=exception_timestamp"></div>
+                              </div>
+                              <LoadParameters>
+                                <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                              </LoadParameters>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <ul ID="pnlExceptionCountByPortal" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                  <li>
+                    <span ID="spnSpan3">Exception Count By Portal</span>
+                    <div ID="dvDiv3">
+                      <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                            <div ID="grvGetExceptionLogCo" data-sfwControlType="sfwGridView" sfwLoadSource="entExceptionLog.GetExceptionLogCountForApp" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th data-sfwControlType="TemplateField" style="text-align:center;">Application Name</th>
+                                    <th data-sfwControlType="TemplateField" style="text-align:center;">Count</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <label ID="lblApplicationName" data-sfwControlType="sfwLabel" sfwEntityField="application_name"></label>
+                                    </td>
+                                    <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                      <label ID="lblCount" data-sfwControlType="sfwLabel" sfwEntityField="count" sfwShowZero="True"></label>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <LoadParameters>
+                                <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                              </LoadParameters>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="8">
+                <ul ID="pnlExceptionsOccurred" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                  <li>
+                    <span ID="spnSpan4">Exceptions Occurred</span>
+                    <div ID="dvDiv4">
+                      <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                            <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwActiveForm="wfmExceptionLogLookup" sfwNavigationParameter="txt_start_time_From=start_time;txt_start_time_To=end_time;txtExceptionMessage=exception_message" Visible="False" sfwRelatedControl="grvGetAllExceptionLo" />
+                          </div>
+                        </div>
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                            <div ID="grvGetAllExceptionLo" data-sfwControlType="sfwGridView" sfwLoadSource="entExceptionLog.GetExceptionCounts" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th data-sfwControlType="TemplateField" style="text-align:center;">Exception Message</th>
+                                    <th data-sfwControlType="TemplateField" style="text-align:center;">Count</th>
+                                    <th data-sfwControlType="TemplateField" Visible="False">Start Time</th>
+                                    <th data-sfwControlType="TemplateField" Visible="False">End Time</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <a ID="lblExceptionMessage" data-sfwControlType="sfwLinkableAction" sfwEntityField="exception_message" sfwRelatedControl="actOpen"></a>
+                                    </td>
+                                    <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                      <label ID="lblCount1" data-sfwControlType="sfwLabel" sfwEntityField="count"></label>
+                                    </td>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="start_time" sfwDataFormat="{0:G}"></label>
+                                    </td>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="end_time" sfwDataFormat="{0:G}"></label>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <LoadParameters>
+                                <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                              </LoadParameters>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

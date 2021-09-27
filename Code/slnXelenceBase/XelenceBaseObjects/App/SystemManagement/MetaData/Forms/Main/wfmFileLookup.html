@@ -1,0 +1,117 @@
+<div sfwEntity="entFile" ID="wfmFileLookup" sfwType="Lookup" sfwTitle="File Lookup" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmFileLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+      <div data-sfwControlType="sfwRow">
+        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+          <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+            <li>
+              <span ID="spnSpan">Criteria</span>
+              <div ID="dvDiv">
+                <div data-sfwControlType="sfwTable" ID="tblCriteria">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtFileId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="File" sfwDataField="file_id" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <span ID="idInboundOutboundFlag" RepeatDirection="Horizontal" sfwDataField="inbound_outbound_flag" sfwQueryID="cdoFile" sfwCaption="File Direction" sfwShowCaption="True" sfwCaptionClass="LeftAlignedLabel" data-sfwControlType="sfwRadioButtonList">
+                        <label ID="lblLabel">
+                          <input type="radio" checked="true" />All
+
+
+                          <span class="neo-checkbox-Indicator" ID="spnSpan2"></span></label>
+                        <span class="CheckBoxListGap" ID="spnSpan3"></span>
+                        <label ID="lblLabel1">
+                          <input type="radio" value="I" />Inbound
+
+
+                          <span class="neo-checkbox-Indicator" ID="spnSpan4"></span></label>
+                        <span class="CheckBoxListGap" ID="spnSpan5"></span>
+                        <label ID="lblLabel2">
+                          <input type="radio" value="O" />Outbound
+
+
+                          <span class="neo-checkbox-Indicator" ID="spnSpan6"></span></label>
+                        <span class="CheckBoxListGap" ID="spnSpan7"></span>
+                      </span>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                      <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+                      <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+          <ul ID="pnlPanel" data-sfwControlType="sfwPanel">
+            <li>
+              <span ID="spnSpan1">Result</span>
+              <div ID="dvDiv1">
+                <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                      <input ID="actNew" data-sfwControlType="sfwActionNew" type="button" value="New" />
+                      <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+                      <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                      <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="FileId">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th data-sfwControlType="TemplateField">File</th>
+                              <th data-sfwControlType="TemplateField" sfwShowInExportToExcel="True">File Status</th>
+                              <th data-sfwControlType="TemplateField">Description</th>
+                              <th data-sfwControlType="TemplateField">Email Notification</th>
+                              <th data-sfwControlType="TemplateField">Transaction Code Pos</th>
+                              <th data-sfwControlType="TemplateField">Transaction Code</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td data-sfwControlType="ItemTemplate">
+                                <a ID="lnkFileId" data-sfwControlType="sfwLinkableAction" sfwEntityField="FileId" sfwRelatedControl="actOpen"></a>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblFileStatus" data-sfwControlType="sfwLabel" sfwEntityField="FileStatus"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblDescription" data-sfwControlType="sfwLabel" sfwEntityField="Description"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblEmailNotification" data-sfwControlType="sfwLabel" sfwEntityField="EmailNotification"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblTransactionCodePos" data-sfwControlType="sfwLabel" sfwEntityField="TransactionCodePos"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblTransactionCodeValue" data-sfwControlType="sfwLabel" sfwEntityField="TransactionCodeValue"></label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

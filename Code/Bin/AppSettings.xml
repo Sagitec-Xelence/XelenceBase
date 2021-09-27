@@ -1,0 +1,11 @@
+<root>
+  <connections>
+    <connection ID="settings" QueryType="SqlServerClient">
+      <dbstring value="Server=192.10.215.161;uid=DEVUSER;pwd=Sagitec11;Database=XelenceBaseApp;" />
+      <dbfactory value="System.Data.SqlClient" />
+      <dbnextquery value="select next value for sequence_name from sgs_system_management" />
+      <dbprevquery value="select previous value for sequence_name from sgs_system_management" />
+      <dbkeyquery value="select ident_current('name_of_the_table')" />
+    </connection>
+  </connections>
+</root>

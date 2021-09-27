@@ -1,0 +1,147 @@
+<div sfwEntity="entActLogInst" ID="wfmActLogInstLookup" sfwType="Lookup" sfwTitle="Trace Enquiry" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmActLogInstLookup">
+  <sfwServerDetails>
+    <loaddetails />
+    <initialload>
+      <query QueryType="SelectQuery" sfwQueryRef="entActLogInst.Lookup" ID="entActLogInst" />
+    </initialload>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+      <li>
+        <span ID="spnSpan">Criteria</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblCriteria">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="txtActLogInstId" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Portal Name" sfwLoadType="Query" sfwLoadSource="entActLogApp.GetPortalNames" DataTextField="app_name" DataValueField="act_log_app_id" sfwAddEmptyItem="True" sfwFirstItemText="Select App Name" sfwDataField="INST.ACT_LOG_APP_ID"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtActorName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Actor Name" sfwDataField="actor_name" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtIpAddress" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Ip Address" sfwDataField="ip_address" sfwQueryID="entActLogInst" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtBrowserName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Browser Name" sfwDataField="browser_name" sfwQueryID="entActLogInst" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtOldSessionID" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Old Session ID" sfwDataField="act_log_initial_uid" sfwQueryID="entActLogInst" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtSessionID" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Session ID" sfwDataField="act_log_uid" sfwQueryID="entActLogInst" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Os Name" sfwDataField="os_name" sfwQueryID="entActLogInst" ID="txtOsName" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkInvalidLoginFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Invalid Login Flag" sfwDataField="invalid_login_flag" sfwQueryID="entActLogInst" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtStartTimeFrom" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwDataField="start_time" sfwOperator="between" sfwCaption="Start Time From" sfwRelatedControl="txtEndTime" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtStarTimeTo" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwQueryID="entActLogInst" sfwDataField="start_time" sfwOperator="between" sfwDefaultType="TodaysDateTime" sfwCaption="Start Time To" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+                <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlPanel" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan1">Result</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="ActLogInstId">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">ID</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">App Name</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Actor Name</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Ip Address</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Old Session ID</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Session ID</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Invalid Login Flag</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Action Count</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Browser Name</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Os Name</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Mac Address</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">Start Time</th>
+                        <th data-sfwControlType="TemplateField" style="text-align:center;">End Time</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <a ID="lnkActLogInstId" data-sfwControlType="sfwLinkableAction" sfwEntityField="ActLogInstId" sfwRelatedControl="actOpen"></a>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblAppName" data-sfwControlType="sfwLabel" sfwEntityField="objActLogApp.AppName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblActorName" data-sfwControlType="sfwLabel" sfwEntityField="ActorName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblIpAddress" data-sfwControlType="sfwLabel" sfwEntityField="IpAddress"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblActLogInitialUid" data-sfwControlType="sfwLabel" sfwEntityField="ActLogInitialUid"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblActLogUid" data-sfwControlType="sfwLabel" sfwEntityField="ActLogUid"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                          <label ID="lblInvalidLoginFlag" data-sfwControlType="sfwLabel" sfwEntityField="InvalidLoginFlag"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                          <label ID="lblActionCount" data-sfwControlType="sfwLabel" sfwEntityField="ActionCount" sfwShowZero="True"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblBrowserName" data-sfwControlType="sfwLabel" sfwEntityField="BrowserName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblOsName" data-sfwControlType="sfwLabel" sfwEntityField="OsName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblMacAddress" data-sfwControlType="sfwLabel" sfwEntityField="MacAddress"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwDataFormat="{0:G}"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwDataFormat="{0:G}"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

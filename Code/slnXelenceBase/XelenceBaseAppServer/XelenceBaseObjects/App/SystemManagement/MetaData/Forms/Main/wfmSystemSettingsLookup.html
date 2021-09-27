@@ -1,0 +1,103 @@
+<div sfwEntity="entSystemSettings" ID="wfmSystemSettingsLookup" sfwType="Lookup" sfwTitle="System Settings" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmSystemSettingsLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+      <div data-sfwControlType="sfwRow">
+        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+          <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+            <li>
+              <span ID="spnSpan">Criteria</span>
+              <div ID="dvDiv">
+                <div data-sfwControlType="sfwTable" ID="tblCriteria">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtSystemSettingId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="ID" sfwDataField="system_setting_id" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtSettingName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Setting Name" sfwDataField="setting_name" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtSettingType" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Setting Type" sfwDataField="setting_type" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12"></div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtEncryptedFlag" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Encrypted Flag" sfwDataField="encrypted_flag" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                      <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+                      <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+          <ul ID="pnlPanel" data-sfwControlType="sfwPanel">
+            <li>
+              <span ID="spnSpan1">Result</span>
+              <div ID="dvDiv1">
+                <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                      <input ID="actNew" data-sfwControlType="sfwActionNew" type="button" value="New" />
+                      <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+                      <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                      <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="SystemSettingId">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th data-sfwControlType="TemplateField">ID</th>
+                              <th data-sfwControlType="TemplateField">Setting Name</th>
+                              <th data-sfwControlType="TemplateField">Setting Type</th>
+                              <th data-sfwControlType="TemplateField">Encrypted Flag</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td data-sfwControlType="ItemTemplate">
+                                <a ID="lnkSystemSettingId" data-sfwControlType="sfwLinkableAction" sfwRelatedControl="actOpen" sfwEntityField="SystemSettingId"></a>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblSettingName" data-sfwControlType="sfwLabel" sfwEntityField="SettingName"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblSettingType" data-sfwControlType="sfwLabel" sfwEntityField="SettingType"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblEncryptedFlag" data-sfwControlType="sfwLabel" sfwEntityField="EncryptedFlag"></label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

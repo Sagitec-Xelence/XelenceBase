@@ -1,0 +1,82 @@
+<div ID="wfmActLogThresholdQueriesMaintenance" sfwType="Maintenance" sfwTitle="Act Log Threshold Queries Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entActLogInstActnDtl">
+  <sfwServerDetails>
+    <loaddetails>
+      <entityfield ID="objActLogInstActn" sfwNewAutoLoad="True" sfwUpdateAutoLoad="True" />
+    </loaddetails>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">New Page</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblInstanceId" data-sfwControlType="sfwLabel" sfwEntityField="objActLogInstActn.ActLogInstId" sfwShowCaption="True" sfwCaption="Instance Id" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblActionID" data-sfwControlType="sfwLabel" sfwEntityField="objActLogInstActn.ActLogInstActnId" sfwShowCaption="True" sfwCaption="Action ID"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblActionDetailID" data-sfwControlType="sfwLabel" sfwEntityField="InstActnDtlId" sfwShowCaption="True" sfwCaption="Action Detail ID"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblDetailId" data-sfwControlType="sfwLabel" sfwEntityField="DtlId" sfwShowCaption="True" sfwCaption="Detail Id" sfwReadOnly="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwShowCaption="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwShowCaption="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="TimeInMs" sfwShowCaption="True" sfwShowZero="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblStatus" data-sfwControlType="sfwLabel" sfwEntityField="Status" sfwShowCaption="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblDtlName" data-sfwControlType="sfwLabel" sfwEntityField="DtlName" sfwShowCaption="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9" style="overflow-wrap: break-word;">
+                <label ID="lblQuery" data-sfwControlType="sfwLabel" sfwEntityField="objUniqueQuery.Query" sfwShowCaption="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="overflow-wrap: break-word;">
+                <div ID="jdataParameterDetails" sfwEntityField="ParameterDetails" data-sfwControlType="sfwJSONData" sfwShowCaption="True" sfwAssociatedCaption="Parameter Details"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

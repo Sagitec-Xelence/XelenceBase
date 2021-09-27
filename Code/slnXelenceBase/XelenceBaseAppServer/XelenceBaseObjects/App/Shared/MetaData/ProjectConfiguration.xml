@@ -1,0 +1,16 @@
+<root>
+  <commonproperties></commonproperties>
+  <servermethods>
+    <methodgroup ID="srvCommon"></methodgroup>
+  </servermethods>
+  <correspondence></correspondence>
+  <globalparameters>
+    <globlarparameter ID="UserName" Description="User Name"></globlarparameter>
+    <globlarparameter ID="UserID" Description="User ID"></globlarparameter>
+    <globlarparameter ID="UserID" Description="User ID"></globlarparameter>
+    <globlarparameter ID="SystemRegion" Description="System Region"></globlarparameter>
+  </globalparameters>
+  <applicationportals>
+    <portal ID="Main" sfwPortalType="MVVM" sfwPortalName="Main" sfwCaptionSuffix=":" sfwPortalPath="C:\SagitecSource\Solutions\Dev\CloudTemplate\XelenceBase\Code\slnXelenceBase\Main" sfwGroupCaptionControl="True" sfwCaptionPosition="top" sfwLoginURL="http://localhost/Main/Account/Login" sfwAfterLoginURL="http://localhost/Main/" sfwMobileURL="http://localhost/Main/"></portal>
+  </applicationportals>
+</root>

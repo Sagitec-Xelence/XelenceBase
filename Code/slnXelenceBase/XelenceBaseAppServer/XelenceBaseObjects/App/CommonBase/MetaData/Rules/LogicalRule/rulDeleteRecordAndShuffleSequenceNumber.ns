@@ -1,0 +1,10 @@
+/// <summary>
+/// rulDeleteRecordAndShuffleSequenceNumber
+/// </summary>
+[Entity=entCorTemplates]
+public rulDeleteRecordAndShuffleSequenceNumber()
+{
+	rule()
+	{
+	}
+}

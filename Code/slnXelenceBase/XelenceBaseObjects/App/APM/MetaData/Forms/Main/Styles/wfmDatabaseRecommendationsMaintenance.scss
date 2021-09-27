@@ -1,0 +1,36 @@
+div[id ^= 'wfmDatabaseRecommendationsMaintenance']{
+.autogrowthEventIssue_week, .autogrowthEventIssue_perset, .autogrowthEventIssue_per, .tempdb {
+	label{
+		padding-left: 10px;
+		padding-right: 10px;
+		color: #fff !important;
+		background-color: #f1695f !important;
+		width: max-content;
+	}
+}
+.AutogrowthEventIssueYellow {
+	label{
+		padding-left: 10px;
+		background-color: #f5c02f !important;
+		background-size: 50% auto;
+	}
+}
+.rebuild_index {
+	label {
+		color: #fff !important;
+		background-color: #f1695f !important;
+		vertical-align: middle;
+		text-align: center;
+		font-weight: 600;
+	}
+}
+.reorganize_index {
+	label {
+		background-color: #f5c02f !important;
+		background-size: 50% auto;
+		vertical-align: middle;
+		text-align: center;
+		font-weight: 600;
+	}
+}
+}

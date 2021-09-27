@@ -1,0 +1,13 @@
+div[id ^= 'wfmDatabaseAnalysisMaintenance']{
+.Backup-outdated{
+	label {
+		background-color: #f1695f;
+		color: white;
+		text-align: center;
+		margin-left: 35%;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: max-content;
+	}
+}
+}

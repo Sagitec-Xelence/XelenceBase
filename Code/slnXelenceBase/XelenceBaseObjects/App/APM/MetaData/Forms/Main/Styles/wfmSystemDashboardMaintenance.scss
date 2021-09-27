@@ -1,0 +1,50 @@
+div[id ^= 'wfmSystemDashboardMaintenance']{
+.card-temp4-layout:before {
+	height: 0px !important;
+}
+.ThresholdContainer{
+	table thead th{
+		background-color:#325d88 !important;
+		color : white !important;
+	}
+	.table-striped>tbody>tr:nth-of-type(odd) {
+		--bs-table-accent-bg: white !important;
+	}
+}
+.Apm-Card{
+	--bs-gutter-x: 0rem !important;
+	background-color:#9781ff;
+	label,h6 {
+		text-align:center;
+		color:white !important;
+		white-space:nowrap;
+	}
+	span.spnEmptyDataContainer{
+		background-color:white!important;
+	}
+}
+.DashboardButtons {
+	display:flex;
+	flex-direction : column;
+	justify-content:flex-end;
+	button{
+		width : 60%;
+	}
+	align-items: center;
+}
+select.neo-pnlSelectFrequecy {
+	float: right;
+	width: max-content;
+	margin-left: auto;
+}
+[ServerName="true"] {
+	color: white;
+	border-bottom: 0.5px white solid;
+}
+.neo-listview-content-div{
+	margin: 0;
+}
+.ListViewItems{
+	padding:0;
+}
+}

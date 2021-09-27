@@ -1,0 +1,36 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_session_store" ID="entSessionStore">
+  <attributes>
+    <column>
+      <attribute sfwValue="session_store_serial_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="SessionStoreSerialId" sfwCaption="ID" />
+      <attribute sfwValue="session_user_key" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="nvarchar" sfwIsNull="True" sfwDBDataType="nvarchar" ID="SessionUserKey" sfwCaption="Session User Key" />
+      <attribute sfwValue="session_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="nvarchar" sfwIsNull="True" sfwDBDataType="nvarchar" ID="SessionId" sfwCaption="Session" />
+      <attribute sfwValue="form_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="nvarchar" sfwIsNull="True" sfwDBDataType="nvarchar" ID="FormId" sfwCaption="Form" />
+      <attribute sfwValue="primary_key" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="PrimaryKey" sfwCaption="Primary Key" />
+      <attribute sfwValue="bus_object" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="varbinary" sfwLength="MAX" sfwIsNull="True" sfwDBDataType="varbinary" ID="BusObject" sfwCaption="Bus Object" />
+      <attribute sfwValue="date_created" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="DateCreated" sfwCaption="Date Created" />
+      <attribute sfwValue="window_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="WindowName" sfwCaption="Window Name" />
+      <attribute sfwValue="rule_result" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="varbinary" sfwLength="MAX" sfwIsNull="True" sfwDBDataType="varbinary" ID="RuleResult" sfwCaption="Rule Result" />
+      <attribute sfwValue="activity_instance_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="ActivityInstanceId" sfwCaption="Activity Instance" />
+      <attribute sfwValue="grid_hash" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="varbinary" sfwLength="MAX" sfwIsNull="True" sfwDBDataType="varbinary" ID="GridHash" sfwCaption="Grid" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

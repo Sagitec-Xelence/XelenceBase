@@ -1,0 +1,213 @@
+<div sfwEntity="entActLog" ID="wfmActLogMaintenance" sfwType="Maintenance" sfwTitle="Tracing Setup" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmActLogLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+      <ul data-sfwControlType="Tabs">
+        <li ID="tshNewPage1_Header" data-sfwControlType="sfwTabSheet">
+          <a href="#tshNewPage1" ID="ancAnchor1">Online(Screens)</a>
+        </li>
+        <li ID="tshNewPage_Header" data-sfwControlType="sfwTabSheet">
+          <a href="#tshNewPage" ID="ancAnchor">Refresh</a>
+        </li>
+      </ul>
+      <div ID="tshNewPage1" data-sfwControlType="sfwTab">
+        <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input type="checkbox" ID="txtAppMonitoringFlag" sfwEntityField="AppMonitoringFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="App Monitoring Flag" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtTransactionLimit" sfwEntityField="TransactionLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Transaction Limit" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtTransactionLimitAlert" sfwEntityField="TransactionLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Transaction Limit Alert" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtTransactionHighLimit" sfwEntityField="TransactionHighLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Transaction High Limit" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtTransactionHighLimitAlert" sfwEntityField="TransactionHighLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Transaction High Limit Alert" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtAppserverLimit" sfwEntityField="AppserverLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="AppServer Limit" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtAppserverLimitAlert" sfwEntityField="AppserverLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="AppServer Limit Alert" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtAppserverHighLimit" sfwEntityField="AppserverHighLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Appserver High Limit" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtAppserverHighLimitAlert" sfwEntityField="AppserverHighLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Appserver High Limit Alert" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtQueryLimit" sfwEntityField="QueryLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Query Limit" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtQueryLimitAlert" sfwEntityField="QueryLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Query Limit Alert" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtQueryHighLimit" sfwEntityField="QueryHighLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Query High Limit" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtQueryHighLimitAlert" sfwEntityField="QueryHighLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Query High Limit Alert" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRuleLimit" sfwEntityField="RuleLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Rule Limit" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRuleLimitAlert" sfwEntityField="RuleLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Rule Limit Alert" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+        </div>
+      </div>
+      <div ID="tshNewPage" data-sfwControlType="sfwTab">
+        <div data-sfwControlType="sfwTable" ID="tblLayOut">
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtApplicationRefresh" sfwEntityField="ApplicationRefresh" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtClearDbPool" sfwEntityField="ClearDbPool" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRefreshDbCache" sfwEntityField="RefreshDbCache" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRefreshDbConnection" sfwEntityField="RefreshDbConnection" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRefreshSystemSettingsCache" sfwEntityField="RefreshSystemSettingsCache" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRefreshTraceSetting" sfwEntityField="RefreshTraceSetting" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRefreshWebCache" sfwEntityField="RefreshWebCache" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+              <input ID="txtRunGc" sfwEntityField="RunGc" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul ID="pnlPortalConfiguration" data-sfwControlType="sfwPanel" sfwCollapsible="False" Visible="False">
+      <li>
+        <span ID="spnSpan">Portal Configuration</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                <div ID="grvLstActLogApp" data-sfwControlType="sfwGridView" sfwLoadType="SolutionQuery" sfwLoadMode="Update" AllowPaging="True" sfwSelection="Many" AllowSorting="True" sfwLoadSource="entActLogApp.LookUp">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">ID</th>
+                        <th data-sfwControlType="TemplateField">App Name</th>
+                        <th data-sfwControlType="TemplateField">Action Flag</th>
+                        <th data-sfwControlType="TemplateField">Action Step Flag</th>
+                        <th data-sfwControlType="TemplateField">Query Flag</th>
+                        <th data-sfwControlType="TemplateField">Rule Flag</th>
+                        <th data-sfwControlType="TemplateField">Validation Rule Flag</th>
+                        <th data-sfwControlType="TemplateField">User</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <input ID="txtActLogAppId" sfwEntityField="act_log_app_id" data-sfwControlType="sfwNumber" type="text" />
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblAppName" data-sfwControlType="sfwLabel" sfwEntityField="app_name"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblActionFlag" data-sfwControlType="sfwLabel" sfwEntityField="action_flag"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblActionStepFlag" data-sfwControlType="sfwLabel" sfwEntityField="action_step_flag"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblQueryFlag" data-sfwControlType="sfwLabel" sfwEntityField="query_flag"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblRuleFlag" data-sfwControlType="sfwLabel" sfwEntityField="rule_flag"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblValidationRuleFlag" data-sfwControlType="sfwLabel" sfwEntityField="validation_rule_flag"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Configuration" sfwActiveForm="wfmActLogMaintenance" sfwNavigationParameter="aintPrimaryKey=ActLogAppId" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <LoadParameters></LoadParameters>
+                </div>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwEntityField="CreatedBy" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwEntityField="CreatedDate" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedBy" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedDate" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

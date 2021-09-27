@@ -1,0 +1,50 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwTableName="sgs_comm_tmpl_auto_enclr_xr" ID="entCommTmplAutoEnclrXr">
+  <attributes>
+    <column>
+      <attribute sfwValue="auto_enclosure_template_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="AutoEnclosureTemplateId" sfwCaption="ID" />
+      <attribute sfwValue="parent_template_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="ParentTemplateId" sfwCaption="Parent Template" />
+      <attribute sfwValue="comm_tmpl_auto_enclosure_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="CommTmplAutoEnclosureId" sfwCaption="Comm Tmpl Auto Enclosure" />
+      <attribute sfwValue="sequence_number" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="SequenceNumber" sfwCaption="Sequence Number" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+    <object>
+      <attribute sfwEntity="entCorTemplates" ID="objAutoEnclosureTemplate" sfwAccessModifier="public" />
+    </object>
+    <collection>
+      <attribute sfwEntity="entCorTemplates" ID="lstCorTemplates" sfwAccessModifier="public" />
+    </collection>
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="GetAutoEnclosureTemplate" sfwQueryType="ScalarQuery" sfwSql="SELECT&#xA;&#x9; COUNT(*) &#xA;FROM&#xA;&#x9; SGS_COMM_TMPL_AUTO_ENCLR_XR SAE WITH(NOLOCK),&#xA;&#x9;SGS_COR_TEMPLATES SCT WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; SAE.PARENT_TEMPLATE_ID = SCT.TEMPLATE_ID AND&#xA;&#x9; SCT.TEMPLATE_ID = @TEMPLATE_ID AND&#xA;&#x9; COMM_TMPL_AUTO_ENCLOSURE_ID = @COMM_TMPL_AUTO_ENCLOSURE_ID" sfwOracle="SELECT&#xA;&#x9; COUNT(*) &#xA;FROM&#xA;&#x9; SGS_COMM_TMPL_AUTO_ENCLR_XR SAE ,&#xA;&#x9;SGS_COR_TEMPLATES SCT &#xA;WHERE&#xA;&#x9; SAE.PARENT_TEMPLATE_ID = SCT.TEMPLATE_ID AND&#xA;&#x9; SCT.TEMPLATE_ID = @TEMPLATE_ID AND&#xA;&#x9; COMM_TMPL_AUTO_ENCLOSURE_ID = @COMM_TMPL_AUTO_ENCLOSURE_ID">
+        <parameters>
+          <parameter ID="@COMM_TMPL_AUTO_ENCLOSURE_ID" sfwDataType="int" />
+          <parameter ID="@TEMPLATE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

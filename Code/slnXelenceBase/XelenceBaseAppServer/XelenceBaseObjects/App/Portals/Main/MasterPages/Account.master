@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <title>XelenceBase Login</title>
+      <link bundlestyleid="FMAccountStyle" rel="stylesheet" type="text/css" />
+      <link bundlestyleid="AppSideAccountCss" rel="stylesheet" type="text/css" />
+	  <link bundlestyleid="FMThemeAccountStyle" rel="stylesheet" type="text/css" />
+   </head>
+   <body>
+      <div data-sfwControlType="sfwSiteLayout" >
+      <!-- Splitter properties are only for S3-->
+      <div ID="MainSplitter" data-sfwControlType="sfwMainSplitter"  sfwNorth="false" sfwEast="false" sfwCenter="true" sfwSouth="false" sfwLeftTab="false">
+         <div ID="MiddleSplitter" data-sfwControlType="sfwCenterMiddleSplitter" >
+            <div ID="CenterMiddle" data-sfwControlType="sfwMiddleSplitter" >
+               <div ID="CenterSplitter" data-sfwControlType="sfwCenterSplitter" class="p-0">
+                  <div ID="ContentSplitter" data-sfwControlType="sfwContentPlaceholder" >
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+	   <input type="hidden" style="display:none;" value="true" id="__XelenceBaseAppEmbedded__" />
+      <script bundlescriptid="FMLibScript" type="text/javascript"></script>
+      <script bundlescriptid="FMScript" type="text/javascript"></script>
+      <script bundlescriptid="AppSideLoginJS" type="text/javascript"></script>
+   </body>
+</html>

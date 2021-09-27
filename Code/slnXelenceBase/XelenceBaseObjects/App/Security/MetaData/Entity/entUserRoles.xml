@@ -1,0 +1,86 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_user_roles" ID="entUserRoles">
+  <attributes>
+    <column>
+      <attribute sfwValue="user_roles_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UserRolesId" sfwCaption="ID" />
+      <attribute sfwValue="user_serial_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UserSerialId" sfwCaption="User Serial" />
+      <attribute sfwValue="role_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="RoleId" sfwCaption="Role" />
+      <attribute sfwValue="effective_start_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="EffectiveStartDate" sfwCaption="Effective Start Date" />
+      <attribute sfwValue="effective_end_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="EffectiveEndDate" sfwCaption="Effective End Date" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+    <object>
+      <attribute ID="objRoles" sfwEntity="entRoles" />
+      <attribute sfwAccessModifier="public" ID="objUser" sfwEntity="entUser" />
+    </object>
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="ByUser" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; a.*,&#xA;&#x9;role_description &#xA;FROM&#xA;&#x9; sgs_user_roles a WITH(NOLOCK),&#xA;&#x9;sgs_roles b WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; user_serial_id = @user_serial_id AND&#xA;&#x9; a.role_id = b.role_id">
+        <parameters>
+          <parameter ID="@user_serial_id" sfwDataType="int" />
+        </parameters>
+        <mappedcolumns>
+          <column sfwEntityField="objRoles.RoleDescription" ID="role_description" />
+        </mappedcolumns>
+      </query>
+      <query sfwQueryType="ScalarQuery" sfwSql="SELECT&#xA;&#x9; count(*)&#xA;FROM&#xA;&#x9; sgs_user_roles WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; user_serial_id = @user_serial_id AND&#xA;&#x9; role_id = @role_id" ID="CountRoleByUser">
+        <parameters>
+          <parameter ID="@user_serial_id" sfwDataType="int" />
+          <parameter ID="@role_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="ScalarQuery" sfwSql="SELECT&#xA;&#x9; user_roles_id &#xA;FROM&#xA;&#x9; sgs_user_roles WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; user_serial_id = @user_serial_id AND&#xA;&#x9; role_id = @role_id" ID="LoadUserRoleIDByUser">
+        <parameters>
+          <parameter ID="@user_serial_id" sfwDataType="int" />
+          <parameter ID="@role_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="ByUserRole" sfwQueryType="ScalarQuery" sfwDataType="int" sfwSql="SELECT&#xA;&#x9; count(*) &#xA;FROM&#xA;&#x9; sgs_user_roles WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; user_serial_id = @user_serial_id AND&#xA;&#x9; role_id = @role_id">
+        <parameters>
+          <parameter ID="@user_serial_id" sfwDataType="int" />
+          <parameter ID="@role_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; SGS_USER_ROLES &#xA;WHERE&#xA;&#x9; USER_SERIAL_ID = @User_Serial_Id AND&#xA;&#x9; ROLE_ID = @Role_Id &#xA;ORDER BY  1 DESC" ID="GetUserRoles">
+        <parameters>
+          <parameter ID="@User_Serial_Id" sfwDataType="int" />
+          <parameter ID="@Role_Id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; A.*,&#xA;&#x9;B.*&#xA;FROM&#xA;&#x9; SGS_USER A WITH(NOLOCK),&#xA;&#x9;SGS_USER_ROLES B WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; A.USER_SERIAL_ID = B.USER_SERIAL_ID and&#xA;&#x9; B.ROLE_ID = @ROLE_ID" ID="ListOfUserByRoleID">
+        <parameters>
+          <parameter ID="@ROLE_ID" sfwDataType="int" />
+        </parameters>
+        <mappedcolumns>
+          <column sfwEntityField="objUser.UserId" ID="user_id" />
+          <column sfwEntityField="objUser.UserType" ID="user_type_value" />
+          <column sfwEntityField="objUser.UserStatus" ID="user_status_value" />
+        </mappedcolumns>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

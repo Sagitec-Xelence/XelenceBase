@@ -1,0 +1,31 @@
+/// <summary>
+/// rulAddEnclosureCommAndRefreshCollection
+/// </summary>
+[Entity=entCorTemplates]
+public int rulAddEnclosureCommAndRefreshCollection()
+{
+	rule()
+	{
+		if(IintAutoEnclsDetailCommunication == 0)
+		{
+		}
+		int lintAutoEnclosureTemplateExists = entCommTmplAutoEnclrXr.GetAutoEnclosureTemplate(IintAutoEnclsDetailCommunication, TemplateId);
+		if(lintAutoEnclosureTemplateExists > 0)
+		{
+		}
+
+		//Variable Declaration
+		entCommTmplAutoEnclrXr lobjCommTmplAutoEnclrXr = new ();
+		lobjCommTmplAutoEnclrXr.ParentTemplateId = TemplateId;
+		lobjCommTmplAutoEnclrXr.CommTmplAutoEnclosureId = IintAutoEnclsDetailCommunication;
+		if(lstCommTmplAutoEnclrXr != null)
+		{
+		}
+		else
+		{
+			lobjCommTmplAutoEnclrXr.SequenceNumber = 1;
+		}
+		lobjCommTmplAutoEnclrXr.Insert();
+		IintAutoEnclsDetailCommunication = 0;
+	}
+}

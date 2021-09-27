@@ -1,0 +1,54 @@
+/// <summary>
+/// rulRefreshDateValues
+/// </summary>
+[Entity=entActLog]
+public rulRefreshDateValues()
+{
+	rule()
+	{
+		//Variable Declaration
+		entActLog objactlog = new ();
+		objactlog.Select(1);
+		if(istrApplicationRefresh == "Y")
+		{
+			objactlog.ApplicationRefresh = GlobalContext.ApplicationDateTime;
+			istrApplicationRefresh = "N";
+		}
+		if(istrClearDbPool == "Y")
+		{
+			objactlog.ClearDbPool = GlobalContext.ApplicationDateTime;
+			istrClearDbPool = "N";
+		}
+		if(istrRefereshDbConnection == "Y")
+		{
+			objactlog.RefreshDbConnection = GlobalContext.ApplicationDateTime;
+			istrRefereshDbConnection = "N";
+		}
+		if(istrRefereshWebChache == "Y")
+		{
+			objactlog.RefreshWebCache = GlobalContext.ApplicationDateTime;
+			istrRefereshWebChache = "N";
+		}
+		if(istrRefreshDbCache == "Y")
+		{
+			objactlog.RefreshDbCache = GlobalContext.ApplicationDateTime;
+			istrRefreshDbCache = "N";
+		}
+		if(istrRefreshTraceSetting == "Y")
+		{
+			objactlog.RefreshTraceSetting = GlobalContext.ApplicationDateTime;
+			istrRefreshTraceSetting = "N";
+		}
+		if(istrRunGc == "Y")
+		{
+			objactlog.RunGc = GlobalContext.ApplicationDateTime;
+			istrRunGc = "N";
+		}
+		if(istrSystemSettingChache == "Y")
+		{
+			objactlog.RefreshSystemSettingsCache = GlobalContext.ApplicationDateTime;
+			istrSystemSettingChache = "N";
+		}
+		objactlog.Update();
+	}
+}

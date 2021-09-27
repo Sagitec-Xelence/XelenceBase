@@ -1,0 +1,149 @@
+<div sfwEntity="entFileHdr" ID="wfmFileHdrMaintenance" sfwType="Maintenance" sfwTitle="File Hdr Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmFileHdrLookup">
+  <sfwServerDetails>
+    <loaddetails />
+    <ExtraFields />
+    <conditions>
+      <formcondition />
+      <expressioncondition />
+    </conditions>
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">File Hdr Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlStatus" sfwEntityField="Status" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup" sfwLoadSource="20004003"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblID" data-sfwControlType="sfwLabel" sfwEntityField="FileHdrId" sfwShowCaption="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtMailboxFileName" sfwEntityField="MailboxFileName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul data-sfwControlType="sfwPanel" ID="pnlResult">
+      <li>
+        <span ID="spnSpan1">Status Summary</span>
+        <div ID="dvDiv1">
+          <div ID="Result" data-sfwControlType="sfwTable">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div data-sfwControlType="sfwTabContainer" ID="tctResult">
+                  <ul data-sfwControlType="Tabs">
+                    <li data-sfwControlType="sfwTabSheet" ID="tshResult_Header">
+                      <a href="#tshResult" ID="ancAnchor">Detail Status</a>
+                    </li>
+                    <li data-sfwControlType="sfwTabSheet" ID="tshNewPage_Header">
+                      <a href="#tshNewPage" ID="ancAnchor1">Errors</a>
+                    </li>
+                  </ul>
+                  <div data-sfwControlType="sfwTab" ID="tshResult">
+                    <div ID="tblResult" data-sfwControlType="sfwTable" class=" Table">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <button ID="btnOpenFileDtl" sfwActiveForm="wfmFileDtlLookup" sfwRelatedControl="dgrResult" Visible="False" data-sfwControlType="sfwActionOpen" value="OpenFileDtl" sfwNavigationParameter="status=Status;file_hdr_id=FileHdrId">OpenFileDtl</button>
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div AllowSorting="True" ID="dgrResult" sfwLoadType="Query" sfwLoadMode="All" data-sfwControlType="sfwGridView" sfwDefaultQuery="True" sfwLoadSource="entFileDtl">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Status</th>
+                                  <th data-sfwControlType="TemplateField">Status Count</th>
+                                  <th Visible="False" data-sfwControlType="TemplateField">Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <a sfwRelatedControl="btnOpenFileDtl" sfwEntityField="StatusDescription" data-sfwControlType="sfwLinkableAction" ID="lnkStatus"></a>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="StatusCount" data-sfwControlType="sfwLabel" ID="lblStatusCount"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="StatusValue" data-sfwControlType="sfwLabel" ID="lblStatus"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters></LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwTab" ID="tshNewPage">
+                    <div ID="tblNewPage" data-sfwControlType="sfwTable">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div AllowSorting="True" ID="grvCdoFileHdrError" sfwEntityField="lstFileHdrError" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th Visible="False" data-sfwControlType="TemplateField">Error ID</th>
+                                  <th data-sfwControlType="TemplateField">Error Message ID</th>
+                                  <th data-sfwControlType="TemplateField">Error Message</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="ErrorId" data-sfwControlType="sfwLabel" ID="lblErrorID"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="ErrorMessageId" data-sfwControlType="sfwLabel" ID="lblErrorMessageID"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="ErrorMessage" data-sfwControlType="sfwLabel" ID="lblErrorMessage"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwEntityField="CreatedBy" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwEntityField="CreatedDate" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedBy" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedDate" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

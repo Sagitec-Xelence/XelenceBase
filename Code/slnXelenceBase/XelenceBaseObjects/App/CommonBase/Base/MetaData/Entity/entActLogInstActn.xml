@@ -1,0 +1,61 @@
+<entity ID="entActLogInstActn" sfwView="False" sfwActive="True" sfwStatus="Review" sfwTableName="sgs_act_log_inst_actn" sfwParentEntity="entBase" Text="Contains online user transactions" sfwVersion="7.0">
+  <attributes>
+    <collection>
+      <attribute sfwAccessModifier="public" sfwEntity="entActLogInstActnDtl" ID="lstActLogInstActnDtl" Text="Contains List Of App Server Request Details For Single Web Request" />
+    </collection>
+    <object>
+      <attribute ID="objActLogInst" sfwEntity="entActLogInst" />
+    </object>
+    <property />
+    <calculatedfields />
+    <column />
+    <cdocollection />
+  </attributes>
+  <methods />
+  <ExtraFields />
+  <queries>
+    <group ID="APM">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; SGS_ACT_LOG_INST_ACTN &#xA;WHERE&#xA;&#x9; TIME_IN_MS &gt; =  (SELECT TOP 1 TRANSACTION_LIMIT FROM SGS_ACT_LOG) &#xA;ORDER BY  TIME_IN_MS DESC" ID="GetThresholdActions">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9;DATEADD(MINUTE, DATEDIFF(MINUTE, 0, START_TIME) / 1 * 1, 0) AS [START_TIME],&#xA;&#x9;COUNT(ACT_LOG_INST_ACTN_ID) COUNT &#xA;FROM&#xA;&#x9; SGS_ACT_LOG_INST_ACTN WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; START_TIME BETWEEN @START_TIME AND&#xA;&#x9; @END_TIME &#xA;GROUP BY DATEADD(MINUTE, DATEDIFF(MINUTE, 0, START_TIME) / 1 * 1, 0)&#xA;ORDER BY [START_TIME]" ID="GetActionCountTrend">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="WITH WEB_SERVER_TIME AS(&#xA;&#x9;SELECT&#xA;&#x9;&#x9; DATEADD(MINUTE, DATEDIFF(MINUTE, 0, ACTN.START_TIME) / 1 * 1, 0) [START_TIME],&#xA;&#x9;&#x9; ACTN.TIME_IN_MS - SUM(DTL.TIME_IN_MS) TIME_IN_MS&#xA;&#x9;FROM&#xA;&#x9;&#x9; SGS_ACT_LOG_INST_ACTN ACTN WITH(NOLOCK) &#xA;&#x9;INNER JOIN &#xA;&#x9;&#x9;SGS_ACT_LOG_INST_ACTN_DTL DTL WITH(NOLOCK) ON ACTN.ACT_LOG_INST_ACTN_ID = DTL.ACT_LOG_INST_ACTN_ID &#xA;&#x9;WHERE &#xA;&#x9;&#x9; ACTN.TIME_IN_MS &gt; 0 &#xA;&#x9;&#x9; AND DTL.TIME_IN_MS &gt; 0  AND&#xA;&#x9;&#x9; DTL.DTL_ID = 1 AND &#xA;&#x9;&#x9; ACTN.TIME_IN_MS &gt; DTL.TIME_IN_MS AND&#xA;&#x9;&#x9; ACTN.START_TIME BETWEEN @START_TIME AND @END_TIME&#xA;&#x9;GROUP BY &#xA;&#x9;&#x9; DATEADD(MINUTE, DATEDIFF(MINUTE, 0, ACTN.START_TIME) / 1 * 1, 0),&#xA;&#x9;&#x9; ACTN.TIME_IN_MS&#xA;&#x9;HAVING (ACTN.TIME_IN_MS - SUM(DTL.TIME_IN_MS)) &gt; 0&#xA;),&#xA;AVERAGE_TIME AS(&#xA;&#x9;SELECT START_TIME, &#xA;&#x9;CAST(AVG(TIME_IN_MS) / 1000.0 AS DECIMAL(10,2)) TIME_IN_MS FROM&#xA;&#x9;(&#xA;&#x9;&#x9;SELECT * FROM WEB_SERVER_TIME&#xA;&#x9;) AS T&#xA;&#x9;GROUP BY START_TIME&#xA;)&#xA;SELECT * FROM AVERAGE_TIME WHERE TIME_IN_MS &gt; 0" ID="GetAvgResponseTrendWs">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="DECLARE @WEB_THRESHOLD int; &#xA;SELECT&#xA;&#x9; TOP 1 @WEB_THRESHOLD  = TRANSACTION_LIMIT &#xA;FROM&#xA;&#x9; SGS_ACT_LOG WITH(NOLOCK); &#xA;SELECT&#xA;&#x9;TOP 10 ACTN.SOURCE,&#xA;&#x9;AVG(ACTN.TIME_IN_MS - DTL.TIME_IN_MS) TIME_IN_MS &#xA;FROM&#xA;&#x9; SGS_ACT_LOG_INST_ACTN ACTN WITH(NOLOCK)  &#xA;INNER JOIN  &#xA;&#x9;SGS_ACT_LOG_INST_ACTN_DTL DTL ON ACTN.ACT_LOG_INST_ACTN_ID = DTL.ACT_LOG_INST_ACTN_ID AND DTL.DTL_ID = 1&#xA;WHERE&#xA;&#x9; SOURCE IS NOT NULL AND&#xA;&#x9; ACTN.START_TIME BETWEEN @START_TIME AND&#xA;&#x9; @END_TIME &#xA;GROUP BY   SOURCE HAVING AVG(ACTN.TIME_IN_MS - DTL.TIME_IN_MS) &gt; 100&#xA;ORDER BY   2 ASC" ID="GetSlowFormDetails">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="DECLARE @WEB_THRESHOLD int; &#xA;SELECT&#xA;&#x9;TOP 1 @WEB_THRESHOLD  = TRANSACTION_LIMIT &#xA;FROM&#xA;&#x9;SGS_ACT_LOG; &#xA;SELECT&#xA;&#x9;ACTN.SOURCE,&#xA;&#x9;ACTN.NAME,&#xA;    @START_TIME AS START_TIME,&#xA;    @END_TIME AS END_TIME,&#xA;&#x9;AVG(ACTN.TIME_IN_MS - DTL.TIME_IN_MS) TIME_IN_MS &#xA;FROM&#xA;&#x9;SGS_ACT_LOG_INST_ACTN ACTN WITH(NOLOCK)  &#xA;INNER JOIN &#xA;&#x9;SGS_ACT_LOG_INST_ACTN_DTL DTL WITH(NOLOCK) &#xA;&#x9;ON DTL.ACT_LOG_INST_ACTN_ID = ACTN.ACT_LOG_INST_ACTN_ID AND DTL.DTL_ID = 1&#xA;WHERE&#xA;&#x9;ACTN.SOURCE IS NOT NULL AND&#xA;&#x9;ACTN.START_TIME BETWEEN @START_TIME AND @END_TIME &#xA;GROUP BY   &#xA;&#x9;ACTN.SOURCE,&#xA;&#x9;ACTN.NAME&#xA;HAVING AVG(ACTN.TIME_IN_MS - DTL.TIME_IN_MS)  &gt; 100--@WEB_THRESHOLD" ID="GetExpensiveActionsOnWs">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <groups />
+  <checklist />
+  <objectmethods />
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+</entity>

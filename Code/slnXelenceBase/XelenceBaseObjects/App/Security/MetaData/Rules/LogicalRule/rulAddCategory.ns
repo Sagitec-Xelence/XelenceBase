@@ -1,0 +1,23 @@
+/// <summary>
+/// rulAddCategory
+/// </summary>
+/// <param name="aintRoleId"></param>
+[Entity=entRoles]
+public rulAddCategory(int aintRoleId)
+{
+	rule()
+	{
+		//Variable Declaration
+		entRoles lobjRoles = new ();
+		lobjRoles.Select(aintRoleId);
+		if(Category.Value == "")
+		{
+		}
+
+		//Variable Declaration
+		entRoleCategory lobjRoleCategory = new ();
+		lobjRoleCategory.RoleId = aintRoleId;
+		lobjRoleCategory.RoleCategoryType.Value = istrCategoryValue;
+		lobjRoleCategory.Insert();
+	}
+}

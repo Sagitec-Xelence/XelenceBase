@@ -1,0 +1,12 @@
+/// <summary>
+/// rulSetBackupSetID
+/// </summary>
+/// <param name="BackSetId"></param>
+[Entity=entDatabaseBackupSet]
+public rulSetBackupSetID(int BackSetId)
+{
+	rule()
+	{
+		BackupSetID = BackSetId;
+	}
+}

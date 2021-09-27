@@ -1,0 +1,152 @@
+<entity ID="entCodeValue" sfwStatus="Valid" sfwRemoteObject="srvCommon" DesignStatus="Review" sfwTableName="sgs_code_value" sfwView="False" sfwParentEntity="entBase" sfwVersion="7.0">
+  <delete />
+  <checklist />
+  <groups />
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="Count" sfwQueryType="ScalarQuery" sfwSql="select count(1) &#xD;&#xA; from sgs_code_value&#xD;&#xA;where code_id = @code_id">
+        <parameters>
+          <parameter ID="@code_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="CodeValuesExistsNew" sfwQueryType="ScalarQuery" sfwSql="select count(1) &#xD;&#xA; from sgs_code_value &#xD;&#xA;where code_id = @code_id&#xD;&#xA;and code_value = @code_value">
+        <parameters>
+          <parameter ID="@code_id" sfwDataType="int" />
+          <parameter ID="@code_value" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="CodeValueExistsUpdate" sfwQueryType="ScalarQuery" sfwSql="select count(1) &#xD;&#xA; from sgs_code_value &#xD;&#xA;where code_id = @code_id&#xD;&#xA;and code_value = @code_value&#xD;&#xA;and code_serial_id &lt;&gt; @code_serial_id">
+        <parameters>
+          <parameter ID="@code_id" sfwDataType="int" />
+          <parameter ID="@code_value" sfwDataType="string" />
+          <parameter ID="@code_serial_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="CodeValueExistsandDataIsNotNull" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT  &#xA;  CASE &#xA;      WHEN @DATAVALUE = 'DATA1'  THEN (SELECT COUNT(*) FROM SGS_CODE_VALUE WHERE CODE_ID = @CODE_ID AND DATA1 IS NOT NULL)&#xA;&#x9;  WHEN @DATAVALUE = 'DATA2'  THEN (SELECT COUNT(*) FROM SGS_CODE_VALUE WHERE CODE_ID = @CODE_ID AND DATA2 IS NOT NULL)&#xA;&#x9;  WHEN @DATAVALUE = 'DATA3'  THEN (SELECT COUNT(*) FROM SGS_CODE_VALUE WHERE CODE_ID = @CODE_ID AND DATA3 IS NOT NULL)&#xA;  END AS COUNTS&#xA;FROM SGS_CODE_VALUE" sfwOracle="SELECT &#xA;  CASE &#xA;      WHEN @DATAVALUE = 'DATA1'  THEN (SELECT COUNT(*) FROM SGS_CODE_VALUE WHERE CODE_ID = @CODE_ID AND DATA1 IS NOT NULL)&#xA;&#x9;  WHEN @DATAVALUE = 'DATA2'  THEN (SELECT COUNT(*) FROM SGS_CODE_VALUE WHERE CODE_ID = @CODE_ID AND DATA2 IS NOT NULL)&#xA;&#x9;  WHEN @DATAVALUE = 'DATA3'  THEN (SELECT COUNT(*) FROM SGS_CODE_VALUE WHERE CODE_ID = @CODE_ID AND DATA3 IS NOT NULL)&#xA;  END AS COUNTS&#xA;FROM SGS_CODE_VALUE&#xA;  LIMIT 1;">
+        <parameters>
+          <parameter ID="@CODE_ID" sfwDataType="int" />
+          <parameter ID="@DATAVALUE" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="UpdateData1ValueByLastNightlyBatchExecutionDate" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="UPDATE SGS_CODE_VALUE SET DATA1 = @DATA1 &#xA;WHERE&#xA;  CODE_ID  = 52 AND&#xA;  CODE_VALUE = 'LNBD'">
+        <parameters>
+          <parameter ID="@DATA1" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetCodeValuesForBpmEscalationSupervisorLevel" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select *&#xD;&#xA; from sgs_code_value&#xD;&#xA;where code_id = 3004&#xD;&#xA;and DATA1 is not null order by CAST(data1 AS INT)">
+        <parameters />
+      </query>
+      <query ID="GetUnselectedCodeValueForAttribute" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xD;&#xA;  * &#xD;&#xA;FROM&#xD;&#xA;  SGS_CODE_VALUE scv  &#xD;&#xA;WHERE&#xD;&#xA;  code_id = 20011008 AND&#xD;&#xA;  scv.CODE_VALUE NOT IN (SELECT&#xD;&#xA;  sbpit.BENEFIT_PROGRAM_TYPE_VALUE &#xD;&#xA;FROM&#xD;&#xA;  SGT_BENEFIT_PROG_TYPE_ASSIGNED sbpit  &#xD;&#xA;WHERE&#xD;&#xA; sbpit.ATTRIBUTE_ID = @ATTRIBUTE_ID&#xD;&#xA; )">
+        <parameters>
+          <parameter ID="@ATTRIBUTE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetSelectedCodeValueForAttribute" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9;  * &#xA;FROM&#xA;&#x9;  SGS_CODE_VALUE scv   &#xA;WHERE&#xA;&#x9;  code_id = 20011008 AND&#xA;&#x9;  scv.CODE_VALUE IN (SELECT&#xA;&#x9;  sbpit.BENEFIT_PROGRAM_TYPE_VALUE &#xA;FROM&#xA;&#x9;  SGT_BENEFIT_PROG_TYPE_ASSIGNED sbpit  &#xA;WHERE&#xA;&#x9;  sbpit.ATTRIBUTE_ID = @ATTRIBUTE_ID)">
+        <parameters>
+          <parameter ID="@ATTRIBUTE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetUnselectedCodeValueForProvision" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xD;&#xA;  * &#xD;&#xA;FROM&#xD;&#xA;  SGS_CODE_VALUE scv  &#xD;&#xA;WHERE&#xD;&#xA;  code_id = 20011008 AND&#xD;&#xA;  scv.CODE_VALUE NOT IN (SELECT&#xD;&#xA;  sbpit.BENEFIT_PROGRAM_TYPE_VALUE &#xD;&#xA;FROM&#xD;&#xA;  SGT_BENEFIT_PROG_TYPE_ASSIGNED sbpit &#xD;&#xA;WHERE&#xD;&#xA;  sbpit.PROVISION_ID = @PROVISION_ID)">
+        <parameters>
+          <parameter ID="@PROVISION_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetCodevalueByCodeIDAndData1" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT * FROM SGS_CODE_VALUE WHERE SGS_CODE_VALUE.CODE_ID=@CODE_ID AND SGS_CODE_VALUE.DATA1=@DATA1">
+        <parameters>
+          <parameter ID="@CODE_ID" sfwDataType="int" />
+          <parameter ID="@DATA1" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="ListCodeValue" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; CODE_VALUE,&#xA;&#x9; DESCRIPTION,&#xA;&#x9; DATA1,&#xA;&#x9; DATA2,&#xA;&#x9; DATA3,&#xA;&#x9; COMMENTS,&#xA;&#x9; CODE_VALUE_ORDER,&#xA;&#x9; CODE_ID,&#xA;&#x9; CODE_SERIAL_ID  &#xA;FROM&#xA;&#x9; SGS_CODE_VALUE      &#xA;WHERE&#xA;&#x9; CODE_ID = @CODE_ID">
+        <parameters>
+          <parameter ID="@CODE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetCodeValueForRecordStatus" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; CODE_VALUE,&#xA;&#x9;DESCRIPTION,&#xA;&#x9;DATA1 &#xA;FROM&#xA;&#x9; SGS_CODE_VALUE    &#xA;WHERE&#xA;&#x9; CODE_ID = 20004001">
+        <parameters />
+      </query>
+      <query ID="Lookup" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; sgs_code_value   ">
+        <parameters />
+      </query>
+    </group>
+  </queries>
+  <ExtraFields />
+  <methods />
+  <attributes>
+    <column>
+      <attribute ID="CodeSerialId" sfwValue="code_serial_id" sfwKeyNo="1" sfwIsSequence="False" sfwIsNull="False" sfwIsIdentity="True" sfwDataType="int" sfwRequired="False" sfwCaption="Code Serial Id" />
+      <attribute ID="CodeId" sfwValue="code_id" sfwIsSequence="False" sfwIsNull="False" sfwDataType="int" sfwRequired="False" sfwCaption="Code Id" />
+      <attribute ID="CodeValue" sfwValue="code_value" sfwIsSequence="False" sfwIsNull="False" sfwDataType="string" sfwRequired="False" sfwLength="4" sfwCaption="Code Value" />
+      <attribute ID="Description" sfwValue="description" sfwIsSequence="False" sfwIsNull="False" sfwDataType="string" sfwRequired="False" sfwLength="100" sfwCaption="Description" />
+      <attribute ID="Data1" sfwValue="data1" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="100" sfwCaption="Data1" />
+      <attribute ID="Data2" sfwValue="data2" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="40" sfwCaption="Data2" />
+      <attribute ID="Data3" sfwValue="data3" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="40" sfwCaption="Data3" />
+      <attribute ID="Comments" sfwValue="comments" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="MAX" sfwCaption="Comments" />
+      <attribute ID="StartDate" sfwValue="start_date" sfwIsSequence="False" sfwDataType="DateTime" sfwRequired="False" sfwCaption="Start Date" />
+      <attribute ID="EndDate" sfwValue="end_date" sfwIsSequence="False" sfwDataType="DateTime" sfwRequired="False" sfwCaption="End Date" />
+      <attribute ID="CodeValueOrder" sfwValue="code_value_order" sfwIsSequence="False" sfwDataType="int" sfwRequired="False" sfwCaption="Code Value Order" />
+      <attribute ID="LegacyCodeId" sfwValue="legacy_code_id" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="10" sfwCaption="Legacy Code Id" />
+      <attribute ID="CreatedBy" sfwValue="created_by" sfwIsSequence="False" sfwIsNull="False" sfwDataType="string" sfwRequired="False" sfwLength="50" sfwCaption="Created By" />
+      <attribute ID="CreatedDate" sfwValue="created_date" sfwIsSequence="False" sfwIsNull="False" sfwDataType="DateTime" sfwRequired="False" sfwCaption="Created Date" />
+      <attribute ID="ModifiedBy" sfwValue="modified_by" sfwIsSequence="False" sfwIsNull="False" sfwDataType="string" sfwRequired="False" sfwLength="50" sfwCaption="Modified By" />
+      <attribute ID="ModifiedDate" sfwValue="modified_date" sfwIsSequence="False" sfwIsNull="False" sfwDataType="DateTime" sfwRequired="False" sfwCaption="Modified Date" />
+      <attribute ID="UpdateSeq" sfwValue="update_seq" sfwIsSequence="False" sfwIsNull="False" sfwDataType="int" sfwRequired="False" sfwCaption="Update Seq" />
+    </column>
+    <object>
+      <attribute ID="objCode" sfwEntity="entCode" />
+    </object>
+    <collection />
+    <cdocollection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <objectmethods />
+  <conditions>
+    <expressioncondition>
+      <condition ID="Rule - Is CodeValue Exists New Mode" sfwMessageId="20002029">
+        <item sfwLeftSideField="entCodeValue.CodeValuesExistsNew" sfwLeftSideType="query" sfwLeftSideParamaters="CodeId;CodeValue" sfwOperator="IsGreaterThan" sfwRightSideField="0" sfwRightSideType="constant" />
+      </condition>
+      <condition ID="Rule - Is Data1 Value Has No Caption" sfwMessageId="20002033">
+        <and>
+          <item sfwLeftSideField="objCode.Data1Caption" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+          <item sfwLeftSideField="Data1" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is CodeValue Exists Update Mode" sfwMessageId="20002029">
+        <item sfwLeftSideField="entCodeValue.CodeValueExistsUpdate" sfwLeftSideType="query" sfwLeftSideParamaters="CodeId;CodeValue;CodeSerialId" sfwOperator="IsGreaterThan" sfwRightSideField="0" sfwRightSideType="constant" />
+      </condition>
+      <condition ID="Rule - Is Data2 Value Has No Caption" sfwMessageId="20002034">
+        <and>
+          <item sfwLeftSideField="objCode.Data2Caption" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+          <item sfwLeftSideField="Data2" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is Data3 Value Has No Caption" sfwMessageId="20002035">
+        <and>
+          <item sfwLeftSideField="objCode.Data3Caption" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+          <item sfwLeftSideField="Data3" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+        </and>
+      </condition>
+    </expressioncondition>
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <fieldconstraints>
+      <fieldconstraint sfwFieldName="Description">
+        <item sfwType="Required" sfwStatus="Active" sfwMode="All" sfwMessageId="20002028" />
+      </fieldconstraint>
+      <fieldconstraint sfwFieldName="CodeValue">
+        <item sfwType="Required" sfwStatus="Active" sfwMode="All" sfwMessageId="20002027" />
+      </fieldconstraint>
+    </fieldconstraints>
+    <softconstraints />
+    <hardconstraints>
+      <item sfwMode="New" sfwStatus="Active" sfwConditionID="Rule - Is CodeValue Exists New Mode" />
+      <item sfwMode="Update" sfwStatus="Active" sfwConditionID="Rule - Is CodeValue Exists Update Mode" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data1 Value Has No Caption" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data2 Value Has No Caption" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data3 Value Has No Caption" />
+    </hardconstraints>
+    <deleteconstraints />
+  </constraints>
+</entity>

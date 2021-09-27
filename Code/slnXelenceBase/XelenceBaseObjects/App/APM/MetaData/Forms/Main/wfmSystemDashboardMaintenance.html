@@ -1,0 +1,542 @@
+<div ID="wfmSystemDashboardMaintenance" sfwType="Maintenance" sfwTitle="System Dashboard Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entAppMonitoring" sfwMethodType="XmlMethod">
+  <sfwServerDetails>
+    <initialload>
+      <callmethods sfwMethodName="SetDates" />
+    </initialload>
+    <loaddetails />
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel" sfwSkinID="Default">
+      <li>
+        <span ID="spnSpan">Filters</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastMinutes" sfwEntityField="LastMinutes" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="True" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Hours</option>
+                  <option value="15">Last 15 minutes</option>
+                  <option value="30">Last 30 minutes</option>
+                  <option value="45">Last 45 minutes</option>
+                  <option value="60">Last one hours</option>
+                  <option value="120">Last two hours</option>
+                  <option value="240">Last four hours</option>
+                  <option value="480">Last eight hours</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastDays" sfwEntityField="LastDays" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="True" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Days</option>
+                  <option value="1">Current Day</option>
+                  <option value="2">Last two days</option>
+                  <option value="4">Last four days</option>
+                  <option value="5">Last five days</option>
+                  <option value="10">Last ten days</option>
+                  <option value="20">Last twenty days</option>
+                  <option value="30">Last thirty days</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtFromDate" sfwEntityField="FromDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&gt;=" sfwDefaultType="TodaysDateTime" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtToDate" sfwEntityField="ToDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&lt;=" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons">
+                <input ID="actApmLoadDashboard" data-sfwControlType="sfwActionExecute" type="button" value="Load Dashboard" sfwMethod="rulSetDates" sfwRefreshType="Object" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons" style="    align-items: flex-start;">
+                <input ID="actOpenTraceSettings" data-sfwControlType="sfwActionOpen" type="button" value="Tracing Setup" sfwActiveForm="wfmActLogMaintenance" sfwNavigationParameter="aintPrimaryKey=#1" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div ID="pnlApm" data-sfwControlType="sfwEmptyPanel" sfwAutoRefresh="True" Direction="LeftToRight" sfwRefreshFrequency="90" Width="90%">
+      <input ID="actWebServer" data-sfwControlType="sfwActionOpen" type="button" value="Web Server" sfwResource="-1" sfwActiveForm="wfmWebServerMaintenance" sfwNavigationParameter="FromDate=FromDate;ToDate=ToDate" Visible="False" sfwRelatedControl="lstGetWebServerMeasu" />
+      <input ID="actAppServer" data-sfwControlType="sfwActionOpen" type="button" value="App Server" sfwResource="-1" sfwActiveForm="wfmAppServerMaintenance" sfwNavigationParameter="FromDate=FromDate;ToDate=ToDate" Visible="False" sfwRelatedControl="lstAppServerMeasures" />
+      <input ID="actOpenDatabaseServerDashboard" data-sfwControlType="sfwActionOpen" type="button" value="DB Dashboard" sfwActiveForm="wfmDatabaseServerMaintenance" Visible="False" sfwRelatedControl="lstDatabaseServerMeasures" />
+      <div data-sfwControlType="sfwTable" ID="tblLayOut">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <ul ID="pnlNewPage" data-sfwControlType="sfwPanel" sfwCollapsible="False" style="    background-color: #035397;&#xA;    height: max-content;color:white;" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan1" ServerName="true">Web Server</span>
+                <div ID="dvDiv2">
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="lstGetWebServerMeasu" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetWebServerMeasures" sfwLoadType="Query" sfwLoadMode="All" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View" class="Apm-Card">
+                          <div ID="crdCard" data-sfwControlType="sfwCard" IsCustom="True" style="background-color:#035397;border: 0px;&#xA;    border-radius: 0px;">
+                            <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                  <div class="card-temp4-layout" style="border-width:0px;padding-bottom:0px;" ID="dvDiv1">
+                                    <a ID="lblRequest" data-sfwControlType="sfwLinkableAction" sfwEntityField="requestcount" sfwShowZero="True" style="font-size:48px;font-weight:bold;color:#FFF;padding-bottom:0px;padding-top: 0;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actWebServer"></a>
+                                  </div>
+                                  <h5 ID="lblCapRequest" Text="Request" style="color:#FFF;    margin-bottom: 0;">Request</h5>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblSlow" data-sfwControlType="sfwLabel" sfwEntityField="slowcount" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="lblCapSlowRequest" Text="Slow" style="color:#FFF;">Slow</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblErrorcount" data-sfwControlType="sfwLabel" sfwEntityField="errorcount" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Error" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="lblCaErrorpRequest" Text="Slow" style="color:#FFF;">Failed</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblResponseMs" data-sfwControlType="sfwLabel" sfwEntityField="averageresponsetime" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Response(Ms)" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="lblCapAvgRespRequest" Text="Slow" style="color:#FFF;white-space: nowrap;">Avg.Response(Sec)</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblLabelTotalWebServer" data-sfwControlType="sfwLabel" sfwEntityField="webservercount" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;text-align:center;" sfwCaption="Response(Ms)" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH6" Text="WebServers" style="color:#FFF;white-space: nowrap;">Servers</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <LoadParameters>
+                            <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                            <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                          </LoadParameters>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <ul ID="pnlPanel" data-sfwControlType="sfwPanel" sfwCollapsible="False" style="background-color:#57837B;height:max-content" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan2" ServerName="true">App Server</span>
+                <div ID="dvDiv3">
+                  <div data-sfwControlType="sfwTable" ID="tblTable">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="lstAppServerMeasures" class="Apm-Card" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetAppServerMeasures" sfwLoadType="Query" sfwLoadMode="All" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View">
+                          <div ID="crdCard1" data-sfwControlType="sfwCard" IsCustom="True" style="background-color:#57837B;border: 0px;&#xA;    border-radius: 0px;">
+                            <div data-sfwControlType="sfwTable" ID="tblTable1">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                  <div class="card-temp4-layout" style="border-width:0px;padding-bottom:0px;" ID="dvDiv4">
+                                    <a ID="lblRequestcount" data-sfwControlType="sfwLinkableAction" sfwEntityField="request_count" sfwShowZero="True" style="font-size:48px;font-weight:bold;color:#FFF;padding-bottom:0px;padding-top: 0;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actAppServer"></a>
+                                  </div>
+                                  <h5 ID="hdH5" Text="Request" style="color:#FFF;margin-bottom: 0;">Request</h5>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblSlowcount" data-sfwControlType="sfwLabel" sfwEntityField="slowcount" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH61" Text="Slow" style="color:#FFF;">Slow</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblErrorcount1" data-sfwControlType="sfwLabel" sfwEntityField="errorcount" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Error" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH62" Text="Slow" style="color:#FFF;">Failed</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblAverageresponsetime" data-sfwControlType="sfwLabel" sfwEntityField="averageresponsetime" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Response(Ms)" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH63" Text="Slow" style="color:#FFF;white-space: nowrap;">Avg.Response(Sec)</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="3" style="text-align:center;">
+                                  <label ID="lblWebservercount" data-sfwControlType="sfwLabel" sfwEntityField="appservercount" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;text-align:center;" sfwCaption="Response(Ms)" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH64" Text="WebServers" style="color:#FFF;white-space: nowrap;">Servers</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <LoadParameters>
+                            <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                            <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                          </LoadParameters>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <ul ID="pnlPanel1" data-sfwControlType="sfwPanel" sfwCollapsible="False" style="background-color:#7986cb;height:max-content" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan3" ServerName="true">Database</span>
+                <div ID="dvDiv5">
+                  <div data-sfwControlType="sfwTable" ID="tblTable2">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="lstDatabaseServerMeasures" class="Apm-Card" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetDatabaseMeasures" sfwLoadType="Query" sfwLoadMode="All" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View">
+                          <div ID="crdCard2" data-sfwControlType="sfwCard" IsCustom="True" style="background-color:#7986cb;border: 0px;&#xA;    border-radius: 0px;">
+                            <div data-sfwControlType="sfwTable" ID="tblTable3">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                  <div class="card-temp4-layout" style="border-width:0px;padding-bottom:0px;" ID="dvDiv6">
+                                    <a ID="lblRequestCount1" data-sfwControlType="sfwLinkableAction" sfwEntityField="activesession" sfwShowZero="True" style="font-size:48px;font-weight:bold;color:#FFF;padding-bottom:0px;padding-top: 0;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpenDatabaseServerDashboard"></a>
+                                  </div>
+                                  <h5 ID="hdH51" Text="Request" style="color:#FFF;margin-bottom: 0;">Active Sessions</h5>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4" style="text-align:center;">
+                                  <label ID="lblSlowcount1" data-sfwControlType="sfwLabel" sfwEntityField="blockcount" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH65" Text="Slow" style="color:#FFF;">Session Block</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4" style="text-align:center;">
+                                  <label ID="lblErrorcount2" data-sfwControlType="sfwLabel" sfwEntityField="per_memoryfree" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Error" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH66" Text="Slow" style="color:#FFF;">Memory Percentage</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4" style="text-align:center;">
+                                  <label ID="lblAverageresponsetime1" data-sfwControlType="sfwLabel" sfwEntityField="totalavailablememory" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Response(Ms)" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH66s" Text="Slow" style="color:#FFF;">Total Memory</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <LoadParameters></LoadParameters>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <ul ID="pnlPanel2" data-sfwControlType="sfwPanel" sfwCollapsible="False" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000" style="background-color:#32A8AD;height:max-content">
+              <li>
+                <span ID="spnSpan4" ServerName="true">App Measures</span>
+                <div ID="dvDiv7">
+                  <div data-sfwControlType="sfwTable" ID="tblTable4">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="lstApplicationSideMeasures" class="Apm-Card" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetAppMeasures" sfwLoadType="Query" sfwLoadMode="All" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View">
+                          <div ID="crdCard3" data-sfwControlType="sfwCard" IsCustom="True" style="background-color:#32A8AD !important;border: 0px;&#xA;    border-radius: 0px;">
+                            <div data-sfwControlType="sfwTable" ID="tblTable5">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                  <div class="card-temp4-layout" style="border-width:0px;padding-bottom:0px;" ID="dvDiv8">
+                                    <label ID="lblActivesession" data-sfwControlType="sfwLabel" sfwEntityField="todaysclaims" style="font-size:48px;font-weight:bold;color:#FFF;padding-bottom:0px;padding-top:0px;" sfwShowZero="True" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;"></label>
+                                  </div>
+                                  <h5 ID="hdH52" Text="Request" style="color:#FFF;margin-bottom: 0;">Today's Claims</h5>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4" style="text-align:center;">
+                                  <label ID="lblBlockcount" data-sfwControlType="sfwLabel" sfwEntityField="weeklyclaims" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH67" Text="Slow" style="color:#FFF;">Weekly Claims</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4" style="text-align:center;">
+                                  <label ID="lblPerMemoryfree" data-sfwControlType="sfwLabel" sfwEntityField="sess_row" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Error" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH69" Text="Slow" style="color:#FFF;">Session Rows</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4" style="text-align:center;">
+                                  <label ID="lblTotalavailablememory" data-sfwControlType="sfwLabel" sfwEntityField="appcount" sfwShowCaption="False" style="font-size:22px;font-weight:bold;color:#FFF;" sfwCaption="Response(Ms)" sfwCaptionStyle="text-align:center;font-weight:bold;color:#FFF;" sfwShowZero="True"></label>
+                                  <h6 ID="hdH610" Text="Slow" style="color:#FFF;">Apps</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <LoadParameters></LoadParameters>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+            <ul ID="pnlJobService" data-sfwControlType="sfwPanel" sfwCollapsible="False" style="background-color:#4B6587;height:max-content;height:max-content;" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan5" ServerName="true">Job Service</span>
+                <div ID="dvDiv9">
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut5">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="lstGetJobServerMeasu" class="Apm-Card" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetJobServerMeasures" sfwLoadType="Query" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View">
+                          <div ID="crdCard4" data-sfwControlType="sfwCard" IsCustom="True" style="background-color:#4B6587;border: 0px;&#xA;    border-radius: 0px;">
+                            <div data-sfwControlType="sfwTable" ID="tblLayOut6">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <label ID="lblCanc" data-sfwControlType="sfwLabel" sfwEntityField="canc" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <label ID="lblLabel" data-sfwControlType="sfwLabel" sfwEntityField="qued" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <label ID="lblLabel1" data-sfwControlType="sfwLabel" sfwEntityField="prer" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <label ID="lblLabel2" data-sfwControlType="sfwLabel" sfwEntityField="prcs" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <label ID="lblLabel3" data-sfwControlType="sfwLabel" sfwEntityField="prsu" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <h6 ID="capCanc">
+									Cancelled</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <h6 ID="hdH612">Queued</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <h6 ID="hdH613">Failed</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <h6 ID="hdH614">Processed</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                                  <h6 ID="hdH615">UnProcessed</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <LoadParameters>
+                            <parameter ID="@start_time" sfwEntityField="FromDate"></parameter>
+                            <parameter ID="@end_time" sfwEntityField="ToDate"></parameter>
+                          </LoadParameters>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+            <ul ID="pnlBPM" data-sfwControlType="sfwPanel" sfwCollapsible="False" style="background-color:#925981;height: max-content;height: max-content;" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan8" ServerName="true">BPM</span>
+                <div ID="dvDiv12">
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut9">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="lstGetBPMMeasures" class="Apm-Card" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetBPMMeasures" sfwLoadType="Query" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View">
+                          <LoadParameters>
+                            <parameter ID="@start_time" sfwEntityField="FromDate"></parameter>
+                            <parameter ID="@end_time" sfwEntityField="ToDate"></parameter>
+                          </LoadParameters>
+                          <div ID="crdCard5" data-sfwControlType="sfwCard" IsCustom="True" style="background-color:#925981;border: 0px;&#xA;    border-radius: 0px;">
+                            <div data-sfwControlType="sfwTable" ID="tblTable6">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                                  <label ID="lblCanc1" data-sfwControlType="sfwLabel" sfwEntityField="request" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                                  <label ID="lblQued" data-sfwControlType="sfwLabel" sfwEntityField="queue" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                                  <label ID="lblPrer" data-sfwControlType="sfwLabel" sfwEntityField="prer" sfwShowZero="True" sfwReadOnly="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                                  <h6 ID="hdH68">
+									Request</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                                  <h6 ID="hdH611">Queued</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                                  <h6 ID="hdH616">Failed</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+            <ul ID="pnlInvalidLoginDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False" style="background-color:#ca5877;height: max-content;height: max-content;" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan9" ServerName="true">Invalid Login Details</span>
+                <div ID="dvDiv13">
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut10">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="lstListView3" class="Apm-Card" data-sfwControlType="sfwListView" sfwLoadSource="entAppMonitoring.GetInvalidLoginMeasures" sfwLoadType="Query" sfwDefaultQuery="False" sfwBoundToQuery="False" sfwCaption="List View">
+                          <LoadParameters>
+                            <parameter ID="@start_time" sfwEntityField="FromDate"></parameter>
+                            <parameter ID="@end_time" sfwEntityField="ToDate"></parameter>
+                          </LoadParameters>
+                          <div ID="crdCard6" data-sfwControlType="sfwCard" IsCustom="True" style="background-color:#ca5877;border: 0px;&#xA;    border-radius: 0px;">
+                            <div data-sfwControlType="sfwTable" ID="tblTable7">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <label ID="lblRequest1" data-sfwControlType="sfwLabel" sfwEntityField="ala.app_name" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <label ID="lblQueue" data-sfwControlType="sfwLabel" sfwEntityField="invalid_login_attempt" sfwShowZero="True" sfwReadOnly="True" sfwWrap="True" style="font-size:24px;font-weight:bold;"></label>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <h6 ID="hdH616">Portal</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <h6 ID="hdH616">Count</h6>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="6"></div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="6"></div>
+        </div>
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+            <ul ID="pnlTop5Exceptions" data-sfwControlType="sfwPanel" sfwCollapsible="False" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan6">Top 5 Exceptions</span>
+                <div ID="dvDiv10">
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut7">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="pnlEmptyPanel" data-sfwControlType="sfwEmptyPanel" class="ThresholdContainer">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvGetTop5Exceptions" Visible="False" sfwActiveForm="wfmExceptionLogLookup" sfwNavigationParameter="txtFormName=form_name;txt_start_time_From=start_time;txt_start_time_To=end_time;txtExceptionMessage=exception_message" />
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                <div ID="grvGetTop5Exceptions" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetTop5Exceptions" sfwLoadType="Query" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th data-sfwControlType="TemplateField">Exception Message</th>
+                                        <th data-sfwControlType="TemplateField">Form Name</th>
+                                        <th data-sfwControlType="TemplateField">Count</th>
+                                        <th data-sfwControlType="TemplateField" Visible="False">Start Time</th>
+                                        <th data-sfwControlType="TemplateField" Visible="False">End Time</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <a ID="lblExceptionMessage" data-sfwControlType="sfwLinkableAction" sfwEntityField="exception_message" sfwDisplayLength="60" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpen"></a>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblFormName" data-sfwControlType="sfwLabel" sfwEntityField="form_name"></label>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblExceptions" data-sfwControlType="sfwLabel" sfwEntityField="exceptions"></label>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="start_time" sfwDataFormat="{0:G}"></label>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="end_time" sfwDataFormat="{0:G}"></label>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <LoadParameters>
+                                    <parameter ID="@start_time" sfwEntityField="FromDate"></parameter>
+                                    <parameter ID="@end_time" sfwEntityField="ToDate"></parameter>
+                                  </LoadParameters>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+            <ul ID="pnlTop5ThresholdQueries" data-sfwControlType="sfwPanel" sfwCollapsible="False" sfwExecuteBeforeRefresh="UpdateToDate" sfwAutoRefresh="True" sfwRefreshFrequency="60000">
+              <li>
+                <span ID="spnSpan7">Top 5 Threshold Queries</span>
+                <div ID="dvDiv11">
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut8">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div ID="pnlEmptyPanel1" data-sfwControlType="sfwEmptyPanel" class="ThresholdContainer">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut4">
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                <input ID="actOpen1" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvGetTop5ThresholdQ" Visible="False" sfwActiveForm="wfmActLogThresholdQueriesLookup" sfwNavigationParameter="ddlStatus=#SLOW,VSLO;txtDtlName=que.query_ref;txtQuery=que.query;txtStartTimeFrom=start_time;txtStartTimeTo=end_time" />
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                <div ID="grvGetTop5ThresholdQ" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetTop5ThresholdQueries" sfwLoadType="Query" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th data-sfwControlType="TemplateField">Query ID</th>
+                                        <th data-sfwControlType="TemplateField">Command Text</th>
+                                        <th data-sfwControlType="TemplateField">Time (Ms)</th>
+                                        <th data-sfwControlType="TemplateField" Visible="False">Start Time</th>
+                                        <th data-sfwControlType="TemplateField" Visible="False">End Time</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblQueryRef" data-sfwControlType="sfwLabel" sfwEntityField="que.query_ref" sfwReadOnly="True"></label>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <a ID="lblQuery" data-sfwControlType="sfwLinkableAction" sfwEntityField="que.query" sfwDisplayLength="60" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpen1"></a>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="time_in_ms"></label>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblStartTime1" data-sfwControlType="sfwLabel" sfwEntityField="start_time" sfwDataFormat="{0:G}"></label>
+                                        </td>
+                                        <td data-sfwControlType="ItemTemplate">
+                                          <label ID="lblEndTime1" data-sfwControlType="sfwLabel" sfwEntityField="end_time" sfwDataFormat="{0:G}"></label>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <LoadParameters>
+                                    <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                                    <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                                  </LoadParameters>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

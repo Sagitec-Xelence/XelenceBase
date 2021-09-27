@@ -1,0 +1,50 @@
+﻿<div>
+    <h3>Log</h3>
+    <div>@Html.Raw(ViewBag.Log)</div>
+</div>
+<div class="row">
+    <div class="col-md-6 section">
+        <h3>DB Cache</h3>
+        <table class="grid">
+            <tr>
+                <th>Name</th>
+                <th>Rows</th>
+                <th>Query</th>
+            </tr>
+
+            @foreach (var item in ViewBag.DbCache)
+            {
+
+                <tr>
+                    <td class="left">@item.TableName</td>
+                    <td class="left">@item.Total</td>
+                    <td class="left">@item.Query</td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+    <div class="col-md-6 section">
+        <h3>Metadata Cache</h3>
+        <table class="grid">
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Directory</th>
+                <th>Status</th>
+            </tr>
+
+            @foreach (var item in ViewBag.MTCache)
+            {
+                <tr>
+                    <td class="left">@item.FileName</td>
+                    <td class="left">@item.Type</td>
+                    <td class="left">@item.Dir</td>
+                    <td class="left">@item.Status</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

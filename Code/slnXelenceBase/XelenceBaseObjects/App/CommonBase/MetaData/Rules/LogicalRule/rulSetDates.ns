@@ -1,0 +1,41 @@
+/// <summary>
+/// rulSetDates
+/// </summary>
+[Entity=entAppMonitoring]
+public rulSetDates()
+{
+	rule()
+	{
+		if(LastMinutes > 0)
+		{
+			FromDate = GlobalContext.ApplicationDateTime.AddMinutes(-LastMinutes);
+			ToDate = GlobalContext.ApplicationDateTime;
+		}
+		else
+		{
+			if(LastDays > 0)
+			{
+				ToDate = GlobalContext.ApplicationDateTime;
+				if(LastDays == 1)
+				{
+					FromDate = GlobalContext.ApplicationDate;
+				}
+				else
+				{
+					FromDate = GlobalContext.ApplicationDateTime.AddDays(-(LastDays - 1)).Date;
+				}
+			}
+			else
+			{
+				if(FromDate == DateTime.MinValue)
+				{
+					FromDate = GlobalContext.ApplicationDateTime.AddHours(-1);
+				}
+				if(ToDate == DateTime.MinValue)
+				{
+					ToDate = GlobalContext.ApplicationDateTime;
+				}
+			}
+		}
+	}
+}

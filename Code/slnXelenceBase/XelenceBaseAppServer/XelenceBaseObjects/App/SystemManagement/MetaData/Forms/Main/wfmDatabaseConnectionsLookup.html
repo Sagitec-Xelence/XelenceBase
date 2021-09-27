@@ -1,0 +1,118 @@
+<div sfwEntity="entDatabaseConnections" ID="wfmDatabaseConnectionsLookup" sfwType="Lookup" sfwTitle="Database Connections" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmDatabaseConnectionsLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+      <div data-sfwControlType="sfwRow">
+        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+          <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+            <li>
+              <span ID="spnSpan">Criteria</span>
+              <div ID="dvDiv">
+                <div data-sfwControlType="sfwTable" ID="tblCriteria">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtDatabaseConnectionId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="ID" sfwDataField="database_connection_id" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtConnectionName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Connection Name" sfwDataField="connection_name" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtConnectionType" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Connection Type" sfwDataField="connection_type" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtConnectionString" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Connection String" sfwDataField="connection_string" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtDbfactotyProvider" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Db Factory" sfwDataField="dbfactoty_provider" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtPasswordEncryptedFlag" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Password Encrypted Flag" sfwDataField="password_encrypted_flag" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                      <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+                      <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+          <ul ID="pnlPanel" data-sfwControlType="sfwPanel">
+            <li>
+              <span ID="spnSpan1">Result</span>
+              <div ID="dvDiv1">
+                <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                      <input ID="actNew" data-sfwControlType="sfwActionNew" type="button" value="New" />
+                      <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+                      <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                      <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="DatabaseConnectionId">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th data-sfwControlType="TemplateField">ID</th>
+                              <th data-sfwControlType="TemplateField">Connection Name</th>
+                              <th data-sfwControlType="TemplateField">Connection Type</th>
+                              <th data-sfwControlType="TemplateField">Connection String</th>
+                              <th data-sfwControlType="TemplateField">Db Factory</th>
+                              <th data-sfwControlType="TemplateField">Password Encrypted Flag</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td data-sfwControlType="ItemTemplate">
+                                <a ID="lnkDatabaseConnectionId" data-sfwControlType="sfwLinkableAction" sfwRelatedControl="actOpen" sfwEntityField="DatabaseConnectionId"></a>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblConnectionName" data-sfwControlType="sfwLabel" sfwEntityField="ConnectionName"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblConnectionType" data-sfwControlType="sfwLabel" sfwEntityField="ConnectionType"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblConnectionString" data-sfwControlType="sfwLabel" sfwEntityField="ConnectionString"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblDbfactotyProvider" data-sfwControlType="sfwLabel" sfwEntityField="DbfactotyProvider"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblPasswordEncryptedFlag" data-sfwControlType="sfwLabel" sfwEntityField="PasswordEncryptedFlag"></label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

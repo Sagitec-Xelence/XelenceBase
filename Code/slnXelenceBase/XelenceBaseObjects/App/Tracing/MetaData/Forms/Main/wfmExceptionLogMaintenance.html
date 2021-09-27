@@ -1,0 +1,90 @@
+<div sfwEntity="entExceptionLog" ID="wfmExceptionLogMaintenance" sfwType="Maintenance" sfwTitle="Exception Log Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmExceptionLogLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlEnvironmentDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+      <li>
+        <span ID="spnSpan3">Environment Details</span>
+        <div ID="dvDiv3">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblExceptionProcessName" data-sfwControlType="sfwLabel" sfwEntityField="ExceptionProcessName" sfwShowCaption="True" sfwCaption="Exception Process Name:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblAppdomainName" data-sfwControlType="sfwLabel" sfwEntityField="AppdomainName" sfwShowCaption="True" sfwCaption="Appdomain Name:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                <label ID="lblApplicationName" data-sfwControlType="sfwLabel" sfwEntityField="ApplicationName" sfwShowCaption="True" sfwCaption="Application Name:"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblMachineName" data-sfwControlType="sfwLabel" sfwEntityField="MachineName" sfwShowCaption="True" sfwCaption="Machine Name:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                <label ID="lblUserId" data-sfwControlType="sfwLabel" sfwEntityField="UserId" sfwShowCaption="True" sfwCaption="User Id:"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan1">Exception Details</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <label ID="lblExceptionLogID" data-sfwControlType="sfwLabel" sfwEntityField="ExceptionLogId" sfwShowCaption="True" sfwCaption="Exception Log ID"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <label ID="lblExceptionSource" data-sfwControlType="sfwLabel" sfwEntityField="ExceptionSource" sfwShowCaption="True" sfwCaption="Exception Source"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <label ID="lblExceptionTimeStamp" data-sfwControlType="sfwLabel" sfwEntityField="ExceptionTimestamp" sfwShowCaption="True" sfwCaption="Exception TimeStamp"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <label ID="txtExceptionInfo" data-sfwControlType="sfwLabel" sfwEntityField="ExceptionInfo" sfwShowCaption="True" sfwCaption="Exception Info" sfwReadOnly="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <label ID="lblExceptionMessage" data-sfwControlType="sfwLabel" sfwEntityField="ExceptionMessage" sfwShowCaption="True" sfwCaption="Exception Message"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <label ID="txtStackTrace" data-sfwControlType="sfwLabel" sfwEntityField="StackTrace" sfwShowCaption="True" sfwCaption="Stack Trace" sfwReadOnly="True"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlNewPage" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+      <li>
+        <span ID="spnSpan2">Parameter Details</span>
+        <div ID="dvDiv2">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="jdataParameterDetails" sfwEntityField="ParameterDetails" data-sfwControlType="sfwJSONData"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

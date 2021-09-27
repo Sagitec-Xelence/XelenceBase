@@ -1,0 +1,16 @@
+{
+     "projectId": "xelence-base-app",
+     "baseUrl": "https://xelence.sagitec.com/s37.0/",
+     "reporter": "mocha-junit-reporter",
+      "reporterOptions": {
+        "mochaFile": "cypress/tests/Xelence-Base-QA.[hash].xml",
+        "toConsole": true,
+        "attachments": true
+      },
+      "video": false,
+      "pluginsFile": "cypress/plugins/index.js",
+      "supportFile": "cypress/support/index.js",
+      "pageLoadTimeout":120000,
+      "chromeWebSecurity": false,
+      "UserId": "yogesh.thombare@sagitec.com"
+}

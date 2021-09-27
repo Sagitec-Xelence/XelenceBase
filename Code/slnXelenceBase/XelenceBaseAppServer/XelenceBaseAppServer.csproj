@@ -1,0 +1,122 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+		<UserSecretsId>25625511-09aa-4ccc-85c7-fdbf0d921504</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <OutputPath>bin\</OutputPath>
+	  <DocumentationFile>bin\SolutionTemplateAppServer.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="appsettings.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="appsettings.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AntiXSS.NetStandard.HtmlSanitization" Version="0.1.125" />
+    <PackageReference Include="Confluent.Kafka" Version="1.5.2" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.28" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Data.HashFunction.xxHash" Version="2.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.7.0" />
+    <PackageReference Include="System.Management" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.7.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
+    <PackageReference Include="MustardBlack-Core.Assets.Css.Sass" Version="2.1.1" />
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.11.3" />
+    <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.139" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Files\" />
+    <Folder Include="FrameworkDlls\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="XelenceBaseObjects\App\Shared\MetaData\Forms\Main\Scripts\" />
+    <Folder Include="XelenceBaseObjects\App\Shared\MetaData\Forms\Main\Styles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="XelenceBaseObjects\**">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <Reference Include="SagitecBPM">
+      <HintPath>FrameworkDlls\SagitecBPM.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecBusinessObjects">
+      <HintPath>FrameworkDlls\SagitecBusinessObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecBusinessTier">
+      <HintPath>FrameworkDlls\SagitecBusinessTier.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecCommon">
+      <HintPath>FrameworkDlls\SagitecCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecCore">
+      <HintPath>FrameworkDlls\SagitecCore.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecDBCache">
+      <HintPath>FrameworkDlls\SagitecDBCache.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecDBUtility">
+      <HintPath>FrameworkDlls\SagitecDBUtility.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecEntity">
+      <HintPath>FrameworkDlls\SagitecEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecFileProcessing">
+      <HintPath>FrameworkDlls\SagitecFileProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecInterface">
+      <HintPath>FrameworkDlls\SagitecInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecJobProcessing">
+      <HintPath>FrameworkDlls\SagitecJobProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecMetaDataCache">
+      <HintPath>FrameworkDlls\SagitecMetaDataCache.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecModel">
+      <HintPath>FrameworkDlls\SagitecModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecMVVMControls">
+      <HintPath>FrameworkDlls\SagitecMVVMControls.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecRulesLanguage">
+      <HintPath>FrameworkDlls\SagitecRulesLanguage.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecTemplate">
+      <HintPath>FrameworkDlls\SagitecTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecTracingManager">
+      <HintPath>FrameworkDlls\SagitecTracingManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

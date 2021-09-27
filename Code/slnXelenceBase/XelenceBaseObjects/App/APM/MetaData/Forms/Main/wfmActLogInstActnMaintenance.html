@@ -1,0 +1,359 @@
+<div ID="wfmActLogInstActnMaintenance" sfwType="Maintenance" sfwTitle="Act Log Inst Actn Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entActLogInstActn">
+  <sfwServerDetails>
+    <loaddetails />
+    <ExtraFields />
+    <conditions>
+      <formcondition />
+      <expressioncondition />
+      <devicecondition />
+    </conditions>
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlTransactionStatistics" data-sfwControlType="sfwPanel" sfwCollapsible="True">
+      <li>
+        <span ID="spnSpan2">Transaction Statistics</span>
+        <div ID="dvDiv2">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut5" class="counter-wrapper">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <div ID="crdCard" data-sfwControlType="sfwCard" IsCustom="True">
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut6">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div class="card-temp4-layout" style="text-align:center;padding-bottom:1px;color: #4774c7;&amp;#xA;border-bottom: 8px #4774c7 solid;" ID="dvDiv3">
+                          <label ID="lblTimeInMs1" data-sfwControlType="sfwLabel" class="title-heading" style="font-size:38px;font-weight:bold;color: inherit;" sfwEntityField="TimeInMs" sfwShowZero="True"></label>
+                          <label ID="lblSdf" data-sfwControlType="sfwLabel" class="para-text" style="font-size:22px;color: inherit;">Total Time(Ms)</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <div ID="crdCard2" data-sfwControlType="sfwCard" IsCustom="True">
+                  <div data-sfwControlType="sfwTable" ID="tblTable1">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div class="card-temp4-layout" style="color:#998ec3;border-bottom: 8px #998ec3 solid;" ID="dvDiv6">
+                          <label ID="lblTimeInMs3" data-sfwControlType="sfwLabel" class="title-heading" style="font-size:38px;color: inherit;font-weight:bold;text-align:center;" sfwEntityField="TotalQueriesTimeInMs" sfwShowZero="True"></label>
+                          <label ID="lblLabel1" data-sfwControlType="sfwLabel" class="para-text" style="font-size:22px;color: inherit;text-align:center;">Database Time(Ms)</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <div ID="crdCard3" data-sfwControlType="sfwCard" IsCustom="True">
+                  <div data-sfwControlType="sfwTable" ID="tblTable2">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                        <div class="card-temp4-layout" style="text-align:center;color:#cea01e;border-bottom: 8px #cea01e solid;" ID="dvDiv7">
+                          <label ID="lblTotalQueriesTimeInMs" data-sfwControlType="sfwLabel" class="title-heading" style="font-size:38px;color: inherit;font-weight:bold;" sfwEntityField="TotalQueriesExecuted" sfwShowZero="True"></label>
+                          <label ID="lblLabel2" data-sfwControlType="sfwLabel" class="para-text" style="font-size:22px;color: inherit;">Total Queries</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+      <ul data-sfwControlType="Tabs">
+        <li ID="tshExecutionLifecycle_Header" data-sfwControlType="sfwTabSheet">
+          <a href="#tshExecutionLifecycle" ID="ancAnchor1">Execution Lifecycle</a>
+        </li>
+        <li ID="tshAppServerRequest_Header" data-sfwControlType="sfwTabSheet">
+          <a href="#tshAppServerRequest" ID="ancAnchor2">AppServer Request</a>
+        </li>
+        <li ID="tshDetails_Header" data-sfwControlType="sfwTabSheet">
+          <a href="#tshDetails" ID="ancAnchor">Details</a>
+        </li>
+      </ul>
+      <div ID="tshDetails" data-sfwControlType="sfwTab">
+        <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="12" class="Detail-Wrapper">
+              <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+                <div data-sfwControlType="sfwRow">
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                    <label ID="lblRequestUrl" data-sfwControlType="sfwLabel" sfwEntityField="RequestUrl" sfwShowCaption="True" sfwCaption="Request URL" sfwCaptionStyle="font-weight:bold;"></label>
+                  </div>
+                </div>
+                <div data-sfwControlType="sfwRow">
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                    <ul ID="pnlTransactionDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                      <li>
+                        <span ID="spnSpan">Transaction Details</span>
+                        <div ID="dvDiv">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <h6 ID="hdH61" style="font-weight:bold;">Name</h6>
+                              </div>
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <label ID="lblTransactionName" data-sfwControlType="sfwLabel" sfwEntityField="Name"></label>
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6"></div>
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6"></div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                <label ID="lblActLogInstId" data-sfwControlType="sfwLabel" sfwEntityField="ActLogInstId" style="font-weight:bold;" Visible="False" sfwReadOnly="True" NavigateWithinForm="wfmActLogInstMaintenance"></label>
+                                <input ID="actOpenSessionDetails" data-sfwControlType="sfwActionOpen" type="button" value="Session Details" sfwActiveForm="wfmActLogInstMaintenance" sfwNavigationParameter="aintPrimaryKey=ActLogInstId" />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                    <ul ID="pnlNavigationDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                      <li>
+                        <span ID="spnSpan1">Navigation Details</span>
+                        <div ID="dvDiv1">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut7">
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                <label ID="lblNavigationFrom" data-sfwControlType="sfwLabel" sfwEntityField="Source" style="font-weight:bold;"></label>
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                <i class="bi bi-arrow-down-square-fill"></i>
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="text-align:center;">
+                                <label ID="lblNavigationTo" data-sfwControlType="sfwLabel" sfwEntityField="Target" style="font-weight:bold;"></label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                    <ul ID="pnlExecutionDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                      <li>
+                        <span ID="spnSpan3">Execution Details</span>
+                        <div ID="dvDiv4">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut13">
+                            <div data-sfwControlType="sfwTable" ID="tblLayOut9">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <h6 ID="hdH62" style="font-weight:bold;">Start Time</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwDataFormat="{0:G}"></label>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <h6 ID="hdH63" style="font-weight:bold;">End Time</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwDataFormat="{0:G}"></label>
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <h6 ID="hdH64" style="font-weight:bold;">Total Time(Ms)</h6>
+                                </div>
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                  <label ID="lblTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="TimeInMs" sfwWrap="True"></label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                    <ul ID="pnlServerDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                      <li>
+                        <span ID="spnSpan4">Server Details</span>
+                        <div ID="dvDiv5">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut14">
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <h6 ID="hdH68" style="font-weight:bold;">Webserver Name</h6>
+                              </div>
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <label ID="lblWebServerName" data-sfwControlType="sfwLabel" sfwEntityField="WebServerName"></label>
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <h6 ID="hdH69" style="font-weight:bold;">Appserver Name</h6>
+                              </div>
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <label ID="lblAppserverName" data-sfwControlType="sfwLabel" sfwEntityField="AppserverName"></label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                    <ul ID="pnlParameters" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                      <li>
+                        <span ID="spnSpan5">Parameters</span>
+                        <div ID="dvDiv8">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut15">
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                <div ID="jdataParameterDetails" sfwEntityField="ParameterDetails" data-sfwControlType="sfwJSONData"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                    <ul ID="pnlOtherDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+                      <li>
+                        <span ID="spnSpan6">Other Details</span>
+                        <div ID="dvDiv9">
+                          <div data-sfwControlType="sfwTable" ID="tblLayOut16">
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6" style="font-weight:bold;">
+                                <h6 ID="hdH65" style="font-weight:bold;">Return Size</h6>
+                              </div>
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <label ID="lblReturnSize" data-sfwControlType="sfwLabel" sfwEntityField="ReturnSize"></label>
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <h6 ID="hdH66" style="font-weight:bold;">Browser Start Time</h6>
+                              </div>
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <label ID="lblBrowserStartTime" data-sfwControlType="sfwLabel" sfwEntityField="BrowserStartTime" sfwDataFormat="{0:G}"></label>
+                              </div>
+                            </div>
+                            <div data-sfwControlType="sfwRow">
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <h6 ID="hdH67" style="font-weight:bold;">Browser End Time</h6>
+                              </div>
+                              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                <label ID="lblBrowserTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="BrowserTimeInMs" sfwDataFormat="{0:G}"></label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ID="tshExecutionLifecycle" data-sfwControlType="sfwTab">
+        <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="chrRequestExecutionLifecycle" data-sfwControlType="sfwChart" sfwKeyField="DtlId" sfwReferenceField="DtlRefId" sfwShowXAxisLine="True" sfwShowYAxisLine="True" Width="1200" NoDataText="No Data To Plot" Height="500" ChartType="Gantt" sfwXAxisType="date" sfwYAxisType="collapsible+table" ChartName="Gantt Chart" SeriesCount="1" ShowLegend="False" sfwXaxisNumberTicks="5" YAxisTitle="Request" XAxisTitle="Duration" sfwLegendPosition="bottom" sfwXaxisFormat="{0:GM}" sfwEntityField="lstActLogInstActnDtl" sfwLoadMode="All" sfwLoadType="FormLoad" sfwCalculatePercentValue="False" sfwYaxisFormat="{0:GM}">
+                    <div data-sfwControlType="Series">
+                        <div data-sfwControlType="sfwSeries" SeriesWidth="60" YMemberColor="#ffa600,#c1ae7c" Name="Method Type" ChartType="Gantt" XValueMember="StartTime" XValueMember1="EndTime" YValueMembers="DtlName" sfwAddtionalChartColumns="TimeInMs" sfwTooltipType="Table" sfwTooltipTableParams="prop.something" DirectText="TimeInMs"></div>
+                    </div>
+                    <LoadParameters></LoadParameters>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div ID="tshAppServerRequest" data-sfwControlType="sfwTab">
+        <div data-sfwControlType="sfwTable" ID="tblLayOut4">
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+              <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwActiveForm="wfmActLogInstActnDtlMaintenance" sfwNavigationParameter="aintPrimaryKey=InstActnDtlId" Visible="False" sfwRelatedControl="grvLstActLogInstActnDtl" />
+            </div>
+          </div>
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+              <div ID="grvLstActLogInstActnDtl" data-sfwControlType="sfwGridView" sfwEntityField="lstActLogInstActnDtl" sfwLoadType="Query" sfwDefaultQuery="True" sfwLoadSource="entActLogInstActnDtl" AllowPaging="True" AllowSorting="True">
+                <table>
+                  <thead>
+                    <tr>
+                      <th data-sfwControlType="TemplateField">ID</th>
+                      <th data-sfwControlType="TemplateField">Name</th>
+                      <th data-sfwControlType="TemplateField">Caller Name</th>
+                      <th data-sfwControlType="TemplateField">Start Time</th>
+                      <th data-sfwControlType="TemplateField">End Time</th>
+                      <th data-sfwControlType="TemplateField" sfwFooterTypeText="Max:{0}" sfwFooterType="Max">Time (Ms)</th>
+                      <th data-sfwControlType="TemplateField">Parameter Details</th>
+                      <th data-sfwControlType="TemplateField">Result</th>
+                      <th data-sfwControlType="TemplateField">Type</th>
+                      <th data-sfwControlType="TemplateField">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td data-sfwControlType="ItemTemplate">
+                        <a ID="lblInstActnDtlId" data-sfwControlType="sfwLinkableAction" sfwEntityField="InstActnDtlId" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpen"></a>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="txtDtlName" data-sfwControlType="sfwLabel" sfwEntityField="DtlName"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="txtCallerName" data-sfwControlType="sfwLabel" sfwEntityField="CallerName"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="txtStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwDataFormat="{0:G}"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="txtEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwDataFormat="{0:G}"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="txtTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="TimeInMs"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="txtParameterDetails" data-sfwControlType="sfwLabel" sfwEntityField="ParameterDetails" sfwDisplayLength="30"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="txtResult" data-sfwControlType="sfwLabel" sfwEntityField="Result"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="ddlDtlType" data-sfwControlType="sfwLabel" sfwEntityField="DtlType"></label>
+                      </td>
+                      <td data-sfwControlType="ItemTemplate">
+                        <label ID="ddlStatus" data-sfwControlType="sfwLabel" sfwEntityField="Status"></label>
+                        <cellformat sfwEntityField="Status">
+                          <Conditions>
+                            <condition value="Ok" cssclass="Request-Ok" />
+                            <condition value="Error" cssclass="Request-Error" />
+                            <condition value="Slow" cssclass="Request-Slow" />
+                            <condition value="Very Slow" cssclass="Request-VerySlow" />
+                          </Conditions>
+                        </cellformat>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

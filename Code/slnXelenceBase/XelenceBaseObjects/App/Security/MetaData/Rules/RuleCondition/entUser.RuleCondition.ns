@@ -1,0 +1,20 @@
+entity entUser
+{
+	/// <summary>
+	/// rcValidateUserRoleID
+	/// </summary>
+	[ID=ValidateUserRoleID]
+	public bool rcValidateUserRoleID()
+	{
+		if(lintUserRoleId == 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		return false;
+	}
+}
+

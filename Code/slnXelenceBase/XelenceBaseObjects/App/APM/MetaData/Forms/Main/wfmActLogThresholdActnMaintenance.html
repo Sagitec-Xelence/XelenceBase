@@ -1,0 +1,106 @@
+<div ID="wfmActLogThresholdActnMaintenance" sfwType="Maintenance" sfwTitle="Act Log Threshold Actn Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entActLogInstActn">
+  <sfwServerDetails>
+    <loaddetails />
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">New Page</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblID" data-sfwControlType="sfwLabel" sfwEntityField="ActLogInstActnId" sfwShowCaption="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtActLogInstId" data-sfwControlType="sfwLabel" sfwEntityField="ActLogInstId" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtName" data-sfwControlType="sfwLabel" sfwEntityField="Name" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="ddlStatus" data-sfwControlType="sfwLabel" sfwEntityField="Status" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtSource" data-sfwControlType="sfwLabel" sfwEntityField="Source" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtTarget" data-sfwControlType="sfwLabel" sfwEntityField="Target" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6" style="overflow-wrap: break-word;">
+                <label ID="txtRequestUrl" data-sfwControlType="sfwLabel" sfwEntityField="RequestUrl" sfwShowCaption="True" sfwReadOnly="True" sfwWrap="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtWebServerName" data-sfwControlType="sfwLabel" sfwEntityField="WebServerName" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtAppserverName" data-sfwControlType="sfwLabel" sfwEntityField="AppserverName" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="TimeInMs" sfwShowCaption="True" sfwShowZero="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtResult" data-sfwControlType="sfwLabel" sfwEntityField="Result" sfwShowCaption="True" sfwReadOnly="True" sfwShowZero="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtTotalQueriesExecu" data-sfwControlType="sfwLabel" sfwEntityField="TotalQueriesExecuted" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtTotalQueriesTimeI" data-sfwControlType="sfwLabel" sfwEntityField="TotalQueriesTimeInMs" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblTransactionId" data-sfwControlType="sfwLabel" sfwEntityField="TransactionId" sfwShowCaption="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtParameterDetails" data-sfwControlType="sfwLabel" sfwEntityField="ParameterDetails" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwShowCaption="True" sfwDataFormat="{0:G}" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwShowCaption="True" sfwDataFormat="{0:G}" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtAdditonalInfo" data-sfwControlType="sfwLabel" sfwEntityField="AdditonalInfo" sfwShowCaption="True" sfwReadOnly="True"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="txtReturnSize" data-sfwControlType="sfwLabel" sfwEntityField="ReturnSize" sfwShowCaption="True" sfwShowZero="True" sfwReadOnly="True"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

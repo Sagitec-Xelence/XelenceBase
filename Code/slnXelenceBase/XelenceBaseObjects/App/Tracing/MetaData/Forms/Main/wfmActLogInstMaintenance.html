@@ -1,0 +1,353 @@
+<div sfwEntity="entActLogInst" ID="wfmActLogInstMaintenance" sfwType="Maintenance" sfwTitle="Act Log Inst Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmActLogInstLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlUserDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+      <li>
+        <span ID="spnSpan">User Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblUserName" data-sfwControlType="sfwLabel" sfwEntityField="ActorName" sfwShowCaption="True" sfwCaption="User Name:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblTransactionCount" data-sfwControlType="sfwLabel" sfwEntityField="ActionCount" sfwShowCaption="True" sfwCaption="Transaction Count:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblSessionID" data-sfwControlType="sfwLabel" sfwEntityField="ActLogUid" sfwShowCaption="True" sfwCaption="Session ID"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblOldSessionID" data-sfwControlType="sfwLabel" sfwEntityField="ActLogInitialUid" sfwShowCaption="True" sfwCaption="Old Session ID:"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblOsName" data-sfwControlType="sfwLabel" sfwEntityField="OsName" sfwShowCaption="True" sfwCaption="OS Name:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblIpAddress" data-sfwControlType="sfwLabel" sfwEntityField="IpAddress" sfwShowCaption="True" sfwCaption="IP Address:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblMacAddress" data-sfwControlType="sfwLabel" sfwEntityField="MacAddress" sfwShowCaption="True" sfwCaption="MAC Address:"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblBrowserName" data-sfwControlType="sfwLabel" sfwEntityField="BrowserName" sfwShowCaption="True" sfwCaption="Browser Name:"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwShowCaption="True" sfwCaption="Start Time:" sfwDataFormat="{0:G}"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwShowCaption="True" sfwCaption="End Time:" sfwDataFormat="{0:G}"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <label ID="lblID" data-sfwControlType="sfwLabel" sfwEntityField="ActLogInstId" sfwShowCaption="True" sfwCaption="ID:"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlSessionDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+      <li>
+        <span ID="spnSpan1">Session Details</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshAction_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshAction" ID="ancAnchor">Action</a>
+                    </li>
+                    <li ID="tshThresholdQuery_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshThresholdQuery" ID="ancAnchor1">Threshold Query</a>
+                    </li>
+                    <li ID="tshThresholdAction_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshThresholdAction" ID="ancAnchor2">Threshold Action</a>
+                    </li>
+                    <li ID="tshError_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshError" ID="ancAnchor4">Error</a>
+                    </li>
+                    <li ID="tshClientDetails_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshClientDetails" ID="ancAnchor3">Client Details</a>
+                    </li>
+                  </ul>
+                  <div ID="tshAction" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwActiveForm="wfmActLogInstActnMaintenance" sfwNavigationParameter="aintPrimaryKey=ActLogInstActnId" Visible="False" sfwRelatedControl="grvLstActLogInstActn" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvLstActLogInstActn" data-sfwControlType="sfwGridView" sfwEntityField="lstActLogInstActn" sfwLoadType="Query" sfwDefaultQuery="True" sfwLoadSource="entActLogInstActn" AllowPaging="True" AllowSorting="True">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">ID</th>
+                                  <th data-sfwControlType="TemplateField">Name</th>
+                                  <th data-sfwControlType="TemplateField">URL</th>
+                                  <th data-sfwControlType="TemplateField">Start Time</th>
+                                  <th data-sfwControlType="TemplateField">End Time</th>
+                                  <th data-sfwControlType="TemplateField">Time In Ms</th>
+                                  <th data-sfwControlType="TemplateField">Web Server Name</th>
+                                  <th data-sfwControlType="TemplateField">Appserver Name</th>
+                                  <th data-sfwControlType="TemplateField">Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <a ID="actOpen1" data-sfwControlType="sfwLinkableAction" sfwActiveForm="wfmActLogInstActnMaintenance" sfwEntityField="ActLogInstActnId" sfwRelatedControl="actOpen">Open</a>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="txtName" data-sfwControlType="sfwLabel" sfwEntityField="Name" sfwReadOnly="True"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="txtRequestUrl" data-sfwControlType="sfwLabel" sfwEntityField="RequestUrl" sfwReadOnly="True" sfwDisplayLength="30"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="txtStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwReadOnly="True" sfwDataFormat="{0:G}"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="txtEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwReadOnly="True" sfwDataFormat="{0:G}"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="txtTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="TimeInMs" sfwReadOnly="True"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="txtWebServerName" data-sfwControlType="sfwLabel" sfwEntityField="WebServerName" sfwReadOnly="True"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="txtAppserverName" data-sfwControlType="sfwLabel" sfwEntityField="AppserverName" sfwReadOnly="True"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="ddlStatus" data-sfwControlType="sfwLabel" sfwEntityField="Status" sfwReadOnly="True"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshThresholdQuery" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12"></div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvLoadThresholdQuery" data-sfwControlType="sfwGridView" sfwLoadSource="entActLogInst.LoadThresholdQueries" sfwLoadType="Query" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" sfwLoadMode="All">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField" Visible="False">Query ID</th>
+                                  <th data-sfwControlType="TemplateField">Query Ref</th>
+                                  <th data-sfwControlType="TemplateField">Query</th>
+                                  <th data-sfwControlType="TemplateField">Parameter Details</th>
+                                  <th data-sfwControlType="TemplateField">Start Time</th>
+                                  <th data-sfwControlType="TemplateField">End Time</th>
+                                  <th data-sfwControlType="TemplateField">Time(Ms)</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblUniqueQueryId" data-sfwControlType="sfwLabel" sfwEntityField="unique_query_id"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblQueryRef" data-sfwControlType="sfwLabel" sfwEntityField="unq.query_ref"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label data-sfwControlType="sfwLabel" sfwEntityField="unq.query" ID="lblQuery"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblParameterDetails" data-sfwControlType="sfwLabel" sfwEntityField="dtl.parameter_details" sfwDisplayLength="30"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblStartTime1" data-sfwControlType="sfwLabel" sfwEntityField="dtl.start_time" sfwDataFormat="{0:G}"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblEndTime1" data-sfwControlType="sfwLabel" sfwEntityField="dtl.end_time" sfwDataFormat="{0:G}"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="dtl.time_in_ms"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters>
+                              <parameter ID="@INSTANCE_ID" sfwEntityField="ActLogInstId"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshThresholdAction" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut4">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12"></div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="pnlEmptyPanel" data-sfwControlType="sfwEmptyPanel">
+                            <div data-sfwControlType="sfwTable" ID="tblLayOut7">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                  <input ID="actOpen2" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvLoadThresholdActi" Visible="False" sfwActiveForm="wfmActLogInstActnMaintenance" sfwNavigationParameter="aintPrimaryKey=actn.act_log_inst_actn_id" />
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                  <div ID="grvLoadThresholdActi" data-sfwControlType="sfwGridView" sfwLoadSource="entActLogInst.LoadThresholdActions" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th data-sfwControlType="TemplateField">ID</th>
+                                          <th data-sfwControlType="TemplateField">Name</th>
+                                          <th data-sfwControlType="TemplateField">Navigated From</th>
+                                          <th data-sfwControlType="TemplateField">Navigated To</th>
+                                          <th data-sfwControlType="TemplateField">Web Server</th>
+                                          <th data-sfwControlType="TemplateField">App Server</th>
+                                          <th data-sfwControlType="TemplateField">Start Time</th>
+                                          <th data-sfwControlType="TemplateField">End Time</th>
+                                          <th data-sfwControlType="TemplateField">Time(Ms)</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <a ID="lnkActLogInstActnId" data-sfwControlType="sfwLinkableAction" sfwEntityField="actn.act_log_inst_actn_id" sfwRelatedControl="actOpen2"></a>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblName" data-sfwControlType="sfwLabel" sfwEntityField="actn.name"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblSource" data-sfwControlType="sfwLabel" sfwEntityField="actn.source"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblTarget" data-sfwControlType="sfwLabel" sfwEntityField="actn.target"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblWebServerName" data-sfwControlType="sfwLabel" sfwEntityField="actn.web_server_name"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblAppserverName" data-sfwControlType="sfwLabel" sfwEntityField="actn.appserver_name"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblStartTime2" data-sfwControlType="sfwLabel" sfwEntityField="actn.start_time" sfwDataFormat="{0:G}"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblEndTime2" data-sfwControlType="sfwLabel" sfwEntityField="actn.end_time" sfwDataFormat="{0:G}"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblTimeInMs1" data-sfwControlType="sfwLabel" sfwEntityField="actn.time_in_ms"></label>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <LoadParameters>
+                                      <parameter ID="@INSTANCE_ID" sfwEntityField="ActLogInstId"></parameter>
+                                    </LoadParameters>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshClientDetails" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut5">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                          <div ID="jdataExtraDetails" sfwEntityField="ExtraDetails" data-sfwControlType="sfwJSONData"></div>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshError" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut6">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="pnlEmptyPanel1" data-sfwControlType="sfwEmptyPanel">
+                            <div data-sfwControlType="sfwTable" ID="tblLayOut8">
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                  <input ID="actOpen3" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvLoadFailedRequest" Visible="False" sfwActiveForm="wfmActLogInstActnMaintenance" sfwNavigationParameter="aintPrimaryKey=actn.act_log_inst_actn_id" />
+                                </div>
+                              </div>
+                              <div data-sfwControlType="sfwRow">
+                                <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                  <div ID="grvLoadFailedRequest" data-sfwControlType="sfwGridView" sfwLoadSource="entActLogInst.LoadFailedRequest" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                    <table>
+                                      <thead>
+                                        <tr>
+                                          <th data-sfwControlType="TemplateField">ID</th>
+                                          <th data-sfwControlType="TemplateField">Name</th>
+                                          <th data-sfwControlType="TemplateField">Start Time</th>
+                                          <th data-sfwControlType="TemplateField">End Time</th>
+                                          <th data-sfwControlType="TemplateField">Time(Ms)</th>
+                                          <th data-sfwControlType="TemplateField">Parameters</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblActLogInstActnId" data-sfwControlType="sfwLinkableAction" sfwEntityField="actn.act_log_inst_actn_id" sfwRelatedControl="actOpen3"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblName1" data-sfwControlType="sfwLabel" sfwEntityField="actn.name"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblStartTime3" data-sfwControlType="sfwLabel" sfwEntityField="actn.start_time" sfwDataFormat="{0:G}"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblEndTime3" data-sfwControlType="sfwLabel" sfwEntityField="actn.end_time" sfwDataFormat="{0:G}"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblTimeInMs2" data-sfwControlType="sfwLabel" sfwEntityField="actn.time_in_ms"></label>
+                                          </td>
+                                          <td data-sfwControlType="ItemTemplate">
+                                            <label ID="lblParameterDetails1" data-sfwControlType="sfwLabel" sfwEntityField="actn.parameter_details"></label>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <LoadParameters>
+                                      <parameter ID="@INSTANCE_ID" sfwEntityField="ActLogInstId"></parameter>
+                                    </LoadParameters>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

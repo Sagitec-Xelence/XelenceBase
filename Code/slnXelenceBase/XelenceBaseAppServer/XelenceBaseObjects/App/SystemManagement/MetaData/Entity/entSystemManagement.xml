@@ -1,0 +1,41 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_system_management" ID="entSystemManagement">
+  <attributes>
+    <column>
+      <attribute sfwValue="system_management_id" sfwKeyNo="1" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="SystemManagementId" sfwCaption="System Management" />
+      <attribute sfwValue="current_cycle_no" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="CurrentCycleNo" sfwCaption="Current Cycle No" />
+      <attribute sfwValue="region" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="Region" sfwCaption="Region" sfwCodeID="17" />
+      <attribute sfwValue="system_availability" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="SystemAvailability" sfwCaption="System Availability" sfwCodeID="18" />
+      <attribute sfwValue="batch_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="BatchDate" sfwCaption="Batch Date" />
+      <attribute sfwValue="base_directory" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="200" sfwIsNull="True" sfwDBDataType="varchar" ID="BaseDirectory" sfwCaption="Base Directory" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+      <attribute sfwValue="email_notification" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="2000" sfwIsNull="True" sfwDBDataType="varchar" ID="EmailNotification" sfwCaption="Email Notification" />
+      <attribute sfwValue="data1" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="Data1" sfwCaption="Data1" />
+      <attribute sfwValue="data2" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="Data2" sfwCaption="Data2" />
+      <attribute sfwValue="date_override" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="DateOverride" sfwCaption="Date" />
+      <attribute sfwValue="use_application_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="False" sfwDBDataType="varchar" ID="UseApplicationDate" sfwCaption="Use Application Date" />
+      <attribute sfwValue="application_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="ApplicationDate" sfwCaption="Application Date" />
+    </column>
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

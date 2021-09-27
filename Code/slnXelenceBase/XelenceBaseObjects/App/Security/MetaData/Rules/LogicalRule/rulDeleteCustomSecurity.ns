@@ -1,0 +1,11 @@
+/// <summary>
+/// rulDeleteCustomSecurity
+/// </summary>
+/// <param name="aintUserID"></param>
+[Entity=entUser]
+public rulDeleteCustomSecurity(int aintUserID)
+{
+	rule()
+	{
+	}
+}

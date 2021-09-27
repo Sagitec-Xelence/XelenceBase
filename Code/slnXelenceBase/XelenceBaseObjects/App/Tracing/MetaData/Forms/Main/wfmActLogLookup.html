@@ -1,0 +1,208 @@
+<div sfwEntity="entActLog" ID="wfmActLogLookup" sfwType="Lookup" sfwTitle="Act Log Lookup" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmActLogLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwTable">
+      <div data-sfwControlType="sfwRow">
+        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+          <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+            <li>
+              <span>Criteria</span>
+              <div>
+                <div data-sfwControlType="sfwTable" ID="tblCriteria">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtActLogId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="ID" sfwDataField="act_log_id" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input type="checkbox" ID="chkAppMonitoringFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="App Monitoring Flag" sfwDataField="app_monitoring_flag" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtTransactionLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Transaction Limit" sfwDataField="transaction_limit" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtTransactionLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Transaction Limit Alert" sfwDataField="transaction_limit_alert" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtTransactionHighLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Transaction High Limit" sfwDataField="transaction_high_limit" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtTransactionHighLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Transaction High Limit Alert" sfwDataField="transaction_high_limit_alert" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtAppserverLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Appserver Limit" sfwDataField="appserver_limit" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtAppserverLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Appserver Limit Alert" sfwDataField="appserver_limit_alert" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtAppserverHighLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Appserver High Limit" sfwDataField="appserver_high_limit" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtAppserverHighLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Appserver High Limit Alert" sfwDataField="appserver_high_limit_alert" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtQueryLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Query Limit" sfwDataField="query_limit" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtQueryLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Query Limit Alert" sfwDataField="query_limit_alert" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtQueryHighLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Query High Limit" sfwDataField="query_high_limit" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtQueryHighLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Query High Limit Alert" sfwDataField="query_high_limit_alert" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtRuleLimit" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="Rule Limit" sfwDataField="rule_limit" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtRuleLimitAlert" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Rule Limit Alert" sfwDataField="rule_limit_alert" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                      <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+                      <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+          <ul ID="pnlPanel" data-sfwControlType="sfwPanel">
+            <li>
+              <span>Result</span>
+              <div>
+                <div data-sfwControlType="sfwTable">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                      <input ID="actNew" data-sfwControlType="sfwActionNew" type="button" value="New" />
+                      <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+                      <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                      <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="ActLogId">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th data-sfwControlType="TemplateField">ID</th>
+                              <th data-sfwControlType="TemplateField">App Monitoring Flag</th>
+                              <th data-sfwControlType="TemplateField">Transaction Limit</th>
+                              <th data-sfwControlType="TemplateField">Transaction Limit Alert</th>
+                              <th data-sfwControlType="TemplateField">Transaction High Limit</th>
+                              <th data-sfwControlType="TemplateField">Transaction High Limit Alert</th>
+                              <th data-sfwControlType="TemplateField">Appserver Limit</th>
+                              <th data-sfwControlType="TemplateField">Appserver Limit Alert</th>
+                              <th data-sfwControlType="TemplateField">Appserver High Limit</th>
+                              <th data-sfwControlType="TemplateField">Appserver High Limit Alert</th>
+                              <th data-sfwControlType="TemplateField">Query Limit</th>
+                              <th data-sfwControlType="TemplateField">Query Limit Alert</th>
+                              <th data-sfwControlType="TemplateField">Query High Limit</th>
+                              <th data-sfwControlType="TemplateField">Query High Limit Alert</th>
+                              <th data-sfwControlType="TemplateField">Rule Limit</th>
+                              <th data-sfwControlType="TemplateField">Rule Limit Alert</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td data-sfwControlType="ItemTemplate">
+                                <a ID="lnkActLogId" data-sfwControlType="sfwLinkableAction" sfwRelatedControl="actOpen" sfwEntityField="ActLogId"></a>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblAppMonitoringFlag" data-sfwControlType="sfwLabel" sfwEntityField="AppMonitoringFlag"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblTransactionLimit" data-sfwControlType="sfwLabel" sfwEntityField="TransactionLimit"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblTransactionLimitAlert" data-sfwControlType="sfwLabel" sfwEntityField="TransactionLimitAlert"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblTransactionHighLimit" data-sfwControlType="sfwLabel" sfwEntityField="TransactionHighLimit"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblTransactionHighLimitAlert" data-sfwControlType="sfwLabel" sfwEntityField="TransactionHighLimitAlert"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblAppserverLimit" data-sfwControlType="sfwLabel" sfwEntityField="AppserverLimit"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblAppserverLimitAlert" data-sfwControlType="sfwLabel" sfwEntityField="AppserverLimitAlert"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblAppserverHighLimit" data-sfwControlType="sfwLabel" sfwEntityField="AppserverHighLimit"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblAppserverHighLimitAlert" data-sfwControlType="sfwLabel" sfwEntityField="AppserverHighLimitAlert"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblQueryLimit" data-sfwControlType="sfwLabel" sfwEntityField="QueryLimit"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblQueryLimitAlert" data-sfwControlType="sfwLabel" sfwEntityField="QueryLimitAlert"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblQueryHighLimit" data-sfwControlType="sfwLabel" sfwEntityField="QueryHighLimit"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblQueryHighLimitAlert" data-sfwControlType="sfwLabel" sfwEntityField="QueryHighLimitAlert"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblRuleLimit" data-sfwControlType="sfwLabel" sfwEntityField="RuleLimit"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblRuleLimitAlert" data-sfwControlType="sfwLabel" sfwEntityField="RuleLimitAlert"></label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+<div sfwEntity="entCorTemplates" ID="wfmCorTemplatesLookup" sfwType="Lookup" sfwTitle="Cor Templates Lookup" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmCorTemplatesLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+      <li>
+        <span ID="spnSpan">Criteria</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblCriteria">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTemplateId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="ID" sfwDataField="template_id" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtAssociatedForms" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Associated Form" sfwDataField="associated_forms" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlCommType" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Comm Type" sfwDataField="comm_type" sfwOperator="=" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlCommunicationCategory" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Communication Category" sfwDataField="communication_category" sfwOperator="=" sfwLoadType="CodeGroup"></select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTemplateCode" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Template Code" sfwDataField="template_code" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTemplateName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Template Name" sfwDataField="template_name" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlStatus" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Status" sfwDataField="status" sfwOperator="=" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="txtOnlineFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Online Flag" sfwDataField="online_flag" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtEffectiveDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" sfwCaption="Effective Date" sfwDataField="effective_date" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlResult" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan1">Search Results</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblResult" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actNew" data-sfwControlType="sfwActionNew" type="button" value="New" />
+                <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" sfwNavigationParameter="PARENT_TEMPLATE_ID=TemplateId" />
+                <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="TemplateId">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField" style="width:50px">ID</th>
+                        <th data-sfwControlType="TemplateField">Associated Forms</th>
+                        <th data-sfwControlType="TemplateField">Comm Type</th>
+                        <th data-sfwControlType="TemplateField">Communication Category</th>
+                        <th data-sfwControlType="TemplateField">Online Flag</th>
+                        <th data-sfwControlType="TemplateField">Template Code</th>
+                        <th data-sfwControlType="TemplateField">Template File Name</th>
+                        <th data-sfwControlType="TemplateField">Template Desc</th>
+                        <th data-sfwControlType="TemplateField">Template Name</th>
+                        <th data-sfwControlType="TemplateField">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <a ID="lnkTemplateId" data-sfwControlType="sfwLinkableAction" sfwRelatedControl="actOpen" sfwEntityField="TemplateId"></a>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblAssociatedForms" data-sfwControlType="sfwLabel" sfwEntityField="AssociatedForms"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblCommType" data-sfwControlType="sfwLabel" sfwEntityField="CommType"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblCommunicationCategory" data-sfwControlType="sfwLabel" sfwEntityField="CommunicationCategory"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblOnlineFlag" data-sfwControlType="sfwLabel" sfwEntityField="OnlineFlag"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblTemplateCode" data-sfwControlType="sfwLabel" sfwEntityField="TemplateCode"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblTemplateFileName" data-sfwControlType="sfwLabel" sfwEntityField="TemplateFileName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblTemplateDesc" data-sfwControlType="sfwLabel" sfwEntityField="TemplateDesc"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblTemplateName" data-sfwControlType="sfwLabel" sfwEntityField="TemplateName"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblStatus" data-sfwControlType="sfwLabel" sfwEntityField="Status"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

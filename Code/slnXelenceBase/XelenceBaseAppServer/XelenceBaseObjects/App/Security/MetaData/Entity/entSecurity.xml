@@ -1,0 +1,93 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_security" ID="entSecurity">
+  <attributes>
+    <column>
+      <attribute sfwValue="role_id" sfwKeyNo="0" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="RoleId" sfwCaption="Role" />
+      <attribute sfwValue="resource_id" sfwKeyNo="0" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="ResourceId" sfwCaption="Resource" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+      <attribute ID="SecuritySerialId" sfwCaption="Security Serial" sfwDataType="int" sfwIsIdentity="True" sfwIsNull="False" sfwKeyNo="1" sfwValue="security_serial_id" sfwLength="10,0" sfwDBDataType="int" />
+      <attribute ID="Security" sfwCaption="Security" sfwDataType="PickList" sfwIsNull="False" sfwKeyNo="0" sfwValue="security" sfwCodeID="20001009" sfwLength="4,0" sfwDBDataType="int" />
+    </column>
+    <object>
+      <attribute sfwAccessModifier="public" ID="objResources" sfwEntity="entResources" />
+      <attribute sfwAccessModifier="public" sfwEntity="entRoles" ID="objRoles" />
+      <attribute sfwAccessModifier="public" ID="objCustomSecurity" sfwEntity="entCustomSecurity" />
+    </object>
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="Queries">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; c.RESOURCE_DESCRIPTION,&#xA;&#x9;c.RESOURCE_TYPE_ID,&#xA;&#x9;c.RESOURCE_TYPE_VALUE,&#xA;&#x9;c.RESOURCE_ID,&#xA;&#x9;a.CUSTOM_SECURITY_ID AS CUSTOM_SECURITY_ID,&#xA;&#x9;a.CUSTOM_SECURITY_Level_ID AS security_id,&#xA;&#x9;a.OLD_SECURITY_Value AS security_value,&#xA;&#x9;a.UPDATE_SEQ,&#xA;&#x9;a.CUSTOM_SECURITY_LEVEL_VALUE AS custom_security_value,&#xA;&#x9;'True' AS ModifiedSecurity &#xA;FROM&#xA;&#x9; SGS_CUSTOM_SECURITY a WITH(NOLOCK),&#xA;&#x9;SGS_USER b WITH(NOLOCK),&#xA;&#x9;sgs_resources c WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; a.USER_SERIAL_ID = b.USER_SERIAL_ID AND&#xA;&#x9; a.RESOURCE_ID = c.RESOURCE_ID AND&#xA;&#x9; a.USER_SERIAL_ID in (SELECT&#xA;&#x9; USER_SERIAL_ID &#xA;FROM&#xA;&#x9; SGS_USER WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; USER_SERIAL_ID = @user_serial_id) UNION ALL SELECT&#xA;&#x9; d.RESOURCE_DESCRIPTION,&#xA;&#x9;d.RESOURCE_TYPE_ID,&#xA;&#x9;d.RESOURCE_TYPE_VALUE,&#xA;&#x9;d.RESOURCE_ID,&#xA;&#x9;0 AS Custom_SECURITY_ID ,&#xA;&#x9;e.SECURITY_ID AS security_id,&#xA;&#x9;MAX(e.security_value) AS SECURITY_VALUE,&#xA;&#x9;0 AS UPDATE_SEQ,&#xA;&#x9;MAX(e.security_value) AS custom_security_value,&#xA;&#x9;'False' AS ModifiedSecurity &#xA;FROM&#xA;&#x9; sgs_user a,&#xA;&#x9;sgs_user_roles b WITH(NOLOCK),&#xA;&#x9;sgs_resources d WITH(NOLOCK),&#xA;&#x9;sgs_security e WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; a.user_serial_id = b.user_serial_id AND&#xA;&#x9; b.role_id = e.role_id AND&#xA;&#x9; e.resource_id = d.resource_id AND&#xA;&#x9; a.USER_SERIAL_ID = @user_serial_id AND&#xA;&#x9; ((b.effective_start_DATE is null) or (b.effective_start_date&lt; = convert(dateTime,&#xA;&#x9;convert(char,&#xA;&#x9;getdate(),&#xA;&#x9;103),&#xA;&#x9;103))) AND&#xA;&#x9; ((b.effective_end_DATE is null) or (b.effective_end_date&gt; = convert(dateTime,&#xA;&#x9;convert(char,&#xA;&#x9;getdate(),&#xA;&#x9;103),&#xA;&#x9;103))) AND&#xA;&#x9; d.RESOURCE_ID not in (SELECT&#xA;&#x9; a.RESOURCE_ID &#xA;FROM&#xA;&#x9; SGS_CUSTOM_SECURITY a WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; a.USER_SERIAL_ID in (SELECT&#xA;&#x9; USER_SERIAL_ID &#xA;FROM&#xA;&#x9; SGS_USER WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; USER_SERIAL_ID = @user_serial_id)) &#xA;GROUP BY  d.resource_id,&#xA;&#x9;d.resource_description,&#xA;&#x9;d.RESOURCE_TYPE_ID,&#xA;&#x9;d.RESOURCE_TYPE_VALUE,&#xA;&#x9;SECURITY_ID &#xA;ORDER BY  RESOURCE_DESCRIPTION" ID="BaseQuery">
+        <parameters>
+          <parameter ID="@user_serial_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; a.resource_id,&#xA;&#x9;a.role_id,&#xA;&#x9;a.update_seq,&#xA;&#x9;resource_description,&#xA;&#x9;resource_type_id,&#xA;&#x9;resource_type_value,&#xA;&#x9;security_id,&#xA;&#x9;security_value &#xA;FROM&#xA;&#x9; sgs_security a WITH(NOLOCK),&#xA;&#x9;sgs_resources b WITH(NOLOCK)&#xA;WHERE&#xA;&#x9; a.resource_id = b.resource_id AND&#xA;&#x9; role_id = @role_id &#xA;ORDER BY  security_value desc&#xA;" ID="ByRoleForAllSecurities">
+        <parameters>
+          <parameter ID="@role_id" sfwDataType="int" />
+        </parameters>
+        <mappedcolumns>
+          <column ID="resource_description" sfwEntityField="objResources.ResourceDescription" />
+          <column ID="resource_type_value" sfwEntityField="objResources.ResourceType" />
+        </mappedcolumns>
+      </query>
+      <query ID="LoadUserDetails" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;       A.USER_SERIAL_ID,&#xA;       A.USER_ID,&#xA;       FIRST_NAME,&#xA;       MIDDLE_INITIAL,&#xA;       LAST_NAME,&#xA;       A.PASSWORD,&#xA;       A.BEGIN_DATE,&#xA;       A.END_DATE,&#xA;       A.EMAIL_ADDRESS,&#xA;       A.USER_TYPE_ID,&#xA;       A.USER_TYPE_VALUE,&#xA;       A.USER_STATUS_ID,&#xA;       A.PERSON_ID,&#xA;       A.LOG_ACTIVITY_FLAG,&#xA;       A.INITIAL_PAGE,&#xA;       A.COLOR_SCHEME,&#xA;       A.ACCESS_TYPE_ID,&#xA;       A.ACCESS_TYPE_VALUE,&#xA;       A.CREATED_BY,&#xA;       A.CREATED_DATE,&#xA;       A.MODIFIED_BY,&#xA;       A.MODIFIED_DATE,&#xA;       A.UPDATE_SEQ,&#xA;       A.UNAVAILABLE_IND,&#xA;       A.AD_GUID,&#xA;       A.DISPLAY_NAME,&#xA;       A.DELETED_FROM_AD,&#xA;       A.LOG_SELECT_QUERY_FLAG,&#xA;       A.LOG_INSERT_QUERY_FLAG,&#xA;       A.LOG_UPDATE_QUERY_FLAG,&#xA;       A.LOG_DELETE_QUERY_FLAG,&#xA;       A.SKILL_ID,&#xA;       A.SKILL_VALUE,&#xA;       A.POSITION_ID,&#xA;       A.POSITION_VALUE,&#xA;       A.LOCATION_ID,&#xA;       A.LOCATION_VALUE,&#xA;       A.AUTHORITY_ID,&#xA;       A.AUTHORITY_VALUE,&#xA;       A.SUPERVISOR_ID,&#xA;       A.OLD_PASSWORD,&#xA;       A.AUTHENTICATION_MODE_ID,&#xA;       A.AUTHENTICATION_MODE_VALUE,&#xA;       USER_STATUS_VALUE,&#xA;       IMAGE_NAME,&#xA;       USER_TITLE,&#xA;       A.LINK_EXPIRED_FLAG ,&#xA;       MAX(SECURITY_VALUE) AS SECURITY_VALUE  &#xA;FROM&#xA;       SGS_USER A WITH(NOLOCK),&#xA;       SGS_USER_ROLES B WITH(NOLOCK),&#xA;       SGS_ROLES C WITH(NOLOCK),&#xA;       SGS_RESOURCES D WITH(NOLOCK),&#xA;       SGS_SECURITY E WITH(NOLOCK)  &#xA;WHERE&#xA;       E.RESOURCE_ID = @RESOURCE_ID AND&#xA;       SECURITY_VALUE  &lt;&gt; 0 AND&#xA;       A.USER_SERIAL_ID = B.USER_SERIAL_ID AND&#xA;       B.ROLE_ID = C.ROLE_ID  AND&#xA;       B.ROLE_ID = E.ROLE_ID AND&#xA;       D.RESOURCE_ID = E.RESOURCE_ID AND&#xA;       ((B.EFFECTIVE_START_DATE IS NULL) OR   (B.EFFECTIVE_START_DATE &lt; = CONVERT(DATETIME,&#xA;       CONVERT(CHAR,&#xA;       getdate(),&#xA;       103),&#xA;       103)))AND ((B.EFFECTIVE_END_DATE IS NULL) OR  (B.EFFECTIVE_END_DATE &gt; =  CONVERT(DATETIME,&#xA;       CONVERT(CHAR,&#xA;       getdate(),&#xA;       103),&#xA;       103)))  &#xA;GROUP BY  A.USER_SERIAL_ID,&#xA;       A.USER_ID,&#xA;       FIRST_NAME,&#xA;       MIDDLE_INITIAL,&#xA;       LAST_NAME,&#xA;       A.PASSWORD,&#xA;       A.BEGIN_DATE,&#xA;       A.END_DATE,&#xA;       A.EMAIL_ADDRESS,&#xA;       A.USER_TYPE_ID,&#xA;       A.USER_TYPE_VALUE,&#xA;       A.USER_STATUS_ID,&#xA;       A.PERSON_ID,&#xA;       A.LOG_ACTIVITY_FLAG,&#xA;       A.INITIAL_PAGE,&#xA;       A.COLOR_SCHEME,&#xA;       A.ACCESS_TYPE_ID,&#xA;       A.ACCESS_TYPE_VALUE,&#xA;       A.CREATED_BY,&#xA;       A.CREATED_DATE,&#xA;       A.MODIFIED_BY,&#xA;       A.MODIFIED_DATE,&#xA;       A.UPDATE_SEQ,&#xA;       A.UNAVAILABLE_IND,&#xA;       A.AD_GUID,&#xA;       A.DISPLAY_NAME,&#xA;       A.DELETED_FROM_AD,&#xA;       A.LOG_SELECT_QUERY_FLAG,&#xA;       A.LOG_INSERT_QUERY_FLAG,&#xA;       A.LOG_UPDATE_QUERY_FLAG,&#xA;       A.LOG_DELETE_QUERY_FLAG,&#xA;       A.SKILL_ID,&#xA;       A.SKILL_VALUE,&#xA;       A.POSITION_ID,&#xA;       A.POSITION_VALUE,&#xA;       A.LOCATION_ID,&#xA;       A.LOCATION_VALUE,&#xA;       A.AUTHORITY_ID,&#xA;       A.AUTHORITY_VALUE,&#xA;       A.SUPERVISOR_ID,&#xA;       A.OLD_PASSWORD,&#xA;       A.AUTHENTICATION_MODE_ID,&#xA;       A.AUTHENTICATION_MODE_VALUE,&#xA;       E.RESOURCE_ID,&#xA;       USER_STATUS_VALUE,&#xA;       IMAGE_NAME,&#xA;       USER_TITLE,&#xA;       A.LINK_EXPIRED_FLAG&#xA;&#xA;">
+        <parameters>
+          <parameter ID="@RESOURCE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="ScalarQuery" sfwSql="select count(*) from sgs_security where resource_id = @resourceID and role_id = @roleID" ID="FindSecurity">
+        <parameters>
+          <parameter ID="@resourceID" sfwDataType="int" />
+          <parameter ID="@roleID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="ByResource" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select a.role_id, a.update_seq, resource_id, role_description, security_id, security_value &#xA;  from sgs_security a WITH(NOLOCK),&#xA;       sgs_roles b WITH(NOLOCK) &#xA; where a.role_id = b.role_id&#xA;   and resource_id = @resource_id&#xA;   and security_value &lt;&gt; 0&#xA; order by role_description">
+        <parameters>
+          <parameter ID="@resource_id" sfwDataType="int" />
+        </parameters>
+        <mappedcolumns>
+          <column sfwEntityField="objRoles.RoleDescription" ID="role_description" />
+        </mappedcolumns>
+      </query>
+      <query ID="ByUser" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; c.RESOURCE_DESCRIPTION,&#xA;&#x9;c.RESOURCE_TYPE_ID,&#xA;&#x9;c.RESOURCE_TYPE_VALUE,&#xA;&#x9;c.RESOURCE_ID,&#xA;&#x9;a.CUSTOM_SECURITY_ID AS CUSTOM_SECURITY_ID,&#xA;&#x9;a.CUSTOM_SECURITY_Level_ID AS security_id,&#xA;&#x9;a.OLD_SECURITY_Value AS security_value,&#xA;&#x9;a.UPDATE_SEQ,&#xA;&#x9;a.CUSTOM_SECURITY_LEVEL_VALUE AS custom_security_value,&#xA;    r.ROLE_DESCRIPTION,&#xA;&#x9;'True' AS ModifiedSecurity &#xA;FROM&#xA;&#x9; SGS_CUSTOM_SECURITY a WITH(NOLOCK),&#xA;&#x9;SGS_USER b WITH(NOLOCK),&#xA;&#x9;sgs_resources c WITH(NOLOCK),&#xA;&#x9;SGS_ROLES r with(nolock)&#xA;WHERE&#xA;&#x9; a.USER_SERIAL_ID = b.USER_SERIAL_ID AND&#xA;&#x9; a.RESOURCE_ID = c.RESOURCE_ID AND&#xA;&#x9; a.USER_SERIAL_ID in (SELECT&#xA;&#x9; USER_SERIAL_ID &#xA;FROM&#xA;&#x9; SGS_USER WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; USER_SERIAL_ID = @User_Serial_ID) UNION ALL SELECT&#xA;&#x9; d.RESOURCE_DESCRIPTION,&#xA;&#x9;d.RESOURCE_TYPE_ID,&#xA;&#x9;d.RESOURCE_TYPE_VALUE,&#xA;&#x9;d.RESOURCE_ID,&#xA;&#x9;0 AS Custom_SECURITY_ID ,&#xA;&#x9;e.SECURITY_ID AS security_id,&#xA;&#x9;MAX(e.security_value) AS SECURITY_VALUE,&#xA;&#x9;0 AS UPDATE_SEQ,&#xA;&#x9;MAX(e.security_value) AS custom_security_value,&#xA;&#x9;r.ROLE_DESCRIPTION,&#xA;&#x9;'False' AS ModifiedSecurity &#xA;FROM&#xA;&#x9; sgs_user a,&#xA;&#x9;sgs_user_roles b WITH(NOLOCK),&#xA;&#x9;sgs_resources d WITH(NOLOCK),&#xA;&#x9;sgs_security e WITH(NOLOCK),&#xA;&#x9;SGS_ROLES r with(nolock) &#xA;WHERE&#xA;&#x9; a.user_serial_id = b.user_serial_id AND&#xA;&#x9; b.role_id = e.role_id AND&#xA;&#x9; e.resource_id = d.resource_id AND&#xA;&#x9; a.USER_SERIAL_ID = @User_Serial_ID AND&#xA;&#x9; ((b.effective_start_DATE is null) or (b.effective_start_date&lt; = convert(dateTime,&#xA;&#x9;convert(char,&#xA;&#x9;getdate(),&#xA;&#x9;103),&#xA;&#x9;103))) AND&#xA;&#x9; ((b.effective_end_DATE is null) or (b.effective_end_date&gt; = convert(dateTime,&#xA;&#x9;convert(char,&#xA;&#x9;getdate(),&#xA;&#x9;103),&#xA;&#x9;103))) AND&#xA;&#x9; d.RESOURCE_ID not in (SELECT&#xA;&#x9; a.RESOURCE_ID &#xA;FROM&#xA;&#x9; SGS_CUSTOM_SECURITY a WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; a.USER_SERIAL_ID in (SELECT&#xA;&#x9; USER_SERIAL_ID &#xA;FROM&#xA;&#x9; SGS_USER WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; USER_SERIAL_ID = @User_Serial_ID)) &#xA;GROUP BY  d.resource_id,&#xA;&#x9;d.resource_description,&#xA;&#x9;d.RESOURCE_TYPE_ID,&#xA;&#x9;d.RESOURCE_TYPE_VALUE,&#xA;&#x9;SECURITY_ID,&#xA;&#x9; r.ROLE_DESCRIPTION&#xA;ORDER BY  RESOURCE_DESCRIPTION">
+        <parameters>
+          <parameter ID="@User_Serial_ID" sfwDataType="int" />
+        </parameters>
+        <mappedcolumns>
+          <column sfwEntityField="objCustomSecurity.CustomSecurityLevel" ID="custom_security_value" />
+          <column sfwEntityField="objResources.ResourceDescription" ID="d.resource_description" />
+          <column sfwEntityField="objResources.ResourceType" ID="c.resource_type_value" />
+          <column sfwEntityField="objRoles.RoleDescription" ID="r.role_description" />
+        </mappedcolumns>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select a.resource_id, a.role_id, a.update_seq, &#xA;       resource_description, resource_type_id, resource_type_value, security_id, security_value &#xA;  from sgs_security a WITH(NOLOCK),&#xA;       sgs_resources b WITH(NOLOCK) &#xA; where a.resource_id = b.resource_id&#xA;   and role_id = @role_id&#xA;   and security_value &lt;&gt; 0&#xA; order by  security_value desc" ID="ByRole">
+        <parameters>
+          <parameter ID="@role_id" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

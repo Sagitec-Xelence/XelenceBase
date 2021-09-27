@@ -1,0 +1,137 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_cor_templates" ID="entCorTemplates">
+  <attributes>
+    <column>
+      <attribute sfwValue="template_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="TemplateId" sfwCaption="ID" />
+      <attribute sfwValue="template_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" ID="TemplateName" sfwCaption="Template Name" />
+      <attribute sfwValue="template_desc" sfwDataType="string" sfwDBDataType="varchar" sfwLength="2000" ID="TemplateDesc" sfwCaption="Template Desc" />
+      <attribute sfwValue="template_group" sfwDataType="PickList" ID="TemplateGroup" sfwCodeID="20006039" sfwCaption="Template Group" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="comm_type" sfwDataType="PickList" ID="CommType" sfwCodeID="20006001" sfwDefaultValue="20006001" sfwCaption="Comm Type" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="associated_forms" sfwDataType="string" sfwDBDataType="varchar" sfwLength="128" sfwIsNull="False" ID="AssociatedForms" sfwCaption="Associated Form" />
+      <attribute sfwValue="batch_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="BatchFlag" sfwDefaultValue="N" sfwCaption="Batch Flag" />
+      <attribute sfwValue="online_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="OnlineFlag" sfwDefaultValue="N" sfwCaption="Online Flag" />
+      <attribute sfwValue="doc_type" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" ID="DocType" sfwCaption="Doc Type" />
+      <attribute sfwValue="secure_message_prefix" sfwDataType="PickList" ID="SecureMessagePrefix" sfwCodeID="20006004" sfwDefaultValue="20006004" sfwCaption="Secure Message Prefix" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="secure_message_subject_line" sfwDataType="string" sfwDBDataType="varchar" sfwLength="256" ID="SecureMessageSubjectLine" sfwCaption="Secure Message Subject Line" />
+      <attribute sfwValue="turn_around_template_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="TurnAroundTemplateFlag" sfwDefaultValue="N" sfwCaption="Turn Around Template Flag" />
+      <attribute sfwValue="due_date_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="DueDateFlag" sfwDefaultValue="N" sfwCaption="Due Date Flag" />
+      <attribute sfwValue="relative_due_business_days" sfwDataType="int" sfwDBDataType="int" ID="RelativeDueBusinessDays" sfwCaption="Relative Due Business Days" />
+      <attribute sfwValue="template_code" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="TemplateCode" sfwCaption="Template Code" />
+      <attribute sfwValue="image_index_ind" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ImageIndexInd" sfwCaption="Image Index Ind" />
+      <attribute sfwValue="created_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="UpdateSeq" sfwCaption="Update Seq" />
+      <attribute sfwValue="doc_class" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" ID="DocClass" sfwCaption="Doc Class" />
+      <attribute sfwValue="effective_date" sfwDataType="datetime" sfwDBDataType="datetime" ID="EffectiveDate" sfwCaption="Effective Date" />
+      <attribute sfwValue="notification_message" sfwDataType="string" sfwDBDataType="varchar" sfwLength="256" ID="NotificationMessage" sfwCaption="Notification Message" />
+      <attribute sfwValue="delivery_method" sfwDataType="PickList" ID="DeliveryMethod" sfwCodeID="20006027" sfwDefaultValue="20006027" sfwCaption="Delivery Method" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="due_date_calculation_mode_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="DueDateCalculationModeFlag" sfwDefaultValue="C" sfwCaption="Due Date Calculation Mode Flag" />
+      <attribute sfwValue="form_template_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="FormTemplateFlag" sfwCaption="Form Template Flag" />
+      <attribute sfwValue="communication_category" sfwDataType="PickList" ID="CommunicationCategory" sfwCodeID="20006026" sfwDefaultValue="20006026" sfwCaption="Communication Category" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="override_rcpnt_dlvy_pref_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="OverrideRcpntDlvyPrefFlag" sfwCaption="Override Rcpnt Dlvy Pref Flag" />
+      <attribute sfwValue="status" sfwDataType="PickList" ID="Status" sfwCodeID="20006028" sfwDefaultValue="20006028" sfwCaption="Status" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="due_date_determined_by" sfwDataType="PickList" ID="DueDateDeterminedBy" sfwCodeID="20006013" sfwDefaultValue="20006013" sfwCaption="Due Date Determined By" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="filter_object" sfwDataType="PickList" ID="FilterObject" sfwCodeID="0" sfwCaption="Filter Object" sfwLength="20" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="filter_object_field" sfwDataType="string" sfwDBDataType="varchar" sfwLength="20" ID="FilterObjectField" sfwCaption="Filter Object Field" />
+      <attribute sfwValue="template_version" sfwDataType="int" sfwDBDataType="int" ID="TemplateVersion" sfwCaption="Template Version" />
+      <attribute sfwValue="user_editable_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="UserEditableFlag" sfwDefaultValue="N" sfwCaption="User Editable Flag" />
+      <attribute sfwValue="template_file_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="TemplateFileName" sfwCaption="Template File Name" />
+      <attribute sfwValue="template_checksum" sfwDataType="string" sfwDBDataType="varchar" sfwLength="40" sfwIsNull="False" ID="TemplateChecksum" sfwCaption="Template Checksum" />
+      <attribute sfwValue="print_doc_type_id" sfwDataType="int" sfwDBDataType="int" ID="PrintDocTypeId" sfwCaption="Print Doc Type Id" />
+      <attribute sfwValue="new_version" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="NewVersion" sfwCaption="New Version" />
+      <attribute sfwValue="resource_id" sfwDataType="int" sfwDBDataType="int" ID="ResourceId" sfwCaption="Resource Id" />
+      <attribute sfwValue="priority_code" sfwDataType="PickList" ID="PriorityCode" sfwCodeID="20006033" sfwDefaultValue="20006033" sfwCaption="Priority Code" sfwLength="4" sfwDBDataType="varchar" sfwIsNull="True" />
+      <attribute sfwValue="mass_correspondence_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="MassCorrespondenceFlag" sfwCaption="Mass Correspondence Flag" />
+      <attribute sfwValue="ntfc_template_id" sfwDataType="int" sfwDBDataType="int" ID="NtfcTemplateId" sfwCaption="Ntfc Template Id" />
+    </column>
+    <collection>
+      <attribute sfwEntity="entCorTracking" ID="lstCorTracking" />
+      <attribute sfwEntity="entCommTmplAutoEnclrXr" ID="lstCommTmplAutoEnclrXr" sfwAccessModifier="public" />
+      <attribute sfwEntity="entSolCorTemplateRecipient" ID="lstCorTemplateRecipient" sfwAccessModifier="public" />
+      <attribute sfwEntity="entCommTmplPdfEnclsr" ID="lstCommTmplPdfEnclsr" sfwAccessModifier="public" />
+      <attribute sfwEntity="entCorTemplateVersions" ID="lstCorTemplateVersions" sfwAccessModifier="public" />
+    </collection>
+    <object />
+    <property>
+      <attribute sfwAccessModifier="public" ID="IintAutoEnclsDetailCommunication" sfwDataType="int" sfwCaption="Auto Enclosure Detail Communication" />
+      <attribute sfwAccessModifier="public" ID="IstrRecipientContactType" sfwDataType="string" sfwCaption="Istr Recipient Contact Type" />
+      <attribute sfwAccessModifier="public" ID="iintRecipientRoleId" sfwDataType="int" sfwCaption="iint Recipient Role Id" />
+    </property>
+    <calculatedfields />
+    <AppJsonData />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="Templates" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="Select &#xA;TEMPLATE_ID,TEMPLATE_CODE, TEMPLATE_NAME, TEMPLATE_DESC, TEMPLATE_GROUP_ID, TEMPLATE_GROUP_VALUE, COMM_TYPE_ID, COMM_TYPE_VALUE, &#xA; FORM_TEMPLATE_FLAG, &#xA;ASSOCIATED_FORMS, FILTER_OBJECT_ID, FILTER_OBJECT_FIELD, FILTER_OBJECT_VALUE, BATCH_FLAG, ONLINE_FLAG,&#xA;DOC_TYPE, SECURE_MESSAGE_PREFIX_ID, SECURE_MESSAGE_PREFIX_VALUE, SECURE_MESSAGE_SUBJECT_LINE,  TURN_AROUND_TEMPLATE_FLAG, &#xA;DUE_DATE_FLAG, RELATIVE_DUE_BUSINESS_DAYS,  &#xA;IMAGE_INDEX_IND, CREATED_BY, CREATED_DATE, MODIFIED_BY, MODIFIED_DATE, UPDATE_SEQ,&#xA;DOC_CLASS,  EFFECTIVE_DATE,STATUS_VALUE   from sgs_cor_templates sct &#xA;where TEMPLATE_ID IN (&#xA;select  MAX(TEMPLATE_ID)&#xA;from sgs_cor_templates WITH(NOLOCK) &#xA;where associated_forms like @form_name&#xA;group by TEMPLATE_CODE&#xA;)&#xA;AND ONLINE_FLAG = 'Y'&#xA; AND STATUS_VALUE = 'A'&#xA;" sfwOracle="Select &#xD;&#xA;TEMPLATE_ID,TEMPLATE_CODE, TEMPLATE_CODE AS TEMPLATE_NAME, TEMPLATE_DESC, TEMPLATE_GROUP_ID, TEMPLATE_GROUP_VALUE, COMM_TYPE_ID, COMM_TYPE_VALUE, &#xD;&#xA; FORM_TEMPLATE_FLAG, &#xD;&#xA;ASSOCIATED_FORMS, FILTER_OBJECT_ID, FILTER_OBJECT_FIELD, FILTER_OBJECT_VALUE, BATCH_FLAG, ONLINE_FLAG,&#xD;&#xA;DOC_TYPE, SECURE_MESSAGE_PREFIX_ID, SECURE_MESSAGE_PREFIX_VALUE, SECURE_MESSAGE_SUBJECT_LINE,  TURN_AROUND_TEMPLATE_FLAG, &#xD;&#xA;DUE_DATE_FLAG, RELATIVE_DUE_BUSINESS_DAYS,  &#xD;&#xA;IMAGE_INDEX_IND, CREATED_BY, CREATED_DATE, MODIFIED_BY, MODIFIED_DATE, UPDATE_SEQ,&#xD;&#xA;DOC_CLASS,  EFFECTIVE_DATE,STATUS_VALUE   from sgs_cor_templates sct &#xD;&#xA;where TEMPLATE_ID IN (&#xD;&#xA;select  MAX(TEMPLATE_ID)&#xD;&#xA;from sgs_cor_templates &#xD;&#xA;where associated_forms like @form_name &#xD;&#xA;group by TEMPLATE_CODE&#xD;&#xA;) AND STATUS_VALUE = 'A' and ONLINE_FLAG = 'Y'">
+        <parameters>
+          <parameter ID="@form_name" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetTemplateID" sfwQueryType="ScalarQuery" sfwDataType="int" sfwSql="SELECT&#xA;&#x9; top(1) TEMPLATE_ID &#xA;FROM&#xA;&#x9; sgs_cor_templates sct &#xA;WHERE&#xA;&#x9; TEMPLATE_ID IN (SELECT&#xA;&#x9; MAX(TEMPLATE_ID) &#xA;FROM&#xA;&#x9; sgs_cor_templates WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; (TEMPLATE_NAME = @template_name or TEMPLATE_CODE = @template_name) &#xA;GROUP BY  TEMPLATE_CODE)AND&#xA;&#x9;&#xA;&#x9; ONLINE_FLAG = 'Y' AND&#xA;&#x9; STATUS_VALUE = 'A'">
+        <parameters>
+          <parameter ID="@template_name" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetAutoEnclsDetailCommunication" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; distinct TEMPLATE_ID,&#xA;&#x9;TEMPLATE_DESC &#xA;FROM&#xA;&#x9; SGS_COR_TEMPLATES sct WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; STATUS_VALUE = 'A' AND&#xA;&#x9; sct.TEMPLATE_ID &lt;&gt; @TEMPLATE_ID AND&#xA;&#x9; sct.TEMPLATE_ID not in (SELECT&#xA;&#x9; COMM_TMPL_AUTO_ENCLOSURE_ID &#xA;FROM&#xA;&#x9; SGS_COMM_TMPL_AUTO_ENCLR_XR &#xA;WHERE&#xA;&#x9; PARENT_TEMPLATE_ID = @TEMPLATE_ID)">
+        <parameters>
+          <parameter ID="@TEMPLATE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetCommTemplateAutoEnclosures" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; CTAEN.*,&#xA;&#x9;TEMPLATE_NAME,&#xA;&#x9;TEMPLATE_DESC,&#xA;&#x9;TEMPLATE_CODE &#xA;FROM&#xA;&#x9; SGS_COMM_TMPL_AUTO_ENCLR_XR CTAEN WITH(NOLOCK) &#xA;&#x9;INNER &#xA;&#x9; JOIN SGS_COR_TEMPLATES CT WITH(NOLOCK)&#xA;&#x9; ON CTAEN.COMM_TMPL_AUTO_ENCLOSURE_ID = CT.TEMPLATE_ID AND&#xA;&#x9; CTAEN.PARENT_TEMPLATE_ID = @PARENT_TEMPLATE_ID&#xA;&#x9; ORDER BY SEQUENCE_NUMBER">
+        <parameters>
+          <parameter ID="@PARENT_TEMPLATE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; SGS_COMM_TMPL_PDF_ENCLSR &#xA;WHERE&#xA;&#x9; TEMPLATE_ID = @Template_ID" ID="GetCommTmplPdfEnclsr">
+        <parameters>
+          <parameter ID="@Template_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetCountOfRecipientsByRoleAndContactType" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; COUNT(*) &#xA;FROM&#xA;&#x9; SGS_COR_TEMPLATE_RECIPIENT WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; ROLE_ID = @ROLE_ID AND&#xA;&#x9; CONTACT_TYPE_VALUE = @CONTACT_TYPE_VALUE AND&#xA;&#x9; TEMPLATE_ID = @TEMPLATE_ID">
+        <parameters>
+          <parameter ID="@ROLE_ID" sfwDataType="int" />
+          <parameter ID="@CONTACT_TYPE_VALUE" sfwDataType="string" />
+          <parameter ID="@TEMPLATE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetCountOfRecipientsByRole" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; COUNT(*) &#xA;FROM&#xA;&#x9; SGS_COR_TEMPLATE_RECIPIENT WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; ROLE_ID = @ROLE_ID AND&#xA;&#x9; TEMPLATE_ID = @TEMPLATE_ID">
+        <parameters>
+          <parameter ID="@ROLE_ID" sfwDataType="int" />
+          <parameter ID="@TEMPLATE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="GetCountOfRecipientsByContactType" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; COUNT(*) &#xA;FROM&#xA;&#x9; SGS_COR_TEMPLATE_RECIPIENT WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; CONTACT_TYPE_VALUE = @CONTACT_TYPE_VALUE AND&#xA;&#x9; TEMPLATE_ID = @TEMPLATE_ID">
+        <parameters>
+          <parameter ID="@CONTACT_TYPE_VALUE" sfwDataType="string" />
+          <parameter ID="@TEMPLATE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9;TEMPLATE_ID,&#xA;&#x9;TEMPLATE_NAME &#xA;FROM&#xA;&#x9; SGS_COR_TEMPLATES WITH(NOLOCK)&#xA;&#x9; WHERE COMM_TYPE_VALUE = 'NTFC'" ID="GetNotificationTemplates">
+        <parameters />
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods>
+    <method ID="LoadCommTemplateAutoEnclosureXrs" sfwMethodType="Load" sfwLoadMainObject="False" sfwMode="All">
+      <item ID="lstCommTmplAutoEnclrXr" sfwParameter="@PARENT_TEMPLATE_ID" sfwLoadType="Query" sfwLoadSource="entCorTemplates.GetCommTemplateAutoEnclosures" sfwItemType="collection" />
+      <parameter ID="PARENT_TEMPLATE_ID" sfwDataType="int" Value="TemplateId" />
+    </method>
+  </methods>
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

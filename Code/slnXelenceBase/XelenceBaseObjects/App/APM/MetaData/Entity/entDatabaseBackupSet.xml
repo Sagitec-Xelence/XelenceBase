@@ -1,0 +1,49 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" ID="entDatabaseBackupSet">
+  <attributes>
+    <column>
+      <attribute ID="DatabasebackupsetId" sfwValue="databasebackupset_id" sfwDBDataType="int" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwIsNull="False" sfwCaption="ID" />
+      <attribute ID="CreatedBy" sfwValue="created_by" sfwDBDataType="varchar" sfwKeyNo="0" sfwDataType="string" sfwLength="250" sfwIsNull="False" sfwCaption="Created By" />
+      <attribute ID="CreatedDate" sfwValue="created_date" sfwDBDataType="datetime" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwCaption="Created Date" />
+      <attribute ID="ModifiedBy" sfwValue="modified_by" sfwDBDataType="varchar" sfwKeyNo="0" sfwDataType="string" sfwLength="250" sfwIsNull="False" sfwCaption="Modified By" />
+      <attribute ID="ModifiedDate" sfwValue="modified_date" sfwDBDataType="datetime" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwCaption="Modified Date" />
+      <attribute ID="UpdateSeq" sfwValue="update_seq" sfwDBDataType="int" sfwKeyNo="0" sfwDataType="int" sfwIsNull="False" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection />
+    <property>
+      <attribute sfwAccessModifier="public" ID="BackupSetID" sfwDataType="int" sfwCaption="Backup Set I D" />
+    </property>
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="APM">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetBackupFileDetails" sfwSql="SELECT&#xA;&#x9;BACKUPSET.BACKUP_SET_ID,&#xA;&#x9;BACKUPFILE.LOGICAL_NAME,&#xA;&#x9;BACKUPFILE.PHYSICAL_NAME,&#xA;&#x9;ROUND(CAST(BACKUPFILE.BACKUP_SIZE AS FLOAT)/ 1000000, 2) BACKUP_SIZE_IN_MB,&#xA;&#x9;CASE BACKUPFILE.FILE_TYPE&#xA;&#x9;WHEN 'D' THEN 'DATABASE'&#xA;&#x9;WHEN 'L' THEN 'LOG'&#xA;&#x9;END AS FILE_TYPE,&#xA;&#x9;BACKUPFILE.STATE_DESC&#xA;FROM &#xA;&#x9;MSDB.DBO.BACKUPSET BACKUPSET&#xA;INNER JOIN &#xA;&#x9;MSDB.DBO.BACKUPFILE BACKUPFILE ON BACKUPFILE.BACKUP_SET_ID = BACKUPSET.BACKUP_SET_ID&#xA;WHERE &#xA;&#x9;BACKUPSET.BACKUP_SET_ID = @BACKUPSETID">
+        <parameters>
+          <parameter ID="@BACKUPSETID" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods>
+    <method ID="SetBackupSetID" sfwMethodType="Load" sfwMode="All">
+      <item ID="rulSetBackupSetID" sfwParameter="BackSetId" sfwItemType="rule" />
+      <parameter ID="BackSetId" sfwDataType="int" />
+    </method>
+  </methods>
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

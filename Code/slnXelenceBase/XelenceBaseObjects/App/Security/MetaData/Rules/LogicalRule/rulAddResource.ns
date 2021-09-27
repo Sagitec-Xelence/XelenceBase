@@ -1,0 +1,12 @@
+/// <summary>
+/// rulAddResource
+/// </summary>
+[Entity=entResources]
+public string rulAddResource()
+{
+	rule()
+	{
+		var temp = entSecurity.FindSecurity(111, 27);
+		return a;
+	}
+}

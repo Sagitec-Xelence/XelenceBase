@@ -1,0 +1,75 @@
+﻿    <Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <UserSecretsId>41a2ce07-f0c9-43a3-a0fd-d6e67895be13</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>bin\Main.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Global.asax.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Global.asax" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="NUglify" Version="1.9.9" />
+    <PackageReference Include="RestSharp" Version="106.11.7" />
+    <PackageReference Include="MustardBlack-Core.Assets.Css.Sass" Version="2.1.1" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.7.0" />
+    <PackageReference Include="System.Data.HashFunction.xxHash" Version="2.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.7.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
+    <PackageReference Include="UAParser" Version="3.1.46" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Classes\" />
+    <Folder Include="FrameworkDlls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="SagitecCommon">
+      <HintPath>FrameworkDlls\SagitecCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecCore">
+      <HintPath>FrameworkDlls\SagitecCore.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecInterface">
+      <HintPath>FrameworkDlls\SagitecInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecModel">
+      <HintPath>FrameworkDlls\SagitecModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecMVVMClient">
+      <HintPath>FrameworkDlls\SagitecMVVMClient.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecMVVMControls">
+      <HintPath>FrameworkDlls\SagitecMVVMControls.dll</HintPath>
+    </Reference>
+    <Reference Include="SagitecBundling">
+      <HintPath>FrameworkDlls\SagitecBundling.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

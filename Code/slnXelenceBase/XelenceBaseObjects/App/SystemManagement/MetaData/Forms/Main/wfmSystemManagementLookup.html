@@ -1,0 +1,109 @@
+<div sfwEntity="entSystemManagement" ID="wfmSystemManagementLookup" sfwType="Lookup" sfwTitle="System Management Lookup" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmSystemManagementLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwTable">
+      <div data-sfwControlType="sfwRow">
+        <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+          <ul ID="pnlCriteria" data-sfwControlType="sfwPanel" sfwCriteria="True">
+            <li>
+              <span>Criteria</span>
+              <div>
+                <div data-sfwControlType="sfwTable" ID="tblCriteria">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtSystemManagementId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwCaption="System Management" sfwDataField="system_management_id" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <select ID="ddlRegion" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Region" sfwDataField="region" sfwOperator="=" sfwLoadType="CodeGroup"></select>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input type="checkbox" ID="chkUseApplicationDate" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Use Application Date" sfwDataField="use_application_date" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtApplicationDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" sfwCaption="Application Date" sfwDataField="application_date" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="txtBaseDirectory" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Base Directory" sfwDataField="base_directory" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <input ID="actSearch" data-sfwControlType="sfwActionSearch" type="button" value="Search" />
+                      <input ID="actMisc" data-sfwControlType="sfwActionMisc" type="button" value="StoreSearch" sfwActionType="StoreSearch" />
+                      <input ID="actReset" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+          <ul ID="pnlPanel" data-sfwControlType="sfwPanel">
+            <li>
+              <span>Result</span>
+              <div>
+                <div data-sfwControlType="sfwTable">
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                      <input ID="actNew" data-sfwControlType="sfwActionNew" type="button" value="New" />
+                      <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwRelatedControl="grvResult" />
+                      <input ID="actDelete" data-sfwControlType="sfwActionDelete" type="button" value="Delete" sfwRelatedControl="grvResult" />
+                      <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Excel" sfwActionType="Excel" sfwRelatedControl="grvResult" />
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwRow">
+                    <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                      <div ID="grvResult" data-sfwControlType="sfwGridView" AllowPaging="True" AllowSorting="True" sfwSelection="Many" sfwDataKeyNames="SystemManagementId">
+                        <table>
+                          <thead>
+                            <tr>
+                              <th data-sfwControlType="TemplateField">System Management</th>
+                              <th data-sfwControlType="TemplateField">Region</th>
+                              <th data-sfwControlType="TemplateField">Use Application Date</th>
+                              <th data-sfwControlType="TemplateField">Application Date</th>
+                              <th data-sfwControlType="TemplateField">Base Directory</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td data-sfwControlType="ItemTemplate">
+                                <a ID="lnkSystemManagementId" data-sfwControlType="sfwLinkableAction" sfwRelatedControl="actOpen" sfwEntityField="SystemManagementId"></a>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblRegion" data-sfwControlType="sfwLabel" sfwEntityField="Region"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblUseApplicationDate" data-sfwControlType="sfwLabel" sfwEntityField="UseApplicationDate"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblApplicationDate" data-sfwControlType="sfwLabel" sfwEntityField="ApplicationDate"></label>
+                              </td>
+                              <td data-sfwControlType="ItemTemplate">
+                                <label ID="lblBaseDirectory" data-sfwControlType="sfwLabel" sfwEntityField="BaseDirectory"></label>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

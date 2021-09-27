@@ -1,0 +1,11 @@
+/// <summary>
+/// rulUpdateToDate
+/// </summary>
+[Entity=entAppMonitoring]
+public rulUpdateToDate()
+{
+	rule()
+	{
+		ToDate = DateTime.Now;
+	}
+}

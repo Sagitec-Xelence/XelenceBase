@@ -1,0 +1,188 @@
+<div ID="wfmCodeMaintenance" sfwActive="True" sfwStatus="Valid" sfwType="Maintenance" sfwTitle="Code Maintenance" sfwEntity="entCode" data-sfwControlType="form">
+  <sfwServerDetails>
+    <initialload />
+    <loaddetails>
+      <entityfield ID="lstCodeValue" sfwUpdateAutoLoad="True" sfwNewAutoLoad="False" />
+    </loaddetails>
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper" ID="Main">
+    <div data-sfwControlType="sfwEmptyPanel" ID="pnltoolbar" class="neo-button-holder">
+      <div CellPadding="3" ID="toolbar" data-sfwControlType="sfwTable">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+            <input type="button" sfwNavigationParameter="aintCodeId=CodeId" data-sfwControlType="sfwActionSave" value="Save" ID="btnSave" />
+            <input type="button" data-sfwControlType="sfwActionReset" value="Refresh" ID="btnCancel" />
+            <input type="button" sfwMethodName="btnPrev_Click" data-sfwControlType="sfwActionMisc" value="Previous" ID="btnPrev" sfwCustomMethodType="btnPrev_Click" sfwActionType="Custom" />
+            <input type="button" sfwMethodName="btnNext_Click" data-sfwControlType="sfwActionMisc" value="Next" ID="btnNext" sfwCustomMethodType="btnNext_Click" sfwActionType="Custom" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul data-sfwControlType="sfwPanel" ID="pnlMain">
+      <li>
+        <span ID="spnSpan">Code Information</span>
+        <div ID="dvDiv">
+          <div ID="tblMain" data-sfwControlType="sfwTable" class="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" class="neo-multiple-groups" sfwColSpan="3">
+                <input name="txbCodeID" sfwEditMode="New" sfwDataFormat="{0:999999999}" sfwEntityField="CodeId" sfwRequired="True" data-sfwControlType="sfwTextBox" type="text" ID="txbCodeID" sfwShowCaption="True" sfwCaption="Code ID :" sfwConditionalRequired="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                <input name="txtCodeDescription" sfwEntityField="Description" sfwRequired="True" data-sfwControlType="sfwTextBox" type="text" ID="txtCodeDescription" sfwShowCaption="True" sfwCaption="Description :" sfwConditionalRequired="True" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtdata1_caption" sfwEntityField="Data1Caption" data-sfwControlType="sfwTextBox" type="text" ID="txtdata1_caption" sfwShowCaption="True" sfwCaption="Data1 Caption :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="txtdata1_type" name="txtdata1_type" sfwEntityField="Data1Type" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Data1 Type :">
+                  <option selected="true">N/A</option>
+                  <option value="int">Integer</option>
+                  <option value="str">String</option>
+                  <option value="date">Date</option>
+                  <option value="deci">Decimal</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtdata2_caption" sfwEntityField="Data2Caption" data-sfwControlType="sfwTextBox" type="text" ID="txtdata2_caption" sfwShowCaption="True" sfwCaption="Data2 Caption :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="txtdata2_type" name="txtdata2_type" sfwEntityField="Data2Type" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Data2 Type :">
+                  <option selected="true">N/A</option>
+                  <option value="int">Integer</option>
+                  <option value="str">String</option>
+                  <option value="date">Date</option>
+                  <option value="deci">Decimal</option>
+                </select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtdata3_caption" sfwEntityField="Data3Caption" data-sfwControlType="sfwTextBox" type="text" ID="txtdata3_caption" sfwShowCaption="True" sfwCaption="Data3 Caption :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="txtdata3_type" name="txtdata3_type" sfwEntityField="Data3Type" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Data3 Type :">
+                  <option selected="true">N/A</option>
+                  <option value="int">Integer</option>
+                  <option value="str">String</option>
+                  <option value="date">Date</option>
+                  <option value="deci">Decimal</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtfirst_lookup_item" sfwDefaultValue="All" sfwEntityField="FirstLookupItem" data-sfwControlType="sfwTextBox" type="text" ID="txtfirst_lookup_item" sfwShowCaption="True" sfwCaption="First Lookup Item :" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtfirst_maintenance_item" sfwEntityField="FirstMaintenanceItem" data-sfwControlType="sfwTextBox" type="text" ID="txtfirst_maintenance_item" sfwShowCaption="True" sfwCaption="First Maintenance Item :" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <textarea ID="txtcomments" sfwEntityField="Comments" data-sfwControlType="sfwMultiLine" sfwShowCaption="True" rows="5" sfwCaption="Comments :"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul data-sfwControlType="sfwPanel" ID="pnlResult">
+      <li>
+        <span ID="spnSpan1">Code Values</span>
+        <div ID="dvDiv1">
+          <div ID="tblResult" data-sfwControlType="sfwTable" class="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input type="button" sfwActiveForm="wfmCodeValueMaintenance" data-sfwControlType="sfwActionNew" value="New" ID="btnNew" />
+                <input type="button" sfwActiveForm="wfmCodeValueMaintenance" sfwRelatedControl="dgrResult" data-sfwControlType="sfwActionOpen" value="Open" ID="btnOpen" />
+                <input type="button" sfwNavigationParameter="CodeSerialId" sfwRelatedControl="dgrResult" data-sfwControlType="sfwActionDelete" value="Delete" ID="btnDelete" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div id="dgrResult" AllowPaging="True" AllowSorting="True" ID="dgrResult" sfwSelection="Many" sfwEntityField="lstCodeValue" sfwGridEntity="entCodeValue" data-sfwControlType="sfwGridView" sfwLoadType="FormLoad" sfwLoadMode="All">
+                  <Parameters>
+                    <parameter ID="@CODE_ID" sfwEntityField="CodeId"></parameter>
+                  </Parameters>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">Code</th>
+                        <th data-sfwControlType="TemplateField">Description</th>
+                        <th data-sfwControlType="TemplateField">Data1</th>
+                        <th data-sfwControlType="TemplateField">Data2</th>
+                        <th data-sfwControlType="TemplateField">Data3</th>
+                        <th data-sfwControlType="TemplateField">Comments</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">Start Date</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">End Date</th>
+                        <th data-sfwControlType="TemplateField">Sort Order</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">Code Id</th>
+                        <th data-sfwControlType="TemplateField">ID</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwLinkable="True" sfwRelatedControl="btnOpen" sfwEntityField="CodeValue" data-sfwControlType="sfwLabel" ID="lblCode"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Description" data-sfwControlType="sfwLabel" ID="lblDescription"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Data1" data-sfwControlType="sfwLabel" ID="lblData1"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Data2" data-sfwControlType="sfwLabel" ID="lblData2"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Data3" data-sfwControlType="sfwLabel" ID="lblData3"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <input sfwEntityField="Comments" data-sfwControlType="sfwHtmlEditor" sfwReadOnly="True" ID="txtComments1" />
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwDataFormat="{0:d}" sfwEntityField="StartDate" data-sfwControlType="sfwLabel" ID="lblStartDate"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwDataFormat="{0:d}" sfwEntityField="EndDate" data-sfwControlType="sfwLabel" ID="lblEndDate"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="CodeValueOrder" data-sfwControlType="sfwLabel" ID="lblSortOrder"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="CodeId" data-sfwControlType="sfwLabel" ID="lblCodeId"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="CodeSerialId" data-sfwControlType="sfwLabel" ID="lblID"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset data-sfwControlType="sfwGroupPanel" ID="pnlAuditInfo">
+      <legend>Audit Information</legend>
+      <div ID="tblAuditInfo" data-sfwControlType="sfwTable" class="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="CreatedByUserName" data-sfwControlType="sfwLabel" ID="lblCreatedBy" sfwShowCaption="True" sfwCaption="Created :"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwDataFormat="{0:G}" sfwEntityField="CreatedDate" data-sfwControlType="sfwLabel" ID="lblCreatedDate"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="ModifiedByUserName" data-sfwControlType="sfwLabel" ID="lblModifiedBy" sfwShowCaption="True" sfwCaption="Modified :"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwDataFormat="{0:G}" sfwEntityField="ModifiedDate" data-sfwControlType="sfwLabel" ID="lblModifiedDate"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

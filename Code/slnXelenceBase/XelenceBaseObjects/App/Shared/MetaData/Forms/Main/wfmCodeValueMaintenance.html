@@ -1,0 +1,84 @@
+<div ID="wfmCodeValueMaintenance" sfwActive="True" sfwStatus="Review" sfwType="Maintenance" sfwTitle="Code Value Maintenance" sfwEntity="entCodeValue" data-sfwControlType="form">
+  <sfwServerDetails>
+    <initialload />
+    <loaddetails>
+      <entityfield ID="objCode" sfwUpdateAutoLoad="True" sfwNewAutoLoad="True" />
+    </loaddetails>
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper" ID="Main">
+    <div data-sfwControlType="sfwEmptyPanel" ID="pnltoolbar" class="neo-button-holder">
+      <div CellPadding="3" ID="toolbar" data-sfwControlType="sfwTable">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+            <input type="button" sfwNavigationParameter="aintPrimaryKey=CodeSerialId" data-sfwControlType="sfwActionSave" value="Save" ID="btnSave" />
+            <input type="button" sfwMode="New" sfwNavigationParameter="code_id=CodeId" data-sfwControlType="sfwActionSave" value="Save and New" ID="btnSaveNew" sfwActionType="SaveAndNew" />
+            <input type="button" data-sfwControlType="sfwActionReset" value="Refresh" ID="btnCancel" />
+            <input type="button" sfwMethodName="btnPrev_Click" data-sfwControlType="sfwActionMisc" sfwActionType="Custom" value="Previous" ID="btnPrev" sfwCustomMethodType="btnPrev_Click" />
+            <input type="button" sfwMethodName="btnNext_Click" data-sfwControlType="sfwActionMisc" sfwActionType="Custom" value="Next" ID="btnNext" sfwCustomMethodType="btnNext_Click" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul data-sfwControlType="sfwPanel" ID="pnlMain">
+      <li>
+        <span ID="spnSpan">Code Value Information</span>
+        <div ID="dvDiv">
+          <div ID="tblMain" data-sfwControlType="sfwTable" class="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label sfwTwoWayBinding="True" sfwEntityField="CodeId" data-sfwControlType="sfwLabel" ID="txtcode_id" sfwShowCaption="True" sfwCaption="Code ID :"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label sfwEntityField="objCode.Description" data-sfwControlType="sfwLabel" ID="lblCodeDescription" sfwShowCaption="True" sfwCaption="Code Group :"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" class="neo-multiple-groups" sfwColSpan="3">
+                <input name="txtcodevalue" sfwEditMode="New" sfwEntityField="CodeValue" sfwRequired="True" data-sfwControlType="sfwTextBox" type="text" ID="txtcodevalue" sfwShowCaption="True" sfwCaption="Code :" sfwConditionalRequired="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtDescription" Width="300px" sfwEntityField="Description" sfwRequired="True" data-sfwControlType="sfwTextBox" type="text" ID="txtDescription" sfwShowCaption="True" sfwCaption="Description :" sfwConditionalRequired="True" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtdata1" sfwEntityField="Data1" data-sfwControlType="sfwTextBox" type="text" ID="txtdata1" sfwShowCaption="True" sfwCaptionClass="LeftAlignedLabel" sfwCaptionField="objCode.Data1Caption" />
+              </div>
+              <div data-sfwControlType="sfwColumn" class="neo-cell-empty-caption" sfwColSpan="3">
+                <input name="txtdata2" sfwEntityField="Data2" data-sfwControlType="sfwTextBox" type="text" ID="txtdata2" sfwShowCaption="True" sfwCaptionClass="LeftAlignedLabel" sfwCaptionField="objCode.Data2Caption" />
+              </div>
+              <div data-sfwControlType="sfwColumn" class="neo-cell-empty-caption" sfwColSpan="3">
+                <input name="txtdata3" sfwEntityField="Data3" data-sfwControlType="sfwTextBox" type="text" ID="txtdata3" sfwShowCaption="True" sfwCaptionClass="LeftAlignedLabel" sfwCaptionField="objCode.Data3Caption" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input name="txtcode_value_order" sfwEntityField="CodeValueOrder" data-sfwControlType="sfwTextBox" type="text" ID="txtcode_value_order" sfwShowCaption="True" sfwCaption="Sort Order :" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <textarea ID="txtcomments" sfwEntityField="Comments" data-sfwControlType="sfwMultiLine" sfwShowCaption="True" rows="5" sfwCaption="Comments :"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset data-sfwControlType="sfwGroupPanel" ID="pnlAuditInfo">
+      <legend>Audit Information</legend>
+      <div ID="tblAuditInfo" data-sfwControlType="sfwTable" class="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="CreatedBy" data-sfwControlType="sfwLabel" ID="lblCreatedBy" sfwShowCaption="True" sfwCaption="Created :"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwDataFormat="{0:G}" sfwEntityField="CreatedDate" data-sfwControlType="sfwLabel" ID="lblCreatedDate"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwEntityField="ModifiedBy" data-sfwControlType="sfwLabel" ID="lblModifiedBy" sfwShowCaption="True" sfwCaption="Modified :"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label sfwDataFormat="{0:G}" sfwEntityField="ModifiedDate" data-sfwControlType="sfwLabel" ID="lblModifiedDate"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

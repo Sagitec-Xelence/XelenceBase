@@ -1,0 +1,66 @@
+<entity ID="entTableSchema" sfwTableName="SqlServer" sfwParentEntity="entBase" sfwVersion="7.0">
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="GetTableList" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select name &#xD;&#xA;  from dbo.sysobjects&#xD;&#xA;where ((name like @table_type) or (name like 'sg%'))&#xD;&#xA;  and xtype in ('U','V')&#xD;&#xA;ORDER BY 1" sfwOracle="SELECT&#xA;&#x9; tname AS name &#xA;FROM&#xA;&#x9; tab &#xA;WHERE&#xA;&#x9; UPPER(tname) like UPPER(@table_type) &#xA;ORDER BY  1">
+        <parameters>
+          <parameter ID="@table_type" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetColumnDetail" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select ordinal_position, column_name, character_maximum_length , numeric_precision, numeric_scale,&#xD;&#xA;  case when data_type = 'varchar' or data_type = 'nvarchar' then 'string' &#xD;&#xA;       when data_type = 'char' then'string' &#xD;&#xA;       when data_type = 'smalldatetime' then'DateTime' &#xD;&#xA;       when data_type = 'datetime' then'DateTime'&#xD;&#xA;&#x9;   when data_type = 'date' then'DateTime'         &#xD;&#xA;       when data_type = 'money' then'Decimal' &#xD;&#xA;       when data_type = 'numeric' then'Decimal' &#xD;&#xA;       when data_type = 'smallmoney' then'Decimal' &#xD;&#xA;       when data_type = 'float' then'Double' &#xD;&#xA;       when data_type = 'uniqueidentifier' then 'Guid'&#xD;&#xA;       when data_type = 'image' or data_type = 'varbinary' then 'byte[]'&#xD;&#xA;  else data_type &#xD;&#xA;   end as type_of_field, &#xD;&#xA;  case when is_nullable = 'NO' then 'N' &#xD;&#xA;  else 'Y' &#xD;&#xA;   end as is_nullable, &#xD;&#xA;       isnull((select ordinal_position from information_schema.key_column_usage &#xD;&#xA;                where table_name = a.table_name and column_name = a.column_name and constraint_name = &#xD;&#xA;                     (select constraint_name from information_schema.table_constraints&#xD;&#xA;                       where table_name = a.table_name and constraint_type = 'primary key')), 0) as key_no&#xD;&#xA;  from information_schema.columns a&#xD;&#xA; where table_name = @table_name&#xD;&#xA;   and column_name not in ('created_by', 'created_date', 'modified_by', 'modified_date', 'update_seq')&#xD;&#xA; order by ordinal_position" sfwOracle="SELECT&#xA;&#x9; column_id AS ordinal_position,&#xA;&#x9;column_name,&#xA;&#x9;data_length AS character_maximum_length,&#xA;&#x9;data_precision AS numeric_precision,&#xA;&#x9;data_scale AS numeric_scale,&#xA;&#x9;case when data_type = 'VARCHAR2' then 'string' when data_type = 'CLOB' then 'string' when data_type = 'CHAR' then'string' when data_type = 'DATE' then'DateTime' when data_type = 'TIMESTAMP(6)' then'DateTime' when data_type = 'NUMBER' AND&#xA;&#x9; data_scale &gt; 0 then 'Decimal' when data_type = 'NUMBER' then 'int' when data_type = 'FLOAT' then'Double' when data_type = 'MONEY' then'Decimal' else data_type end AS type_of_field,&#xA;&#x9;nullable AS is_nullable,&#xA;&#x9;nvl((SELECT&#xA;&#x9; column_position &#xA;FROM&#xA;&#x9; user_ind_columns &#xA;WHERE&#xA;&#x9; table_name = a.table_name AND&#xA;&#x9; column_name = a.column_name AND&#xA;&#x9; index_name = (SELECT&#xA;&#x9; constraint_name &#xA;FROM&#xA;&#x9; user_constraints &#xA;WHERE&#xA;&#x9; table_name = a.table_name AND&#xA;&#x9; CONSTRAINT_TYPE = 'P')),&#xA;&#x9;0) AS key_no &#xA;FROM&#xA;&#x9; user_tab_columns a &#xA;WHERE&#xA;&#x9; table_name = upper(@table_name) AND&#xA;&#x9; column_name not in (upper('created_by'),&#xA;&#x9;upper('created_date'),&#xA;&#x9;upper('modified_by'),&#xA;&#x9;upper('modified_date'),&#xA;&#x9;upper('update_seq')) &#xA;ORDER BY  column_id">
+        <parameters>
+          <parameter ID="@table_name" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetColumnDetailCDO" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select ordinal_position, column_name,data_type,Character_maximum_length Length,&#xD;&#xA;       character_maximum_length , numeric_precision, numeric_scale,&#xD;&#xA;       &#xD;&#xA;case when data_type = 'varchar' then 'string' &#xD;&#xA;       when data_type = 'char' then'string' &#xD;&#xA;       when data_type = 'smalldatetime' then'DateTime' &#xD;&#xA;       when data_type = 'datetime' then'DateTime' &#xD;&#xA;       when data_type = 'date' then'DateTime'  &#xD;&#xA;       when data_type = 'money' then'Decimal' &#xD;&#xA;       when data_type = 'numeric' then'Decimal' &#xD;&#xA;       when data_type = 'smallmoney' then'Decimal' &#xD;&#xA;       when data_type = 'float' then'Decimal' &#xD;&#xA;       when data_type = 'uniqueidentifier' then 'Guid'&#xD;&#xA;  else data_type &#xD;&#xA;   end as type_of_field,&#xD;&#xA;&#xD;&#xA;  ColumnProperty(object_id(table_name), column_name, 'IsIdentity') as Is_identity,  &#xD;&#xA;  case when is_nullable = 'NO' then 'N' &#xD;&#xA;  else 'Y' &#xD;&#xA;  end as is_nullable, &#xD;&#xA;         isnull((select ordinal_position from information_schema.key_column_usage &#xD;&#xA;                   where table_name = a.table_name and column_name = a.column_name and constraint_name = &#xD;&#xA;                             (select constraint_name from information_schema.table_constraints&#xD;&#xA;                              where table_name = a.table_name and constraint_type = 'primary key')), 0) as key_no&#xD;&#xA;  from information_schema.columns a&#xD;&#xA;where table_name = @table_name&#xD;&#xA; order by ordinal_position&#xD;&#xA;" sfwOracle="SELECT&#xD;&#xA;  column_id AS ordinal_position,&#xD;&#xA; column_name,&#xD;&#xA; data_type,&#xD;&#xA; data_length AS length,&#xD;&#xA; data_length AS character_maximum_length,&#xD;&#xA; data_precision AS numeric_precision,&#xD;&#xA; data_scale AS numeric_scale,&#xD;&#xA; case when data_type = 'VARCHAR2' then 'string' when data_type = 'CLOB' then 'string' when data_type = 'CHAR' then'string' when data_type = 'DATE' then'DateTime' when data_type = 'TIMESTAMP(6)' then'DateTime' when data_type = 'NUMBER' AND&#xD;&#xA; data_scale &gt; 0 then 'Decimal' when data_type = 'NUMBER' then 'int' when data_type = 'FLOAT' then'Double' when data_type = 'MONEY' then'Decimal' else data_type end AS type_of_field,&#xD;&#xA; a.IDENTITY_COLUMN AS is_identity,&#xD;&#xA; nullable AS is_nullable,&#xD;&#xA; nvl((SELECT&#xD;&#xA;  column_position &#xD;&#xA;FROM&#xD;&#xA;  user_ind_columns &#xD;&#xA;WHERE&#xD;&#xA;  table_name = a.table_name AND&#xD;&#xA;  column_name = a.column_name AND&#xD;&#xA;  index_name = (SELECT&#xD;&#xA;  constraint_name &#xD;&#xA;FROM&#xD;&#xA;  user_constraints &#xD;&#xA;WHERE&#xD;&#xA;  table_name = a.table_name AND&#xD;&#xA;  constraint_type = 'P')),&#xD;&#xA; 0) AS key_no &#xD;&#xA;FROM&#xD;&#xA;  user_tab_columns a &#xD;&#xA;WHERE&#xD;&#xA;  table_name = upper(@table_name) &#xD;&#xA;ORDER BY  column_id">
+        <parameters>
+          <parameter ID="@table_name" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetPrimaryKeyDetails" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select kcu.column_name as column_name, c.data_type as data_type&#xD;&#xA;from information_schema.key_column_usage as kcu, information_schema.columns as c&#xD;&#xA;where kcu.table_name = c.table_name&#xD;&#xA;and kcu.column_name = c.column_name&#xD;&#xA;and kcu.table_name = @table_name&#xD;&#xA;and constraint_name = (&#xD;&#xA;  select constraint_name from information_schema.table_constraints&#xD;&#xA;  where table_name = @table_name&#xD;&#xA;  and constraint_type = 'primary key')&#xD;&#xA;" sfwOracle="SELECT&#xA;&#x9; a.column_name,&#xA;&#x9;case when data_type = 'NUMBER' then'int' when data_type = 'VARCHAR2' then 'string' when data_type = 'CLOB' then 'string' when data_type = 'CHAR' then'string' when data_type = 'DATE' then'DateTime' when data_type = 'TIMESTAMP(6)' then'DateTime' when data_type = 'FLOAT' then'Double' when data_type = 'MONEY' then'Decimal' else data_type end AS data_type &#xA;FROM&#xA;&#x9; user_tab_columns a,&#xA;&#x9;user_ind_columns b &#xA;WHERE&#xA;&#x9; a.table_name = b.table_name AND&#xA;&#x9; a.column_name = b.column_name AND&#xA;&#x9; a.table_name = upper(@table_name) AND&#xA;&#x9; b.index_name = (SELECT&#xA;&#x9; constraint_name &#xA;FROM&#xA;&#x9; user_constraints &#xA;WHERE&#xA;&#x9; table_name = upper(@table_name) AND&#xA;&#x9; constraint_type = 'P')">
+        <parameters>
+          <parameter ID="@table_name" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetChildrenTables" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select table_name from information_schema.columns&#xD;&#xA;where table_name &lt;&gt; @table_name&#xD;&#xA;and column_name = @column_name&#xD;&#xA;order by table_name&#xD;&#xA;" sfwOracle="SELECT&#xA;&#x9; table_name &#xA;FROM&#xA;&#x9; user_tab_columns &#xA;WHERE&#xA;&#x9; table_name &lt;&gt; upper(@table_name) AND&#xA;&#x9; column_name = upper(@column_name) &#xA;ORDER BY  table_name">
+        <parameters>
+          <parameter ID="@table_name" sfwDataType="string" />
+          <parameter ID="@column_name" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetTableType" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT TYPE FROM dbo.SYSOBJECTS WHERE name = @table_name" sfwOracle="SELECT&#xA;&#x9; case when tabtype = 'VIEW' then 'V' else 'U' end AS type &#xA;FROM&#xA;&#x9; tab &#xA;WHERE&#xA;&#x9; tname = upper(@table_name)">
+        <parameters>
+          <parameter ID="@table_name" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query ID="GetParentTables" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql=" SELECT&#xD;&#xA;     table_name,&#xD;&#xA;    column_name  &#xD;&#xA;FROM&#xD;&#xA;     information_schema.columns &#xD;&#xA;WHERE&#xD;&#xA;     table_name &lt;&gt; @table_name AND&#xD;&#xA;     column_name  in  (SELECT&#xD;&#xA;     column_name &#xD;&#xA;FROM&#xD;&#xA;     information_schema.columns  &#xD;&#xA;WHERE&#xD;&#xA;      table_name = @table_name AND&#xD;&#xA;     DOMAIN_NAME &lt;&gt; 'udt_identity')  AND&#xD;&#xA;     DOMAIN_NAME = 'udt_identity' AND&#xD;&#xA;     TABLE_NAME like 'sgt_%'  &#xD;&#xA;ORDER     BY  table_name&#xD;&#xA;" sfwOracle="SELECT&#xA;&#x9; AC3.table_name AS table_name,&#xA;&#x9;AC3.COLUMN_NAME AS column_name &#xA;FROM&#xA;&#x9; ALL_CONS_COLUMNS AC3 &#xA;&#x9;INNER &#xA;&#x9; JOIN user_constraints UC2&#xA;&#x9; ON AC3.CONSTRAINT_NAME = UC2.CONSTRAINT_NAME &#xA;WHERE&#xA;&#x9; UC2.constraint_type = 'P' AND&#xA;&#x9; AC3.table_name &lt;&gt; @table_name AND&#xA;&#x9; AC3.COLUMN_NAME in (SELECT&#xA;&#x9; AC2.COLUMN_NAME &#xA;FROM&#xA;&#x9; ALL_TAB_COLUMNS AC2 &#xA;WHERE&#xA;&#x9; ac2.column_name not in(SELECT&#xA;&#x9; AC.COLUMN_NAME &#xA;FROM&#xA;&#x9; ALL_CONS_COLUMNS AC &#xA;&#x9;INNER &#xA;&#x9; JOIN user_constraints UC&#xA;&#x9; ON AC.CONSTRAINT_NAME = UC.CONSTRAINT_NAME &#xA;WHERE&#xA;&#x9; AC.table_name = @table_name AND&#xA;&#x9; UC.table_name = @table_name AND&#xA;&#x9; UC.constraint_type = 'P') AND&#xA;&#x9; ac2.table_name = @table_name AND&#xA;&#x9; ac2.column_name not in ('UPDATE_SEQ',&#xA;&#x9;'MODIFIED_DATE',&#xA;&#x9;'MODIFIED_BY',&#xA;&#x9;'CREATED_DATE',&#xA;&#x9;'CREATED_BY'))">
+        <parameters>
+          <parameter ID="@table_name" sfwDataType="string" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <checklist />
+  <delete />
+  <groups />
+  <ExtraFields />
+  <methods />
+  <attributes>
+    <column />
+    <object />
+    <collection />
+    <cdocollection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <objectmethods />
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+</entity>

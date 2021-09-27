@@ -1,0 +1,22 @@
+/// <summary>
+/// rulDeactivateUserRoles
+/// </summary>
+/// <param name="alstUserRoles"></param>
+[Entity=entRoles]
+public rulDeactivateUserRoles(Collection<entUserRoles> alstUserRoles)
+{
+	rule()
+	{
+		foreach(lobjUserRoles in alstUserRoles)
+		{
+			if(lobjUserRoles.EffectiveEndDate != DateTime.MinValue)
+			{
+			}
+			else
+			{
+				lobjUserRoles.EffectiveEndDate = GlobalContext.ApplicationDateTime;
+				lobjUserRoles.Update();
+			}
+		}
+	}
+}

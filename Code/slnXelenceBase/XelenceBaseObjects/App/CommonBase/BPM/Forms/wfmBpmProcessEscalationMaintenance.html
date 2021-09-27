@@ -1,0 +1,230 @@
+<div ID="wfmBpmProcessEscalationMaintenance" WebSite="ASPENMember" sfwResource="-1" sfwType="Maintenance" sfwTitle="BPM Process Escalation Maintenance" sfwActive="True" sfwStatus="Review" sfwEntity="entBpmProcessEscalation" data-sfwControlType="form">
+  <sfwServerDetails>
+    <initialload>
+      <callmethods sfwMode="Update" sfwMethodName="FindBpmProcessEscalation" />
+    </initialload>
+    <ExtraFields />
+    <loaddetails>
+      <entityfield ID="objBpmCase" sfwUpdateAutoLoad="False" sfwNewAutoLoad="False" />
+      <entityfield ID="objBpmProcess" sfwUpdateAutoLoad="False" sfwNewAutoLoad="False" />
+    </loaddetails>
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="ddlCaseId2" sfwDataType="int" sfwDisplayName="Case Id">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="ddlProcessId2" sfwDataType="int" sfwDisplayName="Process Id">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtProcessEscalationName" sfwDataType="string" sfwDisplayName="Process Escalation Name">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtLapseTimeInMinutes" sfwDataType="int" sfwDisplayName="Lapse Time In Minutes">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+    <conditions>
+      <formcondition>
+        <condition ID="rblLapseTypeValue_IsEqualTo_LTAE" sfwShow="capLapseTimeInMinutes;txtLapseTimeInMinutes">
+          <or>
+            <item sfwLeftSideField="rblLapseTypeValue" sfwRightSideField="LTAE" sfwOperator="IsEqualTo" sfwRightSideType="constant" />
+            <item sfwLeftSideField="rblLapseTypeValue" sfwRightSideField="LTBE" sfwOperator="IsEqualTo" sfwRightSideType="constant" />
+          </or>
+        </condition>
+        <condition sfwHide="capLapseTimeInMinutes;txtLapseTimeInMinutes" ID="rblLapseTypeValue_IsNotEqualTo_LTAE_LTBE">
+          <and>
+            <item sfwLeftSideField="rblLapseTypeValue" sfwRightSideField="LTAE" sfwOperator="IsNotEqualTo" sfwRightSideType="constant" />
+            <item sfwLeftSideField="rblLapseTypeValue" sfwRightSideField="LTBE" sfwOperator="IsNotEqualTo" sfwRightSideType="constant" />
+          </and>
+        </condition>
+        <condition ID="rblRecurTypeValue_IsEqualTo_RTET" sfwShow="txtRecurTimeInDays;txtRecurTimeInHours;txtRecurTimeInMinutes">
+          <item sfwLeftSideField="rblRecurTypeValue" sfwRightSideField="RTET" sfwOperator="IsEqualTo" sfwRightSideType="constant" />
+          <else sfwHide="txtRecurTimeInDays;txtRecurTimeInHours;txtRecurTimeInMinutes"></else>
+        </condition>
+      </formcondition>
+    </conditions>
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwEmptyPanel" ID="pnltoolbar">
+      <input type="button" ID="btnSave" sfwNavigationParameter="aintPrimaryKey=ProcessEscalationId" sfwActionType="NoChanges" data-sfwControlType="sfwActionSave" value="Save" />
+      <input type="button" ID="btnCancel" data-sfwControlType="sfwActionReset" value="Refresh" />
+    </div>
+    <ul data-sfwControlType="sfwPanel" ID="pnlMain" sfwGroupCaption="BpmProcessEscalation Details" GroupingText="Escalation Details">
+      <li>
+        <span ID="spnSpan">Escalation Details</span>
+        <div ID="dvDiv">
+          <div ID="tblMain" data-sfwControlType="sfwTable" class=" Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <select IsCascadingDropDown="true" ID="ddlCaseId2" DataValueField="case_id" DataTextField="namewithversion" sfwMode="New" sfwLoadType="Query" sfwLoadSource="entBpmCase.CaseLookupWithVersionAppendedToName" sfwEntityField="CaseId" sfwCaption="Case" sfwShowCaption="True" data-sfwControlType="sfwCascadingDropDownList"></select>
+                <label ID="lblCaseName" sfwMode="Update" sfwEntityField="objBpmCase.Name" sfwCaption="Case" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <select IsCascadingDropDown="true" ID="ddlProcessId2" DataValueField="process_id" DataTextField="name" sfwParameters="CASE_ID=ddlCaseId2" sfwParentControl="ddlCaseId2" sfwMode="New" sfwLoadType="Query" sfwLoadSource="entBpmProcess.GetProcessByCaseId" sfwEntityField="ProcessId" sfwCaption="Process" sfwShowCaption="True" data-sfwControlType="sfwCascadingDropDownList"></select>
+                <label ID="lblProcessName" sfwMode="Update" sfwEntityField="objBpmProcess.Name" sfwCaption="Process" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <input ID="txtProcessEscalationName" sfwEntityField="ProcessEscalationName" sfwCaption="Process Escalation Name" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <label ID="lblProcessEscalationId" Visible="False" sfwEntityField="ProcessEscalationId" sfwCaption="Process Escalation ID" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <fieldset data-sfwControlType="sfwGroupPanel" ID="pnlLapseDetails" GroupingText="Lapse Details" sfwCollapsible="False">
+                  <legend>Lapse Details</legend>
+                  <div ID="tblLapseDetails" data-sfwControlType="sfwTable">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                        <span ID="rblLapseTypeValue" sfwRestoreControlValue="False" sfwLoadType="CodeGroup" sfwLoadSource="3006" sfwEntityField="LapseTypeValue" sfwDefaultType="TextValue" sfwDefaultValue="LTBE" sfwCaption="Lapse" sfwShowCaption="True" data-sfwControlType="sfwRadioButtonList"></span>
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                        <input ID="txtLapseTimeInMinutes" sfwEntityField="LapseTimeInMinutes" sfwCaption="Lapse Time In Minutes" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <fieldset data-sfwControlType="sfwGroupPanel" ID="pnlRecurDetails" GroupingText="Recur Details" sfwCollapsible="False">
+                  <legend>Recur Details</legend>
+                  <div ID="tblRecurDetails" data-sfwControlType="sfwTable">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                        <span ID="rblRecurTypeValue" sfwRestoreControlValue="False" sfwLoadType="CodeGroup" sfwLoadSource="3002" sfwEntityField="RecurTypeValue" sfwDefaultType="TextValue" sfwDefaultValue="RTNO" sfwCaption="Recur Type" sfwShowCaption="True" data-sfwControlType="sfwRadioButtonList"></span>
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                        <input ID="txtRecurTimeInDays" sfwEntityField="RecurTimeInDays" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" />
+                        <input ID="txtRecurTimeInHours" sfwEntityField="RecurTimeInHours" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" />
+                        <input ID="txtRecurTimeInMinute" sfwEntityField="RecurTimeInMinutes" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" />
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <fieldset ID="pnlUsers" data-sfwControlType="sfwGroupPanel">
+                  <legend>Users</legend>
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                        <input ID="txtUserName" sfwEntityField="IstrUserName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="User Name:" sfwAutoQuery="entBpmActivityInstance.GetUserIdList" sfwAutoColumns="user_id,user id,like,String;first_name,first name,like,String;last_name,last name,like,String" sfwAutoFillMapping="txtUserName=user_id;txtUserID=user_serial_id" />
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                        <input ID="actExecute" data-sfwControlType="sfwActionExecute" type="button" value="Add" sfwMethodType="Object" sfwMethod="AddRecipient" sfwNavigationParameter="aintUserSerialId=IintUserId" sfwRefreshType="Object" />
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                        <input ID="txtUserID" sfwEntityField="IintUserId" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="User ID:" sfwClientVisible="False" />
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+                    </div>
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                        <div ID="grvLstBpmProcessEscalationRecipient" data-sfwControlType="sfwGridView" sfwLoadType="FormLoad" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwEntityField="lstBpmProcessEscalationRecipient" AllowPaging="True" sfwSelection="Many" AllowSorting="True">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th data-sfwControlType="TemplateField">User Serial Id</th>
+                                <th data-sfwControlType="TemplateField">User Id</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td data-sfwControlType="ItemTemplate">
+                                  <label ID="txtUserSerialId" data-sfwControlType="sfwLabel" sfwEntityField="UserSerialId" sfwReadOnly="True"></label>
+                                </td>
+                                <td data-sfwControlType="ItemTemplate">
+                                  <label ID="lblIstrUserId" data-sfwControlType="sfwLabel" sfwEntityField="IstrUserId"></label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="6"></div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <fieldset ID="pnlRoles" data-sfwControlType="sfwGroupPanel">
+                  <legend>Roles</legend>
+                  <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                        <input ID="txtRoleDescription" sfwEntityField="IstrRoleDescription" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwAutoQuery="entBpmActivityInstance.GetRoleIdList" sfwAutoColumns="role_description,role description,like,String;role_type_value,role type value,like,String" sfwAutoFillMapping="txtRoleDescription=role_description;txtRoleId=role_id" sfwCaption="Role Description:" sfwAutoMinLength="1" />
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                        <input ID="actExecute1" data-sfwControlType="sfwActionExecute" type="button" value="Add" sfwMethodType="Object" sfwMethod="AddRole" sfwNavigationParameter="aintRoleId=IintRoleId" sfwRefreshType="Object" />
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                        <input ID="txtRoleId" sfwEntityField="IintRoleId" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwClientVisible="False" sfwCaption="Role Id:" />
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+                    </div>
+                    <div data-sfwControlType="sfwRow">
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                        <div ID="grvLstBpmProcessEscalationRecipientRole" data-sfwControlType="sfwGridView" sfwLoadType="FormLoad" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwEntityField="lstBpmProcessEscalationRecipientRole" AllowPaging="True" sfwSelection="Many" AllowSorting="True">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th data-sfwControlType="TemplateField">Role</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td data-sfwControlType="ItemTemplate">
+                                  <label ID="lblIstrRoleDescription" data-sfwControlType="sfwLabel" sfwEntityField="IstrRoleDescription"></label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwColumn" sfwColSpan="9"></div>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset data-sfwControlType="sfwGroupPanel" ID="pnlAuditInfo">
+      <legend>Audit Information</legend>
+      <div ID="tblAuditInfo" data-sfwControlType="sfwTable" class=" Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" sfwEntityField="CreatedBy" sfwCaption="Created" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <input ID="lblCreatedDate" sfwEntityField="CreatedDate" sfwReadOnly="True" data-sfwControlType="sfwDateTime" type="text" sfwDataFormat="{0:G}" />
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" sfwEntityField="ModifiedBy" sfwCaption="Modified" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <input ID="lblModifiedDate" sfwEntityField="ModifiedDate" sfwReadOnly="True" data-sfwControlType="sfwDateTime" type="text" sfwDataFormat="{0:G}" />
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

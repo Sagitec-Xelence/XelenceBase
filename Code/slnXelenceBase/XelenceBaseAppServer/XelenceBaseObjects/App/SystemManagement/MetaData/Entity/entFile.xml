@@ -1,0 +1,53 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_file" ID="entFile">
+  <attributes>
+    <column>
+      <attribute sfwValue="file_id" sfwKeyNo="1" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="FileId" sfwCaption="File" />
+      <attribute sfwValue="description" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" sfwDBDataType="varchar" ID="Description" sfwCaption="Description" />
+      <attribute sfwValue="delimited_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="DelimitedBy" sfwCaption="Delimited By" />
+      <attribute sfwValue="transaction_code_pos" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="TransactionCodePos" sfwCaption="Transaction Code Pos" />
+      <attribute sfwValue="transaction_code_length" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="TransactionCodeLength" sfwCaption="Transaction Code Length" />
+      <attribute sfwValue="transaction_code_value" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="200" sfwIsNull="True" sfwDBDataType="varchar" ID="TransactionCodeValue" sfwCaption="Transaction Code" />
+      <attribute sfwValue="header_group_pos" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="HeaderGroupPos" sfwCaption="Header Group Pos" />
+      <attribute sfwValue="header_group_length" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="HeaderGroupLength" sfwCaption="Header Group Length" />
+      <attribute sfwValue="xml_layout_file" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" sfwDBDataType="varchar" ID="XmlLayoutFile" sfwCaption="Xml Layout File" />
+      <attribute sfwValue="inbound_mask" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="20" sfwIsNull="True" sfwDBDataType="varchar" ID="InboundMask" sfwCaption="Inbound Mask" />
+      <attribute sfwValue="mailbox_path_code" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="20" sfwIsNull="True" sfwDBDataType="varchar" ID="MailboxPathCode" sfwCaption="Mailbox Path Code" />
+      <attribute sfwValue="staging_path_code" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="20" sfwIsNull="True" sfwDBDataType="varchar" ID="StagingPathCode" sfwCaption="Staging Path Code" />
+      <attribute sfwValue="error_path_code" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="20" sfwIsNull="True" sfwDBDataType="varchar" ID="ErrorPathCode" sfwCaption="Error Path Code" />
+      <attribute sfwValue="process_path_code" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="20" sfwIsNull="True" sfwDBDataType="varchar" ID="ProcessPathCode" sfwCaption="Process Path Code" />
+      <attribute sfwValue="file_status" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="FileStatus" sfwCaption="File Status" sfwCodeID="20004001" />
+      <attribute sfwValue="inbound_outbound_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="False" sfwDBDataType="varchar" ID="InboundOutboundFlag" sfwCaption="Inbound Outbound Flag" />
+      <attribute sfwValue="employer_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="EmployerFlag" sfwCaption="Employer Flag" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+      <attribute sfwValue="email_notification" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="2000" sfwIsNull="True" sfwDBDataType="varchar" ID="EmailNotification" sfwCaption="Email Notification" />
+      <attribute sfwValue="other_parameters" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" sfwDBDataType="varchar" ID="OtherParameters" sfwCaption="Other Parameters" />
+      <attribute sfwValue="group_process_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="False" sfwDBDataType="varchar" ID="GroupProcessFlag" sfwCaption="Group Process Flag" />
+    </column>
+    <object />
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

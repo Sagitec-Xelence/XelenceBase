@@ -1,0 +1,43 @@
+<entity ID="entActLogApp" sfwView="False " sfwActive="True" sfwStatus="Review" sfwTableName="sgs_act_log_app" sfwParentEntity="entBase" sfwVersion="7.0">
+  <attributes>
+    <collection />
+    <column>
+      <attribute ID="JsonAppConfigs" sfwCaption="Json App Configs" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="json_app_configs" sfwLength="MAX" sfwDBDataType="varchar" />
+      <attribute ID="ApiFlag" sfwCaption="Api Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="api_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="XmlMethodFlag" sfwCaption="Xml Method Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="xml_method_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="AutoloadFlag" sfwCaption="Autoload Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="autoload_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="CorrFlag" sfwCaption="Corr Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="corr_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="CodemethodFlag" sfwCaption="Codemethod Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="codemethod_flag" sfwLength="1" sfwDBDataType="varchar" />
+    </column>
+    <object />
+    <cdocollection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="APM">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; ACT_LOG_APP_ID,&#xA;&#x9; APP_NAME &#xA;FROM&#xA;&#x9; SGS_ACT_LOG_APP" ID="GetPortalNames">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select * from sgs_act_log_app" ID="GetAppDetails">
+        <parameters />
+      </query>
+    </group>
+  </queries>
+  <methods />
+  <ExtraFields />
+  <delete />
+  <groups />
+  <checklist />
+  <objectmethods />
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+</entity>

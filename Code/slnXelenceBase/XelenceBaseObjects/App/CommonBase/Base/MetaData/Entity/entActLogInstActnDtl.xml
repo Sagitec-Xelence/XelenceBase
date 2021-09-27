@@ -1,0 +1,73 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwTableName="sgs_act_log_inst_actn_dtl" ID="entActLogInstActnDtl">
+  <attributes>
+    <column>
+      <attribute ID="DtlType" sfwCaption="Dtl Type" sfwDataType="PickList" sfwIsIdentity="False" sfwIsNull="False" sfwKeyNo="0" sfwValue="dtl_type" sfwLength="10,0" sfwDBDataType="int" sfwCodeID="42" />
+      <attribute sfwValue="inst_actn_dtl_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" ID="InstActnDtlId" sfwCaption="ID" sfwDBDataType="int" />
+      <attribute sfwValue="act_log_inst_actn_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" ID="ActLogInstActnId" sfwCaption="Act Log Inst Actn" sfwDBDataType="int" />
+      <attribute sfwValue="dtl_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" ID="DtlName" sfwCaption="Dtl Name" sfwDBDataType="varchar" />
+      <attribute sfwValue="caller_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" ID="CallerName" sfwCaption="Caller Name" sfwDBDataType="varchar" />
+      <attribute sfwValue="unique_query_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" ID="UniqueQueryId" sfwCaption="Unique Query" sfwDBDataType="int" />
+      <attribute sfwValue="result" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="500" sfwIsNull="True" ID="Result" sfwCaption="Result" sfwDBDataType="varchar" />
+      <attribute sfwValue="start_time" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" ID="StartTime" sfwCaption="Start Time" sfwDBDataType="datetime" />
+      <attribute sfwValue="end_time" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" ID="EndTime" sfwCaption="End Time" sfwDBDataType="datetime" />
+      <attribute sfwValue="parameter_details" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="MAX" sfwIsNull="True" ID="ParameterDetails" sfwCaption="Parameter Details" sfwDBDataType="varchar" />
+      <attribute sfwValue="time_in_ms" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" ID="TimeInMs" sfwCaption="Time In Ms" sfwDBDataType="int" />
+      <attribute ID="DtlRefId" sfwCaption="Dtl Ref" sfwDataType="int" sfwIsIdentity="False" sfwIsNull="True" sfwKeyNo="0" sfwValue="dtl_ref_id" sfwLength="10,0" sfwDBDataType="int" />
+      <attribute ID="DtlId" sfwCaption="Dtl Id" sfwDataType="int" sfwIsIdentity="False" sfwIsNull="False" sfwKeyNo="0" sfwValue="dtl_id" sfwLength="10,0" sfwDBDataType="int" />
+      <attribute ID="Status" sfwCaption="Status" sfwDataType="PickList" sfwIsIdentity="False" sfwIsNull="True" sfwKeyNo="0" sfwValue="status" sfwCodeID="41" sfwLength="10,0" sfwDBDataType="int" />
+    </column>
+    <object>
+      <attribute sfwAccessModifier="public" sfwEntity="entUniqueQuery" ID="objUniqueQuery" Text="Query Info Associated With Detail Request" />
+      <attribute sfwAccessModifier="public" sfwEntity="entActLogInstActn" ID="objActLogInstActn" Text="Action Info Associated With Detail Request" />
+    </object>
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="APM">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT DISTINCT&#xA;&#x9;ACTN.ACT_LOG_INST_ID,&#xA;&#x9;DTL.ACT_LOG_INST_ACTN_ID,&#xA;&#x9;DTL.INST_ACTN_DTL_ID,&#xA;&#x9;DTL.DTL_NAME,&#xA;&#x9;QUERY.QUERY,&#xA;&#x9;DTL.START_TIME,&#xA;&#x9;DTL.END_TIME,&#xA;&#x9;DTL.TIME_IN_MS,&#xA;&#x9;DTL.RESULT,&#xA;&#x9;DTL.STATUS_ID,&#xA;&#x9;DTL.STATUS_VALUE,&#xA;&#x9;DTL.PARAMETER_DETAILS&#xA;FROM &#xA;&#x9;SGS_ACT_LOG_INST_ACTN_DTL DTL WITH(NOLOCK)&#xA;INNER JOIN &#xA;&#x9;SGS_ACT_LOG_INST_ACTN ACTN WITH(NOLOCK) ON DTL.ACT_LOG_INST_ACTN_ID = ACTN.ACT_LOG_INST_ACTN_ID&#xA;INNER JOIN&#xA;&#x9;SGS_UNIQUE_QUERY QUERY WITH(NOLOCK) ON DTL.UNIQUE_QUERY_ID = QUERY.UNIQUE_QUERY_ID&#xA;WHERE  &#xA;&#x9;DTL_TYPE_VALUE = 'QURY' AND&#xA;&#x9;DTL.TIME_IN_MS &gt;= (SELECT TOP 1 QUERY_LIMIT FROM SGS_ACT_LOG WITH(NOLOCK))&#xA;ORDER BY TIME_IN_MS DESC" ID="GetThresholdQueries">
+        <parameters />
+        <mappedcolumns>
+          <column ID="actn.act_log_inst_id" sfwEntityField="objActLogInstActn.ActLogInstId" />
+          <column ID="dtl.act_log_inst_actn_id" sfwEntityField="ActLogInstActnId" />
+          <column ID="dtl.inst_actn_dtl_id" sfwEntityField="InstActnDtlId" />
+          <column ID="dtl.dtl_name" sfwEntityField="DtlName" />
+          <column ID="query.query" sfwEntityField="objUniqueQuery.Query" />
+          <column ID="dtl.start_time" sfwEntityField="StartTime" />
+          <column ID="dtl.end_time" sfwEntityField="EndTime" />
+          <column ID="dtl.time_in_ms" sfwEntityField="TimeInMs" />
+          <column ID="dtl.result" sfwEntityField="Result" />
+          <column ID="dtl.status_value" sfwEntityField="Status" />
+          <column ID="dtl.parameter_details" sfwEntityField="ParameterDetails" />
+        </mappedcolumns>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT &#xA;&#x9;ACTN.SOURCE,&#xA;&#x9;ACTN.APPSERVER_NAME,&#xA;&#x9;DTL.*&#x9;&#xA;FROM &#xA;&#x9;SGS_ACT_LOG_INST_ACTN ACTN WITH(NOLOCK)&#xA;INNER JOIN &#xA;&#x9;SGS_ACT_LOG_INST_ACTN_DTL DTL WITH(NOLOCK) ON ACTN.ACT_LOG_INST_ACTN_ID = DTL.ACT_LOG_INST_ACTN_ID" ID="Lookup">
+        <parameters />
+        <mappedcolumns>
+          <column ID="actn.source" sfwEntityField="objActLogInstActn.Source" />
+          <column ID="actn.appserver_name" sfwEntityField="objActLogInstActn.AppserverName" />
+        </mappedcolumns>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields>
+    <ExtraField ID="DesignSpecs" />
+  </ExtraFields>
+</entity>

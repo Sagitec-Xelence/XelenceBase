@@ -1,0 +1,396 @@
+<div sfwEntity="entCorTemplates" ID="wfmCorTemplatesMaintenance" sfwType="Maintenance" sfwTitle="Cor Templates Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmCorTemplatesLookup" sfwMethodType="XmlMethod" sfwPlugins="FPKR;FLPI;FLPN">
+  <sfwServerDetails>
+    <initialload>
+      <callmethods sfwMode="New" />
+      <callmethods sfwMode="Update" />
+    </initialload>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="txtTemplateCode" sfwDataType="string" sfwDisplayName="Template Code">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="txtTemplateName" sfwDataType="string" sfwDisplayName="Template Name">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Cor Templates Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTemplateCode" sfwEntityField="TemplateCode" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Template Code" sfwEditMode="New" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTemplateName" sfwEntityField="TemplateName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwEditMode="New" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtTemplateDesc" sfwEntityField="TemplateDesc" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Template Description" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select sfwEntityField="DeliveryMethod" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup" ID="ddlDeliveryMethod"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlCommType" sfwEntityField="CommType" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlStatus" sfwEntityField="Status" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup" sfwLoadSource="20006028"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkOverrideRecipientDeliveryPreference" sfwEntityField="OverrideRcpntDlvyPrefFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Override Recipient Delivery Preference" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlCommunicationCategory" sfwEntityField="CommunicationCategory" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlDeliveryMethod1" sfwEntityField="DeliveryMethod" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPrintDocTypeId" sfwEntityField="PrintDocTypeId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="txtNotificationTemplate" sfwEntityField="NtfcTemplateId" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Notification Template " sfwLoadType="Query" DataTextField="template_name" DataValueField="template_id" sfwLoadSource="entCorTemplates.GetNotificationTemplates"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlNotificationPrefix" sfwEntityField="SecureMessagePrefix" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup" sfwCaption="Notification Prefix"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlPriorityCode1" sfwEntityField="PriorityCode" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtNotificationSubjectLine" sfwEntityField="SecureMessageSubjectLine" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Notification Subject Line" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input type="checkbox" ID="chkAllowImageIndexingToECM" sfwEntityField="ImageIndexInd" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" Visible="False" sfwCaption="Allow Image Indexing to ECM" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input type="checkbox" ID="chkTurnAroundTemplateFlag" sfwEntityField="TurnAroundTemplateFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input type="checkbox" ID="chkFormTemplateFlag" sfwEntityField="FormTemplateFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtECMDocumentClass" sfwEntityField="DocClass" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="ECM Document Class" Visible="False" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtECMDocumentType" sfwEntityField="DocType" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="ECM Document Type" Visible="False" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1">
+                <label ID="lblGeneratedBy" data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="Generated By :"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1">
+                <input type="checkbox" ID="chkSystem" sfwEntityField="BatchFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="System" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1">
+                <input type="checkbox" ID="chkUserEditableFlag" sfwEntityField="UserEditableFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1">
+                <input type="checkbox" ID="chkOnlineFlag" sfwEntityField="OnlineFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="1"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="file" ID="files" sfwCaption="Template File :" sfwShowCaption="True" data-sfwControlType="sfwFileUpload" />
+                <button ID="btnExecuteRefreshFromObject" sfwMode="Update" sfwRefreshType="Object" data-sfwControlType="sfwActionExecute" value="Execute">Upload File</button>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlDueDateDeterminedByValue" sfwEntityField="DueDateDeterminedBy" sfwLoadType="CodeGroup" sfwLoadSource="20006013" sfwCaption="Due Date Determined By" sfwShowCaption="True" data-sfwControlType="sfwDropDownList"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtEffectiveDate" sfwEntityField="EffectiveDate" data-sfwControlType="sfwDate" type="text" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkMassCommunication" sfwEntityField="MassCorrespondenceFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Mass Communication" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="txtResourceId" sfwEntityField="ResourceId" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Query" DataTextField="resource_description" DataValueField="resource_id" sfwLoadSource="entResources.GetAllResources"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul data-sfwControlType="sfwPanel" ID="pnlOtherDetails" Visible="False">
+      <li>
+        <span ID="spnSpan1">Other Details</span>
+        <div ID="dvDiv1">
+          <div ID="tblOtherDetails" data-sfwControlType="sfwTable">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div data-sfwControlType="sfwTabContainer" ID="tctOtherDetails">
+                  <ul data-sfwControlType="Tabs">
+                    <li data-sfwControlType="sfwTabSheet" ID="tshAutoEnclosuresPage_Header">
+                      <a href="#tshAutoEnclosuresPage" ID="ancAnchor">Enclosures</a>
+                    </li>
+                    <li ID="tshPdfEnclosures_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshPdfEnclosures" ID="ancAnchor1">Pdf Enclosures</a>
+                    </li>
+                    <li ID="tshComunicationRecipient_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshComunicationRecipient" ID="ancAnchor2">Communication Recipient</a>
+                    </li>
+                    <li ID="tshTemplateVersions_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshTemplateVersions" ID="ancAnchor3">Template Versions</a>
+                    </li>
+                  </ul>
+                  <div data-sfwControlType="sfwTab" ID="tshAutoEnclosuresPage">
+                    <div ID="tblNewPage6" data-sfwControlType="sfwTable">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                          <select DataValueField="template_id" ID="ddlIstrDetailCommunicationAutoEnclr" DataTextField="template_desc" sfwLoadType="Query" sfwLoadSource="entCorTemplates.GetAutoEnclsDetailCommunication" sfwEntityField="IintAutoEnclsDetailCommunication" sfwMode="Update" sfwNavigationParameter="TEMPLATE_ID=TemplateId" sfwCaption="Enclosure Templates" sfwShowCaption="True" data-sfwControlType="sfwDropDownList"></select>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="9"></div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvGetCommTemplateAutoEnclosures" data-sfwControlType="sfwGridView" sfwLoadSource="entCorTemplates.GetCommTemplateAutoEnclosures" sfwLoadType="Query" sfwLoadMode="All" sfwDefaultQuery="False" AllowPaging="True" sfwSelection="Many" AllowSorting="True">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Template Name</th>
+                                  <th data-sfwControlType="TemplateField">Template Code</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblTemplateName" data-sfwControlType="sfwLabel" sfwEntityField="template_name"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblTemplateCode" data-sfwControlType="sfwLabel" sfwEntityField="template_code"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters>
+                              <parameter ID="@PARENT_TEMPLATE_ID" sfwEntityField="TemplateId"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwTab" ID="tshPdfEnclosures">
+                    <div ID="tblTable1" data-sfwControlType="sfwTable">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input type="file" ID="FileUpload" data-sfwControlType="sfwFileUpload" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvGetCommTmplPdfEnclsr" data-sfwControlType="sfwGridView" sfwLoadSource="entCorTemplates.GetCommTmplPdfEnclsr" sfwLoadType="Query" sfwLoadMode="All" sfwDefaultQuery="False" AllowPaging="True" sfwSelection="Many" AllowSorting="True">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Pdf Enclosure Name</th>
+                                  <th data-sfwControlType="TemplateField">Pdf Enclosure Path</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblPdfEnclosureName" data-sfwControlType="sfwLabel" sfwEntityField="pdf_enclosure_name"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblPdfEnclosurePath" data-sfwControlType="sfwLabel" sfwEntityField="pdf_enclosure_path"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters>
+                              <parameter ID="@Template_ID" sfwEntityField="TemplateId"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshComunicationRecipient" data-sfwControlType="sfwTab">
+                    <div ID="tblNewPage8" data-sfwControlType="sfwTable">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                          <select ID="ddlIstrRecipientContactType" sfwLoadType="CodeGroup" sfwLoadSource="20" sfwEntityField="IstrRecipientContactType" sfwCaption="Contact Type" sfwShowCaption="True" data-sfwControlType="sfwDropDownList"></select>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="4"></div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="2"></div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div AllowSorting="True" AutoGenerateColumns="False" ID="grvCorTemplateRecipient" sfwSelection="Many" sfwEntityField="lstCorTemplateRecipient" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Correspondence Template Recipient ID</th>
+                                  <th data-sfwControlType="TemplateField">Contact Type</th>
+                                  <th Visible="False" data-sfwControlType="TemplateField">Contact Type</th>
+                                  <th Visible="False" data-sfwControlType="TemplateField">Role ID</th>
+                                  <th Visible="False" data-sfwControlType="TemplateField">Role</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="CorTemplateRecipientId" data-sfwControlType="sfwLabel" ID="lblCorrespondenceTemplateRecipientID"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="ContactType" data-sfwControlType="sfwLabel" ID="lblContactType"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="ContactType" data-sfwControlType="sfwLabel" sfwPickListField="Value" ID="lblContactType1"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="RoleId" data-sfwControlType="sfwLabel" ID="lblRoleID"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="objRoles.RoleDescription" data-sfwControlType="sfwLabel" ID="lblRole"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshTemplateVersions" data-sfwControlType="sfwTab">
+                    <div ID="tblTable" data-sfwControlType="sfwTable">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="actDownload" data-sfwControlType="sfwActionDownload" type="button" value="Download" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div sfwEntityField="lstCorTemplateVersions" ID="grvLstCorTemplateVersions" AllowSorting="True" sfwLoadWhenRequired="True" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">ID</th>
+                                  <th data-sfwControlType="TemplateField">Template Version Name</th>
+                                  <th data-sfwControlType="TemplateField">Created By</th>
+                                  <th data-sfwControlType="TemplateField">Effective Date</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="TemplateVersionId" data-sfwControlType="sfwLabel" ID="lblID1"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <a sfwEntityField="TemplateName" sfwRelatedControl="actDownload" data-sfwControlType="sfwLinkableAction" ID="lnkTemplateVersionName"></a>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="CreatedBy" data-sfwControlType="sfwLabel" ID="lblCreatedBy1"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="EffectiveDate" data-sfwControlType="sfwLabel" ID="lblEffectiveDate"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters></LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset ID="pnlAuditInfo" data-sfwControlType="sfwGroupPanel">
+      <legend>Audit Information</legend>
+      <div data-sfwControlType="sfwTable" ID="tblAuditInfo" CssClass="Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" data-sfwControlType="sfwLabel" sfwEntityField="CreatedBy" sfwShowCaption="True" sfwCaption="Created By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedDate" data-sfwControlType="sfwLabel" sfwEntityField="CreatedDate" sfwShowCaption="True" sfwCaption="Created Date"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedBy" sfwShowCaption="True" sfwCaption="Modified By"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedDate" data-sfwControlType="sfwLabel" sfwEntityField="ModifiedDate" sfwShowCaption="True" sfwCaption="Modified Date"></label>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

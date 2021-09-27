@@ -1,0 +1,16 @@
+form wfmDatabaseConnectionsMaintenance
+{
+	/// <summary>
+	/// flcrBeforeValidate
+	/// </summary>
+	/// <param name="aenmPageMode"></param>
+	[ID=BeforeValidate]
+	public flcrBeforeValidate(utlPageMode aenmPageMode)
+	{
+		if(this.strDataSource != string.Empty && this.strUser != string.Empty && this.strPaswword != string.Empty && this.strCatalog != string.Empty)
+		{
+			this.ConnectionString = "Server=" + this.strDataSource + ";uid=" + this.strUser + ";pwd=" + this.strPaswword + ";Database=" + this.strCatalog + ";";
+		}
+	}
+}
+

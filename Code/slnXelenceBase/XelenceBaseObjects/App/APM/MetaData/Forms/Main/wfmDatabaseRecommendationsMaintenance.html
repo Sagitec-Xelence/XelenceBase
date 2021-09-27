@@ -1,0 +1,456 @@
+<div ID="wfmDatabaseRecommendationsMaintenance" sfwType="Maintenance" sfwTitle="Database Recommendations Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entAppMonitoring">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Database Recommendations</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshAutoGrowth_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshAutoGrowth" ID="ancAnchor6">Auto Growth</a>
+                    </li>
+                    <li ID="tshIndexes_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshIndexes" ID="ancAnchor">Indexes</a>
+                    </li>
+                    <li ID="tshTempDB_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshTempDB" ID="ancAnchor1">Temp DB</a>
+                    </li>
+                  </ul>
+                  <div ID="tshIndexes" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="tctTabContainer1" data-sfwControlType="sfwTabContainer">
+                            <ul data-sfwControlType="Tabs">
+                              <li ID="tshSagitecSystemTableIndex_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshSagitecSystemTableIndex" ID="ancAnchor2">Sagitec System Table Index</a>
+                              </li>
+                              <li ID="tshIndexMaintenance_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshIndexMaintenance" ID="ancAnchor3">Index Maintenance</a>
+                              </li>
+                              <li ID="tshTopMissingIndexes_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshTopMissingIndexes" ID="ancAnchor4">Top Missing Indexes</a>
+                              </li>
+                              <li ID="tshDuplicateIndexes_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshDuplicateIndexes" ID="ancAnchor5">Duplicate Indexes</a>
+                              </li>
+                            </ul>
+                            <div ID="tshSagitecSystemTableIndex" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel4" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetIndexRec" />
+                                    <input ID="actDownloadSystemIndexRecScripts" data-sfwControlType="sfwActionExport" type="button" value="Download Script" sfwActionType="PDF" sfwRelatedControl="grvGetIndexRec" sfwFileName="Sagitec system table index recommendations" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetIndexRec" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetIndexRecommendations" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" AllowGrouping="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField" Visible="False">ID</th>
+                                            <th data-sfwControlType="TemplateField">Table</th>
+                                            <th data-sfwControlType="TemplateField">Description</th>
+                                            <th data-sfwControlType="TemplateField">Recommendation</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblObjectname" data-sfwControlType="sfwLabel" sfwEntityField="id" sfwShowZero="True"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIndexname" data-sfwControlType="sfwLabel" sfwEntityField="issue_table"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIndextype" data-sfwControlType="sfwLabel" sfwEntityField="issue_description"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblAvgfragpercent" data-sfwControlType="sfwLabel" sfwEntityField="recommendation"></label>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshIndexMaintenance" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetIndexInfo" />
+                                    <input ID="actDownloadIndexRecScripts" data-sfwControlType="sfwActionExport" type="button" value="Download Script" sfwActionType="PDF" sfwRelatedControl="grvGetIndexInfo" sfwFileName="Index recommendations" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetIndexInfo" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetIndexInfo" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" AllowGrouping="True" sfwGroupExpression="objectname" sfwSortExpression="avgfragpercent desc">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField">Table</th>
+                                            <th data-sfwControlType="TemplateField">Index</th>
+                                            <th data-sfwControlType="TemplateField">Type</th>
+                                            <th data-sfwControlType="TemplateField">Avg. Fragment %</th>
+                                            <th data-sfwControlType="TemplateField">Size (KB)</th>
+                                            <th data-sfwControlType="TemplateField">Pages</th>
+                                            <th data-sfwControlType="TemplateField">Fill Factor</th>
+                                            <th data-sfwControlType="TemplateField">Unused</th>
+                                            <th data-sfwControlType="TemplateField">Action Recommended</th>
+                                            <th data-sfwControlType="TemplateField">Script</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblObjectname" data-sfwControlType="sfwLabel" sfwEntityField="objectname"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIndexname" data-sfwControlType="sfwLabel" sfwEntityField="indexname"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIndextype" data-sfwControlType="sfwLabel" sfwEntityField="indextype"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblAvgfragpercent" data-sfwControlType="sfwLabel" sfwEntityField="avgfragpercent"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIndexsizekb" data-sfwControlType="sfwLabel" sfwEntityField="indexsizekb"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblPagecount" data-sfwControlType="sfwLabel" sfwEntityField="pagecount"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblFillfactor" data-sfwControlType="sfwLabel" sfwEntityField="fillfactor"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblUnused" data-sfwControlType="sfwLabel" sfwEntityField="unused"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblRecommendedaction" data-sfwControlType="sfwLabel" sfwEntityField="recommendedaction"></label>
+                                              <cellformat sfwEntityField="recommendedaction">
+                                                <Conditions>
+                                                  <condition value="Rebuild" cssclass="rebuild_index" />
+                                                  <condition value="Reorganize" cssclass="reorganize_index" />
+                                                </Conditions>
+                                              </cellformat>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblScript" data-sfwControlType="sfwLabel" sfwEntityField="script"></label>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshTopMissingIndexes" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut4">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel1" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetDBMissingIndex" />
+                                    <input ID="actExport" data-sfwControlType="sfwActionExport" type="button" value="Download Script" sfwActionType="PDF" sfwRelatedControl="grvGetDBMissingIndex" sfwFileName="Top Missing Indexes" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetDBMissingIndex" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetDBMissingIndex" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True" AllowGrouping="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField">Table Name</th>
+                                            <th data-sfwControlType="TemplateField">Equality Columns</th>
+                                            <th data-sfwControlType="TemplateField">Included Columns</th>
+                                            <th data-sfwControlType="TemplateField">Inequality Columns</th>
+                                            <th data-sfwControlType="TemplateField">Estimated Impact %</th>
+                                            <th data-sfwControlType="TemplateField">Estimated Uses</th>
+                                            <th data-sfwControlType="TemplateField" style="width: 6%;">Last User Seek</th>
+                                            <th data-sfwControlType="TemplateField">Estimated Avg. Query cost</th>
+                                            <th data-sfwControlType="TemplateField" style="width: 35%;">SQL</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblTablename" data-sfwControlType="sfwLabel" sfwEntityField="tablename"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblEqualityColumns" data-sfwControlType="sfwLabel" sfwEntityField="mid.equality_columns"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIncludedColumns" data-sfwControlType="sfwLabel" sfwEntityField="mid.included_columns"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblInequalityColumns" data-sfwControlType="sfwLabel" sfwEntityField="mid.inequality_columns"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:right;">
+                                              <label ID="lblEstimatedIndexImpact" data-sfwControlType="sfwLabel" sfwEntityField="estimated index impact %"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblEstimatedIndexUses" data-sfwControlType="sfwLabel" sfwEntityField="estimated index uses"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblLastUserSeek" data-sfwControlType="sfwLabel" sfwEntityField="migs.last_user_seek"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:right;">
+                                              <label ID="lblEstimatedAvgQueryCost" data-sfwControlType="sfwLabel" sfwEntityField="estimated avg query cost" sfwDataFormat="{0:#0.00}"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblCreateTsql" data-sfwControlType="sfwLabel" sfwEntityField="create tsql"></label>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshDuplicateIndexes" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut5">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel2" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetDuplicateIndex" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetDuplicateIndex" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetDuplicateIndexes" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField">Table Name</th>
+                                            <th data-sfwControlType="TemplateField">Index Name</th>
+                                            <th data-sfwControlType="TemplateField">Key Column List</th>
+                                            <th data-sfwControlType="TemplateField">Include Column List</th>
+                                            <th data-sfwControlType="TemplateField">Disabled</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblTableName1" data-sfwControlType="sfwLabel" sfwEntityField="table_name"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIndexName1" data-sfwControlType="sfwLabel" sfwEntityField="index_name"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblKeyColumnList" data-sfwControlType="sfwLabel" sfwEntityField="key_column_list"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIncludeColumnList" data-sfwControlType="sfwLabel" sfwEntityField="include_column_list"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblIsDisabled" data-sfwControlType="sfwLabel" sfwEntityField="is_disabled"></label>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshTempDB" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="actAllToExcel3" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvCheckTempDBFiles" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvCheckTempDBFiles" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.CheckTempDBFiles" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Temp DB Files</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblResult" data-sfwControlType="sfwLabel" sfwEntityField="result"></label>
+                                    <cellformat sfwEntityField="result">
+                                      <Conditions>
+                                        <condition value="Count of tempdb data files = 1 Ideal number of tempdb data files = 8. This should ideally be implemented after testing." cssclass="tempdb" />
+                                      </Conditions>
+                                    </cellformat>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters></LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshAutoGrowth" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut6">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="tctTabContainer2" data-sfwControlType="sfwTabContainer">
+                            <ul data-sfwControlType="Tabs">
+                              <li ID="tshSettings_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshSettings" ID="ancAnchor7">Settings</a>
+                              </li>
+                              <li ID="tshEvents_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshEvents" ID="ancAnchor8">Events</a>
+                              </li>
+                            </ul>
+                            <div ID="tshSettings" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut7">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel5" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvDefaultGrowthSett" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvDefaultGrowthSett" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.DefaultGrowthSettingRecommendation" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField">Name</th>
+                                            <th data-sfwControlType="TemplateField">File Name</th>
+                                            <th data-sfwControlType="TemplateField">Growth</th>
+                                            <th data-sfwControlType="TemplateField">Usage</th>
+                                            <th data-sfwControlType="TemplateField">Recommendation</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblName" data-sfwControlType="sfwLabel" sfwEntityField="name"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblFilename" data-sfwControlType="sfwLabel" sfwEntityField="filename"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblGrowth" data-sfwControlType="sfwLabel" sfwEntityField="growth"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblUsage" data-sfwControlType="sfwLabel" sfwEntityField="usage"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblRecommendation" data-sfwControlType="sfwLabel" sfwEntityField="autogrowthrecommendation"></label>
+                                              <cellformat sfwEntityField="autogrowthrecommendation">
+                                                <Conditions>
+                                                  <condition value="Change default setting/Adjust database growth to your weekly DB growth size." cssclass="autogrowthEventIssue_week" />
+                                                  <condition value="Change default Settings/ % Type growth is not recommended." cssclass="autogrowthEventIssue_perset" />
+                                                  <condition value="% Type growth is not recommended." cssclass="autogrowthEventIssue_per" />
+                                                </Conditions>
+                                              </cellformat>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshEvents" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut8">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel6" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetAutoGrowthEven" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetAutoGrowthEven" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetAutoGrowthEventDetails" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField" sfwFooterTypeText="Total Occurances:{0}" sfwFooterType="Count">Event Name</th>
+                                            <th data-sfwControlType="TemplateField">Database</th>
+                                            <th data-sfwControlType="TemplateField" sfwFooterTypeText="Total Size(MB):{0}" sfwFooterType="Sum">Increased Size (MB)</th>
+                                            <th data-sfwControlType="TemplateField">File Name</th>
+                                            <th data-sfwControlType="TemplateField" sfwFooterTypeText="Total Time(Ms):{0}" sfwFooterType="Sum">Duration (Ms)</th>
+                                            <th data-sfwControlType="TemplateField">Event Occured Time</th>
+                                            <th data-sfwControlType="TemplateField">Last Event Occured Time</th>
+                                            <th data-sfwControlType="TemplateField">Recommendation</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblEventName" data-sfwControlType="sfwLabel" sfwEntityField="event_name"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblDatabase" data-sfwControlType="sfwLabel" sfwEntityField="database"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblChangeInSize" data-sfwControlType="sfwLabel" sfwEntityField="change_in_size" sfwDataFormat="{0:#0.00}"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblFilename1" data-sfwControlType="sfwLabel" sfwEntityField="filename"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblDuration" data-sfwControlType="sfwLabel" sfwEntityField="duration" sfwShowZero="True"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="start_time"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblPrevStartTime" data-sfwControlType="sfwLabel" sfwEntityField="prev_start_time"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblRecommendation1" data-sfwControlType="sfwLabel" sfwEntityField="recommendation"></label>
+                                              <cellformat sfwEntityField="recommendation">
+                                                <Conditions>
+                                                  <condition value="AutoGrow Event should not occur frequently. Adjust autogrow option." cssclass="AutogrowthEventIssueYellow" />
+                                                </Conditions>
+                                              </cellformat>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

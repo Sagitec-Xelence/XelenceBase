@@ -1,0 +1,174 @@
+﻿[
+  {
+    "outputFile": "Styles/login.css",
+    "inputFile": "Styles/login.scss"
+  },
+  {
+    "outputFile": "Styles/ResponsiveHtml.css",
+    "inputFile": "Styles/ResponsiveHtml.scss"
+  },
+  {
+    "outputFile": "Styles/ResponsiveWfm.css",
+    "inputFile": "Styles/ResponsiveWfm.scss"
+  },
+  {
+    "outputFile": "Styles/tabs-styles.css",
+    "inputFile": "Styles/tabs-styles.scss"
+  },
+  {
+    "outputFile": "Styles/z-Common.css",
+    "inputFile": "Styles/z-Common.scss"
+  },
+  {
+    "outputFile": "Styles/y-Custom-Kendo.css",
+    "inputFile": "Styles/y-Custom-Kendo.scss"
+  },
+  {
+    "outputFile": "Styles/common.css",
+    "inputFile": "Styles/common.scss"
+  },
+  {
+    "outputFile": "Styles/neoGrid.css",
+    "inputFile": "Styles/neoGrid.scss"
+  },
+  {
+    "outputFile": "Styles/GridTemplates.css",
+    "inputFile": "Styles/GridTemplates.scss"
+  },
+  {
+    "outputFile": "Styles/slick.css",
+    "inputFile": "Styles/slick.scss"
+  },
+  {
+    "outputFile": "Styles/slick-theme.css",
+    "inputFile": "Styles/slick-theme.scss"
+  },
+  {
+    "outputFile": "Styles/toastr.css",
+    "inputFile": "Styles/toastr.scss"
+  },
+  {
+    "outputFile": "Styles/neoGridNew.css",
+    "inputFile": "Styles/neoGridNew.scss"
+  },
+  {
+    "outputFile": "Styles/sfwLogin-logo.css",
+    "inputFile": "Styles/sfwLogin-logo.scss"
+  },
+  {
+    "outputFile": "Styles/sfwLogin.css",
+    "inputFile": "Styles/sfwLogin.scss"
+  },
+  {
+    "outputFile": "Styles/sfwLogo.css",
+    "inputFile": "Styles/sfwLogo.scss"
+  },
+  {
+    "outputFile": "Styles/sfwUserAccount.css",
+    "inputFile": "Styles/sfwUserAccount.scss"
+  },
+  {
+    "outputFile": "Styles/sfwcontrolcaption.css",
+    "inputFile": "Styles/sfwcontrolcaption.scss"
+  },
+  {
+    "outputFile": "Styles/sfwHeader.css",
+    "inputFile": "Styles/sfwHeader.scss"
+  },
+  {
+    "outputFile": "Styles/sfwMyTask.css",
+    "inputFile": "Styles/sfwMyTask.scss"
+  },
+  {
+    "outputFile": "Styles/sfwpanel.css",
+    "inputFile": "Styles/sfwpanel.scss"
+  },
+  {
+    "outputFile": "Styles/GlobalMessage.css",
+    "inputFile": "Styles/GlobalMessage.scss"
+  },
+  {
+    "outputFile": "Styles/sfwMainSplitter.css",
+    "inputFile": "Styles/sfwMainSplitter.scss"
+  },
+  {
+    "outputFile": "Styles/sfwCrumToolBar.css",
+    "inputFile": "Styles/sfwCrumToolBar.scss"
+  },
+  {
+    "outputFile": "Styles/sfwlayout-structure.css",
+    "inputFile": "Styles/sfwlayout-structure.scss"
+  },
+  {
+    "outputFile": "Styles/sfwResponsive.css",
+    "inputFile": "Styles/sfwResponsive.scss"
+  },
+  {
+    "outputFile": "Styles/sfwLoginResponsive.css",
+    "inputFile": "Styles/sfwLoginResponsive.scss"
+  },
+  {
+    "outputFile": "Styles/sfwDialog.css",
+    "inputFile": "Styles/sfwDialog.scss"
+  },
+  {
+    "outputFile": "Styles/sfwTaglist.css",
+    "inputFile": "Styles/sfwTaglist.scss"
+  },
+  {
+    "outputFile": "Styles/sfwNavigator.css",
+    "inputFile": "Styles/sfwNavigator.scss"
+  },
+  {
+    "outputFile": "Styles/sfwCheckbox.css",
+    "inputFile": "Styles/sfwCheckbox.scss"
+  },
+  {
+    "outputFile": "Styles/sfwRadio.css",
+    "inputFile": "Styles/sfwRadio.scss"
+  },
+  {
+    "outputFile": "Styles/sfwSelect.css",
+    "inputFile": "Styles/sfwSelect.scss"
+  },
+  {
+    "outputFile": "Styles/sfwLogin-Temp2.css",
+    "inputFile": "Styles/sfwLogin-Temp2.scss"
+  },
+  {
+    "outputFile": "Styles/sfwSlideoutMenuIcon.css",
+    "inputFile": "Styles/sfwSlideoutMenuIcon.scss"
+  },
+  {
+    "outputFile": "Styles/sfwVerticalMenu.css",
+    "inputFile": "Styles/sfwVerticalMenu.scss"
+  },
+  {
+    "outputFile": "Styles/sfwHorrizontalMenu.css",
+    "inputFile": "Styles/sfwHorrizontalMenu.scss"
+  },
+  {
+    "outputFile": "Styles/sfwTabNavigator.css",
+    "inputFile": "Styles/sfwTabNavigator.scss"
+  },
+  {
+    "outputFile": "Styles/sfwTextbox.css",
+    "inputFile": "Styles/sfwTextbox.scss"
+  },
+  {
+    "outputFile": "Styles/sfwOnHoverMenu.css",
+    "inputFile": "Styles/sfwOnHoverMenu.scss"
+  },
+  {
+    "outputFile": "Styles/sfwLoginTemp3.css",
+    "inputFile": "Styles/sfwLoginTemp3.scss"
+  },
+  {
+    "outputFile": "Styles/sfwHorizontalMenu.css",
+    "inputFile": "Styles/sfwHorizontalMenu.scss"
+  },
+  {
+    "outputFile": "Styles/sfwLoginTemp4.css",
+    "inputFile": "Styles/sfwLoginTemp4.scss"
+  }
+]

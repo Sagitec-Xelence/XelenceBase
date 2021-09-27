@@ -1,0 +1,36 @@
+entity entSystemSettings
+{
+	/// <summary>
+	/// rcValidateSettingValue
+	/// </summary>
+	[ID=ValidateSettingValue]
+	public bool rcValidateSettingValue()
+	{
+		//Variable Declaration
+		int value;
+		if(SettingType == "bool")
+		{
+			if(SettingValue == "true" || SettingValue == "false")
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		if(SettingType == "int")
+		{
+			if(int.TryParse(SettingValue, out value))
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+}
+

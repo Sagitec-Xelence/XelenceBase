@@ -1,0 +1,59 @@
+<entity ID="entExceptionLog" sfwView="False" sfwActive="True" sfwStatus="Review" sfwTableName="sgs_exception_log" sfwParentEntity="entBase" sfwVersion="7.0">
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="LookUp" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; sgs_exception_log WITH(NOLOCK)" sfwDataType="EntityTable" sfwQueryType="SelectQuery">
+        <parameters />
+      </query>
+    </group>
+    <group ID="APM">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; DATEADD(MS, -DATEPART(MS, EXCEPTION_TIMESTAMP), EXCEPTION_TIMESTAMP) EXCEPTION_TIMESTAMP,&#xA;     COUNT(EXCEPTION_LOG_ID) AS EXCEPTION_COUNT &#xA;FROM&#xA;&#x9; SGS_EXCEPTION_LOG &#xA;WHERE&#xA;&#x9; EXCEPTION_TIMESTAMP BETWEEN @START_TIME AND @END_TIME &#xA;GROUP BY  DATEADD(MS, -DATEPART(MS, EXCEPTION_TIMESTAMP), EXCEPTION_TIMESTAMP)&#xA;ORDER BY  1 DESC" ID="GetExceptionCountByTime">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; EXCEPTION_MESSAGE,&#xA;&#x9;COUNT(EXCEPTION_LOG_ID) COUNT,&#xA;&#x9;@START_TIME AS START_TIME ,&#xA;&#x9;@END_TIME AS END_TIME &#xA;FROM&#xA;&#x9; SGS_EXCEPTION_LOG &#xA;WHERE&#xA;&#x9; EXCEPTION_TIMESTAMP BETWEEN @START_TIME AND&#xA;&#x9; @END_TIME &#xA;GROUP BY  EXCEPTION_MESSAGE &#xA;ORDER BY  Count(*) desc" ID="GetExceptionCounts">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; APP.APP_NAME APPLICATION_NAME,&#xA;&#x9;(SELECT&#xA;&#x9; COUNT(EXCEPTION_LOG_ID) &#xA;     FROM&#xA;&#x9; &#x9;SGS_EXCEPTION_LOG &#xA;     WHERE&#xA;         APPLICATION_NAME = APP.APP_NAME AND&#xA;         EXCEPTION_TIMESTAMP BETWEEN @START_TIME AND&#xA;         @END_TIME) AS COUNT,&#xA;&#x9;@START_TIME AS START_TIME,&#xA;&#x9;@END_TIME AS END_TIME &#xA;FROM&#xA;&#x9; SGS_ACT_LOG_APP APP &#xA;ORDER BY  Count DESC" ID="GetExceptionLogCountForApp">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; MACHINE_NAME,&#xA;&#x9;COUNT(EXCEPTION_LOG_ID) AS COUNT &#xA;FROM&#xA;&#x9; SGS_EXCEPTION_LOG &#xA;WHERE&#xA;&#x9; EXCEPTION_TIMESTAMP BETWEEN @START_TIME AND&#xA;&#x9; @END_TIME AND&#xA;&#x9; MACHINE_NAME IS NOT NULL &#xA;GROUP BY  MACHINE_NAME &#xA;ORDER BY  COUNT desc" ID="GetExceptionLog">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <methods />
+  <checklist />
+  <delete />
+  <groups />
+  <ExtraFields />
+  <attributes>
+    <collection />
+    <property />
+    <column />
+    <object />
+    <cdocollection />
+    <calculatedfields />
+  </attributes>
+  <objectmethods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <fieldconstraints />
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+  </constraints>
+</entity>

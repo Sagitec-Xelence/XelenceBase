@@ -1,0 +1,74 @@
+<div ID="wfmDatabaseBackupSetMaintenance" sfwType="Maintenance" sfwTitle="Database Backup Set Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entDatabaseBackupSet" sfwMethodType="XmlMethod">
+  <sfwServerDetails>
+    <initialload>
+      <callmethods sfwMode="New" sfwMethodName="SetBackupSetID" />
+      <callmethods sfwMode="Update" sfwMethodName="SetBackupSetID" />
+    </initialload>
+    <loaddetails />
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Database Backup Set Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="actAllToExcel" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetBackupFileDeta" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblID" data-sfwControlType="sfwLabel" sfwEntityField="BackupSetID" sfwShowCaption="True" Visible="False" sfwCaption="Backup Set ID"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="grvGetBackupFileDeta" data-sfwControlType="sfwGridView" sfwLoadSource="entDatabaseBackupSet.GetBackupFileDetails" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">Backup Set ID</th>
+                        <th data-sfwControlType="TemplateField">Logical Name</th>
+                        <th data-sfwControlType="TemplateField">Physical Name</th>
+                        <th data-sfwControlType="TemplateField">Backup Size (MB)</th>
+                        <th data-sfwControlType="TemplateField">File Type</th>
+                        <th data-sfwControlType="TemplateField">State</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblBackupSetId" data-sfwControlType="sfwLabel" sfwEntityField="select&#xA;&#x9;backupset.backup_set_id"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblLogicalName" data-sfwControlType="sfwLabel" sfwEntityField="backupfile.logical_name"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblPhysicalName" data-sfwControlType="sfwLabel" sfwEntityField="backupfile.physical_name"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblBackupSizeInMb" data-sfwControlType="sfwLabel" sfwEntityField="backup_size_in_mb"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblFileType" data-sfwControlType="sfwLabel" sfwEntityField="file_type"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label ID="lblStateDesc" data-sfwControlType="sfwLabel" sfwEntityField="backupfile.state_desc"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <LoadParameters>
+                    <parameter ID="@BACKUPSETID" sfwEntityField="BackupSetID"></parameter>
+                  </LoadParameters>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

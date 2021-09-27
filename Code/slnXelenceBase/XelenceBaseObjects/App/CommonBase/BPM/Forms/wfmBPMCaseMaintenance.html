@@ -1,0 +1,310 @@
+<div ID="wfmBPMCaseMaintenance" sfwResource="-1" sfwType="Maintenance" sfwTitle="BPM Case Maintenance" sfwActive="True" sfwStatus="Review" sfwEntity="entBpmCase" data-sfwControlType="form" sfwMethodType="XmlMethod">
+  <sfwServerDetails>
+    <initialload>
+      <callmethods sfwMethodName="FindBpmCaseById" />
+    </initialload>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints />
+    </constraints>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper">
+    <div data-sfwControlType="sfwEmptyPanel" ID="pnltoolbar">
+      <input type="button" ID="btnSave" data-sfwControlType="sfwActionSave" value="Save" />
+      <input type="button" ID="btnCancel" data-sfwControlType="sfwActionReset" value="Refresh" />
+    </div>
+    <ul data-sfwControlType="sfwPanel" ID="pnlMain" sfwGroupCaption="BPMCase Details">
+      <li>
+        <span ID="spnSpan">Case</span>
+        <div ID="dvDiv">
+          <div ID="tblMain" data-sfwControlType="sfwTable" class=" Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblCaseId" sfwEntityField="CaseId" sfwCaption="Case ID" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblLabel1" sfwEntityField="CaseFile" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblCaseVersion" sfwEntityField="Version" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlStatusValue" sfwAddEmptyItem="False" sfwLoadType="CodeGroup" sfwLoadSource="2002" sfwEntityField="Status" sfwCaption="Status" sfwShowCaption="True" data-sfwControlType="sfwDropDownList"></select>
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <a ID="btnCaseName" sfwNavigationParameter="CaseId=lblCaseId" sfwObjectID="busBpmCase" sfwEntityField="Name" sfwShowCaption="True" sfwactiontype="BpmReadOnlyMap" sfwControlType="Link" data-sfwControlType="sfwActionMisc" value="Misc">Case Name</a>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblDescription" sfwEntityField="Description" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="lblEffectiveDate" sfwEntityField="EffectiveDate" sfwReadOnly="True" sfwShowCaption="True" data-sfwControlType="sfwDate" type="text" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul data-sfwControlType="sfwPanel" ID="pnlCaseParameter">
+      <li>
+        <span ID="spnSpan1">Case Details</span>
+        <div ID="dvDiv1">
+          <div ID="tblNewPage" data-sfwControlType="sfwTable">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div data-sfwControlType="sfwTabContainer" ID="tctSfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li data-sfwControlType="sfwTabSheet" ID="tshProcess_Header">
+                      <a href="#tshProcess" ID="ancAnchor">Process</a>
+                    </li>
+                    <li data-sfwControlType="sfwTabSheet" ID="tshCaseMessageFlow_Header">
+                      <a href="#tshCaseMessageFlow" ID="ancAnchor1">Case Message Flow</a>
+                    </li>
+                    <li data-sfwControlType="sfwTabSheet" ID="tshCaseParameters_Header">
+                      <a href="#tshCaseParameters" ID="ancAnchor2">Case Parameters</a>
+                    </li>
+                    <li data-sfwControlType="sfwTabSheet" ID="tshNewPage_Header">
+                      <a href="#tshNewPage" ID="ancAnchor3">Case Instances</a>
+                    </li>
+                  </ul>
+                  <div data-sfwControlType="sfwTab" ID="tshProcess">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input type="button" ID="btnOpenProcessMaintenance" sfwActiveForm="wfmBPMProcessMaintenance" sfwRelatedControl="grvBusBpmProcess" Visible="False" sfwNavigationParameter="aintProcessId=ProcessId" data-sfwControlType="sfwActionOpen" value="Open" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvBusBpmProcess" AllowSorting="True" sfwEntityField="lstDisplayBpmProcesses" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Process ID</th>
+                                  <th data-sfwControlType="TemplateField">Name</th>
+                                  <th data-sfwControlType="TemplateField">Description</th>
+                                  <th data-sfwControlType="TemplateField">Status</th>
+                                  <th data-sfwControlType="TemplateField">Type</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <a sfwRelatedControl="btnOpenProcessMaintenance" sfwEntityField="ProcessId" data-sfwControlType="sfwLinkableAction" value="LinkableAction" ID="lnkProcessID"></a>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="Name" data-sfwControlType="sfwLabel" ID="lblName"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="Description" data-sfwControlType="sfwLabel" ID="lblDescription1"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="Status" data-sfwControlType="sfwLabel" ID="lblStatus"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="Type" data-sfwControlType="sfwLabel" ID="lblType"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwTab" ID="tshCaseMessageFlow">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvCaseMessageFlow" AllowSorting="True" sfwEntityField="lstBpmCaseMessageFlow" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th Visible="False" data-sfwControlType="TemplateField">Message Flow ID</th>
+                                  <th data-sfwControlType="TemplateField">Name</th>
+                                  <th data-sfwControlType="TemplateField">Source Activity</th>
+                                  <th data-sfwControlType="TemplateField">Source Process</th>
+                                  <th data-sfwControlType="TemplateField">Target Activity</th>
+                                  <th data-sfwControlType="TemplateField">Target Process</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label Visible="False" sfwEntityField="BpmCaseMessageFlowId1" data-sfwControlType="sfwLabel" ID="lblMessageFlowID"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="Name1" data-sfwControlType="sfwLabel" ID="lblName1"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="objSourceBpmActivity.Name" data-sfwControlType="sfwLabel" ID="lblSourceActivity"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="objSourceBpmProcess.Name" data-sfwControlType="sfwLabel" ID="lblSourceProcess"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="objTargetBpmActivity.Name" data-sfwControlType="sfwLabel" ID="lblTargetActivity"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="objTargetBpmProcess.Name" data-sfwControlType="sfwLabel" ID="lblTargetProcess"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwTab" ID="tshCaseParameters">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvCaseParameters" AllowSorting="True" sfwEntityField="lstBpmCaseParameter" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Parameter Name</th>
+                                  <th data-sfwControlType="TemplateField">Parameter Data Type</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="ParameterName1" data-sfwControlType="sfwLabel" ID="lblParameterName"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="ParameterDataType1" data-sfwControlType="sfwLabel" ID="lblParameterDataType"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div data-sfwControlType="sfwTab" ID="tshNewPage">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvBusCaseInstanceCountByStatus" AllowSorting="True" sfwEntityField="lstCaseInstancesByStatus" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField">Status</th>
+                                  <th data-sfwControlType="TemplateField">Count</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="IstrStatus" data-sfwControlType="sfwLabel" ID="lblStatus1"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label sfwEntityField="IintCount" data-sfwControlType="sfwLabel" ID="lblCount"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul data-sfwControlType="sfwPanel" ID="pnlProcessDetails" Visible="False">
+      <li>
+        <span ID="spnSpan2">Process Details</span>
+        <div ID="dvDiv2">
+          <div ID="tblNewPage1" data-sfwControlType="sfwTable">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <div ID="grvBusBpmActivity" sfwParentGrid="grvBusBpmProcess" sfwEntityField="lstBpmActivity" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView" PageSize="0">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">Activity ID</th>
+                        <th data-sfwControlType="TemplateField">Name</th>
+                        <th data-sfwControlType="TemplateField">Activity Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="ActivityId" data-sfwControlType="sfwLabel" ID="lblActivityID"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Name" data-sfwControlType="sfwLabel" ID="lblName2"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="ActivityTypeDescription" data-sfwControlType="sfwLabel" ID="lblActivityType"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                <div ID="grvGridView" sfwParentGrid="grvBusBpmProcess" sfwEntityField="lstBpmProcessEventXr" sfwLoadType="FormLoad" sfwLoadMode="All" data-sfwControlType="sfwGridView" PageSize="0">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th data-sfwControlType="TemplateField">Event Desc</th>
+                        <th data-sfwControlType="TemplateField">Action</th>
+                        <th Visible="False" data-sfwControlType="TemplateField">Id</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="objBpmEvent.EventDesc" data-sfwControlType="sfwLabel" ID="lblEventDesc"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="Action" data-sfwControlType="sfwLabel" ID="lblAction"></label>
+                        </td>
+                        <td data-sfwControlType="ItemTemplate">
+                          <label sfwEntityField="BpmProcessEventXrId" data-sfwControlType="sfwLabel" ID="lblId"></label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <fieldset data-sfwControlType="sfwGroupPanel" ID="pnlAuditInfo">
+      <legend>Audit Information</legend>
+      <div ID="tblAuditInfo" data-sfwControlType="sfwTable" class=" Table">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblCreatedBy" sfwEntityField="CreatedBy" sfwCaption="Created" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+            <label ID="lblUpdateSeq" Visible="False" sfwEntityField="UpdateSeq" data-sfwControlType="sfwLabel"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <input ID="lblCreatedDate" sfwEntityField="CreatedDate" sfwReadOnly="True" data-sfwControlType="sfwDateTime" type="text" sfwDataFormat="{0:G}" />
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <label ID="lblModifiedBy" sfwEntityField="ModifiedBy" sfwCaption="Modified" sfwShowCaption="True" data-sfwControlType="sfwLabel"></label>
+          </div>
+          <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+            <input ID="lblModifiedDate" sfwEntityField="ModifiedDate" sfwReadOnly="True" data-sfwControlType="sfwDateTime" type="text" sfwDataFormat="{0:G}" />
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

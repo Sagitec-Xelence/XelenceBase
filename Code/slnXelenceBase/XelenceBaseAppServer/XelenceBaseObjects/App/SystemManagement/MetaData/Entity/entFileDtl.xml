@@ -1,0 +1,36 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_file_dtl" ID="entFileDtl">
+  <attributes>
+    <column>
+      <attribute sfwValue="file_dtl_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="FileDtlId" sfwCaption="ID" />
+      <attribute sfwValue="file_hdr_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="FileHdrId" sfwCaption="File Hdr" />
+      <attribute sfwValue="transaction_code_value" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" sfwDBDataType="varchar" ID="TransactionCodeValue" sfwCaption="Transaction Code" />
+      <attribute sfwValue="header_group_value" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="20" sfwIsNull="True" sfwDBDataType="varchar" ID="HeaderGroupValue" sfwCaption="Header Group" />
+      <attribute sfwValue="line_no" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="LineNo" sfwCaption="Line No" />
+      <attribute sfwValue="record_data" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="MAX" sfwIsNull="True" sfwDBDataType="varchar" ID="RecordData" sfwCaption="Record Data" />
+      <attribute sfwValue="status" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="Status" sfwCaption="Status" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

@@ -1,0 +1,64 @@
+<div ID="wfmActLogInstActnDtlMaintenance" sfwType="Maintenance" sfwTitle="Act Log Inst Actn Dtl Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entActLogInstActnDtl">
+  <sfwServerDetails>
+    <loaddetails>
+      <entityfield ID="objUniqueQuery" sfwNewAutoLoad="True" sfwUpdateAutoLoad="True" />
+    </loaddetails>
+    <conditions>
+      <formcondition />
+      <expressioncondition>
+        <condition ID="IsQueryType">
+          <item sfwRightSideType="constant" sfwOperator="IsEqualTo" sfwLeftSideField="lblDtlType" sfwRightSideField="QURY" />
+        </condition>
+      </expressioncondition>
+    </conditions>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Application Server Transaction Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <label ID="lblName" data-sfwControlType="sfwLabel" sfwEntityField="DtlName" sfwShowCaption="True" style="font-size:18px;" sfwCaption="Name"></label>
+                <label ID="lblQueryRef" data-sfwControlType="sfwLabel" sfwEntityField="objUniqueQuery.QueryRef" sfwShowCaption="True" style="font-size:18px;" sfwVisibleRule="IsQueryType" sfwCaption="Query ID"></label>
+                <label ID="lblQuery" data-sfwControlType="sfwLabel" sfwEntityField="objUniqueQuery.Query" sfwShowCaption="True" style="font-size:18px;" sfwVisibleRule="IsQueryType" sfwCaption="Command"></label>
+                <input ID="actOpenSessionDetails" data-sfwControlType="sfwActionOpen" type="button" value="Business Transaction" sfwActiveForm="wfmActLogInstActnMaintenance" sfwNavigationParameter="aintPrimaryKey=ActLogInstActnId" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <label ID="lblStartTime" data-sfwControlType="sfwLabel" sfwEntityField="StartTime" sfwShowCaption="True" style="font-size:18px;" sfwDataFormat="{0:G}"></label>
+                <label ID="lblEndTime" data-sfwControlType="sfwLabel" sfwEntityField="EndTime" sfwShowCaption="True" style="font-size:18px;" sfwDataFormat="{0:G}"></label>
+                <label ID="lblTimeInMs" data-sfwControlType="sfwLabel" sfwEntityField="TimeInMs" sfwShowCaption="True" style="font-size:18px;" sfwCaption="Time (Ms)"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                <label ID="lblCallerName" data-sfwControlType="sfwLabel" sfwEntityField="CallerName" sfwShowCaption="True" style="font-size:18px;"></label>
+                <label ID="lblDtlType" data-sfwControlType="sfwLabel" sfwEntityField="DtlType" sfwShowCaption="True" style="font-size:18px;" sfwCaption="Detail Type"></label>
+                <label ID="lblStatus" data-sfwControlType="sfwLabel" sfwEntityField="Status" sfwShowCaption="True" style="font-size:18px;"></label>
+                <label ID="lblResult" data-sfwControlType="sfwLabel" sfwEntityField="Result" sfwShowCaption="True" style="font-size:18px;"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlQueryDetails" data-sfwControlType="sfwPanel" sfwCollapsible="True">
+      <li>
+        <span ID="spnSpan1">Parameter Details</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="jdataParameterDetails" sfwEntityField="ParameterDetails" data-sfwControlType="sfwJSONData"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

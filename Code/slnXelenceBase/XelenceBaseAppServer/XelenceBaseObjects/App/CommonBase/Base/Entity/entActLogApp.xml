@@ -1,0 +1,65 @@
+<entity ID="entActLogApp" sfwView="False " sfwActive="True" sfwStatus="Review" sfwTableName="sgs_act_log_app" sfwParentEntity="entBase" sfwVersion="7.0">
+  <attributes>
+    <collection>
+      <attribute ID="lstActLogAppActor" sfwEntity="entActLogAppActor" />
+    </collection>
+    <column>
+      <attribute sfwValue="act_log_app_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="ActLogAppId" sfwCaption="ID" sfwLength="10,0" />
+      <attribute sfwValue="app_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="AppName" sfwCaption="App Name" sfwKeyNo="0" />
+      <attribute sfwValue="action_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ActionFlag" sfwCaption="Action Flag" sfwKeyNo="0" />
+      <attribute sfwValue="action_step_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ActionStepFlag" sfwCaption="Action Step Flag" sfwKeyNo="0" />
+      <attribute sfwValue="query_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="QueryFlag" sfwCaption="Query Flag" sfwKeyNo="0" />
+      <attribute sfwValue="rule_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="RuleFlag" sfwCaption="Rule Flag" sfwKeyNo="0" />
+      <attribute sfwValue="created_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="CreatedBy" sfwCaption="Created By" sfwKeyNo="0" />
+      <attribute sfwValue="created_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="CreatedDate" sfwCaption="Created Date" sfwKeyNo="0" />
+      <attribute sfwValue="modified_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="ModifiedBy" sfwCaption="Modified By" sfwKeyNo="0" />
+      <attribute sfwValue="modified_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="ModifiedDate" sfwCaption="Modified Date" sfwKeyNo="0" />
+      <attribute sfwValue="update_seq" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="UpdateSeq" sfwCaption="Update Seq" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="browser_time_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="BrowserTimeFlag" sfwCaption="Browser Time Flag" sfwKeyNo="0" />
+      <attribute sfwValue="action_step_size_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ActionStepSizeFlag" sfwCaption="Action Step Size Flag" sfwKeyNo="0" />
+      <attribute sfwValue="validation_rule_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ValidationRuleFlag" sfwCaption="Validation Rule Flag" sfwKeyNo="0" />
+      <attribute ID="JsonAppConfigs" sfwCaption="Json App Configs" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="json_app_configs" sfwLength="MAX" sfwDBDataType="varchar" />
+      <attribute ID="ApiFlag" sfwCaption="Api Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="api_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="XmlMethodFlag" sfwCaption="Xml Method Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="xml_method_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="AutoloadFlag" sfwCaption="Autoload Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="autoload_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="CorrFlag" sfwCaption="Corr Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="corr_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="CodemethodFlag" sfwCaption="Codemethod Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="codemethod_flag" sfwLength="1" sfwDBDataType="varchar" />
+    </column>
+    <object />
+    <cdocollection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="LookUp" sfwSql="select * from sgs_act_log_app with(nolock)" sfwDataType="EntityTable" sfwQueryType="SelectQuery" sfwOracle="select * from sgs_act_log_app">
+        <parameters />
+      </query>
+      <query ID="GetByAppName" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select * from sgs_act_log, sgs_act_log_app where app_name = @app_name">
+        <parameters>
+          <parameter ID="@app_name" sfwDataType="string" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <methods>
+    <method ID="FindActLogApp" sfwMethodType="Load" sfwMode="All" sfwLoadMainObject="True" sfwParameter="aintPrimaryKey">
+      <parameter ID="aintPrimaryKey" sfwDataType="int" />
+    </method>
+  </methods>
+  <ExtraFields />
+  <delete />
+  <groups />
+  <checklist />
+  <objectmethods />
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+</entity>

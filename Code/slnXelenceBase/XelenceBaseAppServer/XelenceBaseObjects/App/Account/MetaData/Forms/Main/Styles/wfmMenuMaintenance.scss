@@ -1,0 +1,22 @@
+div[id ^= 'wfmMenuMaintenance']{
+.card .btn-outline-info{
+	border:0;
+	margin: 0;
+}
+.card{
+	margin-bottom: 0.75rem;
+}
+.card:hover{
+	transform: scale(1);
+	box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.card .btn-outline-info:hover,.card .btn-outline-info:focus{
+	background: transparent;
+	box-shadow:none;
+}
+.card  i.neo-action-icon {
+	font-size: 1.25rem;
+	margin-right: .5rem;
+	display:block;
+}
+}

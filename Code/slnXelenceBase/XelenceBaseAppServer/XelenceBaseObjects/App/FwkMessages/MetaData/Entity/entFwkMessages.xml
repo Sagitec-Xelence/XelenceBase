@@ -1,0 +1,47 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_fwk_messages" ID="entFwkMessages">
+  <attributes>
+    <column>
+      <attribute sfwValue="message_id" sfwKeyNo="1" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="MessageId" sfwCaption="Message" />
+      <attribute sfwValue="message_key" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="MessageKey" sfwCaption="Message Key" />
+      <attribute sfwValue="display_message" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="2000" sfwIsNull="False" sfwDBDataType="varchar" ID="DisplayMessage" sfwCaption="Display Message" />
+      <attribute sfwValue="severity" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="Severity" sfwCaption="Severity" sfwCodeID="20002001" />
+      <attribute sfwValue="category_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="4" sfwIsNull="True" sfwDBDataType="varchar" ID="CategoryName" sfwCaption="Category Name" />
+      <attribute sfwValue="category" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="True" sfwDBDataType="int" ID="Category" sfwCaption="Category" sfwCodeID="256" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query sfwQueryType="ScalarQuery" sfwSql="SELECT&#xA;&#x9; COUNT(*) &#xA;FROM&#xA;&#x9; sgs_fwk_messages &#xA;WHERE&#xA;&#x9; message_id  = @message_id" ID="GetCountByMessageID">
+        <parameters>
+          <parameter ID="@message_id" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

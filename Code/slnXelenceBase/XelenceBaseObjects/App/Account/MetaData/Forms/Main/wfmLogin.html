@@ -1,0 +1,57 @@
+<div ID="wfmLogin" sfwActive="True" sfwRouteName="Login" sfwLogoutUrl="Account/Login" sfwStatus="Review" sfwEntity="entLoginModel" sfwResource="-1" sfwType="Login" sfwTitle="Login" data-sfwControlType="form" sfwDefaultButtonID="btnLogin">
+	<sfwServerDetails>
+		<initialload></initialload>
+		<loaddetails></loaddetails>
+		<viewdetails></viewdetails>
+		<constraints>
+			<fieldconstraints>
+				<fieldconstraint sfwFieldName="txtUserName">
+					<item sfwType="Required" sfwStatus="Active" sfwMode="All" sfwMessage="User name is requied." />
+				</fieldconstraint>
+				<fieldconstraint sfwFieldName="txtPassword">
+					<item sfwType="Required" sfwStatus="Active" sfwMode="All" sfwMessage="Password is requied." />
+				</fieldconstraint>
+			</fieldconstraints>
+		</constraints>
+	</sfwServerDetails>
+	
+  <div data-sfwControlType="sfwWrapper">
+   <div data-sfwControlType="sfwTable" ID="tblLayOut" class="mx-auto mt-5">
+      <div data-sfwControlType="sfwRow">
+         <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+         <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+            <div data-sfwControlType="sfwTable" ID="tblLayOut2" class="justify-content-center shadow-lg py-5 px-2 rounded">
+               <div data-sfwControlType="sfwRow">
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                     <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                        <div data-sfwControlType="sfwRow">
+                           <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                              <input name="txtUserName" sfwRequired="True" data-sfwControlType="sfwTextBox" type="text" sfwShowCaption="True" sfwCaption="User Name:" ID="txtUserName" sfwEntityField="UserName" />
+                           </div>
+                        </div>
+                        <div data-sfwControlType="sfwRow">
+                           <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                              <input name="txtPassword" TextMode="Password" data-sfwControlType="sfwPassword" type="password" ID="txtPassword" sfwShowCaption="True" sfwCaption="Password:" sfwEntityField="Password" />
+                           </div>
+                        </div>
+                        <div data-sfwControlType="sfwRow">
+                           <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                              <input type="button" data-sfwControlType="sfwActionLogin" value="Login" ID="btnLogin" />
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div data-sfwControlType="sfwColumn" sfwColSpan="6" class="neo-login-header">
+                     <p class="neo-decription-data" ID="prgParagraph">Welcome to our Portal</p>
+                     <p class="neo-decription-data" ID="prgParagraph1">&#xA; Lorem Ipsum is simply dummy right left text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&#xA;</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+      </div>
+   </div>
+</div>
+  
+</div>
+

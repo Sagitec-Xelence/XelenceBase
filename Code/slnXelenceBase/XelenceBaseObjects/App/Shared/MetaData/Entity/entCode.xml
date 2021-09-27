@@ -1,0 +1,129 @@
+<entity ID="entCode" sfwStatus="Review" sfwRemoteObject="srvCommon" DesignStatus="Review" sfwTableName="sgs_code" sfwView="False" sfwParentEntity="entBase" sfwVersion="7.0">
+  <delete />
+  <checklist />
+  <groups />
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="LookupbyCodeID" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select * &#xA;  from sgs_code&#xA; order by code_id">
+        <parameters />
+      </query>
+      <query ID="DoesCodeIDExist" sfwQueryType="ScalarQuery" sfwSql="select count(1) from sgs_code    &#xD;&#xA;where code_id = @code_id">
+        <parameters>
+          <parameter ID="@code_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="CodeIDExists" sfwQueryType="ScalarQuery" sfwSql="select count(1) from sgs_code&#xA;where code_id = @code_id">
+        <parameters>
+          <parameter ID="@code_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="Lookup" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; sgs_code   ">
+        <parameters />
+      </query>
+    </group>
+  </queries>
+  <attributes>
+    <column>
+      <attribute ID="CodeId" sfwUnique="True" sfwValue="code_id" sfwKeyNo="1" sfwIsSequence="False" sfwIsNull="False" sfwDataType="int" sfwRequired="False" sfwCaption="Code Id" />
+      <attribute ID="Description" sfwValue="description" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="100" sfwCaption="Description" />
+      <attribute ID="Data1Caption" sfwValue="data1_caption" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="20" sfwCaption="Data1 Caption" />
+      <attribute ID="Data1Type" sfwValue="data1_type" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="4" sfwCaption="Data1 Type" />
+      <attribute ID="Data2Caption" sfwValue="data2_caption" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="20" sfwCaption="Data2 Caption" />
+      <attribute ID="Data2Type" sfwValue="data2_type" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="4" sfwCaption="Data2 Type" />
+      <attribute ID="Data3Caption" sfwValue="data3_caption" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="20" sfwCaption="Data3 Caption" />
+      <attribute ID="Data3Type" sfwValue="data3_type" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="4" sfwCaption="Data3 Type" />
+      <attribute ID="FirstLookupItem" sfwValue="first_lookup_item" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="50" sfwCaption="First Lookup Item" />
+      <attribute ID="FirstMaintenanceItem" sfwValue="first_maintenance_item" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="50" sfwCaption="First Maintenance Item" />
+      <attribute ID="Comments" sfwValue="comments" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="200" sfwCaption="Comments" />
+      <attribute ID="LegacyCodeId" sfwValue="legacy_code_id" sfwIsSequence="False" sfwDataType="string" sfwRequired="False" sfwLength="10" sfwCaption="Legacy Code Id" />
+      <attribute ID="CreatedBy" sfwValue="created_by" sfwIsSequence="False" sfwIsNull="False" sfwDataType="string" sfwRequired="False" sfwLength="50" sfwCaption="Created By" />
+      <attribute ID="CreatedDate" sfwValue="created_date" sfwIsSequence="False" sfwIsNull="False" sfwDataType="DateTime" sfwRequired="False" sfwCaption="Created Date" />
+      <attribute ID="ModifiedBy" sfwValue="modified_by" sfwIsSequence="False" sfwIsNull="False" sfwDataType="string" sfwRequired="False" sfwLength="50" sfwCaption="Modified By" />
+      <attribute ID="ModifiedDate" sfwValue="modified_date" sfwIsSequence="False" sfwIsNull="False" sfwDataType="DateTime" sfwRequired="False" sfwCaption="Modified Date" />
+      <attribute ID="UpdateSeq" sfwValue="update_seq" sfwIsSequence="False" sfwIsNull="False" sfwDataType="int" sfwRequired="False" sfwCaption="Update Seq" />
+    </column>
+    <collection>
+      <attribute sfwEntity="entCodeValue" ID="lstCodeValue" />
+    </collection>
+    <object />
+    <cdocollection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <methods />
+  <objectmethods />
+  <ExtraFields />
+  <conditions>
+    <expressioncondition>
+      <condition ID="Rule - Is CodeID Exists" sfwMessageId="20002016">
+        <and>
+          <item sfwLeftSideField="entCode.CodeIDExists" sfwLeftSideType="query" sfwLeftSideParamaters="CodeId" sfwOperator="IsGreaterThan" sfwRightSideField="0" sfwRightSideType="constant" />
+          <item sfwLeftSideField="CodeId" sfwLeftSideType="attribute" sfwOperator="IsNotEqualTo" sfwRightSideField="0" sfwRightSideType="constant" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is Code ID Contains Code Values" sfwMessageId="20002036">
+        <item sfwLeftSideField="entCodeValue.Count" sfwLeftSideType="query" sfwLeftSideParamaters="CodeId" sfwOperator="IsGreaterThan" sfwRightSideField="0" sfwRightSideType="constant" />
+      </condition>
+      <condition ID="Rule - Is Data1 With DataType" sfwMessageId="20002018" sfwBRID="FS002-ACT0001-UI0002-BR0003">
+        <and>
+          <item sfwLeftSideField="Data1Caption" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+          <item sfwLeftSideField="Data1Type" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is Data2 With DataType" sfwMessageId="20002020" sfwBRID="FS002-ACT0001-UI0002-BR0005">
+        <and>
+          <item sfwLeftSideField="Data2Caption" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+          <item sfwLeftSideField="Data2Type" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is Data3 With DataType" sfwMessageId="20002022" sfwBRID="FS002-ACT0001-UI0002-BR0007">
+        <and>
+          <item sfwLeftSideField="Data3Caption" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+          <item sfwLeftSideField="Data3Type" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is Data1 Blank With DataType" sfwMessageId="20002019" sfwBRID="FS002-ACT0001-UI0002-BR0004">
+        <and>
+          <item sfwLeftSideField="Data1Type" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+          <item sfwLeftSideField="Data1Caption" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is Data2 Blank With DataType" sfwMessageId="20002021" sfwBRID="FS002-ACT0001-UI0002-BR0005">
+        <and>
+          <item sfwLeftSideField="Data2Type" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+          <item sfwLeftSideField="Data2Caption" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+        </and>
+      </condition>
+      <condition ID="Rule - Is Data3 Blank With DataType" sfwMessageId="20002023" sfwBRID="FS002-ACT0001-UI0002-BR0008">
+        <and>
+          <item sfwLeftSideField="Data3Type" sfwLeftSideType="attribute" sfwOperator="IsNotNull" />
+          <item sfwLeftSideField="Data3Caption" sfwLeftSideType="attribute" sfwOperator="IsNull" />
+        </and>
+      </condition>
+    </expressioncondition>
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <fieldconstraints>
+      <fieldconstraint sfwFieldName="CodeId">
+        <item sfwType="Required" sfwStatus="Active" sfwMode="All" sfwMessageId="20002015" />
+      </fieldconstraint>
+      <fieldconstraint sfwFieldName="Description">
+        <item sfwType="Required" sfwStatus="Active" sfwMode="All" sfwMessageId="20002017" />
+      </fieldconstraint>
+    </fieldconstraints>
+    <softconstraints />
+    <hardconstraints>
+      <item sfwMode="New" sfwStatus="Active" sfwConditionID="Rule - Is CodeID Exists" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data1 With DataType" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data2 With DataType" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data3 With DataType" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data1 Blank With DataType" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data2 Blank With DataType" />
+      <item sfwMode="All" sfwStatus="Active" sfwConditionID="Rule - Is Data3 Blank With DataType" />
+    </hardconstraints>
+    <deleteconstraints>
+      <item sfwMode="All" sfwStatus="Active" ErrorType="Hard error" PreConditionOperator="All" IsPreCondition="No" CompareObjectDesc="number of records in the sgs_code_value table for a given code" CompareObjectSourceType="ScalarQuery" CompareObjectSource="qryCountCodeValue" CompareObjectDataType="integer" CompareWithSourceType="Constant" CompareWithSource="0" ComparisonOperator="GreaterThan" ErrorCode="33" Active="Yes" sfwConditionID="Rule - Is Code ID Contains Code Values" />
+    </deleteconstraints>
+  </constraints>
+</entity>

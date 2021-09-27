@@ -1,0 +1,90 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" ID="entMenu">
+  <attributes>
+    <column>
+      <attribute ID="MenuId" sfwValue="menu_id" sfwDBDataType="int" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwIsNull="False" sfwCaption="ID" />
+      <attribute ID="CreatedBy" sfwValue="created_by" sfwDBDataType="varchar" sfwKeyNo="0" sfwDataType="string" sfwLength="250" sfwIsNull="False" sfwCaption="Created By" />
+      <attribute ID="CreatedDate" sfwValue="created_date" sfwDBDataType="datetime" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwCaption="Created Date" />
+      <attribute ID="ModifiedBy" sfwValue="modified_by" sfwDBDataType="varchar" sfwKeyNo="0" sfwDataType="string" sfwLength="250" sfwIsNull="False" sfwCaption="Modified By" />
+      <attribute ID="ModifiedDate" sfwValue="modified_date" sfwDBDataType="datetime" sfwKeyNo="0" sfwDataType="datetime" sfwIsNull="False" sfwCaption="Modified Date" />
+      <attribute ID="UpdateSeq" sfwValue="update_seq" sfwDBDataType="int" sfwKeyNo="0" sfwDataType="int" sfwIsNull="False" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection />
+    <property>
+      <attribute sfwAccessModifier="public" ID="lstrCode" sfwDataType="string" sfwCaption="lstr Code" />
+    </property>
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetCodeByQuery" sfwSql="SELECT&#xA;code_id,description&#xA;FROM&#xA;&#x9; sgs_code">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetFileDefinitionByQuery" sfwSql="select * from&#xA;sgs_file_hdr">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetMessageByQuery" sfwSql="select MESSAGE_ID,DISPLAY_MESSAGE,SEVERITY_VALUE from sgs_messages">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetFwkMessagesByQuery" sfwSql="SELECT&#xA;&#x9; MESSAGE_ID,&#xA;&#x9;DISPLAY_MESSAGE,&#xA;&#x9;SEVERITY_VALUE &#xA;FROM&#xA;&#x9; SGS_FWK_MESSAGES">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetFileByQuery" sfwSql="SELECT&#xA;&#x9; FILE_ID,&#xA;&#x9;DESCRIPTION,&#xA;&#x9;INBOUND_OUTBOUND_FLAG &#xA;FROM&#xA;&#x9; SGS_FILE">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetFileDtlByQuery" sfwSql="SELECT&#xA;&#x9; FILE_DTL_ID,&#xA;&#x9;STATUS_VALUE,&#xA;&#x9;RECORD_DATA,&#xA;&#x9;LINE_NO,&#xA;&#x9;FILE_HDR_ID &#xA;FROM&#xA;&#x9; SGS_FILE_DTL WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetSystemManagementByQuery" sfwSql="SELECT&#xA;&#x9; SYSTEM_MANAGEMENT_ID,&#xA;&#x9;REGION_ID,&#xA;&#x9;USE_APPLICATION_DATE,&#xA;&#x9;APPLICATION_DATE,&#xA;&#x9;BASE_DIRECTORY &#xA;FROM&#xA;&#x9; SGS_SYSTEM_MANAGEMENT WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetSystemPathByQuery" sfwSql="SELECT&#xA;&#x9;*&#xA;FROM&#xA;&#x9; SGS_SYSTEM_PATHS">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetApplicationSettingsQuery" sfwSql="SELECT&#xA;&#x9; SYSTEM_SETTING_ID,&#xA;&#x9;SETTING_NAME,&#xA;&#x9;SETTING_TYPE,&#xA;&#x9;ENCRYPTED_FLAG &#xA;FROM&#xA;&#x9; SGS_SYSTEM_SETTINGS WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetDatabaseConnectionByQuery" sfwSql="SELECT&#xA;&#x9; DATABASE_CONNECTION_ID,&#xA;&#x9;CONNECTION_NAME,&#xA;&#x9;CONNECTION_TYPE,&#xA;&#x9;CONNECTION_STRING,&#xA;&#x9;DBFACTOTY_PROVIDER,&#xA;&#x9;PASSWORD_ENCRYPTED_FLAG &#xA;FROM&#xA;&#x9; SGS_DATABASE_CONNECTIONS WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetUserByQuery" sfwSql="SELECT&#xA;&#x9; USER_STATUS_VALUE,&#xA;&#x9;USER_SERIAL_ID,&#xA;&#x9;FIRST_NAME,&#xA;&#x9;LAST_NAME,&#xA;&#x9;USER_TYPE_VALUE,&#xA;&#x9;AUTHENTICATION_MODE_VALUE,&#xA;&#x9;POSITION_VALUE,&#xA;&#x9;LOCATION_VALUE,&#xA;&#x9;SKILL_VALUE,&#xA;&#x9;AUTHORITY_VALUE &#xA;FROM&#xA;&#x9; SGS_USER WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetResourceByQuery" sfwSql="SELECT&#xA;&#x9; RESOURCE_ID,&#xA;&#x9;RESOURCE_TYPE_VALUE,&#xA;&#x9;RESOURCE_DESCRIPTION &#xA;FROM&#xA;&#x9; SGS_RESOURCES WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetRoleSecurityByQuery" sfwSql="SELECT&#xA;&#x9; ROLE_ID,&#xA;&#x9;ROLE_DESCRIPTION,&#xA;&#x9;ROLE_TYPE_VALUE &#xA;FROM&#xA;&#x9; SGS_ROLES WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetTraceEnquiryByQuery" sfwSql="SELECT&#xA;&#x9; ACT_LOG_INST_ID,&#xA;&#x9;ACTOR_NAME,&#xA;&#x9;IP_ADDRESS, &#xA;    INVALID_LOGIN_FLAG,&#xA;&#x9;START_TIME,&#xA;&#x9;END_TIME,&#xA;&#x9;ACT_LOG_INITIAL_UID,&#xA;&#x9;ACT_LOG_UID &#xA;FROM&#xA;&#x9; SGS_ACT_LOG_INST WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetAuditLogByQuery" sfwSql="SELECT&#xA;&#x9; AUDIT_LOG_ID,&#xA;&#x9;FORM_NAME,&#xA;&#x9;TABLE_NAME,&#xA;&#x9;PRIMARY_KEY,&#xA;&#x9;PERSON_ID,&#xA;&#x9;ORG_ID,&#xA;&#x9;CHANGE_TYPE &#xA;FROM&#xA;&#x9; SGS_AUDIT_LOG WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetFullAuditLogByQuery" sfwSql="SELECT&#xA;&#x9; AUDIT_LOG_ID,&#xA;&#x9;CHANGE_TYPE,&#xA;&#x9;FORM_NAME,&#xA;&#x9;TABLE_NAME &#xA;FROM&#xA;&#x9; SGS_FULL_AUDIT_LOG WITH(NOLOCK)">
+        <parameters />
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" ID="GetExceptionLogByQuery" sfwSql="SELECT&#xA;&#x9; exception_log_id,&#xA;&#x9;application_name,&#xA;&#x9;form_name,&#xA;&#x9;user_id,&#xA;&#x9;machine_name &#xA;FROM&#xA;&#x9; sgs_exception_log WITH(NOLOCK)">
+        <parameters />
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

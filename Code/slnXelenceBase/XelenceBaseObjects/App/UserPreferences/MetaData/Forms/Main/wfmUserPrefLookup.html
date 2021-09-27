@@ -1,0 +1,104 @@
+<div ID="wfmUserPrefLookup" sfwStatus="Review" sfwActive="True" sfwTitle="Uesr Pref Lookup" sfwType="Lookup" sfwEntity="entUserPreferences" sfwFormObjectType="FormObject" sfwFormObject="busUserPreferences">
+  <sfwServerDetails>
+    <loaddetails />
+    <ExtraFields />
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper" ID="Main">
+    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+      <div data-sfwControlType="sfwRow">
+        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshCriteria_Header" data-sfwControlType="sfwTabSheet" sfwCriteriaType="Criteria">
+                      <a href="#tshCriteria" ID="ancAnchor">Criteria</a>
+                    </li>
+                  </ul>
+                  <div ID="tshCriteria" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="txtUserPreferencesId" data-sfwControlType="sfwNumber" type="text" sfwShowCaption="True" sfwDataField="user_preferences_id" sfwCaption="User Preference Id" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="txtUserName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwDataField="user_name" sfwCaption="User Name" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input ID="txtApplicationName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwDataField="application_name" sfwCaption="Application Name" />
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <input type="button" data-sfwControlType="sfwActionSearch" ID="actSearch" value="Search" />
+                          <input type="button" data-sfwControlType="sfwActionMisc" ID="actMisc" value="StoreSearch" sfwActionType="StoreSearch" />
+                          <input type="button" data-sfwControlType="sfwActionReset" ID="actReset" value="Refresh" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                <ul data-sfwControlType="sfwPanel" ID="pnlPanel">
+                  <li>
+                    <span ID="spnSpan1">Result</span>
+                    <div ID="dvDiv1">
+                      <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                            <input type="button" data-sfwControlType="sfwActionNew" ID="actNew" value="New" />
+                            <input type="button" data-sfwControlType="sfwActionOpen" ID="actOpen" value="Open" sfwRelatedControl="dgrResult" />
+                            <input type="button" data-sfwControlType="sfwActionDelete" ID="actDelete" value="Delete" sfwRelatedControl="dgrResult" />
+                            <input type="button" data-sfwControlType="sfwActionExport" ID="actExport" value="PDF" sfwActionType="PDF" sfwRelatedControl="dgrResult" />
+                          </div>
+                        </div>
+                        <div data-sfwControlType="sfwRow">
+                          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                            <div data-sfwControlType="sfwGridView" ID="dgrResult" sfwDataKeyNames="UserPreferencesId" sfwSelection="Many" AllowSorting="True" AllowPaging="True" PageSize="20">
+                              <table>
+                                <thead>
+                                  <tr>
+                                    <th data-sfwControlType="TemplateField">User Preferences Id</th>
+                                    <th data-sfwControlType="TemplateField">User Name</th>
+                                    <th data-sfwControlType="TemplateField">Application Name</th>
+                                    <th data-sfwControlType="TemplateField">Initial Page</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <a ID="lblUserPreferencesId" data-sfwControlType="sfwLinkableAction" sfwEntityField="UserPreferencesId" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpen"></a>
+                                    </td>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <label ID="lblUserName" data-sfwControlType="sfwLabel" sfwEntityField="UserName"></label>
+                                    </td>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <label ID="lblApplicationName" data-sfwControlType="sfwLabel" sfwEntityField="ApplicationName"></label>
+                                    </td>
+                                    <td data-sfwControlType="ItemTemplate">
+                                      <label ID="lblInitialPage" data-sfwControlType="sfwLabel" sfwEntityField="InitialPage"></label>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

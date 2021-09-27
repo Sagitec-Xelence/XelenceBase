@@ -1,0 +1,29 @@
+/// <summary>
+/// rulAddResourceForRoleMaintenance
+/// </summary>
+/// <param name="RoleId"></param>
+[Entity=entRoles]
+public rulAddResourceForRoleMaintenance(int RoleId)
+{
+	rule()
+	{
+		//Variable Declaration
+		entSecurity lobjSecurity = new ();
+		entRoles lobjRoles = new ();
+		lobjRoles.Select(RoleId);
+		var lvarData = entSecurity.FindSecurity(lintResource, RoleId);
+		if(lvarData > 0)
+		{
+		}
+		else
+		{
+			lobjSecurity.Security = "1";
+			lobjSecurity.CreatedBy = "ashish.saklani";
+			lobjSecurity.ModifiedBy = "ashish.saklani";
+			lobjSecurity.ResourceId = lintResource;
+			lobjSecurity.RoleId = lobjRoles.RoleId;
+			lobjSecurity.Insert();
+			entSecurity.ByRole(RoleId);
+		}
+	}
+}

@@ -1,0 +1,75 @@
+﻿@model Sagitec.MVVMClient.LoginModel
+@using Sagitec.Bundling
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <input id="antiForgeryToken" type="hidden" value="@Model.AntiForgeryToken" />
+    <img src="~/Content/images/login-logo.svg" class="login-logo" />
+    <div class="login-wrapper">
+        <h2>LOGIN</h2>
+        @using (Html.BeginForm(new { astrReturnUrl = ViewBag.ReturnUrl }))
+        {
+            <div>
+
+                @Html.TextBoxFor(m => m.UserName, new { @autocomplete = "off", @placeholder = "Username" })
+
+                @Html.PasswordFor(m => m.Password, new { @autocomplete = "off", @placeholder = "Password" })
+
+                <div class="login-errors">
+                    @Model.Message
+                    @Html.ValidationMessageFor(m => m.UserName)
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+                <div class="login-row">
+
+                    <input id="Submit" type="submit" class="login-btn" value="Login" />
+
+                    <p class="forgot">
+                        @Html.ActionLink("Forgot Password", "ActivateUser",
+                        "Home", routeValues: new
+                             {
+                        p = "SagiResetPassword"
+                        }, htmlAttributes: null)
+                    </p>
+                </div>
+            </div>
+            @Html.HiddenFor(m => m.LoginWindowName)
+        }
+    </div>
+    @Html.RenderBundle("FMLibScript")
+    @Html.RenderBundle("FMScript")
+    @*<script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/FMLibScript")" type="text/javascript"></script>
+    <script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/FMScript")" type="text/javascript"></script>*@
+    <script type="text/javascript">
+        var username = document.getElementById("UserName").value;
+        if (username == "") {
+            document.getElementById("UserName").focus();
+        }
+        else {
+            document.getElementById("Password").focus();
+        }
+        sessionStorage.clear();
+        nsCommon.SetWindowName();
+
+        $('#Password').keypress(function (e) {
+            if (event.keyCode == 60)
+                return false;
+            else
+                return true;
+        });
+    </script>
+</body>
+</html>

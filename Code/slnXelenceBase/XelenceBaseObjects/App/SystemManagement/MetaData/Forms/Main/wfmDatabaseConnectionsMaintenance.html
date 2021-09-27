@@ -1,0 +1,70 @@
+<div sfwEntity="entDatabaseConnections" ID="wfmDatabaseConnectionsMaintenance" sfwType="Maintenance" sfwTitle="Database Connections Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmDatabaseConnectionsLookup">
+  <sfwServerDetails>
+    <loaddetails />
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="txtConnectionName" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+    <conditions>
+      <formcondition>
+        <condition ID="ChangeDatabaseConnectionString">
+          <if sfwHide="txtDataSource;txtUser;txtPassword;txtCatalog">
+            <item sfwRightSideType="constant" sfwOperator="IsEqualTo" sfwLeftSideField="chkChangeConnectionS" sfwRightSideField="False" />
+          </if>
+          <elseif sfwShow="txtDataSource;txtUser;txtPassword;txtCatalog">
+            <item sfwRightSideType="constant" sfwOperator="IsEqualTo" sfwLeftSideField="chkChangeConnectionS" sfwRightSideField="True" />
+          </elseif>
+          <else></else>
+        </condition>
+      </formcondition>
+      <expressioncondition />
+    </conditions>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Database Connections Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtConnectionName" sfwEntityField="ConnectionName" sfwEditMode="New" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlConnectionType" sfwEntityField="ConnectionType" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Query" sfwLoadSource="entDatabaseConnections.LoadConnectionType" DataTextField="description" DataValueField="description"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="txtPasswordEncryptedFlag" sfwEntityField="PasswordEncryptedFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwValueChecked="True" sfwValueUnChecked="False" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkChangeConnectionS" sfwEntityField="strChangeConnectionString" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Change Connection String" sfwValueChecked="True" sfwValueUnChecked="False" sfwDefaultValue="False" Checked="True" Enabled="True" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtDataSource" sfwEntityField="strDataSource" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Data Source" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtUser" sfwEntityField="strUser" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="User" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtPassword" sfwEntityField="strPaswword" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="password" sfwCaption="Password" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtCatalog" sfwEntityField="strCatalog" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Catalog" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

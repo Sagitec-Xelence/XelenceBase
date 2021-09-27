@@ -1,0 +1,44 @@
+div[id ^= 'wfmActLogInstActnMaintenance']{
+.Request-Ok{
+	label {
+		background-color: #3a8e5c;
+		color: white;
+		text-align: center;
+	}
+}
+.Request-Slow{
+	label {
+		background-color: #f5c02f;
+		color: white;
+		text-align: center;
+	}
+}
+.Request-VerySlow{
+	label {
+		background-color: #ef6c00;
+		color: white;
+		text-align: center;
+	}
+}
+.Request-Error{
+	label {
+		background-color: #f1695f;
+		color: white;
+		text-align: center;
+	}
+}
+.Detail-Wrapper {
+	h6{
+		padding: .375rem 0;
+	}
+	* {
+		overflow-wrap: break-word;
+	}	
+}
+.counter-wrapper{
+	[data-sfwcontroltype="sfwCard"] div {
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;
+	}
+}
+}

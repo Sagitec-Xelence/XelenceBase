@@ -1,0 +1,112 @@
+<entity ID="entActLogInst" sfwView="False" sfwActive="True" sfwStatus="Review" sfwTableName="sgs_act_log_inst" sfwParentEntity="entBase" sfwVersion="7.0">
+  <attributes>
+    <object>
+      <attribute ID="objActLogApp" sfwEntity="entActLogApp" />
+    </object>
+    <collection>
+      <attribute ID="lstActLogInstActn" sfwEntity="entActLogInstActn" />
+      <attribute ID="lstActLogThresholdActn" sfwEntity="entActLogThresholdActn" />
+      <attribute ID="lstActLogThresholdQuery" sfwEntity="entActLogThresholdQuery" />
+    </collection>
+    <property>
+      <attribute ID="ActionCount" sfwDataType="int" sfwCaption="Action Count" />
+    </property>
+    <column>
+      <attribute sfwValue="act_log_inst_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="ActLogInstId" sfwCaption="ID" />
+      <attribute sfwValue="act_log_app_id" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="ActLogAppId" sfwCaption="Act Log App Id" />
+      <attribute sfwValue="actor_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="ActorName" sfwCaption="Actor Name" />
+      <attribute sfwValue="machine_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="MachineName" sfwCaption="Machine Name" />
+      <attribute sfwValue="act_log_initial_uid" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" ID="ActLogInitialUid" sfwCaption="Act Log Initial Uid" />
+      <attribute sfwValue="act_log_uid" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="ActLogUid" sfwCaption="Act Log Uid" />
+      <attribute sfwValue="start_time" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="StartTime" sfwCaption="Start Time" />
+      <attribute sfwValue="end_time" sfwDataType="datetime" sfwDBDataType="datetime" ID="EndTime" sfwCaption="End Time" />
+      <attribute sfwValue="window_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" ID="WindowName" sfwCaption="Window Name" />
+      <attribute sfwValue="invalid_login_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="InvalidLoginFlag" sfwCaption="Invalid Login Flag" />
+      <attribute sfwValue="ip_address" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="IpAddress" sfwCaption="Ip Address" />
+      <attribute sfwValue="mac_address" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="MacAddress" sfwCaption="Mac Address" />
+      <attribute sfwValue="os_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" ID="OsName" sfwCaption="Os Name" />
+      <attribute sfwValue="browser_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" ID="BrowserName" sfwCaption="Browser Name" />
+      <attribute sfwValue="is_mobile_device" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="IsMobileDevice" sfwCaption="Is Mobile Device" />
+      <attribute sfwValue="extra_details" sfwDataType="string" sfwDBDataType="varchar" sfwLength="MAX" ID="ExtraDetails" sfwCaption="Extra Details" />
+      <attribute sfwValue="is_browserclose" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" ID="IsBrowserclose" sfwCaption="Is Browserclose" />
+      <attribute sfwValue="browserclose_time" sfwDataType="datetime" sfwDBDataType="datetime" ID="BrowsercloseTime" sfwCaption="Browserclose Time" />
+    </column>
+    <cdocollection />
+    <calculatedfields />
+  </attributes>
+  <methods>
+    <method ID="FindActLogInst" sfwMethodType="Load" sfwMode="All" sfwLoadMainCDO="True" sfwParameter="aintPrimaryKey" sfwLoadMainObject="True">
+      <parameter ID="aintPrimaryKey" sfwDataType="int" />
+      <item sfwParameter="iintActionCount" ID="ActionCount" sfwDataType="int" sfwItemType="property" />
+      <parameter ID="iintActionCount" sfwDataType="int" />
+    </method>
+  </methods>
+  <ExtraFields />
+  <queries>
+    <group ID="APM">
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9;BROWSER_NAME,&#xA;&#x9;sum(COUNT) COUNT,&#xA;&#x9;@START_TIME AS Start_Time,&#xA;&#x9;@END_TIME AS End_Time &#xA;FROM&#xA;&#x9; (SELECT&#xA;&#x9;&#x9;SUBSTRING(BROWSER_NAME, 0, CHARINDEX('-', BROWSER_NAME)) AS BROWSER_NAME,&#xA;&#x9;&#x9;COUNT(ACT_LOG_INST_ID) AS COUNT &#xA;&#x9; FROM&#xA;&#x9; &#x9;SGS_ACT_LOG_INST WITH(NOLOCK) &#xA;&#x9; WHERE&#xA;&#x9;&#x9;BROWSER_NAME IS NOT NULL AND&#xA;&#x9; &#x9;START_TIME BETWEEN @START_TIME AND @END_TIME&#xA;&#x9; GROUP BY  BROWSER_NAME) temp &#xA;GROUP BY  BROWSER_NAME;" ID="GetBrowserApplicationUsageCount">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9;BROWSER_NAME,&#xA;&#x9;COUNT(*) COUNT,&#xA;&#x9;@START_TIME AS Start_Time,&#xA;&#x9;@END_TIME AS End_Time &#xA;FROM&#xA;&#x9; SGS_ACT_LOG_INST WITH(NOLOCK)&#xA;WHERE&#xA;&#x9;BROWSER_NAME IS NOT NULL AND&#xA;&#x9; START_TIME &gt; =  @START_TIME AND&#xA;&#x9; START_TIME &lt; =  @END_TIME &#xA;GROUP BY  BROWSER_NAME&#xA;ORDER BY  COUNT DESC;" ID="GetBrowserApplicationUsageCountWithVersion">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="WITH CTE AS(&#xA;SELECT&#xA;CASE&#xA;&#x9;WHEN CHARINDEX('Windows',OS_NAME) &gt; 0 THEN 'Windows Device'&#xA;&#x9;ELSE (CASE&#xA;&#x9;&#x9;&#x9;WHEN CHARINDEX('Windows',SUBSTRING(EXTRA_DETAILS,(CHARINDEX('(',EXTRA_DETAILS)),(CHARINDEX(';',EXTRA_DETAILS))))  &gt; 0 THEN 'Windows Device'&#xA;&#x9;&#x9;&#x9;ELSE SUBSTRING(EXTRA_DETAILS,(CHARINDEX('(',EXTRA_DETAILS)) + 1,(CHARINDEX(';',EXTRA_DETAILS)) - (CHARINDEX('(',EXTRA_DETAILS)) - 1)&#xA;&#x9;&#x9;  END)&#xA;&#x9;END AS DEVICE,&#xA;&#x9;OS_NAME AS OPERATING_SYSTEM,&#xA;&#x9;IS_MOBILE_DEVICE AS MOBILE_DEVICE&#xA;FROM SGS_ACT_LOG_INST WITH(NOLOCK)&#xA;WHERE OS_NAME IS NOT NULL AND&#xA;START_TIME BETWEEN @START_TIME AND @END_TIME)&#xA;&#xA;SELECT &#xA;&#x9;DEVICE,&#xA;&#x9;OPERATING_SYSTEM, &#xA;&#x9;MOBILE_DEVICE, &#xA;&#x9;COUNT(*) COUNT&#xA;FROM CTE &#xA;GROUP BY &#xA;&#x9;OPERATING_SYSTEM,&#xA;&#x9;DEVICE,&#xA;&#x9;MOBILE_DEVICE&#xA;ORDER BY &#xA;&#x9;Count DESC" ID="GetDeviceDetails">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+          <parameter ID="@APPID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT &#xA;&#x9;CONVERT(DATE, START_TIME, 111) AS DAY,&#xA;&#x9;LEFT(BROWSER_NAME, CHARINDEX(' ', BROWSER_NAME)-1) AS BROWSER_NAME, &#xA;&#x9;count(ACT_LOG_INST_ID) AS COUNT&#xA;FROM SGS_ACT_LOG_INST  WITH(NOLOCK)&#xA;WHERE&#xA;&#x9;BROWSER_NAME IS NOT NULL AND&#xA;&#x9;START_TIME BETWEEN @START_TIME AND @END_TIME&#xA;group by &#xA;&#x9;CONVERT(DATE,START_TIME,111), &#xA;&#x9;LEFT(BROWSER_NAME, CHARINDEX(' ', BROWSER_NAME)-1)" ID="BrowserTrendChart">
+        <parameters>
+          <parameter ID="@START_TIME" sfwDataType="DateTime" />
+          <parameter ID="@END_TIME" sfwDataType="DateTime" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#xA;&#x9;DTL.DTL_NAME,&#xA;&#x9;DTL.PARAMETER_DETAILS,&#xA;&#x9;DTL.TIME_IN_MS,&#xA;&#x9;DTL.START_TIME,&#xA;&#x9;DTL.END_TIME,&#xA;&#x9;UNQ.QUERY_REF,&#xA;&#x9;UNQ.QUERY,&#xA;&#x9;UNQ.UNIQUE_QUERY_ID &#xA;FROM&#xA;&#x9; SGS_ACT_LOG ACT_LOG WITH(NOLOCK),&#xA;&#x9;SGS_ACT_LOG_INST_ACTN ACTN (NOLOCK) &#xA;&#x9;INNER &#xA;&#x9;JOIN SGS_ACT_LOG_INST_ACTN_DTL DTL (NOLOCK)&#xA;&#x9; ON ACTN.ACT_LOG_INST_ACTN_ID = DTL.ACT_LOG_INST_ACTN_ID &#xA;&#x9;INNER &#xA;&#x9;JOIN SGS_UNIQUE_QUERY UNQ (NOLOCK)&#xA;&#x9; ON DTL.UNIQUE_QUERY_ID = UNQ.UNIQUE_QUERY_ID &#xA;WHERE&#xA;&#x9; DTL.TIME_IN_MS &gt; ACT_LOG.QUERY_LIMIT AND&#xA;&#x9; DTL.STATUS_VALUE !=  'ERR' AND&#xA;&#x9; ACTN.ACT_LOG_INST_ID = @INSTANCE_ID " ID="LoadThresholdQueries">
+        <parameters>
+          <parameter ID="@INSTANCE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT &#xA;&#x9;ACTN.ACT_LOG_INST_ACTN_ID,&#xA;&#x9;ACTN.NAME,&#xA;&#x9;ACTN.TIME_IN_MS,&#xA;&#x9;ACTN.START_TIME,&#xA;&#x9;ACTN.END_TIME,&#xA;&#x9;ACTN.APPSERVER_NAME,&#xA;&#x9;ACTN.WEB_SERVER_NAME,&#xA;&#x9;ACTN.SOURCE,&#xA;&#x9;ACTN.TARGET&#xA;FROM &#xA;&#x9;SGS_ACT_LOG ACT_LOG WITH(NOLOCK),&#xA;    SGS_ACT_LOG_INST_ACTN ACTN (NOLOCK)&#xA;&#xA;WHERE ACTN.TIME_IN_MS &gt; ACT_LOG.TRANSACTION_LIMIT AND ACTN.STATUS_VALUE != 'ERR' &#xA;AND ACTN.ACT_LOG_INST_ID = @INSTANCE_ID" ID="LoadThresholdActions">
+        <parameters>
+          <parameter ID="@INSTANCE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT ACTN.ACT_LOG_INST_ACTN_ID,&#xA;&#x9;ACTN.NAME,&#xA;&#x9;ACTN.PARAMETER_DETAILS,&#xA;&#x9;ACTN.TIME_IN_MS,&#xA;&#x9;ACTN.START_TIME,&#xA;&#x9;ACTN.END_TIME,&#xA;&#x9;ACTN.STATUS_VALUE&#xA;FROM &#xA;&#x9;SGS_ACT_LOG ACT_LOG WITH(NOLOCK),&#xA;    SGS_ACT_LOG_INST_ACTN ACTN (NOLOCK)&#xA;WHERE  ACTN.STATUS_VALUE = 'ERR' AND ACTN.TIME_IN_MS &gt; 0 AND ACTN.ACT_LOG_INST_ID = @INSTANCE_ID" ID="LoadFailedRequest">
+        <parameters>
+          <parameter ID="@INSTANCE_ID" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+	  <group ID="BaseGroup">
+      <query ID="Lookup" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT &#xA;&#x9;INST.* , &#xA;&#x9;APP.APP_NAME, &#xA;&#x9;(SELECT COUNT(*) FROM SGS_ACT_LOG_INST_ACTN ACTN WHERE ACTN.ACT_LOG_INST_ID = INST.ACT_LOG_INST_ID) AS ACTION_COUNT&#xA;FROM SGS_ACT_LOG_INST INST WITH(NOLOCK)&#xA;INNER JOIN &#xA;&#x9;SGS_ACT_LOG_APP APP WITH(NOLOCK) ON INST.ACT_LOG_APP_ID = APP.ACT_LOG_APP_ID&#xA;ORDER BY INST.START_TIME DESC" sfwOracle="select a.* , b.app_name, (select count(*) from sgs_act_log_inst_actn c where c.act_log_inst_id = a.act_log_inst_id) as action_count&#xD;&#xA;  from sgs_act_log_inst a,&#xD;&#xA;       sgs_act_log_app b&#xD;&#xA; where a.act_log_app_id = b.act_log_app_id&#xD;&#xA;order by a.START_TIME Desc fetch next 200 rows only">
+        <parameters />
+        <mappedcolumns>
+          <column ID="app_name" sfwEntityField="objActLogApp.AppName" />
+          <column ID="action_count" sfwEntityField="ActionCount" />
+        </mappedcolumns>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <groups />
+  <checklist />
+  <objectmethods />
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+</entity>

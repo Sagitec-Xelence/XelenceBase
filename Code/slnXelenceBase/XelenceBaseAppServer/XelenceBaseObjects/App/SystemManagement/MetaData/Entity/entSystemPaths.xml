@@ -1,0 +1,37 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_system_paths" ID="entSystemPaths">
+  <attributes>
+    <column>
+      <attribute sfwValue="path_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwIsNull="False" ID="PathId" sfwCaption="Path" />
+      <attribute sfwValue="path_code" sfwDataType="string" sfwLength="10" ID="PathCode" sfwCaption="Path Code" />
+      <attribute sfwValue="path_value" sfwDataType="string" sfwLength="2000" ID="PathValue" sfwCaption="Path" />
+      <attribute sfwValue="path_description" sfwDataType="string" sfwLength="2000" ID="PathDescription" sfwCaption="Path Description" />
+      <attribute sfwValue="created_by" sfwDataType="string" sfwLength="50" sfwIsNull="False" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwDataType="DateTime" sfwIsNull="False" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwDataType="string" sfwLength="50" sfwIsNull="False" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwDataType="DateTime" sfwIsNull="False" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwDataType="int" sfwIsNull="False" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

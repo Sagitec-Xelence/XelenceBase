@@ -1,0 +1,49 @@
+<div sfwEntity="entAuditLog" ID="wfmAuditLogMaintenance" sfwType="Maintenance" sfwTitle="Audit Log Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=wfmAuditLogLookup">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="pnltoolbar" data-sfwControlType="sfwEmptyPanel">
+      <input ID="actSave" data-sfwControlType="sfwActionSave" type="button" value="Save" />
+      <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+    </div>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Audit Log Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlChangeType" sfwEntityField="ChangeType" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwCaption="Change Type" sfwLoadType="Items">
+                  <option value="I">Insert</option>
+                  <option value="U">Update</option>
+                  <option value="D">Delete</option>
+                  <option value="V">View</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblFromName" data-sfwControlType="sfwLabel" sfwEntityField="FormName" sfwShowCaption="True" sfwCaption="From Name"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <label ID="lblPrimaryKey" data-sfwControlType="sfwLabel" sfwEntityField="PrimaryKey" sfwShowCaption="True" sfwCaption="Primary Key"></label>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlLogDetails" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+      <li>
+        <span ID="spnSpan1">Log Details</span>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

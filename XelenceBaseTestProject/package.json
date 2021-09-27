@@ -1,0 +1,22 @@
+{
+  "name": "xelencebasetestproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cypress-wait-until": "^1.7.1",
+    "mocha": "^9.0.1",
+    "mocha-junit-reporter": "^2.0.0"
+  },
+  "devDependencies": {
+    "cypress": "^7.5.0"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/cypress run",
+    "runtest": "npm run test --",
+    "testqa": "./node_modules/.bin/cypress run --spec 'cypress/integration/RegressionTestSuite/Xelence_Setup.js'",
+    "runtestqa": "npm run testqa"
+  },
+  "author": "Framework QA Team",
+  "license": "ISC"
+}

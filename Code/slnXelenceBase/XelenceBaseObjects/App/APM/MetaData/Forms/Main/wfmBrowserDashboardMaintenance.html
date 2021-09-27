@@ -1,0 +1,169 @@
+<div ID="wfmBrowserDashboardMaintenance" sfwType="Maintenance" sfwTitle="Browser Dashboard Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entAppMonitoring">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel" sfwSkinID="Default">
+      <li>
+        <span ID="spnSpan">Filters</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastMinutes" sfwEntityField="LastMinutes" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="true" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Hours</option>
+                  <option value="15">Last 15 minutes</option>
+                  <option value="30">Last 30 minutes</option>
+                  <option value="45">Last 45 minutes</option>
+                  <option value="60">Last one hours</option>
+                  <option value="120">Last two hours</option>
+                  <option value="240">Last four hours</option>
+                  <option value="480">Last eight hours</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <select ID="txtLastDays" sfwEntityField="LastDays" data-sfwControlType="sfwDropDownList" sfwShowCaption="True" sfwLoadType="Items" AutoPostBack="true" sfwRelatedControl="actApmLoadDashboard">
+                  <option value="0">Select Days</option>
+                  <option value="1">Current Day</option>
+                  <option value="2">Last two days</option>
+                  <option value="4">Last four days</option>
+                  <option value="5">Last five days</option>
+                  <option value="10">Last ten days</option>
+                  <option value="20">Last twenty days</option>
+                  <option value="30">Last thirty days</option>
+                </select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtFromDate" sfwEntityField="FromDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&gt;=" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2">
+                <input ID="txtToDate" sfwEntityField="ToDate" data-sfwControlType="sfwDateTime" type="text" sfwShowCaption="True" sfwOperator="&lt;=" sfwDataFormat="{0:G}" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons">
+                <input ID="actApmLoadDashboard" data-sfwControlType="sfwActionExecute" type="button" value="Load Dashboard" sfwMethod="rulSetDates" sfwRefreshType="Object" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="2" class="DashboardButtons"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Browser and Device Details</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshBrowserDetails_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshBrowserDetails" ID="ancAnchor">Browser Details</a>
+                    </li>
+                    <li ID="tshDeviceDetails_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshDeviceDetails" ID="ancAnchor1">Device Details</a>
+                    </li>
+                  </ul>
+                  <div ID="tshBrowserDetails" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                          <div ID="chrBrowserCounts" data-sfwControlType="sfwChart" Width="500" Height="500" ChartType="Pie" sfwLoadSource="entActLogInst.GetBrowserApplicationUsageCount" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" ChartName="Browser Count" ChartMargin="{&quot;t&quot;:60,&quot;l&quot;:60,&quot;r&quot;:60,&quot;b&quot;:70}">
+                            <div data-sfwControlType="Series">
+                              <div data-sfwControlType="sfwSeries" Name="Series1" ChartType="Pie" XValueMember="browser_name" YValueMembers="count" IsValueShownAsLabel="True" sfwNavigationParameter="txtBrowserName=browser_name;txtStartTimeFrom=txtFromDate;txtStartTimeTo=txtToDate" sfwActiveForm="wfmActLogInstLookup"></div>
+                            </div>
+                            <LoadParameters>
+                              <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                              <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                          <div ID="grvGetBrowserApplica" data-sfwControlType="sfwGridView" sfwLoadSource="entActLogInst.GetBrowserApplicationUsageCountWithVersion" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField" style="text-align:center;">Browser Name</th>
+                                  <th data-sfwControlType="TemplateField" style="text-align:center;">Count</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblBrowserName" data-sfwControlType="sfwLabel" sfwEntityField="browser_name"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                    <label ID="lblCount" data-sfwControlType="sfwLabel" sfwEntityField="count" sfwShowZero="True"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters>
+                              <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                              <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="4">
+                          <div ID="chrBrowserTrend" data-sfwControlType="sfwChart" Width="500" Height="500" ChartType="Line" sfwLoadSource="entActLogInst.BrowserTrendChart" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwIsDynamicSeries="True" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" ChartName="Browser Usage Trend" ChartMargin="{&quot;t&quot;:60,&quot;l&quot;:60,&quot;r&quot;:60,&quot;b&quot;:70}">
+                            <div data-sfwControlType="Series">
+                              <div data-sfwControlType="sfwSeries" Name="Series1" ChartType="Line" sfwSeriesColumnName="browser_name" XValueMember="day" YValueMembers="count" IsValueShownAsLabel="True"></div>
+                            </div>
+                            <LoadParameters>
+                              <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                              <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshDeviceDetails" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="grvGetDeviceDetails" data-sfwControlType="sfwGridView" sfwLoadSource="entActLogInst.GetDeviceDetails" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="False" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th data-sfwControlType="TemplateField" style="text-align:center;">Device</th>
+                                  <th data-sfwControlType="TemplateField" style="text-align:center;">Operating System</th>
+                                  <th data-sfwControlType="TemplateField" style="text-align:center;">Mobile Device</th>
+                                  <th data-sfwControlType="TemplateField" style="text-align:center;">Count</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblDevice" data-sfwControlType="sfwLabel" sfwEntityField="device"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblOperatingSystem" data-sfwControlType="sfwLabel" sfwEntityField="operating_system"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate">
+                                    <label ID="lblMobileDevice" data-sfwControlType="sfwLabel" sfwEntityField="mobile_device"></label>
+                                  </td>
+                                  <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                    <label ID="lblCount1" data-sfwControlType="sfwLabel" sfwEntityField="count"></label>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <LoadParameters>
+                              <parameter ID="@START_TIME" sfwEntityField="FromDate"></parameter>
+                              <parameter ID="@END_TIME" sfwEntityField="ToDate"></parameter>
+                            </LoadParameters>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <title>Xelence Base</title>
+      <link rel="stylesheet" bundlestyleid="FMStyle" type="text/css" />
+      <link rel="stylesheet" bundlestyleid="FMThemeStyle" type="text/css" />
+      <link rel="stylesheet" bundlestyleid="AppSideDefaultCss" type="text/css" />
+   </head>
+   <body>
+      <div data-sfwControlType="sfwSiteLayout" class="neo-site-layout">
+         <!-- Splitter properties are only for S3-->
+         <div ID="MainSplitter" data-sfwControlType="sfwMainSplitter" class="neo-main-splitter" sfwNorth="false" sfwEast="false" sfwCenter="true" sfwSouth="false" sfwLeftTab="True">
+            <div ID="MiddleSplitter" data-sfwControlType="sfwCenterMiddleSplitter" >
+               <!--<div id="CenterLeft" data-sfwControlType="sfwLeftSplitter" class="neo-left-splitter">
+                  </div>-->
+               <div ID="CenterMiddle" data-sfwControlType="sfwMiddleSplitter"    style="width:100%">
+                  <div id="CenterLeftTabs"  data-sfwControlType="sfwLeftTab" >
+                     <div id="navTreeTriger" data-sfwControlType="sfwNavigator" class="neo-navigator">
+                        <div id="SlideOutTree" data-sfwControlType="sfwTreeContainer" class="neo-navtree-container" style="display:none">
+                        </div>
+                     </div>
+                     <div id="tabNavigator" data-sfwControlType="sfwTabNavigator" ></div>
+                     <!--<div id="tabNavigatorBarContainer" class="neo-tabNavigatorBarContainer">
+                        <div class="neo-tabNavigator-header">Page Navigation</div>
+                        <div class="neo-tabNavigatorBar-wrapper">
+                            <ul class="neo-panel-ul-navigator">
+                                <li panelid="pnlEnrollment" class="neo-panel-navigator-li neo-panel-navigator-li-active">
+                                    <a class="neo-tab-navigator-panel-caption" divtoscroll="#wfmPersonMaintenance52231" scrollto="pnlEnrollment">Membership<span class="s-panel-navigator-icon"></span></a>
+                                 </li>
+                             </ul>
+                        </div>
+                        </div>-->
+                  </div>
+                  <div ID="CenterSplitter" data-sfwControlType="sfwCenterSplitter"  >
+                     <div  data-sfwControlType="sfwCrumToolBar" sfwFreeze="true">
+                        <div id="crumDiv"  data-sfwControlType="sfwBreadCrum" >
+                        </div>
+                     </div>
+                     <div ID="ContentSplitter" data-sfwControlType="sfwContentPlaceholder" ></div>
+                  </div>
+               </div>
+            </div>           
+      </div>
+	  <input type="hidden" style="display:none;" value="true" id="__XelenceBaseAppEmbedded__" />
+	  
+      <script bundlescriptid="FMLibScript" type="text/javascript"></script>
+      <script bundlescriptid="FMScript" type="text/javascript"></script>
+      <script bundlescriptid="AppSideJS" type="text/javascript"></script>
+   </body>
+</html>

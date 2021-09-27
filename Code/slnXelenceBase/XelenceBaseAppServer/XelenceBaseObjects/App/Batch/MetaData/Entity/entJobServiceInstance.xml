@@ -1,0 +1,47 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwTableName="sgs_job_service_instance" ID="entJobServiceInstance">
+  <attributes>
+    <column>
+      <attribute sfwValue="job_service_instance_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="JobServiceInstanceId" sfwCaption="ID" />
+      <attribute sfwValue="server_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ServerName" sfwCaption="Server Name" />
+      <attribute sfwValue="instance_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="InstanceName" sfwCaption="Instance Name" />
+      <attribute sfwValue="job_processor_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="JobProcessorName" sfwCaption="Job Processor Name" sfwCodeID="20003007" />
+      <attribute sfwValue="keep_alive_timestamp" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="KeepAliveTimestamp" sfwCaption="Keep Alive Timestamp" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="LookUp" sfwSql="SELECT&#xA;&#x9; JOB_SERVICE_INSTANCE_ID,&#xA;&#x9;SERVER_NAME,&#xA;&#x9;INSTANCE_NAME,&#xA;&#x9;JOB_PROCESSOR_NAME_ID,&#xA;&#x9;JOB_PROCESSOR_NAME_VALUE,&#xA;&#x9;SCV.DESCRIPTION AS JOB_PROCESSOR_NAME,&#xA;&#x9;KEEP_ALIVE_TIMESTAMP,&#xA;&#x9;SJSI.CREATED_DATE &#xA;FROM&#xA;&#x9; SGS_JOB_SERVICE_INSTANCE SJSI WITH(NOLOCK) &#xA;&#x9;INNER &#xA;&#x9;JOIN SGS_CODE_VALUE SCV WITH(NOLOCK)&#xA;&#x9; ON SCV.CODE_ID = SJSI.JOB_PROCESSOR_NAME_ID AND&#xA;&#x9; SCV.CODE_VALUE = SJSI.JOB_PROCESSOR_NAME_VALUE &#xA;WHERE&#xA;&#x9; DATEDIFF(SECOND,&#xA;&#x9;KEEP_ALIVE_TIMESTAMP,&#xA;&#x9;dbo.UDF_GETAPPLICATIONDATE()) &lt; = 70" sfwDataType="EntityTable" sfwQueryType="SelectQuery">
+        <parameters />
+        <mappedcolumns>
+          <column ID="job_processor_name" sfwEntityField="JobProcessorNameDescription" />
+        </mappedcolumns>
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

@@ -1,0 +1,100 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_user" ID="entUser">
+  <attributes>
+    <column>
+      <attribute sfwValue="user_serial_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UserSerialId" sfwCaption="ID" />
+      <attribute sfwValue="user_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="False" sfwDBDataType="varchar" ID="UserId" sfwCaption="User" />
+      <attribute sfwValue="password" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="256" sfwIsNull="False" sfwDBDataType="varchar" ID="Password" sfwCaption="Password" />
+      <attribute sfwValue="first_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="FirstName" sfwCaption="First Name" />
+      <attribute sfwValue="middle_initial" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="MiddleInitial" sfwCaption="Middle" />
+      <attribute sfwValue="last_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="LastName" sfwCaption="Last Name" />
+      <attribute sfwValue="begin_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="BeginDate" sfwCaption="Begin Date" />
+      <attribute sfwValue="end_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="EndDate" sfwCaption="End Date" />
+      <attribute sfwValue="email_address" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" sfwDBDataType="varchar" ID="EmailAddress" sfwCaption="Email Address" />
+      <attribute sfwValue="user_type" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="UserType" sfwCaption="User Type" sfwCodeID="20001001" />
+      <attribute sfwValue="user_status" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="UserStatus" sfwCaption="User Status" sfwCodeID="20001002" />
+      <attribute sfwValue="person_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="PersonId" sfwCaption="Person" />
+      <attribute sfwValue="log_activity_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="False" sfwDBDataType="varchar" ID="LogActivityFlag" sfwCaption="Log Activity Flag" />
+      <attribute sfwValue="initial_page" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" sfwDBDataType="varchar" ID="InitialPage" sfwCaption="Initial Page" />
+      <attribute sfwValue="color_scheme" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="ColorScheme" sfwCaption="Color Scheme" />
+      <attribute sfwValue="access_type" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="False" sfwDBDataType="int" ID="AccessType" sfwCaption="Access Type" sfwCodeID="20001003" />
+      <attribute sfwValue="unavailable_ind" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="UnavailableInd" sfwCaption="Unavailable Ind" />
+      <attribute sfwValue="ad_guid" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="uniqueidentifier" sfwIsNull="True" sfwDBDataType="uniqueidentifier" ID="AdGuid" sfwCaption="Ad" />
+      <attribute sfwValue="display_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="True" sfwDBDataType="varchar" ID="DisplayName" sfwCaption="Display Name" />
+      <attribute sfwValue="deleted_from_ad" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="False" sfwDBDataType="varchar" ID="DeletedFromAd" sfwCaption="Deleted From Ad" />
+      <attribute sfwValue="log_select_query_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="LogSelectQueryFlag" sfwCaption="Log Select Query Flag" />
+      <attribute sfwValue="log_insert_query_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="LogInsertQueryFlag" sfwCaption="Log Insert Query Flag" />
+      <attribute sfwValue="log_update_query_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="LogUpdateQueryFlag" sfwCaption="Log Update Query Flag" />
+      <attribute sfwValue="log_delete_query_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="LogDeleteQueryFlag" sfwCaption="Log Delete Query Flag" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="False" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="False" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+      <attribute sfwValue="image_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="256" sfwIsNull="True" sfwDBDataType="varchar" ID="ImageName" sfwCaption="Image Name" />
+      <attribute sfwValue="user_title" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="UserTitle" sfwCaption="User Title" />
+      <attribute sfwValue="skill" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="True" sfwDBDataType="int" ID="Skill" sfwCaption="Skill" sfwCodeID="31" />
+      <attribute sfwValue="position" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="True" sfwDBDataType="int" ID="Position" sfwCaption="Position" sfwCodeID="32" />
+      <attribute sfwValue="location" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="True" sfwDBDataType="int" ID="Location" sfwCaption="Location" sfwCodeID="33" />
+      <attribute sfwValue="authority" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="True" sfwDBDataType="int" ID="Authority" sfwCaption="Authority" sfwCodeID="34" />
+      <attribute sfwValue="supervisor_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="SupervisorId" sfwCaption="Supervisor" />
+      <attribute sfwValue="activty_log_level_value" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="ActivtyLogLevelValue" sfwCaption="Activty Log Level" />
+      <attribute sfwValue="activity_log_level" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="True" sfwDBDataType="int" ID="ActivityLogLevel" sfwCaption="Activity Log Level" />
+      <attribute sfwValue="authentication_mode" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="PickList" sfwLength="4,0" sfwIsNull="True" sfwDBDataType="int" ID="AuthenticationMode" sfwCaption="Authentication Mode" />
+      <attribute sfwValue="old_password" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="256" sfwIsNull="True" sfwDBDataType="varchar" ID="OldPassword" sfwCaption="Old Password" />
+      <attribute sfwValue="link_expired_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="LinkExpiredFlag" sfwCaption="Link Expired Flag" />
+      <attribute sfwValue="reference_id" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="ReferenceId" sfwCaption="Reference" />
+      <attribute sfwValue="reference_code" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="ReferenceCode" sfwCaption="Reference Code" />
+    </column>
+    <object />
+    <collection>
+      <attribute ID="lstUserRoles" sfwEntity="entUserRoles" sfwAccessModifier="public" />
+      <attribute sfwAccessModifier="public" ID="lstSecurity" sfwEntity="entSecurity" />
+    </collection>
+    <property>
+      <attribute sfwAccessModifier="public" ID="lintUserRoleId" sfwDataType="int" sfwCaption="User Role Id" />
+    </property>
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="Queries">
+      <query sfwQueryType="ScalarQuery" sfwSql="SELECT&#xA;&#x9; COUNT(user_id) &#xA;FROM&#xA;&#x9; sgs_user WITH(NOLOCK)  &#xA;WHERE&#xA;&#x9; user_id = @user_id" ID="UserIDExists">
+        <parameters>
+          <parameter ID="@user_id" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; sgs_user WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; USER_ID = @USER_ID" ID="LoginQuery">
+        <parameters>
+          <parameter ID="@user_id" sfwDataType="string" />
+        </parameters>
+      </query>
+      <query sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; SGS_USER WITH(NOLOCK) &#xA;WHERE&#xA;&#x9; USER_STATUS_VALUE = 'A' &#xA;ORDER&#x9; BY  USER_ID" ID="LoadActiveUsers">
+        <parameters />
+      </query>
+    </group>
+  </queries>
+  <delete>
+    <property ID="lstUserRoles" sfwForeignKey="UserSerialId" />
+  </delete>
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition>
+      <condition sfwDataType="bool" sfwAccessModifier="public" sfwMessageId="55" ID="ValidateUserRoleID" sfwRuleID="rcValidateUserRoleID" />
+    </rulecondition>
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints>
+      <fieldconstraint sfwFieldName="lintUserRoleId" sfwDataType="int" sfwDisplayName="User Role Id">
+        <item sfwType="Rule" sfwMode="All" sfwLoadSource="ValidateUserRoleID" sfwRuleID="ValidateUserRoleID" sfwStatus="Active" sfwMessage="Select User Role" sfwOnlyOnServer="True" />
+      </fieldconstraint>
+    </fieldconstraints>
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

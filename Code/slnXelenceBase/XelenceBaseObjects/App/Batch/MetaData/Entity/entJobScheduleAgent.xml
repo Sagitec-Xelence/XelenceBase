@@ -1,0 +1,49 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwTableName="sgs_job_schedule_agent" ID="entJobScheduleAgent">
+  <attributes>
+    <column>
+      <attribute sfwValue="job_schedule_agent_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="JobScheduleAgentId" sfwCaption="ID" />
+      <attribute sfwValue="instance_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="InstanceName" sfwCaption="Instance Name" />
+      <attribute sfwValue="start_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="StartDate" sfwCaption="Start Date" />
+      <attribute sfwValue="last_active_time" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="LastActiveTime" sfwCaption="Last Active Time" />
+      <attribute sfwValue="created_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="CreatedBy" sfwCaption="Created By" />
+      <attribute sfwValue="created_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="CreatedDate" sfwCaption="Created Date" />
+      <attribute sfwValue="modified_by" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="50" sfwIsNull="True" sfwDBDataType="varchar" ID="ModifiedBy" sfwCaption="Modified By" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+      <attribute sfwValue="update_seq" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="int" sfwLength="10,0" sfwIsNull="True" sfwDBDataType="int" ID="UpdateSeq" sfwCaption="Update Seq" />
+    </column>
+    <object />
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="Lookup" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; (SELECT&#xA;&#x9; INSTANCE_NAME,&#xA;&#x9;START_DATE,&#xA;&#x9;LAST_ACTIVE_TIME ,&#xA;&#x9;( CASE WHEN DATEDIFF(MINUTE,&#xA;&#x9;LAST_ACTIVE_TIME,&#xA;&#x9;GETDATE()) &gt; 3 THEN 'INACTIVE' ELSE 'ACTIVE' END) AS AGENT_STATUS &#xA;FROM&#xA;&#x9; SGS_JOB_SCHEDULE_AGENT WITH(NOLOCK)) AS SGS_JOB_SCHEDULE_AGENT" sfwOracle="SELECT * FROM&#xD;&#xA;(SELECT INSTANCE_NAME, START_DATE, LAST_ACTIVE_TIME&#xD;&#xA;&#x9;, CASE WHEN (UDF_GET_SYSTEM_DATE('Y')-LAST_ACTIVE_TIME)*24*60 &gt; 3 THEN 'INACTIVE' ELSE 'ACTIVE' END AS AGENT_STATUS &#xD;&#xA;FROM SGS_JOB_SCHEDULE_AGENT) A">
+        <parameters />
+        <mappedcolumns>
+          <column ID="agent_status" sfwEntityField="AgentStatus" />
+        </mappedcolumns>
+      </query>
+      <query ID="GetActiveJobSchedules" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; SGS_JOB_SCHEDULE &#xA;WHERE&#xA;&#x9; ACTIVE_FLAG = 'Y' AND&#xA;&#x9; STATUS_VALUE NOT IN( 'REVW', 'SFAP') AND&#xA;&#x9; FREQUENCY_TYPE_VALUE != 64&#xA;ORDER BY  COALESCE(PRIORITY_VALUE,&#xA;&#x9;'P1')  ASC,&#xA;&#x9;ORDER_NUMBER ASC" sfwOracle="SELECT&#xA;&#x9; * &#xA;FROM&#xA;&#x9; SGS_JOB_SCHEDULE &#xA;WHERE&#xA;&#x9; ACTIVE_FLAG = 'Y' AND&#xA;&#x9; STATUS_VALUE NOT IN( 'REVW', 'SFAP') AND&#xA;&#x9; FREQUENCY_TYPE_VALUE != 64&#xA;ORDER BY  COALESCE(PRIORITY_VALUE,&#xA;&#x9;'P1')  ASC,&#xA;&#x9;ORDER_NUMBER ASC">
+        <parameters />
+      </query>
+    </group>
+  </queries>
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition />
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

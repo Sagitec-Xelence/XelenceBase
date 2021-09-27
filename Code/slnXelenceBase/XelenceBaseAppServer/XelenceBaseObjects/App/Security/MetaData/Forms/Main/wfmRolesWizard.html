@@ -1,0 +1,67 @@
+<div sfwEntity="entRoles" ID="wfmRolesWizard" sfwType="Wizard" sfwTitle="Role Wizard" sfwActive="True" sfwStatus="Review">
+  <sfwServerDetails>
+    <ExtraFields />
+    <loaddetails />
+    <constraints>
+      <fieldconstraints>
+        <fieldconstraint sfwFieldName="txtRoleDescription" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" />
+        </fieldconstraint>
+        <fieldconstraint sfwFieldName="ddlRoleType" sfwDataType="string">
+          <item sfwType="Required" sfwRequired="True" sfwMode="New" />
+        </fieldconstraint>
+      </fieldconstraints>
+    </constraints>
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <div ID="wizMain" data-sfwControlType="sfwWizard" sfwRenderVerticalWizard="True" Width="100%" sfwDisplayProgressBar="True" sfwProgressBarCaption="NUMBER" sfwDisplayStepMode="ALL">
+      <div data-sfwControlType="WizardHeaderTemplate">
+        <div data-sfwControlType="sfwTable" ID="tblHeaderTemplate">
+          <div data-sfwControlType="sfwRow">
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+          </div>
+        </div>
+      </div>
+      <div ID="wzsWizardStep" data-sfwControlType="sfwWizardStep" sfwActionWizardNext="True" sfwShowInHeader="True">
+        <h2 ID="hdHeading2">Step 1</h2>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input ID="txtRoleDescription" sfwEditMode="New" sfwEntityField="RoleDescription" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" sfwCaption="Role Description" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+          <div data-sfwControlType="sfwWizardAction">
+            <input ID="actNext" data-sfwControlType="sfwActionWizardNext" sfwSave="True" type="button" value="Next" />
+          </div>
+        </div>
+      </div>
+      <div ID="wzsStep2" data-sfwControlType="sfwWizardStep" sfwShowInHeader="True">
+        <h2 sfwShowInHeader="True" ID="hdHeading21">Step 2</h2>
+        <div ID="dvDiv1">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <select ID="ddlRoleType" sfwEntityField="RoleType" data-sfwControlType="sfwDropDownList" sfwCaptionField="RoleDescription" sfwShowCaption="True" sfwLoadType="CodeGroup"></select>
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+          <div data-sfwControlType="sfwWizardAction">
+            <input ID="actPrevious" data-sfwControlType="sfwActionWizardPrev" type="button" value="Previous" />
+            <input ID="actFinish" data-sfwControlType="sfwActionWizardFinish" type="button" value="Finish" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

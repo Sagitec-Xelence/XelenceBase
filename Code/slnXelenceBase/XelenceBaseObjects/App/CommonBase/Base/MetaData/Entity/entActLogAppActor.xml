@@ -1,0 +1,82 @@
+<entity ID="entActLogAppActor" sfwView="False" sfwActive="True" sfwStatus="Review" sfwTableName="sgs_act_log_app_actor" sfwParentEntity="entBase" sfwVersion="7.0">
+  <attributes>
+    <object>
+      <attribute ID="objActLogApp" sfwEntity="entActLogApp" sfwAccessModifier="public" />
+    </object>
+    <column>
+      <attribute sfwValue="act_log_app_actor_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="ActLogAppActorId" sfwCaption="ID" sfwLength="10,0" />
+      <attribute sfwValue="act_log_app_id" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="ActLogAppId" sfwCaption="Act Log App Id" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="actor_name" sfwDataType="string" sfwDBDataType="varchar" sfwLength="100" sfwIsNull="False" ID="ActorName" sfwCaption="Actor Name" sfwKeyNo="0" />
+      <attribute sfwValue="action_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ActionFlag" sfwCaption="Action Flag" sfwKeyNo="0" />
+      <attribute sfwValue="action_step_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ActionStepFlag" sfwCaption="Action Step Flag" sfwKeyNo="0" />
+      <attribute sfwValue="query_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="QueryFlag" sfwCaption="Query Flag" sfwKeyNo="0" />
+      <attribute sfwValue="rule_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="RuleFlag" sfwCaption="Rule Flag" sfwKeyNo="0" />
+      <attribute sfwValue="created_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="CreatedBy" sfwCaption="Created By" sfwKeyNo="0" />
+      <attribute sfwValue="created_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="CreatedDate" sfwCaption="Created Date" sfwKeyNo="0" />
+      <attribute sfwValue="modified_by" sfwDataType="string" sfwDBDataType="varchar" sfwLength="50" sfwIsNull="False" ID="ModifiedBy" sfwCaption="Modified By" sfwKeyNo="0" />
+      <attribute sfwValue="modified_date" sfwDataType="datetime" sfwDBDataType="datetime" sfwIsNull="False" ID="ModifiedDate" sfwCaption="Modified Date" sfwKeyNo="0" />
+      <attribute sfwValue="update_seq" sfwDataType="int" sfwDBDataType="int" sfwIsNull="False" ID="UpdateSeq" sfwCaption="Update Seq" sfwKeyNo="0" sfwLength="10,0" />
+      <attribute sfwValue="validation_rule_flag" sfwDataType="string" sfwDBDataType="varchar" sfwLength="1" sfwIsNull="False" ID="ValidationRuleFlag" sfwCaption="Validation Rule Flag" sfwKeyNo="0" />
+      <attribute ID="TraceEndDate" sfwCaption="Trace End Date" sfwDataType="datetime" sfwIsNull="True" sfwKeyNo="0" sfwValue="trace_end_date" sfwDBDataType="datetime" />
+      <attribute ID="ApiFlag" sfwCaption="Api Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="api_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="XmlMethodFlag" sfwCaption="Xml Method Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="xml_method_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="AutoloadFlag" sfwCaption="Autoload Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="autoload_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="CorrFlag" sfwCaption="Corr Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="corr_flag" sfwLength="1" sfwDBDataType="varchar" />
+      <attribute ID="CodemethodFlag" sfwCaption="Codemethod Flag" sfwDataType="string" sfwIsNull="True" sfwKeyNo="0" sfwValue="codemethod_flag" sfwLength="1" sfwDBDataType="varchar" />
+    </column>
+    <collection />
+    <cdocollection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries>
+    <group ID="BaseGroup">
+      <query ID="LookUp" sfwSql="select * from sgs_act_log_app_actor" sfwDataType="EntityTable" sfwQueryType="SelectQuery">
+        <parameters />
+      </query>
+      <query ID="FilterByAppID" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select * from sgs_act_log_app_actor &#xA;where act_log_app_id = @act_log_app_id">
+        <parameters>
+          <parameter ID="@act_log_app_id" sfwDataType="int" />
+        </parameters>
+      </query>
+      <query ID="CountByActorName" sfwQueryType="SelectQuery" sfwDataType="EntityTable" sfwSql="select count(*) from sgs_act_log_app_actor&#xA;where act_log_app_id = @act_log_app_id &#xA;    and actor_name = @actor_name">
+        <parameters>
+          <parameter ID="@actor_name" sfwDataType="string" />
+          <parameter ID="@act_log_app_id" sfwDataType="int" />
+        </parameters>
+      </query>
+    </group>
+  </queries>
+  <methods>
+    <method ID="FindActLogAppActor" sfwMethodType="Load" sfwMode="All" sfwLoadMainObject="True" sfwParameter="aintPrimaryKey">
+      <parameter ID="aintPrimaryKey" sfwDataType="int" />
+    </method>
+  </methods>
+  <ExtraFields />
+  <delete />
+  <groups />
+  <checklist />
+  <objectmethods />
+  <conditions>
+    <expressioncondition>
+      <condition ID="ActorExists" sfwMessage="Duplicate Actor" sfwAccessModifier="public">
+        <and>
+          <item sfwLeftSideField="ActLogAppActorId" sfwLeftSideType="attribute" sfwOperator="IsEqualTo" sfwRightSideField="0" sfwRightSideType="constant" />
+          <item sfwLeftSideField="entActLogAppActor.CountByActorName" sfwLeftSideType="query" sfwLeftSideParamaters="ActorName;ActLogAppId" sfwOperator="IsGreaterThan" sfwRightSideField="0" sfwRightSideType="constant" />
+        </and>
+      </condition>
+      <condition ID="InUpdateMode">
+        <item sfwLeftSideField="ActLogAppActorId" sfwLeftSideType="attribute" sfwOperator="IsGreaterThan" sfwRightSideField="0" sfwRightSideType="constant" />
+      </condition>
+    </expressioncondition>
+    <rulecondition />
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints>
+      <item sfwMode="All" sfwStatus="Inactive" sfwConditionID="ActorExists" />
+    </hardconstraints>
+    <deleteconstraints />
+    <fieldconstraints />
+  </constraints>
+</entity>

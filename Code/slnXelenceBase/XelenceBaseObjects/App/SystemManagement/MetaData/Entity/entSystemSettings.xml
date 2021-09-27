@@ -1,0 +1,59 @@
+<entity sfwActive="True" sfwStatus="Review" sfwVersion="7.0" CreateWithClass="False" sfwParentEntity="entBase" sfwTableName="sgs_system_settings" ID="entSystemSettings">
+  <attributes>
+    <column>
+      <attribute sfwValue="system_setting_id" sfwKeyNo="1" sfwIsIdentity="True" sfwDataType="int" sfwLength="10,0" sfwIsNull="False" sfwDBDataType="int" ID="SystemSettingId" sfwCaption="ID" />
+      <attribute sfwValue="setting_name" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="False" sfwDBDataType="varchar" ID="SettingName" sfwCaption="Setting Name" />
+      <attribute sfwValue="setting_type" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="100" sfwIsNull="False" sfwDBDataType="varchar" ID="SettingType" sfwCaption="Setting Type" />
+      <attribute sfwValue="setting_value" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="500" sfwIsNull="True" sfwDBDataType="varchar" ID="SettingValue" sfwCaption="Setting" />
+      <attribute sfwValue="encrypted_flag" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="EncryptedFlag" sfwCaption="Encrypted Flag" />
+      <attribute sfwValue="refreshable" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="string" sfwLength="1" sfwIsNull="True" sfwDBDataType="varchar" ID="Refreshable" sfwCaption="Refreshable" />
+      <attribute sfwValue="modified_date" sfwKeyNo="0" sfwIsIdentity="False" sfwDataType="datetime" sfwIsNull="True" sfwDBDataType="datetime" ID="ModifiedDate" sfwCaption="Modified Date" />
+    </column>
+    <object />
+    <collection />
+    <property />
+    <calculatedfields />
+  </attributes>
+  <queries />
+  <delete />
+  <grouplist />
+  <groups />
+  <checklist />
+  <methods />
+  <conditions>
+    <expressioncondition>
+      <condition sfwAccessModifier="public">
+        <or>
+          <item sfwLeftSideType="attribute" sfwRightSideType="constant" sfwOperator="IsEqualTo" sfwLeftSideField="SettingType" sfwRightSideField="bool" />
+          <not>
+            <and>
+              <item sfwLeftSideType="attribute" sfwRightSideType="constant" sfwOperator="IsEqualTo" sfwLeftSideField="SettingValue" sfwRightSideField="true" />
+              <item sfwLeftSideType="attribute" sfwRightSideType="constant" sfwOperator="IsEqualTo" sfwLeftSideField="SettingValue" sfwRightSideField="false" />
+            </and>
+          </not>
+          <not>
+            <and>
+              <item sfwLeftSideType="attribute" sfwRightSideType="constant" sfwOperator="IsEqualTo" sfwLeftSideField="SettingType" sfwRightSideField="int" />
+              <item sfwLeftSideType="attribute" sfwRightSideType="constant" sfwOperator="IsGreaterThanOrEqualTo" sfwLeftSideField="SettingValue" sfwRightSideField="1" />
+            </and>
+          </not>
+        </or>
+      </condition>
+    </expressioncondition>
+    <rulecondition>
+      <condition sfwDataType="bool" sfwAccessModifier="public" sfwMessageId="55" ID="ValidateSettingValue" sfwRuleID="rcValidateSettingValue" />
+    </rulecondition>
+  </conditions>
+  <constraints>
+    <softconstraints />
+    <hardconstraints />
+    <deleteconstraints />
+    <fieldconstraints>
+      <fieldconstraint sfwFieldName="SettingValue" sfwDataType="string" sfwDisplayName="Setting">
+        <item sfwType="RuleCondition" sfwMode="All" sfwLoadSource="ValidateSettingValue" sfwRuleID="ValidateSettingValue" sfwStatus="Active" sfwMessage="Setting Value must match Datatype in Setting Type" sfwOnlyOnServer="True" />
+      </fieldconstraint>
+    </fieldconstraints>
+  </constraints>
+  <lifecycle />
+  <ExtraFields />
+</entity>

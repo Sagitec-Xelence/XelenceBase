@@ -1,0 +1,37 @@
+.neo-logo {
+    text-align: center;
+    height: 66px;
+    width: 280px;
+    position: relative;
+    &:not(.neo-login-logo) {
+        float: left;
+    }
+    overflow: hidden;
+    background: url(../Images/logo.png) 40px center no-repeat;
+    text-align: left;
+    font-size: 35px;
+    padding: 10px 10px 10px 40px;
+}
+
+
+
+/*Responsive Css*/
+@media (max-width: 768px) {
+    .neo-logo:not(.neo-login-logo) {
+        width: 30%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .neo-logo:not(.neo-login-logo) {
+        display: none;
+    }
+}
+
+.neo-freezed-crumtoolbar-Container{
+    top:0 !important;
+}
+.neo-middle-splitter {
+    height: calc(100vh) !important;
+}

@@ -1,0 +1,35 @@
+/// <summary>
+/// rulValidateSystemValueBasedOnSystemType
+/// </summary>
+/// <param name="SettingType"></param>
+/// <param name="SettingValue"></param>
+[Entity=entSystemSettings]
+public bool rulValidateSystemValueBasedOnSystemType(string SettingType, string SettingValue)
+{
+	rule()
+	{
+		int value;
+		if(SettingType == "Bool")
+		{
+			if(SettingValue == "true" || SettingValue == "false")
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		if(SettingType == "Int")
+		{
+			if(int.TryParse(SettingValue, out value))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+}

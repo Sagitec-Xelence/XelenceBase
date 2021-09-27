@@ -1,0 +1,287 @@
+<div ID="wfmDatabaseAnalysisMaintenance" sfwType="Maintenance" sfwTitle="Database Analysis Maintenance" sfwActive="True" sfwStatus="Review" sfwAspNetCaching="False" sfwMenuItemID="wfmDefaultLookup.aspx?FormID=" sfwEntity="entAppMonitoring">
+  <sfwServerDetails>
+    <loaddetails />
+  </sfwServerDetails>
+  <div ID="Main" data-sfwControlType="sfwWrapper">
+    <ul ID="pnlMain" data-sfwControlType="sfwPanel">
+      <li>
+        <span ID="spnSpan">Advance Database Options</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblMain" CssClass="Table">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <input ID="actRefresh" data-sfwControlType="sfwActionReset" type="button" value="Refresh" />
+              </div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                <div ID="tctTabContainer" data-sfwControlType="sfwTabContainer">
+                  <ul data-sfwControlType="Tabs">
+                    <li ID="tshBackupDetails_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshBackupDetails" ID="ancAnchor1">Backup Details</a>
+                    </li>
+                    <li ID="tshWaitTypes_Header" data-sfwControlType="sfwTabSheet">
+                      <a href="#tshWaitTypes" ID="ancAnchor">Wait Types</a>
+                    </li>
+                  </ul>
+                  <div ID="tshWaitTypes" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="color:red;font-style:italic;">
+                          <label data-sfwControlType="sfwLabel" sfwShowCaption="True" sfwCaption="*Note : Below details are cumulative since the last time the statistics were reset or the server was started." style="color:#ff0c1e;" sfwCaptionStyle="font-size:20px;" ID="lbl"></label>
+                        </div>
+                      </div>
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="tctTabContainer1" data-sfwControlType="sfwTabContainer">
+                            <ul data-sfwControlType="Tabs">
+                              <li ID="tshOverview_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshOverview" ID="ancAnchor2">Overview</a>
+                              </li>
+                              <li ID="tshDetails_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshDetails" ID="ancAnchor3">Details</a>
+                              </li>
+                            </ul>
+                            <div ID="tshOverview" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut2">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12"></div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                    <div ID="chrChart" data-sfwControlType="sfwChart" Width="800" Height="600" ChartType="Column" sfwLoadSource="entAppMonitoring.GetWaitTimeDetails" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" ChartName="Average Wait Time" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" XAxisTitle="Wait Type" YAxisTitle="Time" sfwStandoffYAxisLabel="30" ChartMargin="{&quot;t&quot;:90,&quot;l&quot;:60,&quot;r&quot;:70,&quot;b&quot;:110}">
+                                      <div data-sfwControlType="Series">
+                                        <div data-sfwControlType="sfwSeries" Name="Average Time" ChartType="Column" XValueMember="wait_stats.wait_type" YValueMembers="avg_wait_time_ms" SeriesWidth="0.2"></div>
+                                      </div>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="6">
+                                    <div ID="chrChart1" data-sfwControlType="sfwChart" Width="800" Height="600" ChartType="Column" sfwLoadSource="entAppMonitoring.GetWaitCountDetails" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" ChartName="Total Wait Count" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" XAxisTitle="Wait Type" YAxisTitle="Count" sfwStandoffYAxisLabel="30" ChartMargin="{&quot;t&quot;:90,&quot;l&quot;:60,&quot;r&quot;:70,&quot;b&quot;:110}">
+                                      <div data-sfwControlType="Series">
+                                        <div data-sfwControlType="sfwSeries" Name="Wait Count" ChartType="Column" XValueMember="wait_stats.wait_type" YValueMembers="waiting_tasks_count" SeriesWidth="0.2"></div>
+                                      </div>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshDetails" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut3">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetDBWaitTypes" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetDBWaitTypes" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetDBWaitTypes" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center;">Wait Type</th>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center;">Waiting Tasks Count</th>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center;">Wait Time (Ms)</th>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center;">Max Wait Time (Ms)</th>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center;">Avg. Wait Time (Ms)</th>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center; width: 50%;">Description</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblServerName" data-sfwControlType="sfwLabel" sfwEntityField="WAIT_TYPE"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                              <label ID="lblAverageResponseTime" data-sfwControlType="sfwLabel" sfwEntityField="WAITING_TASKS_COUNT" sfwShowZero="True" ToolTip="Avg. Response = (total time required in sec) / (number of requests)"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                              <label ID="lblThroughput" data-sfwControlType="sfwLabel" sfwEntityField="WAIT_TIME_MS" sfwShowZero="True" ToolTip="Throughput = (number of requests) / (total time in minutes)"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblServerName" data-sfwControlType="sfwLabel" sfwEntityField="MAX_WAIT_TIME_MS"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                              <label ID="lblAverageResponseTime" data-sfwControlType="sfwLabel" sfwEntityField="AVG_WAIT_TIME_MS" sfwDataFormat="{0:#0.00}" sfwShowZero="True" ToolTip="Avg. Response = (total time required in sec) / (number of requests)"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:left;">
+                                              <label ID="lblThroughput" data-sfwControlType="sfwLabel" sfwEntityField="DESCRIPTION" sfwShowZero="True"></label>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters>
+                                        <parameter ID="@start_time" sfwEntityField="FromDate"></parameter>
+                                        <parameter ID="@end_time" sfwEntityField="ToDate"></parameter>
+                                      </LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div ID="tshBackupDetails" data-sfwControlType="sfwTab">
+                    <div data-sfwControlType="sfwTable" ID="tblLayOut1">
+                      <div data-sfwControlType="sfwRow">
+                        <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                          <div ID="tctTabContainer2" data-sfwControlType="sfwTabContainer">
+                            <ul data-sfwControlType="Tabs">
+                              <li ID="tshDatabaseGrowth_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshDatabaseGrowth" ID="ancAnchor6">Database Growth</a>
+                              </li>
+                              <li ID="tshBackupsetDetails_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshBackupsetDetails" ID="ancAnchor4">Backupset Details</a>
+                              </li>
+                              <li ID="tshLastBackup_Header" data-sfwControlType="sfwTabSheet">
+                                <a href="#tshLastBackup" ID="ancAnchor5">Last Backup</a>
+                              </li>
+                            </ul>
+                            <div ID="tshBackupsetDetails" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut4">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="color:red;font-style:italic;">
+                                    <label ID="lbl1" data-sfwControlType="sfwLabel" sfwShowCaption="True" style="color:#ff0c1e;" sfwCaption="*Note : Last 8 days backup details." sfwCaptionStyle="font-size:20px;"></label>
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel1" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetBackupSetDetai" />
+                                    <input ID="actOpen" data-sfwControlType="sfwActionOpen" type="button" value="Open" sfwActiveForm="wfmDatabaseBackupSetMaintenance" Visible="False" sfwOpenInDialog="True" sfwRelatedControl="grvGetBackupSetDetai" sfwNavigationParameter="BackSetId=backupset.backup_set_id" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetBackupSetDetai" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetBackupSetDetails" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField">Backup Set ID</th>
+                                            <th data-sfwControlType="TemplateField">Name</th>
+                                            <th data-sfwControlType="TemplateField">Type</th>
+                                            <th data-sfwControlType="TemplateField">Size (MB)</th>
+                                            <th data-sfwControlType="TemplateField">Device Type</th>
+                                            <th data-sfwControlType="TemplateField">Start Date</th>
+                                            <th data-sfwControlType="TemplateField">Time Required (Sec)</th>
+                                            <th data-sfwControlType="TemplateField" style="width: 40%;">Physical Device Name</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <a ID="lblBackupSetId" data-sfwControlType="sfwLinkableAction" sfwEntityField="backupset.backup_set_id" sfwReadOnly="True" value="LinkAction" sfwRelatedControl="actOpen"></a>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblBackupsetName" data-sfwControlType="sfwLabel" sfwEntityField="backupset_name"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblBackupType" data-sfwControlType="sfwLabel" sfwEntityField="backup_type"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblBackupSizeInMb" data-sfwControlType="sfwLabel" sfwEntityField="backup_size_in_mb"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblDeviceType" data-sfwControlType="sfwLabel" sfwEntityField="device_type"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblBackupStartDate" data-sfwControlType="sfwLabel" sfwEntityField="backupset.backup_start_date"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblTimeRequiredInSeconds" data-sfwControlType="sfwLabel" sfwEntityField="time_required_in_seconds" sfwShowZero="True"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblPhysicalDeviceName" data-sfwControlType="sfwLabel" sfwEntityField="backupmediafamily.physical_device_name"></label>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshLastBackup" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut5">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <input ID="actAllToExcel2" data-sfwControlType="sfwActionExport" type="button" value="Export To Excel" sfwActionType="AllToExcel" sfwRelatedControl="grvGetLastBackupDeta" />
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="grvGetLastBackupDeta" data-sfwControlType="sfwGridView" sfwLoadSource="entAppMonitoring.GetLastBackupDetails" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" sfwDefaultQuery="False" AllowPaging="True" AllowSorting="True">
+                                      <table>
+                                        <thead>
+                                          <tr>
+                                            <th data-sfwControlType="TemplateField">Database Name</th>
+                                            <th data-sfwControlType="TemplateField">Last Db Backup Date</th>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center;">Backup age (hours)</th>
+                                            <th data-sfwControlType="TemplateField" style="text-align:center;">Status</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblDatabaseName" data-sfwControlType="sfwLabel" sfwEntityField="database_name"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate">
+                                              <label ID="lblLastDbBackupDate" data-sfwControlType="sfwLabel" sfwEntityField="last_db_backup_date" sfwDataFormat="{0:d}"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                              <label ID="lblBackupAgeHours" data-sfwControlType="sfwLabel" sfwEntityField="backup age (hours)"></label>
+                                            </td>
+                                            <td data-sfwControlType="ItemTemplate" style="text-align:center;">
+                                              <label ID="lblEnd" data-sfwControlType="sfwLabel" sfwEntityField="BACKUP_STATUS"></label>
+                                              <cellformat sfwEntityField="BACKUP_STATUS">
+                                                <Conditions>
+                                                  <condition value="OUTDATED" cssclass="Backup-outdated" />
+                                                </Conditions>
+                                              </cellformat>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div ID="tshDatabaseGrowth" data-sfwControlType="sfwTab">
+                              <div data-sfwControlType="sfwTable" ID="tblLayOut6">
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12" style="color:red;font-style:italic;">
+                                    <label ID="lblLabel" data-sfwControlType="sfwLabel" sfwShowCaption="True" style="color:#ff0c1e;" sfwCaption="*Note : Showing last 12 months database growth only." sfwCaptionStyle="font-size:20px;"></label>
+                                  </div>
+                                </div>
+                                <div data-sfwControlType="sfwRow">
+                                  <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+                                    <div ID="chrChart2" data-sfwControlType="sfwChart" Width="800" Height="600" ChartType="Line" sfwLoadSource="entAppMonitoring.GetAllDBGrowthMonthly" sfwLoadType="Query" sfwLoadMode="All" sfwLoadWhenRequired="True" ChartName="Database Growth" sfwDefaultQuery="False" SeriesCount="1" ShowLegend="True" XAxisTitle="Month" YAxisTitle="Size (MB)">
+                                      <div data-sfwControlType="Series">
+                                        <div data-sfwControlType="sfwSeries" Name="Series1" ChartType="Line" XValueMember="month" YValueMembers="backupsizemb" YMemberColor="DodgerBlue" sfwActiveForm="wfmActLogInstActnDtlLookup" sfwNavigationParameter="inst_actn_dtl_id=AVG_WAIT_TIME_MS"></div>
+                                      </div>
+                                      <LoadParameters></LoadParameters>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

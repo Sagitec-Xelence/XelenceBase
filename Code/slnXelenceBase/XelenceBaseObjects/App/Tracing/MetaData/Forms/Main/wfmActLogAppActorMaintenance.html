@@ -1,0 +1,72 @@
+<div ID="wfmActLogAppActorMaintenance" sfwActive="True" sfwStatus="Review" sfwType="Maintenance" sfwTitle="Act Log App Actor Maintenance" data-sfwControlType="form" sfwEntity="entActLogAppActor">
+  <sfwServerDetails>
+    <initialload />
+    <loaddetails>
+      <entityfield ID="objCode" sfwUpdateAutoLoad="True" sfwNewAutoLoad="True" />
+    </loaddetails>
+    <ExtraFields />
+  </sfwServerDetails>
+  <div data-sfwControlType="sfwWrapper" ID="Main">
+    <div data-sfwControlType="sfwEmptyPanel" ID="pnltoolbar" class="neo-button-holder">
+      <div CellPadding="3" ID="toolbar" data-sfwControlType="sfwTable">
+        <div data-sfwControlType="sfwRow">
+          <div data-sfwControlType="sfwColumn" sfwColSpan="12">
+            <input type="button" data-sfwControlType="sfwActionSave" value="Save" ID="btnSave" />
+            <input type="button" data-sfwControlType="sfwActionReset" value="Refresh" ID="btnCancel" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul ID="pnlActLogAppActor" data-sfwControlType="sfwPanel" sfwCollapsible="False">
+      <li>
+        <span ID="spnSpan">Act Log App Actor</span>
+        <div ID="dvDiv">
+          <div data-sfwControlType="sfwTable" ID="tblLayOut">
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="9">
+                <input ID="txtActorName" sfwEntityField="ActorName" sfwShowCaption="True" data-sfwControlType="sfwTextBox" type="text" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkActionFlag" sfwEntityField="ActionFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkActionStepFlag" sfwEntityField="ActionStepFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkValidationRule" sfwEntityField="ValidationRuleFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkQueryFlag" sfwEntityField="QueryFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkRuleFlag" sfwEntityField="RuleFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkApiFlag" sfwEntityField="ApiFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Api Flag" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+            <div data-sfwControlType="sfwRow">
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkAutoloadFlag" sfwEntityField="AutoloadFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Auto Load Flag" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkCorrFlag" sfwEntityField="CorrFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Corr  Flag" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3">
+                <input type="checkbox" ID="chkXmlMethodFlag" sfwEntityField="XmlMethodFlag" data-sfwControlType="sfwCheckBox" sfwShowCaption="True" sfwCaption="Xml Method Flag" />
+              </div>
+              <div data-sfwControlType="sfwColumn" sfwColSpan="3"></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
